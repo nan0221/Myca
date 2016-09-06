@@ -1,6 +1,9 @@
 .center {
-    width: 800px;
     margin: auto;
+}
+
+.body_width {
+    width: auto;
 }
 
 
