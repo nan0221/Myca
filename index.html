@@ -1,32 +1,38 @@
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <!-- InstanceBeginEditable name="doctitle" -->
     <title>Myca - Design your own postcard</title>
-    <link href="css/Hompage.css" rel="stylesheet" type="text/css" />
+    <!-- InstanceEndEditable -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>
+    <!-- InstanceBeginEditable name="head" -->
+
+    <!-- InstanceEndEditable -->
 </head>
 
-<body class="center">
-    <div class="nav">
-        <!--Navigation class-->
-        <img src="img/myca_logo.png" alt="Myca Logo" />
-        <!--Logo-->
+<body class="container">
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="# "><img src="img/myca_logo.png" alt="Myca Logo" /></a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning btn right" data-toggle="modal" data-target="#myModal">
+                Log in
+            </button>
+            <!--/.nav-collapse -->
+        </nav>
+    </header>
+    <!-- InstanceBeginEditable name="body" -->
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-warning btn-lg log_in" data-toggle="modal" data-target="#myModal">
-            Log in
-        </button>
-    </div>
-    <br/>
-    <div class="main">
-        <!--Main body class-->
-        <img class="postcard" src="*" alt="Postcard" />
-        <h1>Share your self-designed<br/> fabulous postcard right away!</h1>
+
+    
+    <main>
+    	<img class="postcard" src="*" alt="Postcard" />
+        <h1>Share your self-designed</h1>
+        <h1>fabulous postcard right away!</h1>
         <div class="step">
             <ol class="list-group">
                 <li class="list-group-item">Tell us where you are</li>
@@ -34,35 +40,19 @@
                 <li class="list-group-item">Type in your greetings</li>
             </ol>
         </div>
-    </div>
-    <div class="start_button">
-        <!--Start button class-->
-        <a href="*">Start designing</a>
-    </div>
-    <!-- Large button group -->
-    <div class="btn-group">
-        <button class="btn btn-default btn-warning btn-lg center" type="button">Start designing</button>
+        <!-- Large button group -->
+        <div class="btn-group">
+            <button class="btn btn-default btn-warning btn-lg" type="button">Start designing</button>
+        </div>
+        
+        <p><a href="*">change language</a></p>
+    
+    </main>
 
-    </div>
-    <div class="language">
-        <!--Change language class-->
-        <a href="*">change another language</a>
-    </div>
-    <br/>
 
-    <div class="log_in" style="border:1px solid #000">
-        <!--Log in class-->
-        <input type="text" name="username" value="username">
-        <br/>
-        <input type="text" name="password" value="password">
-        <br/>
-        <input type="submit" value="Log in">
-        <br/>
-        <a href="">
-            <p>Sign up</p>
-        </a>
-        <!--sign up button link-->
-    </div>
+
+
+    <!-- InstanceEndEditable -->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -72,16 +62,22 @@
                     <h4 class="modal-title" id="myModalLabel">Log in</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group">
+                    <form>
+                        <div class="form-group">
+                            <label for="ImputUsername">Username</label>
+                            <input type="username" class="form-control" id="InputUsername" placeholder="Username">
+                            <!-- TODO: type=username is that right? -->
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                        </div>
 
-                        <input type="text" class="form-control" name="username" placeholder="Username" aria-describedby="sizing-addon2">
-                        <input type="text" class="form-control" name="password" placeholder="Password" aria-describedby="sizing-addon2">
-                    </div>
-
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Log in</button>
+                    <button type="submit" class="btn btn-warning">Sign up</button>
+                    <button type="submit" class="btn btn-warning">Log in</button>
                 </div>
             </div>
         </div>
@@ -89,5 +85,4 @@
 
 
 </body>
-
-</html>
+<!-- InstanceEnd --></html>
