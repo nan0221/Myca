@@ -1,0 +1,17 @@
+.center {
+    width: auto;
+    margin: auto;
+}
+
+.left {
+    float: left
+}
+
+.right {
+    float: right;
+}
+
+nav img {
+    height: 150%;
+    width: auto;
+}
