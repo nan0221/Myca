@@ -1,0 +1,85 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="UTF-8">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Myca - Design your own postcard</title>
+    <!-- InstanceEndEditable -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <!-- InstanceBeginEditable name="head" -->
+
+    <!-- InstanceEndEditable -->
+</head>
+
+<body class="container">
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="# "><img src="img/myca_logo.png" alt="Myca Logo" /></a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning btn right" data-toggle="modal" data-target="#myModal">
+                Log in
+            </button>
+            <!--/.nav-collapse -->
+        </nav>
+    </header>
+    <!-- InstanceBeginEditable name="body" -->
+
+
+    
+    <main>
+    	<h3>your journey</h3>
+        <div class="timeline">	<!-- repeat line by line. show 5 potcards by default -->
+        	<div class="dot">	 <!-- TODO: in CSS, add dot img before -->
+            	<p>22 Aug 2016</p>	 <!-- read from our database -->
+                <p>St. Lucia</p>
+            </div>
+            <div class="postcard">
+            	<img scr="" alt="The postcard you made on 22 Aug 2016">	<!-- Front side by default, if click change to back side -->
+            </div>
+            <div class="loadmore">	<!-- appear at the bottom of the page and only when there are more postcards. -->
+            	<a>Load more</a>
+            </div>
+        </div>
+        
+    </main>
+
+
+
+
+    <!-- InstanceEndEditable -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Log in</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="ImputUsername">Username</label>
+                            <input type="username" class="form-control" id="InputUsername" placeholder="Username">
+                            <!-- TODO: type=username is that right? -->
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Sign up</button>
+                    <button type="submit" class="btn btn-warning">Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!-- InstanceEnd --></html>
