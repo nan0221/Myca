@@ -26,6 +26,10 @@ strong {
     font-weight: 500;
 }
 
+a {
+	text-decoration: none;
+}
+
 header {
     background-color: #ECB733;
     width: 100%;
@@ -136,8 +140,9 @@ h5 {
 .block .previewSmallGroup {
     padding-top: 10px;
     margin: 0 auto;
-    max-width: 90%;
+    width: 279px;
     height: auto;
+    position: relative;
 }
 
 .block .previewSmall {
@@ -146,14 +151,22 @@ h5 {
     padding-bottom: 7px;
 }
 
-.block .previewSmall .leftColumn {
+.block .leftColumn {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 279px;
+    height: auto;
     position: absolute;
     top: 0px;
     left: -300px;
     opacity: 0.8;
 }
 
-.block .previewSmall .rightColumn {
+.block .rightColumn {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 279px;
+    height: auto;
     position: absolute;
     top: 0px;
     left:  300px;
@@ -279,8 +292,10 @@ footer p:first {
     color: #FFFFFF;
     font-weight: 300;
     font-size: 12px;
-    margin: 0;
-    padding-top: 8px;
+    margin: 0 auto;
+    padding: 8px 0px;
+    display: block;
+    box-shadow: 0 2px 2px rgba(205,205,205,0.7);
 }
 
 .notification p {
@@ -288,44 +303,52 @@ footer p:first {
 }
 
 .dropdown {
+    padding-top: 16px;
 	display: block;
 	background-color: rgba(236, 183, 51, 0.2);
     height: auto;
     width: 100%;
+    box-shadow: 0 2px 2px rgba(205,205,205,0.7);
 }
 
 
 .dropdown .list {
 	display: block;
+    height: 24px;
 }
 
 .dropdown .list .listItem {
-	width: 80%;
-    height: 20px;
-    padding-left: 32px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+	width: 289px;
+    height: 18px;
+    margin-left: 20px;
+    padding-left: 12px;
+    padding-top: 4px;
+    margin-top: 0px;
+    margin-bottom: 2px;
     font-size: 8px;
     font-weight: 300;
     color: #555555;
     border-color: #B6B6B6;
-    border: 1px;
+    border: 1px solid;
     display: inline-block;
 }
 
 
 .dropdown .goto {
     width: 42px;
-    height: 20px;
+    height: 24px;
     display: inline-block;
     background-color: rgba(236, 183, 51, 0.2);
     margin-right: 20px;
+    margin-top: 0px;
+
 }
 
 .dropdown .goto>img {
     height: 8px;
     width: auto;
     margin: 0 auto;
+    margin-top: 8px;
 }
 
 .step {
@@ -338,7 +361,7 @@ footer p:first {
     margin: 0 auto;
     display: block;
     color: #555555;
-    box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    box-shadow: 0 2px 2px rgba(205,205,205,0.7);
 }
 
 .step h4 {
@@ -370,12 +393,8 @@ footer p:first {
 }
 
 .chooseLayout {
-    padding-top: 16px;
-    width: 90%;
-    height: auto;
+    padding: 0 20px;
     min-height: 106px;
-    padding-left: 20px;
-    padding-bottom: 20px;
     margin: 0 auto;
 }
 
@@ -385,7 +404,7 @@ footer p:first {
 }
 
 .layoutLeft  {
-	width: 45%;
+	width: 48%;
     height: 156px;
     margin: 0 auto;
     display: inline-block;
@@ -394,13 +413,13 @@ footer p:first {
 .layoutLeft img {
 	width: 156px;
     height: 105px;
-    margin: auto;
+    margin: 0 auto;
     display: block;
     
 }
 
 .layoutRight  {
-	width: 45%;
+	width: 48%;
     height: 156px;
     margin: 0 auto;
     display: inline-block;
@@ -426,22 +445,28 @@ footer p:first {
 }
 
 .block .alternativeOption {
-    padding-top: 12px;
     color: #555555;
     font-size: 12px;
     font-weight: 300;
+    text-align: center;
 }
 
 .textbox {
-    border: 1px;
+    border: 1px solid;
+    border-color: #555555;
     color: #B6B6B6;
     width: 280px;
     height: 80px;
     position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-shadow: 2px 2px 4px #B6B6B6;
 }
 
 .textboxLeft {
-    border: 1px;
+    border: 1px solid;
+    border-color: #555555;
+    box-shadow: 2px 2px 4px #B6B6B6;
     color: #B6B6B6;
     width: 280px;
     height: 80px;
@@ -452,13 +477,15 @@ footer p:first {
 }
 
 .block .textboxRight {
-    border: 1px;
+    border: 1px solid;
+    border-color: #555555;
+    box-shadow: 2px 2px 4px #B6B6B6;
     color: #B6B6B6;
     width: 280px;
     height: 80px;
     position: absolute;
     top: 0px;
-    left: -300px;
+    left: 300px;
     opacity: 0.8;
 }
 
@@ -478,10 +505,13 @@ footer p:first {
 
 .block textarea {
     width: 335px;
-    height: 100;
+    height: 100px;
     border-radius: 8px;
-    border: 1px;
+    border: 1px solid;
     border-color: #B6B6B6;
+    background-color: #F2F2F2;
+    display: block;
+    margin: 0 auto;
 }
 
 div .progress {

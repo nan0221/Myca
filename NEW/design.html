@@ -22,39 +22,40 @@
         <h5>Swpipe to switch between <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
         <div class="preview" id="frontSide">
             <img src="img/placeholder.png" alt="front side of postcard example" />
+            <div class="previewRight" id="backSide">
+                <img src="img/placeholder.png" alt="back side of postcard example" />
+            </div>
         </div>
-        <div class="preview" id="backSide">
-            <img src="img/placeholder.png" alt="back side of postcard example" />
-        </div>
+
         <div class="switchDots center">
             <img class="dot leftDot" src="img/activedot.png" /><img class="dot rightDot" src="img/dot.png" />
         </div>
     </div>
 
-    <!--
-<div class="block notification" id="notification">
-    <p>Your postcard is in the landscape layout.</p>
-</div>
-<div class="block dropdown" id="taskList">
-    <div class="list">
-        <span class="listItem left">Choose landscape or portrait layout</span>
-        <span class="goto right"><img class="center" src="img/checked.png" alt="checked"></span></div>
-    <div class="list">
-        <span class="listItem left">Confirm your location</span>
-        <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
-    <div class="list">
-        <span class="listItem left">Choose a picture for the front side of the postcard</span>
-        <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
-    <div class="list">
-        <span class="listItem left">Choose a picture for the postage stamp</span>
-        <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
-    <div class="list">
-        <span class="listItem left">Choose a short piece of history for the text on the back</span>
-        <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
-    <div class="list">
-        <span class="listItem left">Type in your greeting</span>
-        <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
-</div>-->
+    <div class="notification" id="notification">
+        <p>Your postcard is in the landscape layout.</p>
+    </div>
+    <div class="block dropdown" id="taskList">
+        <div class="list">
+            <span class="listItem left">1. Choose landscape or portrait layout</span>
+            <span class="goto right"><img class="center" src="img/checked.png" alt="checked"></span></div>
+        <div class="list">
+            <span class="listItem left">2. Confirm your location</span>
+            <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
+        <div class="list">
+            <span class="listItem left">3. Choose a picture for the front side of the postcard</span>
+            <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
+        <div class="list">
+            <span class="listItem left">4. Choose a picture for the postage stamp</span>
+            <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
+        <div class="list">
+            <span class="listItem left">5. Choose a short piece of history for the text on the back</span>
+            <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
+        <div class="list">
+            <span class="listItem left">6. Type in your greeting</span>
+            <span class="goto right"><img class="center" src="img/goto.png" alt="go to"></span></div>
+        <div class="blank"></div>
+    </div>
 
     <div class="step" id="step1Instruction">
         <span class="left"><h4>Please choose the layout</h4></span>
@@ -69,20 +70,21 @@
                 <p>Landscape</p>
             </div>
             <div class="layoutRight">
-                <img src="img/portrait.png" alt="landscape layout" />
+                <img src="img/portrait.png" alt="portrait layout" />
                 <p>Portrait</p>
             </div>
         </div>
     </div>
 
-    <!--
-    <div class="block step" id="step2Instruction">
-        <span><h4 class="left">Please confirm your current location</h4></span>
-        <span><img class="right" src="img/arrowup.png" /></span><span><img class="right leftImg" src="img/arrowdown.png" /></span>
+
+    <div class="step" id="step2Instruction">
+        <span class="left"><h4>Please confirm your current location</h4></span>
+        <span class="right"><img class="leftImg" src="img/arrowdown.png" /></span>
+        <span class="right"><img src="img/arrowup.png" /></span>
 
     </div>
 
-    <div class="block grey step" id="step2Content">
+    <div class="block grey " id="step2Content">
         <h1>St. Lucia</h1>
         <h5>Geography service is provided by Google Maps</h5>
         <div class="blank"></div>
@@ -92,7 +94,7 @@
         </a>
     </div>
 
-    <div class="block grey step" id="step2Branch">
+    <div class="block grey " id="step2Branch">
         <h1>Please choose your location</h1>
         <h5>Map service is provided by Google Maps</h5>
         <div class="preview">
@@ -102,13 +104,14 @@
         <div class="button textWhite">Yes, I am here!</div>
     </div>
 
-    <div class="block step" id="step3Instruction">
-        <span><h4 class="left">Please choose a picture for the front side of the postcard</h4></span>
-        <span><img class="right" src="img/arrowup.png" /></span><span><img class="right leftImg" src="img/arrowdown.png" /></span>
+    <div class=" step" id="step3Instruction">
+        <span class="left"><h4>Please choose a picture for the front side of the postcard</h4></span>
+        <span class="right"><img class="leftImg" src="img/arrowdown.png" /></span>
+        <span class="right"><img src="img/arrowup.png" /></span>
 
     </div>
 
-    <div class="block grey step" id="step3Content">
+    <div class="block grey " id="step3Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>powered by Trove</h5>
         <div class="preview selected">
@@ -122,48 +125,60 @@
             </div>
         </div>
         <div class="blank"></div>
-        <div class="button textWhite">Yes, I am here!</div>
     </div>
 
-    <div class="block step" id="step4Instruction">
-        <span><h4 class="left">Please choose a picture for postage stamp</h4></span>
-        <span><img class="right" src="img/arrowup.png" /></span><span><img class="right leftImg" src="img/arrowdown.png" /></span>
-
+    <div class=" step" id="step4Instruction">
+        <span class="left"><h4>Please choose a picture for postage stamp</h4></span>
+        <span class="right"><img class="leftImg" src="img/arrowdown.png" /></span>
+        <span class="right"><img src="img/arrowup.png" /></span>
     </div>
 
-    <div class="block grey step" id="step4Content">
+    <div class="block grey " id="step4Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>powered by Trove</h5>
         <div class="previewSmallGroup">
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholder.png" alt="picture" /></span>
-            <div>
-                <div class="previewSmall .leftColumn"><img src="img/placeholder.png" alt="picture" /></div>
-                <div class="previewSmall .leftColumn"><img src="img/placeholder.png" alt="picture" /></div>
-                <div class="previewSmall .leftColumn"><img src="img/placeholder.png" alt="picture" /></div>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+            <div class="leftColumn">
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
             </div>
-            <div>
-                <div class="previewSmall .rightColumn"><img src="img/placeholder.png" alt="picture" /></div>
-                <div class="previewSmall .rightColumn"><img src="img/placeholder.png" alt="picture" /></div>
-                <div class="previewSmall .rightColumn"><img src="img/placeholder.png" alt="picture" /></div>
+            <div class="rightColumn">
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
             </div>
         </div>
     </div>
 
-    <div class="block step" id="step5Instruction">
-        <span><h4 class="left">Please choose an article for the back side</h4></span>
-        <span><img class="right" src="img/arrowup.png" /></span><span><img class="right leftImg" src="img/arrowdown.png" /></span>
+    <div class=" step" id="step5Instruction">
+        <span class="left"><h4>Please choose an article for the back side</h4></span>
+        <span class="right"><img class="leftImg" src="img/arrowdown.png" /></span>
+        <span class="right"><img src="img/arrowup.png" /></span>
 
     </div>
 
-    <div class="block grey step" id="step5Content">
+    <div class="block grey " id="step5Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>At most <span class="important">140 characters</span> related to your location will be shown on the back side</h5>
         <div class="textbox selected">
@@ -175,18 +190,18 @@
                 <p></p>
             </div>
         </div>
-        <div class="blank"></div>
+
         <a href="">
             <p class="alternativeOption">Automatically generate for me</p>
         </a>
     </div>
-    <div class="block step" id="step6Instruction">
-        <span><h4 class="left">Please type in your greeting</h4></span>
-        <span><img class="right" src="img/arrowup.png" /></span><span><img class="right leftImg" src="img/arrowdown.png" /></span>
-
+    <div class=" step" id="step6Instruction">
+        <span class="left"><h4>Please type in your greeting</h4></span>
+        <span class="right"><img class="leftImg" src="img/arrowdown.png" /></span>
+        <span class="right"><img src="img/arrowup.png" /></span>
     </div>
 
-    <div class="block grey step" id="step6Content">
+    <div class="block grey " id="step6Content">
         <textarea></textarea>
         <div class="blank"></div>
         <div class="button textWhite">Done</div>
@@ -195,8 +210,6 @@
     <div class="progress">
         <div class="inProgress"></div>
     </div>
--->
-
 </body>
 
 </html>
