@@ -254,7 +254,7 @@ h5 {
     height: 24px;
 }
 
-.block .share {
+.share {
     height: 24px;
     width: 135px;
     border-radius: 8px;
@@ -265,7 +265,7 @@ h5 {
     left: -139px;
 }
 
-.block .save {
+.save {
     height: 24px;
     width: 135px;
     border-radius: 8px;
@@ -276,14 +276,14 @@ h5 {
     left: 4px;
 }
 
-.block .textWhite {
+.textWhite {
     font-weight: 500;
     font-size: 16px;
     color: #FFFFFF;
     text-align: center;
 }
 
-.block .textGrey {
+.textGrey {
     font-weight: 500;
     font-size: 16px;
     color: #555555;
@@ -562,27 +562,49 @@ footer p:first {
     position: relative;
 }
 
-.view .mask {
+.editable .view .mask {
     width: 280px;
     height: 188px;
     position: absolute;
-    overflow: hidden;
     top: 0;
     left: 0;
 }
 
-.view img {
+.editable .view img {
     display: block;
     position: relative;
 }
 
-.view a.operation {
+.editable .view a.operation {
     background: url(../img/edit.png) center no-repeat;
     display: inline-block;
     text-decoration: none;
     padding: 0;
     text-indent: -9999px;
     width: 90px;
+    height: 36px;
+}
+
+.votable .view .mask {
+    width: 280px;
+    height: 188px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.votable .view img {
+    display: block;
+    position: relative;
+}
+
+.votable .view a.operation {
+    background: url(../img/voteup.png) center no-repeat;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0;
+    text-indent: -9999px;
+    width: 116px;
     height: 36px;
 }
 
@@ -596,28 +618,29 @@ footer p:first {
 
 .maskEffect a.operation {
     position: relative;
-    top: -13px; /* Center the link */
+    top: -13px;
+    /* Center the link */
     opacity: 0;
     transition: opacity 0.4s 0s ease-in-out;
 }
 
-.maskEffect:hover .mask, .maskEffect:focus .mask {
+.maskEffect:hover .mask,
+.maskEffect:focus .mask {
     opacity: 1;
     border: 94px solid rgba(205, 205, 205, 0.7);
 }
 
-.maskEffect:hover a.operation, .maskEffect:focus a.operation {
+.maskEffect:hover a.operation,
+.maskEffect:focus a.operation {
     opacity: 1;
     transition-delay: 0.3s;
 }
 
-
-
-.shareMask {
+.fullMask {
     width: 100%;
     height: 100%;
     margin-top: 48px;
-    background-color: rgba(205,205,205,0.7);
+    background-color: rgba(205, 205, 205, 0.7);
 }
 
 .close {
@@ -641,9 +664,21 @@ footer p:first {
 .socialMedia {
     width: 120px;
     height: 24px;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
 }
 
 .socialMedia:last {
     margin-bottom: 0px;
+}
+
+input {
+    height: 22px;
+    width: 116px;
+    padding: 1px 6px;
+    margin-left: 16px;
+    margin: auto;
+    color: #F2F2F2;
+    border: 1px solid #F2F2F2;
+    display: inline-block;
+    border-radius: 8px;
 }
