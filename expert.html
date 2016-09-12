@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Myca - Design your own postcard</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="left language"><img src="img/australia.png" alt="change language" /></a>
+        <!-- TODO: change!-->
+        <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
+        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>
+    </header>
+
+    <div class="block">
+        <h1>Design your own postcard</h1>
+        <h5>for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
+        <div class="preview" id="frontSide">
+            <img src="img/placeholder.png" alt="front side of postcard example" />
+            <div class="previewRight" id="backSide">
+                <img src="img/placeholder.png" alt="back side of postcard example" />
+            </div>
+        </div>
+
+        <div class="switchDots center">
+            <img class="dot leftDot" src="img/activedot.png" /><img class="dot rightDot" src="img/dot.png" />
+        </div>
+        <div class="button textWhite">Start to design</div>
+    </div>
+
+    <div class="block" id="timeline">
+        <h1>Time line</h1>
+        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
+        <div class="preview editable">
+
+            <div class="maskEffect view">
+                <img src="img/placeholder.png" alt="The current picture" />
+                <div class="mask">
+                    <a href="#" class="operation"></a>
+                </div>
+            </div>
+            <div class="previewLeft">
+                <img src="img/placeholder.png" alt="The previous picture" />
+
+            </div>
+            <div class="previewRight">
+                <img src="img/placeholder.png" alt="The next picture" />
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="block" id="popular">
+        <h1>Popular works</h1>
+        <h5><span class="important">Click to vote</span> for them</h5>
+        <div class="preview votable">
+
+            <div class="maskEffect view">
+                <img src="img/placeholder.png" alt="The current picture" />
+                <div class="mask">
+                    <a href="#" class="operation"></a>
+                </div>
+            </div>
+
+            <div class="previewLeft">
+                <img src="img/placeholder.png" alt="The previous picture" />
+
+            </div>
+            <div class="previewRight">
+                <img src="img/placeholder.png" alt="The next picture" />
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
