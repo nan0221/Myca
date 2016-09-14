@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<style>
+			html, body, #map-canvas {
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+		<script type="text/javascript">
+			//Adapted from http://stackoverflow.com/questions/3059044/google-maps-js-api-v3-simple-multiple-marker-example by Daniel Vassallo
+			
+			//store markers into an array
+			//marker info window text, lat, lng, icon image
+			var mapMarkers1 = [
+				["<em>Marker 1</em>", -27.47101, 153.02345, "http://img2.wikia.nocookie.net/__cb20140727031434/runescape/images/6/60/Marker_arrow.png"],
+				["<strong>Marker 2</strong>", -27.46101, 153.01345, "http://www.legalaidact.org.au/images/star.png"]
+			];
+			
+			var mapMarkers2 = [
+				["<em>Marker 3</em>", -27.47201, 153.02445, "http://www.rmsp.com/wp-content/plugins/rmsp/img/icons/map/bank.png"],
+				["<strong>Marker 4</strong>", -27.46501, 153.02745, "http://wp-osm-plugin.hanblog.net/wp-content/plugins/osm/icons/mic_photo_icon.png"]
+			];
+			
+			var infowindow = new google.maps.InfoWindow();
+			var map, marker;
+			var removeMarkerArray = [];
+			
+			function initialise() {
+				//set the initial zoom level and posiiton of the map
+				map = new google.maps.Map(document.getElementById('map-canvas'), {
+					zoom: 15,
+					center: new google.maps.LatLng(-27.47101, 153.02345),
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+					//mapTypeId: google.maps.MapTypeId.SATELLITE
+					//mapTypeId: google.maps.MapTypeId.HYBRID
+					//mapTypeId: google.maps.MapTypeId.TERRAIN					
+				});
+
+				//when the map is click, close open info windows
+				google.maps.event.addListener(map, 'click', function() {
+					infowindow.close();
+				});
+			}
+			
+			//an update function that can add markers to the map
+			function displayMapMarkers(mapMarkersArray) {
+				//comment this if you do not want to remove all previous markers before adding new ones
+				removeMapMarkers();
+
+				for (var i = 0; i < mapMarkersArray.length; i++) {  
+					marker = new google.maps.Marker({
+						map: map,
+						//for each marker that was stored in the array, load the lat, lng values
+						position: new google.maps.LatLng(mapMarkersArray[i][1], mapMarkersArray[i][2]),
+						icon: new google.maps.MarkerImage(
+							//as well as the link to the icon resource
+							mapMarkersArray[i][3]
+						),
+						title: "This is marker icon is " + mapMarkersArray[i][3],
+						animation: google.maps.Animation.BOUNCE
+						//animation: google.maps.Animation.DROP
+					});
+
+					//add the marker to the removeMarkerArray so it can be removed later if needed
+					removeMarkerArray.push(marker);
+					
+					//add an event listener for each marker, to open its info window
+					google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						return function() {
+							infowindow.setContent(mapMarkersArray[i][0]);
+							infowindow.open(map, marker);
+						}
+					})(marker, i));
+				}
+			}
+
+			//a remove function that will remove markers from the map
+			function removeMapMarkers() {
+				for (var i = 0; i < removeMarkerArray.length; i++) {  
+					removeMarkerArray[i].setMap(null);
+				}
+				removeMarkerArray = [];
+			}
+			
+			google.maps.event.addDomListener(window, 'load', initialise);
+			
+			//bind events to the three options at the top of the map - add markers 1, 2, and remove markers
+			window.onload = function() {
+				var changeMarkersInput1 = document.getElementById("changeMarkers1");
+				changeMarkersInput1.addEventListener('click', function(e) {
+					displayMapMarkers(mapMarkers1);
+				}, false);
+				
+				var changeMarkersInput2 = document.getElementById("changeMarkers2");
+				changeMarkersInput2.addEventListener('click', function(e) {
+					displayMapMarkers(mapMarkers2);
+				}, false);
+
+				var removeMarkersInput = document.getElementById("removeMarkers");
+				removeMarkersInput.addEventListener('click', function(e) {
+					removeMapMarkers();
+				}, false);
+			}
+		</script>
+	</head> 
+	
+	<body>
+		<a id="changeMarkers1" href="#">Markers1</a>
+		<a id="changeMarkers2" href="#">Markers2</a>
+		<a id="removeMarkers" href="#">Remove all markers</a>
+		<div id="map-canvas"></div>
+	</body>
+</html>

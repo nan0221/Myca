@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DECO1800/7180 Resources & Examples</title>
+		<link rel="stylesheet" id="twentythirteen-fonts-css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CBitter%3A400%2C700&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+		<script type="text/javascript" src="http://deco1800.uqcloud.net/wp-includes/js/jquery/jquery.js?ver=1.11.1"></script>
+		<script type="text/javascript" src="http://deco1800.uqcloud.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+		<meta charset="utf-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://deco1800.uqcloud.net/wp-content/themes/twentythirteen/style.css">
+	</head>
+	<body>
+	<div class="site-main" id="main">
+			<nav id="navbar" class="navbar" role="navigation">
+				<ul class=" nav-menu">
+					<li><a href="http://deco1800.uqcloud.net">Back to main site</a></li>
+				</ul>
+			</nav> 
+			<div class="entry-content wide"><h2>Pulling images from TROVE</h2>
+			
+			<p>This example takes a keyword via a form input & searches for images on Trove. Once a list of matching images is found, these are displayed to the page. You can use Chrome or Firefox developer tools to view the source code - it has been commented to describe what is happening. </p>
+		
+		<form action="#" id="searchTrove">
+			<input id="searchTerm" type="text" />
+
+			<select id="sortBy">
+				<option>dateasc</option>
+				<option>datedesc</option>
+				<option>relevance</option>
+			</select>
+
+			<button type="submit" id="searchbtn">Search</button>
+		</form>
+
+		<div id="output">
+		</div>
+			
+		</div>
+			</div>
+		<footer class="site-footer"><div class=" site-info">DECO1800/7180 Design Computing Studio One</div></footer>
+
+		
+<script type="text/JavaScript">
+    var loadedImages = [];
+    var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
+    var found = 0;
+(function($){
+
+	function waitForFlickr() {
+		if(found == loadedImages.length) {
+			printImages();
+		} else {
+			setTimeout(waitForFlickr, 250);
+		}
+
+	}
+
+    $("form#searchTrove").submit(function(event) {
+        event.preventDefault();
+
+        loadedImages = [];
+	found = 0;
+        //get input values
+        var searchTerm = $("#searchTerm").val().trim();
+        searchTerm = searchTerm.replace(/ /g, "%20");
+        var sortBy = $("#sortBy").val();
+        var apiKey = "jsk1qqntnrj7qbvf";
+
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture" + "&sortby=relevance&n=100&q=" + searchTerm + "&callback=?";
+
+        //get the JSON information we need to display the images
+        $.getJSON(url, function(data) {
+            $('#output').empty();
+            console.log(data);
+            $.each(data.response.zone[0].records.work, processImages);
+            //printImages();
+
+	   waitForFlickr(); // Waits for the flickr images to load
+        });
+    });
+
+
+
+
+    /*
+     *   Depending where the image comes from, there is a special way to get that image from the website.
+     *   This function works out where the image is from, and gets the image URL
+     */
+    function processImages(index, troveItem) {
+        var imgUrl = troveItem.identifier[0].value;
+        if (imgUrl.indexOf(urlPatterns[0]) >= 0) { // flickr
+		found++;
+            addFlickrItem(imgUrl, troveItem);
+
+        } else if (imgUrl.indexOf(urlPatterns[1]) >= 0) { // nla.gov
+		found++;
+            loadedImages.push(
+                imgUrl + "/representativeImage?wid=900" // change ?wid=900 to scale the image
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[2]) >= 0) { //artsearch
+		found++;
+            loadedImages.push(
+                "http://artsearch.nga.gov.au/IMAGES/LRG/" + getQueryVariable("IRN", imgUrl) + ".jpg"
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[3]) >= 0) { //recordsearch
+		found++;
+            loadedImages.push(
+                "http://recordsearch.naa.gov.au/NAAMedia/ShowImage.asp?T=P&S=1&B=" + getQueryVariable("Number", imgUrl)
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[4]) >= 0) { //slsa 
+            found++;
+            loadedImages.push(
+                imgUrl.slice(0, imgUrl.length - 3) + "jpg"
+		);
+            
+        } else { // Could not reliably load image for item
+            // UNCOMMENT FOR DEBUG: 
+	    // console.log("Not available: " + imgUrl);
+        }
+    }
+
+    function addFlickrItem(imgUrl, troveItem) {
+        var flickr_key = "a4d0bf2f4bde0595521b7bd8317ec428";
+        var flickr_secret = "efc7221b694ff55e";
+        var flickr_url = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=" + flickr_key + "&photo_id=";
+        var url_comps = imgUrl.split("/");
+        var photo_id = url_comps[url_comps.length - 1];
+
+        $.getJSON(flickr_url + photo_id + "&format=json&nojsoncallback=1", function(data) {
+            if (data.stat == "ok") {
+                var flickr_image_url = data.sizes.size[data.sizes.size.length - 1].source;
+                loadedImages.push(
+                    flickr_image_url
+                );
+            }
+        });
+
+    }
+
+    function printImages() {
+
+        $("#output").append("<h3>Image Search Results</h3>");
+
+	// Print out all images
+        for (var i in loadedImages) {
+            var image = new Image();
+            image.src = loadedImages[i];
+            image.style.display = "inline-block";
+            image.style.width = "48%";
+            image.style.margin = "1%";
+            image.style.verticalAlign = "top";
+            
+            $("#output").append(image);
+        }
+
+    }
+
+    // from http://css-tricks.com/snippets/javascript/get-url-variables/
+    function getQueryVariable(variable, url) {
+        var query = url.split("?");
+        var vars = query[1].split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
+    
+    }(jQuery));
+</script>
+	</body>
+</html>

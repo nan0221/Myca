@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Web Application Demo</title>
+		<meta charset="utf-8" />	
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<!-- Other JavaScript -->
+		<!-- Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<section class="search">
+		<h1>FlickTwitter</h1>
+		<p>Combo search for Flickr & Twitter.</p>
+		<!-- Form for user input of keyword to search on -->
+		<p id="error"></p>
+		<form action="#" method="post" id="chooser">
+			<label for="search">Enter a Keyword</label><input type="text" id="search" name="celeb" />
+			<input type="submit" value="Find Combo" />
+		</form>
+		</section>
+		<section id="output">
+		<!-- Output area for generated 'combo' - first Flickr image & first Tweet returned for that term -->
+		<h2>This combo?</h2>
+		<div id='newCombo'></div>
+		<a href='#' id='save_combo'>Save Combo</a>			
+		</section>
+		<!-- Output area for saved combos as pulled from the database -->
+		<section id="combos">
+		<h2>Saved combos</h2>
+		</section>
+	</body>
+	<script type="text/javascript">
+		/**
+		* Once the document has finised loading.
+		* Setup an intercept for when the form is submitted
+		* and display previously saved combos
+		*/
+		$(document).ready(function(){
+			$("a#save_combo").hide();
+			$("a#save_combo").click(saveCombo);
+			
+			$("p#error").hide();
+			// Capture the submit action on the form and redirect it
+			$("form#chooser").submit(function(){
+				$("p#error").empty().hide();
+				// Prevent default submit behaviour
+				event.preventDefault();
+				// Grab the search term entered
+				var searchTerm = $("#search").val();
+				// Check to make sure there is a term to be searched
+				if(searchTerm != ""){
+					// Below function will grab an image from Flickr
+					getImage(searchTerm);
+					// Below function will grab an tweet from Twitter
+					getTweet(searchTerm);
+					}else{
+						
+						$("p#error").text("To search for a combo, we need a keyword. Try again.").show();
+					}
+			});			
+			// Below function displays previously saved combos
+			getCombos();
+		});
+		
+		function getImage(term){
+			// Flickr API key & secret
+			// You will need to generate your own by registering an application with Flickr at https://www.flickr.com/services/apps/create/
+			var flickr_key = "";
+			var flickr_secret = "";
+			/**
+			* The URL needed to search for an image - documentation at https://www.flickr.com/services/api/flickr.photos.search.html
+			* In this particular search we are asking for 5 results to be returned (per_page=5)
+			* Public photos only (privacy_filter=1)
+			* With response in JSON format (format=json
+			* We also need to add in the api_key we recieved & append the search term on the end to complete (text=...)
+			*/
+			var flickr_search_url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+flickr_key+"&format=json&nojsoncallback=1&privacy_filter=1&per_page=5&text="+term;
+			
+			// Execute the API call using jQuery getJSON functionality
+			// This takes the API call URL & a function for processing the response
+			// In this case, we are creating the function in-line
+			$.getJSON(flickr_search_url, function(data) {
+							// Log the data to the console so you can inspect it
+							console.log(data);
+							//Inspect response - check stat field is 'ok'
+							if(data.stat == "ok"){
+								/**
+								*  Generate the URL to use as the IMG src for displaying the Image
+								* Flickr has a standard format for image files requiring the farm, server, id & secret specifically
+								* This information is returned in the standard photo search call
+								* the _z.jpg specifies the size of the file - for more options see https://www.flickr.com/services/api/misc.urls.html
+								*/
+								var random = Math.floor(Math.random()*5);
+								var flickr_file_url = "http://farm"+data.photos.photo[random].farm
+														+".staticflickr.com/"+data.photos.photo[random].server
+														+"/"+data.photos.photo[random].id+"_"+data.photos.photo[random].secret+"_z.jpg";
+								
+								/**
+								* We also want to provide a link to the image on the Flickr users page (credit where credit is due)
+								* This information isn't provided in the basic search, so we need to execute another API call
+								* This time we are using the photos.getInfo functionality - docs at https://www.flickr.com/services/api/flickr.photos.getInfo.html
+								* For this, we need the photo id as returned in the original call
+								*/
+								var flickr_image_url = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key="+flickr_key+"&format=json&nojsoncallback=1&photo_id="+data.photos.photo[random].id;
+								
+								//Execute the above call
+								
+								$.getJSON(flickr_image_url, function(data) {
+									console.log(data);
+									if(data.stat == "ok"){
+										var photo_url = "";
+										// As this call can return a number of different URLS, we need to find the one that links to the photopage
+										// Each URL associated with the image has a type that we can inspect
+										// Below we iterate over each of the urls returned
+										$.each(data.photo.urls, function(index, url){
+											// If the URL type is equal to photopage, grab the URL associated with it
+											if(url[0].type == "photopage") photo_url = url[0]._content;
+										});									
+									
+									}
+									// Clear the output area - in case there is something in there
+									$("#newCombo").empty();
+									// Append a new img - assigning it the photo URL as the ALT text so we can use it later & the file URL from Flickr as the image source.
+									// Add a link to save the combo
+									$("#newCombo").append("<img class='thumb' alt='"+photo_url+"' src='"+flickr_file_url+"'>");
+									$("a#save_combo").show();
+								});	
+							}else{
+								// If data.stat returns anything other than ok, let the user know that nothing was found
+								$("p#error").text("No Results Found").show();
+
+							}
+			});
+						
+		}
+		
+		
+		/**
+		* Function to request a tweet. Takes the search term originally entered by the user 
+		*/
+		function getTweet(term){
+			/**
+			* Use the jQuery post function to generate a HTTP POST request to our functions file on the server (flicktwitter.php)
+			* Send instructions/data in key/value pairs - todo: 'getTweet'
+			* Specify a function for when a response is received from the server
+			* Note that todo is now set to getTweet - this tells the functions file what action to carry out
+			*/
+			$.post('flicktwitter.php', {todo: 'getTweet', search: term}).done(function(data){
+				// Parse the response into JSON format
+				var tweet_info = JSON.parse(data);
+				var random = Math.floor(Math.random()*10);
+				console.log(random);
+				// Append the tweet text & link to the tweet authors Twitter stream to the output area
+				// Note the classes added to the HTML elements - this will make grabbing the content easier if we want this saved
+				$("#newCombo").append("<p class='tweet'>"+tweet_info.statuses[random].text+"</p><p class='tweetUser'>By <a href='https://twitter.com/"+tweet_info.statuses[random].user.screen_name+"'>"+tweet_info.statuses[random].user.screen_name+"</a></p>");
+			});
+		}
+		
+		/**
+		* Below function will take the generated combo, send it's details to the server & save it to the database
+		*/
+		function saveCombo(){
+			// As this is a click event listener, we want to cancel the default behaviour
+			event.preventDefault();
+			console.log("Got to Save Combo");
+			/**
+			* Pull out the relevant information from the HTML generated to display the combo:
+			* flickr page from ALT text, flickr source from image SRC
+			* tweet text from paragraph (class tweet) & author feed from the link (class tweetUser)
+			*/
+			var image_page = $("#newCombo").find("img").attr("alt");
+			var image_file = $("#newCombo").find("img").attr("src");
+			var tweet_text = $("#newCombo").find("p.tweet").text();
+			var tweet_url = $("#newCombo").find(".tweetUser a").attr("href");
+			
+			/**
+			* Generate a POST request to our server-side functions file
+			* Send the combo details in the parameters array as key/value pairs
+			* Note that todo is now set to addCombo - this tells the functions file what action to carry out
+			*/
+			$.post('flicktwitter.php', 
+					{	
+					todo: 'addCombo', 
+					url: image_page, 
+					img: image_file,
+					tweet: tweet_text,
+					tweetAuthor: tweet_url, 
+					user: "lorns"
+						}).done(function(data){
+				// The server response should be the unique ID generated when the combo is saved to the database		
+				var result = data;
+				/**
+				* Now we want to take the div containing the combo & move it from the "pending" area to the "saved" area
+				* Firstly we insert a new div after the heading in the combos section
+				* We set its ID to combo_X - where X is the ID returned by the server
+				* This will be useful if we add delete or edit capabilities to the app so that we can identify these easily
+				* Now we set the HTML of this new div to be the HTML of the newCombo div
+				* We clear out the #newCombo div ready for a new combo to be created
+				* We remove the
+				*/
+				$("#combos h2").after("<div class='combo' id=combo_"+data+"></div>");
+				$("#combo_"+data).html($("#newCombo").html());
+				$("#newCombo").empty();
+				/* Hide the Save Combo link */
+				$("a#save_combo").hide();
+			});
+		}
+		
+		/**
+		* Generate a POST request to pull all previously saved combos from the database & display them
+		*/
+		function getCombos(){
+			// todo set to showCombos here - no other data needed to be sent
+			$.post('flicktwitter.php', {todo: 'showCombos'}).done(function(data){
+				// Convert response to JSON format
+				var combos = JSON.parse(data);
+				// Iterate over each response & add it to the DOM
+				$.each(combos, function(index, combo){
+					// Create a div to take the contents of each combo - give it an id 
+					$("#combos").append("<div id='combo_"+combo.id+"' class='combo'>");
+					// Construct & append the image to be displayed - linking it to the Flickr page
+					$("#combo_"+index).append("<a href='"+combo.flickr_url+"'><img src='"+combo.flickr_img+"'></a>");
+					// Display the tweet text
+					$("#combo_"+index).append("<p>"+combo.tweet_text+"</p>");
+					// Extract & display a link to the authors Twitter feed - as the author comes through as the URL to the feed, we need to remove the https://twitter.com/ to isolate the username
+					var t_author = combo.tweet_author;
+					$("#combo_"+index).append("<p>By <a href='"+decodeURIComponent(t_author)+"'>"+t_author.replace("https://twitter.com/", "")+"</a></p>");
+				});
+				
+			});
+		}
+		
+	</script>
+</html>

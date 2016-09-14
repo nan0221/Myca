@@ -1,0 +1,13 @@
+APIs:
+
+Trove key
+kr6iv720kob8nph6
+
+Flickr key
+185416d482b80527f23783028dfc4386
+
+Flickr password
+c7e843e8ee70e1d8
+
+Google Maps key
+AIzaSyCI7DJOso1UoU5buiU2S4tZgaDd2G659tg
