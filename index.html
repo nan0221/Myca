@@ -6,7 +6,10 @@
     <title>Myca - Design your own postcard</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
 </head>
 
 <body>
@@ -14,7 +17,10 @@
         <a href="#" class="left language"><img src="img/australia.png" alt="change language" /></a>
         <!-- TODO: change!-->
         <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
-        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>
+        <!--        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>-->
+        <button type="button" class="user right" data-toggle="modal" data-target="#login">
+            <img src="img/user.png" alt="user log in" />
+        </button>
     </header>
 
     <div class="block">
@@ -33,8 +39,29 @@
         <div class="button textWhite">Start to design</div>
     </div>
 
+    <div class="block grey" id="timeline">
+        <h1>Time line</h1>
+        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
+        <div class="preview editable">
 
-    <div class="block grey">
+            <div class="maskEffect view">
+                <img src="img/placeholder.png" alt="The current picture" />
+                <div class="mask">
+                    <a href="#" class="operation"></a>
+                </div>
+            </div>
+            <div class="previewLeft">
+                <img src="img/placeholder.png" alt="The previous picture" />
+
+            </div>
+            <div class="previewRight">
+                <img src="img/placeholder.png" alt="The next picture" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="block">
         <h1>Promotional content</h1>
         <h5><span class="important">optional</span> content</h5>
         <div class="preview">
@@ -51,7 +78,7 @@
         <div class="button textWhite">Start to design</div>
     </div>
 
-    <div class="block">
+    <div class="block grey">
         <h1>Promotional content</h1>
         <h5><span class="important">optional</span> content</h5>
         <div class="preview">
@@ -68,28 +95,59 @@
         <div class="button textWhite">Start to design</div>
     </div>
 
-    <div class="fullMask">
-        <div class="close"><img src="img/close.png" alt="close"></div>
-        <form>
-            <div class="center">
-                <span><img src="img/user.png" /></span>
-                <input type="text" placeholder="username" />
+
+
+
+
+    <div class="block" id="popular">
+        <h1>Popular works</h1>
+        <h5><span class="important">Click to vote</span> for them</h5>
+        <div class="preview votable">
+
+            <div class="maskEffect view">
+                <img src="img/placeholder.png" alt="The current picture" />
+                <div class="mask">
+                    <a href="#" class="operation"></a>
+                </div>
             </div>
-            <div class="center">
-                <span><img src="img/password.png" /></span>
-                <input type="password" placeholder="password" />
+
+            <div class="previewLeft">
+                <img src="img/placeholder.png" alt="The previous picture" />
+
             </div>
-        </form>
-        <div class="blank"> </div>
-        <div class="buttonHeight">
-            <div class="half right">
-                <button>Sign up</button>
-                <button>Log in</button>
-            </div>
-            <div class="half left">
+            <div class="previewRight">
+                <img src="img/placeholder.png" alt="The next picture" />
             </div>
         </div>
 
+    </div>
+
+
+    <div class="modal fade" id="login" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="button textWhite">Sign up</div>
+                    <form action="checkLogin.php" method="post">
+                        <div class="center">
+                            <span><img src="img/user.png" /></span>
+                            <input type="text" placeholder="username" name="username" />
+                        </div>
+                        <div class="center">
+                            <span><img src="img/password.png" /></span>
+                            <input type="password" placeholder="password" name="password" />
+                        </div>
+                        <div class="blank"> </div>
+                        <input type="submit" value="login" />
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
