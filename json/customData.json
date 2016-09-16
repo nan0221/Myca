@@ -1,0 +1,28 @@
+{
+	"items" : [
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 1"
+		},
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 2"
+		},
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 1"
+		},
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 2"
+		},
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 1"
+		},
+		{
+			"img": "img/placeholder.png",
+			"alt" : "Owl Image 2"
+		}
+	]
+}

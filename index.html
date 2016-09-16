@@ -6,13 +6,16 @@
     <title>Myca - Design your own postcard</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/owl.carousel.js"></script>
 
 </head>
 
 <body>
+
     <header>
         <a href="#" class="left language"><img src="img/australia.png" alt="change language" /></a>
         <!-- TODO: change!-->
@@ -22,6 +25,33 @@
 
         </button>
     </header>
+
+    <div class="modal fade" id="login" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form action="login.php" method="post">
+                        <div class="center">
+                            <span><img src="img/username.png" /></span>
+                            <input type="text" placeholder="username" name="name" />
+                        </div>
+                        <div class="center">
+                            <span><img src="img/password.png" /></span>
+                            <input type="password" placeholder="password" name="password" />
+                        </div>
+                        <div class="blank"> </div>
+                        <input type="submit" name="signup" value="Sign up" />
+                        <input type="submit" name="login" value="Log in" />
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="block">
         <h1>Design your own postcard</h1>
@@ -65,40 +95,14 @@
     <div class="block grey" id="timeline_new">
         <h1>Time line</h1>
         <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
-        <div class="preview editable">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="img/placeholder.png" alt="The current picture" />
-
-                    </div>
-                    <div class="item">
-                        <img src="img/placeholder.png" alt="The picture of St. Lucia" />
-                    </div>
-
-                </div>
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                </ol>
-
-
-            </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only"><</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">></span>
-            </a>
-        </div>
+        <div id="owl-example" class="owl-carousel">
+    <div class="center"><img src="img/placeholder.png" alt="The current picture" /></div>
+    <div class="center"><img src="img/placeholder.png" alt="The current picture" /></div>
+    <div class="center"><img src="img/placeholder.png" alt="The current picture" /></div>
+    <div class="center"><img src="img/placeholder.png" alt="The current picture" /></div>
+</div>
     </div>
+
 
     <div class="block">
         <h1>Promotional content</h1>
@@ -166,32 +170,7 @@
     </div>
 
 
-    <div class="modal fade" id="login" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <form action="login.php" method="post">
-                        <div class="center">
-                            <span><img src="img/username.png" /></span>
-                            <input type="text" placeholder="username" name="name" />
-                        </div>
-                        <div class="center">
-                            <span><img src="img/password.png" /></span>
-                            <input type="password" placeholder="password" name="password" />
-                        </div>
-                        <div class="blank"> </div>
-                        <input type="submit" name="signup" value="Sign up" />
-                        <input type="submit" name="login" value="Log in" />
-                    </form>
 
-
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer>
         <p>- a uq deco7180 project -</p>
@@ -200,6 +179,14 @@
         <p>powered by</p>
         <p>trove</p>
     </footer>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-example").owlCarousel();
+
+        });
+    </script>
 
 </body>
 
