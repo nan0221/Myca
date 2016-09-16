@@ -18,8 +18,8 @@
         <!-- TODO: change!-->
         <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
         <!--        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>-->
-        <button type="button" class="user right" data-toggle="modal" data-target="#login">
-            <img src="img/user.png" alt="user log in" />
+        <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login">
+
         </button>
     </header>
 
@@ -127,21 +127,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="button textWhite">Sign up</div>
-                    <form action="checkLogin.php" method="post">
+                    <form action="login.php" method="post">
                         <div class="center">
-                            <span><img src="img/user.png" /></span>
-                            <input type="text" placeholder="username" name="username" />
+                            <span><img src="img/username.png" /></span>
+                            <input type="text" placeholder="username" name="name" />
                         </div>
                         <div class="center">
                             <span><img src="img/password.png" /></span>
                             <input type="password" placeholder="password" name="password" />
                         </div>
                         <div class="blank"> </div>
-                        <input type="submit" value="login" />
+                        <input type="submit" value="Log in" />
                     </form>
 
 

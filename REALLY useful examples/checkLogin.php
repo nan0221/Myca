@@ -1,7 +1,7 @@
 <?php
-$dsn         = 'mysql:dbname=user;host=localhost';
-$db_user     = "123";
-$db_password = "123";
+$dsn         = 'mysql:dbname=Mycauser;host=localhost';
+$db_user     = "root";
+$db_password = "root";
 
 try {
     $conn = new PDO($dsn, $db_user, $db_password);
@@ -19,9 +19,9 @@ if (isset($_POST['submit'])) {
     if ($username == "" && $password == "") {
         
         $_SESSION['error'] = "Nothing Entered";
-        header('location: login.php');
+        //header('location: index.html');
     } else {
-        $stmt  = "SELECT * FROM account WHERE username=? AND password=?";
+        $stmt  = "SELECT * FROM User_info WHERE UName=? AND UPassword=?";
         $query = $conn->prepare($stmt);
         $query->bindParam(1, $username);
         $query->bindParam(2, $password);
@@ -34,18 +34,18 @@ if (isset($_POST['submit'])) {
             $_SESSION["username"] = $username;
             
             echo "success";
-            header('location: management.php');
+            // header('location: index.html');
             // echo $_SESSION["auth"];
             exit;
         } else {
             echo "error";
             $_SESSION['error'] = "error Username or Password!!";
-            header('location: login.php');
+            // header('location: index.html');
         }
     }
 } else {
     // error message
     $_SESSION['error'] = "something wrong";
-    header('location: login.php');
+    // header('location: index.html');
 }
 ?>
