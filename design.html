@@ -7,6 +7,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/swiper.js"></script>
 </head>
 
 <body>
@@ -17,18 +19,24 @@
         <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>
     </header>
 
-    <div class="block" id="preview">
+    <div class="block" id="result">
         <h1>Preview</h1>
         <h5>Swpipe to switch between <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-        <div class="preview" id="frontSide">
-            <img src="img/placeholder.png" alt="front side of postcard example" />
-            <div class="previewRight" id="backSide">
-                <img src="img/placeholder.png" alt="back side of postcard example" />
+        <!-- Slider main container -->
+        <div class="swiper-container" id="preview">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
             </div>
-        </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
-        <div class="switchDots center">
-            <img class="dot leftDot" src="img/activedot.png" /><img class="dot rightDot" src="img/dot.png" />
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
     </div>
 
@@ -73,6 +81,8 @@
                 <img src="img/portrait.png" alt="portrait layout" />
                 <p>Portrait</p>
             </div>
+            <div class="blank"></div>
+            <div class="button textWhite">Okay</div>
         </div>
     </div>
 
@@ -114,17 +124,23 @@
     <div class="block grey " id="step3Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>powered by Trove</h5>
-        <div class="preview selected">
-            <img src="img/placeholder.png" alt="The current picture" />
-            <div class="previewLeft">
-                <img src="img/placeholder.png" alt="The previous picture" />
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+            </div>
 
-            </div>
-            <div class="previewRight">
-                <img src="img/placeholder.png" alt="The next picture" />
-            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
         <div class="blank"></div>
+        <div class="button textWhite">Okay</div>
     </div>
 
     <div class=" step" id="step4Instruction">
@@ -136,39 +152,50 @@
     <div class="block grey " id="step4Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>powered by Trove</h5>
-        <div class="previewSmallGroup">
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            <div class="leftColumn">
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
+        <!-- Slider main container -->
+        <div class="swiper-container small-group" id="stamps">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholdersmall.png" alt="The current picture" /></div>
             </div>
-            <div class="rightColumn">
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-                <span class="previewSmall"><img src="img/placeholdersmall.png" alt="picture" /></span>
-            </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
+        <div class="blank"></div>
+        <div class="button textWhite">Okay</div>
+
     </div>
 
     <div class=" step" id="step5Instruction">
@@ -181,16 +208,25 @@
     <div class="block grey " id="step5Content">
         <h1>Tap to choose, swipe for more</h1>
         <h5>At most <span class="important">140 characters</span> related to your location will be shown on the back side</h5>
-        <div class="textbox selected">
-            <p>Walter, James. "Defining Australia." In Images of Australia. Eds. Gillian Whitlock and David Carter. <strong class="important">St Lucia</strong>: U of Queensland P, 1992, 7-22.</p>
-            <div class="textboxLeft">
-                <p></p>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <p>Walter, James. "Defining Australia." In Images of Australia. Eds. Gillian Whitlock and David Carter. <strong class="important">St Lucia</strong>: U of Queensland P, 1992, 7-22.</p>
+                </div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
             </div>
-            <div class="textboxRight">
-                <p></p>
-            </div>
-        </div>
 
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+        <div class="blank"></div>
+        <div class="button textWhite">Okay</div>
         <a href="">
             <p class="alternativeOption">Automatically generate for me</p>
         </a>
@@ -210,6 +246,36 @@
     <div class="progress">
         <div class="inProgress"></div>
     </div>
+
+    <script>
+        $(".swiper-container").each(function (index, element) {
+            var $this = $(this);
+            var swiper = new Swiper(this, {
+                pagination: $this.find(".swiper-pagination")[0],
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: false,
+                // Navigation arrows
+                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+                nextButton: $this.find(".swiper-button-next")[0],
+                prevButton: $this.find(".swiper-button-prev")[0]
+            });
+        });
+
+        var swiper1 = new Swiper('.small-group', {
+            slidesPerView: 4,
+            slidesPerColumn: 3,
+            centeredSlides: true,
+            spaceBetween: 10,
+            loop: false,
+            // Navigation arrows
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        })
+    </script>
+
 </body>
 
 </html>

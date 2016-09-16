@@ -7,6 +7,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/swiper.js"></script>
 </head>
 
 <body>
@@ -17,25 +19,35 @@
         <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>
     </header>
 
-    <div class="block" id="preview">
+    <div class="block" id="results">
         <h1>Congrats, Nan!</h1>
         <h1>You've finished a masterpiece!</h1>
         <h5>Now share it with your friends!</h5>
-        <div class="preview editable" id="frontSide">
-            <div class="maskEffect view">
-                <img src="img/placeholder.png" alt="front side of postcard example" />
-                <div class="mask">
-                    <a href="#" class="operation"></a>
+        <!-- Slider main container -->
+        <div class="swiper-container editable" id="preview">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper maskEffect view">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="img/placeholder.png" alt="The current picture" />
+                    <div class="mask">
+                        <a href="#" class="operation"></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/placeholder.png" alt="The current picture" />
+                    <div class="mask">
+                        <a href="#" class="operation"></a>
+                    </div>
                 </div>
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
-            <div class="previewRight" id="backSide">
-                <img src="img/placeholder.png" alt="back side of postcard example" />
-            </div>
-        </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
 
-        <div class="switchDots center">
-            <img class="dot leftDot" src="img/activedot.png" /><img class="dot rightDot" src="img/dot.png" />
         </div>
         <div class="blank"> </div>
         <div class="buttonHeight">
@@ -59,9 +71,25 @@
         </div>
     </div>
 
-    <div class="progress">
-        <div class="inProgress"></div>
-    </div>
+
+    <script>
+        $(".swiper-container").each(function (index, element) {
+            var $this = $(this);
+            var swiper = new Swiper(this, {
+                pagination: $this.find(".swiper-pagination")[0],
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: false,
+                // Navigation arrows
+                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+                nextButton: $this.find(".swiper-button-next")[0],
+                prevButton: $this.find(".swiper-button-prev")[0]
+            });
+        });
+    </script>
+
 </body>
 
 </html>
