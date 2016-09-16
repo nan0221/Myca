@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Myca - Design your own postcard</title>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
@@ -11,6 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="owl-carousel/owl.carousel.js"></script>
+
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/swiper.js"></script>
 
 </head>
 
@@ -56,42 +60,29 @@
     <div class="block">
         <h1>Design your own postcard</h1>
         <h5>for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-        <div class="preview" id="frontSide">
-            <img src="img/placeholder.png" alt="front side of postcard example" />
-            <div class="previewRight" id="backSide">
-                <img src="img/placeholder.png" alt="back side of postcard example" />
+        <!-- Slider main container -->
+        <div class="swiper-container" id="preview">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
 
-        <div class="switchDots center">
-            <img class="dot leftDot" src="img/activedot.png" /><img class="dot rightDot" src="img/dot.png" />
-        </div>
         <a href="design.html">
             <div class="button textWhite">Start to design</div>
         </a>
     </div>
 
-    <div class="block grey" id="timeline">
-        <h1>Time line</h1>
-        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
-        <div class="preview editable">
 
-            <div class="maskEffect view">
-                <img src="img/placeholder.png" alt="The current picture" />
-                <div class="mask">
-                    <a href="#" class="operation"></a>
-                </div>
-            </div>
-            <div class="previewLeft">
-                <img src="img/placeholder.png" alt="The previous picture" />
-
-            </div>
-            <div class="previewRight">
-                <img src="img/placeholder.png" alt="The next picture" />
-            </div>
-        </div>
-
-    </div>
     <div class="block grey" id="timeline_new">
         <h1>Time line</h1>
         <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
@@ -99,15 +90,52 @@
             <div>
                 <img src="img/placeholder.png" alt="The current picture" />
             </div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
-            <div><img src="img/placeholder.png" alt="The current picture" /></div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+            <div>
+                <img src="img/placeholder.png" alt="The current picture" />
+            </div>
+        </div>
+    </div>
+    <div class="block grey" id="timeline_new_2">
+        <h1>Time line</h1>
+        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+            </div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
     </div>
 
@@ -115,15 +143,20 @@
     <div class="block">
         <h1>Promotional content</h1>
         <h5><span class="important">optional</span> content</h5>
-        <div class="preview">
-            <img src="img/placeholder.png" alt="The current picture" />
-            <div class="previewLeft">
-                <img src="img/placeholder.png" alt="The previous picture" />
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+            </div>
 
-            </div>
-            <div class="previewRight">
-                <img src="img/placeholder.png" alt="The next picture" />
-            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
         <div class="blank"> </div>
         <a href="design.html">
@@ -134,15 +167,20 @@
     <div class="block grey">
         <h1>Promotional content</h1>
         <h5><span class="important">optional</span> content</h5>
-        <div class="preview">
-            <img src="img/placeholder.png" alt="The current picture" />
-            <div class="previewLeft">
-                <img src="img/placeholder.png" alt="The previous picture" />
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+            </div>
 
-            </div>
-            <div class="previewRight">
-                <img src="img/placeholder.png" alt="The next picture" />
-            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
         <div class="blank"></div>
         <a href="design.html">
@@ -157,23 +195,37 @@
     <div class="block" id="popular">
         <h1>Popular works</h1>
         <h5><span class="important">Click to vote</span> for them</h5>
-        <div class="preview votable">
-
-            <div class="maskEffect view">
-                <img src="img/placeholder.png" alt="The current picture" />
-                <div class="mask">
-                    <a href="#" class="operation"></a>
+        <!-- Slider main container -->
+        <div class="swiper-container votable">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper maskEffect view">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="img/placeholder.png" alt="The current picture" />
+                    <div class="mask">
+                        <a href="#" class="operation"></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/placeholder.png" alt="The current picture" />
+                    <div class="mask">
+                        <a href="#" class="operation"></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/placeholder.png" alt="The current picture" />
+                    <div class="mask">
+                        <a href="#" class="operation"></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="previewLeft">
-                <img src="img/placeholder.png" alt="The previous picture" />
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
 
-            </div>
-            <div class="previewRight">
-                <img src="img/placeholder.png" alt="The next picture" />
-            </div>
         </div>
+
 
     </div>
 
@@ -190,9 +242,25 @@
 
     <script>
         $(document).ready(function () {
+            $("#owl-example").owlCarousel({
+                items: 3
+            });
+        });
 
-            $("#owl-example").owlCarousel();
-
+        $(".swiper-container").each(function (index, element) {
+            var $this = $(this);
+            var swiper = new Swiper(this, {
+                pagination: $this.find(".swiper-pagination")[0],
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: false,
+                // Navigation arrows
+                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+                nextButton: $this.find(".swiper-button-next")[0],
+                prevButton: $this.find(".swiper-button-prev")[0]
+            });
         });
     </script>
 
