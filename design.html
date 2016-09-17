@@ -4,20 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Myca - Design your own postcard</title>
+    <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/swiper.css">
     <script src="js/swiper.js"></script>
+
 </head>
 
 <body>
+
     <header>
-        <a href="#" class="left language"><img src="img/australia.png" alt="change language" /></a>
-        <!-- TODO: change!-->
+        <div class="left language">
+            <img src="img/australia.png" alt="change language" />
+        </div>
         <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
-        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>
+        <div class="right user">
+            <img src="img/user.png" alt="user log in" />
+        </div>
     </header>
+    <div class="fullMask">
+        <div class="dropDownList" id="userDropDown">
+            <div class="close right"><img src="img/close.png" alt="Go back to the page"></div>
+            <div>
+                <form action="login.php" method="post" id="login">
+                    <div class="center">
+                        <span><img src="img/username.png" /></span>
+                        <span><input type="text" placeholder=" username" name="name" /></span>
+                    </div>
+                    <div class="center">
+                        <span><img src="img/password.png" /></span>
+                        <span><input type="password" placeholder=" password" name="password" /></span>
+                    </div>
+                    <div class="blank"> </div>
+                    <!--
+                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+<input class="save textGrey" type="submit" name="login" value="Log in" />
+-->
+                    <div class="buttonHeight">
+                        <div class="half right">
+                            <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                            <input class="save textGrey" type="submit" name="login" value="Log in" />
+                            <!--
+                            <div class="share textWhite">Sign up</div>
+<div class="save textGrey">Log in</div>
+-->
+                        </div>
+                        <div class="half left">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="block" id="result">
         <h1>Preview</h1>
@@ -246,7 +290,6 @@
     <div class="progress">
         <div class="inProgress"></div>
     </div>
-
     <script>
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);

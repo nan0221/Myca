@@ -15,12 +15,21 @@
 
 /* new style */
 
+html {
+    overflow-x: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
 body {
     max-width: 600px;
     min-width: 375px;
+    position: relative;
     margin: 0 auto;
     font-family: Catamaran;
     overflow-x: hidden;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 strong {
@@ -29,6 +38,12 @@ strong {
 
 a {
     text-decoration: none;
+}
+
+.dropDownList {
+    z-index: 100;
+    margin: auto;
+    margin-top: 60px;
 }
 
 .userLogin {
@@ -40,6 +55,11 @@ a {
     height: 20px;
     width: 20px;
     border: none;
+}
+
+ul,
+ul li {
+    list-style-type: none;
 }
 
 header {
@@ -274,6 +294,7 @@ img .selected {
     position: absolute;
     top: 0;
     left: -139px;
+    border: 0;
 }
 
 .save {
@@ -285,6 +306,7 @@ img .selected {
     position: absolute;
     top: 0;
     left: 4px;
+    border: 0;
 }
 
 .textWhite {
@@ -307,8 +329,8 @@ img .selected {
 
 footer {
     width: 100%;
-    height: 100px;
-    padding-top: 2px;
+    height: 140px;
+    padding-top: 12px;
     background-color: #555555;
     color: #FFFFFF;
     font-weight: 300;
@@ -318,6 +340,7 @@ footer {
 
 footer p {
     padding-top: 0px;
+    line-height: 10px;
     text-align: center;
     /* TODO: need more change*/
 }
@@ -334,7 +357,7 @@ footer p:first {
     font-weight: 300;
     font-size: 12px;
     margin: 0 auto;
-    padding: 8px 0px;
+    padding: 4px 0px 8px 0px;
     display: block;
     box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
 }
@@ -645,24 +668,29 @@ footer p:first {
 }
 
 .fullMask {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    margin-top: 48px;
+    z-index: 99;
     background-color: rgba(205, 205, 205, 0.7);
+    overflow: hidden;
 }
 
 
 /*
 .close {
-width: 100%;
-height: auto;
-padding-right: 40px;
+    width: 100%;
+    height: 24px;
+    margin: auto;
 }
 
 .close img {
-width: 24px;
-height: 24px;
-}*/
+    width: 24px;
+    height: 24px;
+}
+*/
 
 .socialMediaList {
     width: 120px;
@@ -828,3 +856,10 @@ input {
     height: 50px;
     overflow: scroll;
 }
+
+
+/*
+#login {
+    width: 240px;
+    height: auto;
+}*/

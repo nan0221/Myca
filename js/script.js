@@ -1,3 +1,73 @@
+$(document).ready(function () {
+    //    for every page
+    $('.fullMask').hide();
+    $('#languageDropDown').hide();
+    $('#userDropDown').hide();
+    $('.language').click(function () {
+        $('.fullMask').toggle();
+        $('#languageDropDown').toggle();
+    });
+    $('.user').click(function () {
+        $('.fullMask').toggle();
+        $('#userDropDown').toggle();
+    });
+    $('.close').click(function () {
+        $('.fullMask').toggle();
+        $('#userDropDown').toggle();
+    });
+
+
+    //    for design page
+    $('#taskList').hide();
+    $('#step1Instruction').hide();
+    $('#step1Content').hide();
+    $('#step2Branch').hide();
+    $('#step3Instruction').hide();
+    $('#step3Content').hide();
+    $('#step4Instruction').hide();
+    $('#step4Content').hide();
+    $('#step5Instruction').hide();
+    $('#step5Content').hide();
+    $('#step6Instruction').hide();
+    $('#step6Content').hide();
+    $('#step2Content').find('.button').click(function () {
+        $('#step2Instruction').hide();
+        $('#step2Content').hide();
+        $('#step3Instruction').show();
+        $('#step3Content').show();
+    });
+    $('#step2Content').find('.alternativeOption').click(function () {
+        $('#step2Content').hide();
+        $('#step2Branch').show();
+    });
+    $('#step2Branch').find('.button').click(function () {
+        $('#step2Instruction').hide();
+        $('#step2Branch').hide();
+        $('#step3Instruction').show();
+        $('#step3Content').show();
+    });
+    $('#step3Content').find('.button').click(function () {
+        $('#step3Instruction').hide();
+        $('#step3Content').hide();
+        $('#step4Instruction').show();
+        $('#step4Content').show();
+    });
+    $('#step4Content').find('.button').click(function () {
+        $('#step4Instruction').hide();
+        $('#step4Content').hide();
+        $('#step5Instruction').show();
+        $('#step5Content').show();
+    });
+    $('#step5Content').find('.button').click(function () {
+        $('#step5Instruction').hide();
+        $('#step5Content').hide();
+        $('#step6Instruction').show();
+        $('#step6Content').show();
+    });
+});
+
+
+
 /* ========================================================================
  * Bootstrap: modal.js v3.3.7
  * http://getbootstrap.com/javascript/#modals
