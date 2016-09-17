@@ -248,17 +248,12 @@ img .selected {
 
 .block .switchDots .disactivated {}
 
-.button,
-button,
-button[active],
-button[hover],
-button[pressed] {
+.button {
     width: 279px;
     height: 24px;
     border-radius: 8px;
     background-color: #ECB733;
     margin: 0 auto;
-    box-shadow: none;
 }
 
 .blank {
