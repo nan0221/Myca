@@ -64,8 +64,24 @@ $(document).ready(function () {
         $('#step6Instruction').show();
         $('#step6Content').show();
     });
+
+
 });
 
+
+function nextStep() {
+    var stepCount = 2;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("step").innerHTML = this.responseText;
+        }
+    };
+    stepCount += 1;
+    var stepName = "step" + stepCount + ".php";
+    xhttp.open("GET", stepName, true);
+    xhttp.send();
+}
 
 
 /* ========================================================================

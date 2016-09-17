@@ -1,0 +1,58 @@
+.card-container {
+    width: 200px;
+    height: 200px;
+    /*position: relative;*/
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    margin: auto;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+}
+
+.card figure {
+    margin: 0px;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card .front {
+    background: white;
+}
+
+.card .back {
+    background: grey;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.bottom-space {
+    margin-bottom: 30px;
+}
+
+.top-space {
+    margin-top: 30px;
+}
+
+.btn-default:active {
+    background-color: darkgrey;
+    color: white;
+}
