@@ -142,7 +142,7 @@ h5 {
     position: relative;
 }
 
-img .selected {
+.selected {
     box-shadow: 0px 0px 4px #ECB733;
 }
 
@@ -728,6 +728,11 @@ input {
 
 #stamps {
     height: auto;
+}
+
+#mainPicture img {
+    max-height: 188px;
+    max-width: 280px;
 }
 
 

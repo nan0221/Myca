@@ -33,6 +33,33 @@ $(document).ready(function () {
     $('#step2Content').find('.button').click(function () {
         $('#step2Instruction').hide();
         $('#step2Content').hide();
+
+
+        loadedImages = [];
+        found = 0;
+        //get input values
+        //        var searchTerm = $('#step2Instruction>h1').val().trim();
+        //        searchTerm = searchTerm.replace(/ /g, "%20");
+        var searchTerm = 'st.lucia';
+        //        var sortBy = $("#sortBy").val();
+        var sortBy = 'dateasc';
+        var apiKey = "kr6iv720kob8nph6";
+
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+
+
+        //get the JSON information we need to display the images
+        $.getJSON(url, function (data) {
+            $('#mainPicture').empty();
+            console.log(data);
+            $.each(data.response.zone[0].records.work, processImages);
+            //printImages();
+
+            waitForFlickr(); // Waits for the flickr images to load
+        });
+
+
         $('#step3Instruction').show();
         $('#step3Content').show();
     });
@@ -64,8 +91,161 @@ $(document).ready(function () {
         $('#step6Instruction').show();
         $('#step6Content').show();
     });
+    $('.swiper-slide img').click(function () {
+        $(this).addClass('selected');
+    });
+
+    function waitForFlickr() {
+        if (found == loadedImages.length) {
+            printImages();
+        } else {
+            setTimeout(waitForFlickr, 250);
+        }
+    }
+
+    function processImages(index, troveItem) {
+
+        var imgUrl = troveItem.identifier[0].value;
+
+        if (imgUrl.indexOf(urlPatterns[0]) >= 0) { // flickr
+
+            found++;
+            var flickr_imgUrl_small = troveItem.identifier[1].value.replace('_t.jpg', '_z.jpg');
+
+            addFlickrItem(imgUrl, troveItem);
+
+        } else if (imgUrl.indexOf(urlPatterns[1]) >= 0) { // nla.gov
+
+            found++;
+            loadedImages.push(
+                imgUrl + "/representativeImage?wid=280" // change ?wid=900 to scale the image
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[2]) >= 0) { //artsearch
+
+            found++;
+            loadedImages.push(
+                "http://artsearch.nga.gov.au/IMAGES/LRG/" + getQueryVariable("IRN", imgUrl) + ".jpg"
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[3]) >= 0) { //recordsearch
+
+            found++;
+            loadedImages.push(
+                "http://recordsearch.naa.gov.au/NAAMedia/ShowImage.asp?T=P&S=1&B=" + getQueryVariable("Number", imgUrl)
+            );
+
+        } else if (imgUrl.indexOf(urlPatterns[4]) >= 0) { //slsa
+
+            found++;
+            loadedImages.push(
+                imgUrl.slice(0, imgUrl.length - 3) + "jpg"
+            );
+
+        } else { // Could not reliably load image for item
+            // UNCOMMENT FOR DEBUG: 
+            // console.log("Not available: " + imgUrl);
+
+        }
+    }
+
+    function addFlickrItem(imgUrl, troveItem) {
+        var flickr_key = "185416d482b80527f23783028dfc4386";
+        var flickr_secret = "c7e843e8ee70e1d8";
+
+        var flickr_url = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=" + flickr_key + "&photo_id=";
+
+        var url_comps = imgUrl.split("/");
+        var photo_id = url_comps[url_comps.length - 1];
+
+        //        var flickr_url_photoInfo = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + flickr_key + "&photo_id=" + photo_id + "&format=json&nojsoncallback=1";
+        //        var farm_id = flickr_url_photoInfo[0]["farm"];
+        //        var server_id = flickr_url_photoInfo[0]["server"];
+        //        var photo_secret = flickr_url_photoInfo[0]["secret"];
+        //
+        //        var flickr_image_url_small = "https://farm" + farm_id + ".staticflickr.com/" + server_id + "/" + photo_id + "_" + photo_secret + "_z.jpg";
+        //
+        //        loadedImages.push(
+        //            flickr_image_url_small
+        //        );
+
+
+
+
+        $.getJSON(flickr_url + photo_id + "&format=json&nojsoncallback=1", function (data) {
+            if (data.stat == "ok") {
+                var flickr_image_url = data.sizes.size[data.sizes.size.length - 1].source;
+                //                flickr_image_url = flickr_image_url.replace("_o.jpg", "_z.jpg");
+                loadedImages.push(
+                    flickr_image_url
+                );
+            }
+        });
+
+
+
+
+    }
+
+    function printImages() {
+        //    $("#mainPicture").append("<h3>Image Search Results</h3>");
+
+        // Print out all images
+        console.log(loadedImages);
+        for (var i in loadedImages) {
+            var image = new Image();
+            image.src = loadedImages[i];
+            image.classList.add("swiper-slide");
+            //            image.style.display = "inline-block ";
+            //            image.style.maxWidth = "280px";
+            //            image.style.maxHeight = "188px";
+            //            image.style.margin = "30px";
+            //            image.style.verticalAlign = "bottom";
+
+
+            //            var image_html = '<div class="swiper-slide"><img scr="' + image.src + '" /></div>';
+            //            var image_html_2 = '<div class="swiper-slide">' + image + '</div>';
+
+            //            $('.swiper-slide').append(image);
+
+            $("#mainPicture").append(image);
+            //            $("#mainPicture").append(image_html);
+            var mySwiper_trove = $('#step3Content .swiper-container').swiper({
+                pagination: $('#step3Content').find(".swiper-pagination")[0],
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: false,
+                // Navigation arrows
+                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+                nextButton: $('#step3Content').find(".swiper-button-next")[0],
+                prevButton: $('#step3Content').find(".swiper-button-prev")[0]
+            })
+
+        }
+    }
+
+
+    function getQueryVariable(variable, url) {
+        var query = url.split("?");
+        var vars = query[1].split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return (false);
+    }
 });
 
+
+
+
+var loadedImages = [];
+var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
+var found = 0;
 
 
 /* ========================================================================
