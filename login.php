@@ -1,4 +1,4 @@
-<?PHP
+<?php
     header("Content-Type: text/html; charset=utf8");
     if(isset($_POST["login"])){
         if(!isset($_POST["login"])){
@@ -10,49 +10,40 @@
         if ($name && $passowrd){        //If username and password both value
             $sql = "select * from User_info where UName = '$name' and UPassword='$passowrd'";  //Check username and password in sql DB
             $result = mysql_query($sql);                                                    //Run sql
-            //$rows=mysql_num_rows($result);                                                  //Return result
-            if($result){//0 false 1 true
-                header("refresh:0;url=index.html");   //If login success jump to welcome.html page
-                    exit;
+            $rows=mysql_num_rows($result);                                                  //Return result
+            if($rows){//0 false 1 true
+                echo "<script>alert('Log in success！'); history.go(-1);</script>";
             }
             else{
-                echo "Wrong Username or Passward";      //Else 
-                echo "
-                <script>
-                    setTimeout(function(){window.location.href='index.html';},2000);
-                </script>
-                ";                                      //jump to login page after 0.5sec
+                echo "<script>alert('Wrong username or password！'); history.go(-1);</script>";
+                ;                                      
             }      
         }
         else{                                              //If username or passward is empty
-            echo "You must provide your Username or Passward";
-            echo "
-            <script>
-                setTimeout(function(){window.location.href='index.html';},2000);
-            </script>";     //jump to login page after 0.5sec
+            echo "<script>alert('You must provide your username and password！'); history.go(-1);</script>";     
         }
-        //mysql_close();      //Close DB
+        mysql_close();      //Close DB
     }
     else if (isset($_POST['signup'])){
-        header("Content-Type: text/html; charset=utf8");
         if(!isset($_POST['signup'])){
-        exit("ERROR");
+            exit("ERROR");
         }                                     //Judfe submit option
         $name=$_POST['name'];                 //Get signup username
         $password=$_POST['password'];         //Get signup password
         include('Connect.php');               //connect to DB
-        if ($name && $passowrd){
+        if($name == "" || $password == "")  
+        {  
+            echo "<script>alert('Please provide username and password！'); history.go(-1);</script>";  
+        } 
+        else{
             $q="insert into User_info(Uid,UName,UPassword) values (null,'$name','$password')";// Add value into DB
             $reslut=mysql_query($q,$con);         //Run ql
             if (!$reslut){
                 die('Error: ' . mysql_error());   //If run error
             }else{
-            echo "Signup Success";                //If signup success
+                echo "<script>alert('Signup Success!'); history.go(-1);</script>";
             }
+            mysql_close($con);                        //Close DB
         }
-        else{
-            echo "please provied your username and password";
-        }
-        //mysql_close($con);                        //Close DB
     }
-        ?>
+?>
