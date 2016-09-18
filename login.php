@@ -31,19 +31,26 @@
         $name=$_POST['name'];                 //Get signup username
         $password=$_POST['password'];         //Get signup password
         include('Connect.php');               //connect to DB
-        if($name == "" || $password == "")  
-        {  
-            echo "<script>alert('Please provide username and password！'); history.go(-1);</script>";  
-        } 
-        else{
-            $q="insert into User_info(Uid,UName,UPassword) values (null,'$name','$password')";// Add value into DB
-            $reslut=mysql_query($q,$con);         //Run ql
-            if (!$reslut){
-                die('Error: ' . mysql_error());   //If run error
-            }else{
-                echo "<script>alert('Signup Success!'); history.go(-1);</script>";
+        $sql_check = "select Uname from User_info where UName = '$_POST[name]'";  
+        $result2 = mysql_query($sql_check);    
+        $num = mysql_num_rows($result2);  
+        if($num){              
+            echo "<script>alert('Sorry, username has been registed, please try another username'); history.go(-1);</script>";  
+        } else{
+            if($name == "" || $password == "")  
+            {  
+                echo "<script>alert('Please provide username and password！'); history.go(-1);</script>";  
+            } 
+            else{
+                $q="insert into User_info(Uid,UName,UPassword) values (null,'$name','$password')";// Add value into DB
+                $reslut=mysql_query($q,$con);         //Run ql
+                if (!$reslut){
+                    die('Error: ' . mysql_error());   //If run error
+                }else{
+                    echo "<script>alert('Signup Success!'); history.go(-1);</script>";
+                }
+                mysql_close($con);                        //Close DB
             }
-            mysql_close($con);                        //Close DB
-        }
+        } 
     }
 ?>
