@@ -148,18 +148,19 @@
                 <!-- Slides -->
                 <?PHP
                 session_start();
-                    if($_SESSION['auth']){
-                        $id = $_SESSION['Username'];
-                        $postimg = "select img_URL from Img_info where Uid = (seclct Uid from User_infor where Uname = '$id')";
-                        $postreslut=mysql_query($postimg);
-                        while($row = mysql_fetch_assoc($postreslut)){
+                if($_SESSION['auth']){
+                    include('Connect.php');
+                    $id = $_SESSION['Username'];
+                    $postimg = "select post_URL from Img_info where U_id = (select Uid from User_info where UName = '$id')";
+                    $postreslut=mysql_query($postimg);
+                    while($row = mysql_fetch_assoc($postreslut)){
+                    ?>
+                    <div class="swiper-slide"><img  src="<?php echo $row[post_URL]?>" /></div>  
+                    <?php          
+                    }
+                }else{
                 ?>
-                        <div class="swiper-slide"><img alt=\"\" src=\"$row[post_URL]\" />"</div>"
-                <?php
-                        }
-                    }else{
-                ?>
-                <span>please log in to view the time line</span>
+                <span>please log in to view the time line</span>                 <!--楠神！改变登录前显示的文字排版-->
                 <?php
                     }                        
                 ?>
@@ -171,7 +172,6 @@
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-
         </div>
     </div>
 
