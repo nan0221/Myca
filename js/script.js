@@ -31,9 +31,6 @@ $(document).ready(function () {
     $('#step6Instruction').hide();
     $('#step6Content').hide();
     $('#step2Content').find('.button').click(function () {
-        $('#step2Instruction').hide();
-        $('#step2Content').hide();
-
 
         loadedImages = [];
         found = 0;
@@ -60,44 +57,118 @@ $(document).ready(function () {
         });
 
 
-        $('#step3Instruction').show();
-        $('#step3Content').show();
+        showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
         $('#step2Content').hide();
         $('#step2Branch').show();
     });
     $('#step2Branch').find('.button').click(function () {
+        showStep3();
+    });
+    $('#step3Content').find('.button').click(function () {
+        loadedImages = [];
+        found = 0;
+        //get input values
+        //        var searchTerm = $('#step2Instruction>h1').val().trim();
+        //        searchTerm = searchTerm.replace(/ /g, "%20");
+        var searchTerm = 'st.lucia';
+        //        var sortBy = $("#sortBy").val();
+        var sortBy = 'datedesc';
+        var apiKey = "kr6iv720kob8nph6";
+
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+
+
+        //get the JSON information we need to display the images
+        $.getJSON(url, function (data) {
+            $('#stamps').empty();
+            console.log(data);
+            $.each(data.response.zone[0].records.work, processSmallImages);
+            //printImages();
+
+            waitForFlickrSmall(); // Waits for the flickr images to load
+        });
+
+        showStep4();
+    });
+    $('#step4Content').find('.button').click(function () {
+        showStep5();
+    });
+    $('#step5Content').find('.button').click(function () {
+        showStep6();
+    });
+
+    //    $('#step2Instruction').find('.arrowdown').click(function () {
+    //        showStep3();
+    //    });
+    //    $('#step3Instruction').find('.arrowdown').click(function () {
+    //        showStep4();
+    //    });
+    //    $('#step4Instruction').find('.arrowdown').click(function () {
+    //        showStep5();
+    //    });
+    //    $('#step5Instruction').find('.arrowdown').click(function () {
+    //        showStep6();
+    //    });
+    //    $('#step3Instruction').find('.arrowup').click(function () {
+    //        showStep2();
+    //    });
+    //    $('#step4Instruction').find('.arrowup').click(function () {
+    //        showStep3();
+    //    });
+    //    $('#step5Instruction').find('.arrowup').click(function () {
+    //        showStep4();
+    //    });
+    //    $('#step6Instruction').find('.arrowup').click(function () {
+    //        showStep4();
+    //    });
+
+    $('.swiper-slide img').click(function () {
+        $(this).toggleClass('selected');
+    });
+
+    function showStep3() {
         $('#step2Instruction').hide();
+        $('#step2Content').hide();
         $('#step2Branch').hide();
         $('#step3Instruction').show();
         $('#step3Content').show();
-    });
-    $('#step3Content').find('.button').click(function () {
+    }
+
+    function showStep4() {
         $('#step3Instruction').hide();
         $('#step3Content').hide();
         $('#step4Instruction').show();
         $('#step4Content').show();
-    });
-    $('#step4Content').find('.button').click(function () {
+    }
+
+    function showStep5() {
         $('#step4Instruction').hide();
         $('#step4Content').hide();
-        $('#step5Instruction').show();
-        $('#step5Content').show();
-    });
-    $('#step5Content').find('.button').click(function () {
+        $('#step6Instruction').show();
+        $('#step6Content').show();
+    }
+
+    function showStep6() {
         $('#step5Instruction').hide();
         $('#step5Content').hide();
         $('#step6Instruction').show();
         $('#step6Content').show();
-    });
-    $('.swiper-slide img').click(function () {
-        $(this).addClass('selected');
-    });
+    }
 
     function waitForFlickr() {
         if (found == loadedImages.length) {
             printImages();
+        } else {
+            setTimeout(waitForFlickr, 250);
+        }
+    }
+
+    function waitForFlickrSmall() {
+        if (found == loadedImages.length) {
+            printImagesSmall();
         } else {
             setTimeout(waitForFlickr, 250);
         }
@@ -110,7 +181,7 @@ $(document).ready(function () {
         if (imgUrl.indexOf(urlPatterns[0]) >= 0) { // flickr
 
             found++;
-            var flickr_imgUrl_small = troveItem.identifier[1].value.replace('_t.jpg', '_z.jpg');
+            //            var flickr_imgUrl_small = troveItem.identifier[1].value.replace('_t.jpg', '_z.jpg');
 
             addFlickrItem(imgUrl, troveItem);
 
@@ -147,6 +218,23 @@ $(document).ready(function () {
             // console.log("Not available: " + imgUrl);
 
         }
+    }
+
+    function processSmallImages(index, troveItem) {
+        if (troveItem.identifier.length > 1) {
+            var imgUrl = troveItem.identifier[1].value;
+            console.log(imgUrl);
+
+            if (typeof (imgUrl) != 'undefined' && imgUrl.indexOf('.jpg') >= 0) {
+                //            console.log(imgUrl);
+                found++;
+                loadedImages.push(imgUrl);
+            }
+        }
+
+
+
+
     }
 
     function addFlickrItem(imgUrl, troveItem) {
@@ -191,9 +279,10 @@ $(document).ready(function () {
         //    $("#mainPicture").append("<h3>Image Search Results</h3>");
 
         // Print out all images
-        console.log(loadedImages);
+        //        console.log('love' + loadedImages);
         for (var i in loadedImages) {
             var image = new Image();
+            console.log(loadedImages);
             image.src = loadedImages[i];
             image.classList.add("swiper-slide");
             //            image.style.display = "inline-block ";
@@ -210,20 +299,62 @@ $(document).ready(function () {
 
             $("#mainPicture").append(image);
             //            $("#mainPicture").append(image_html);
-            var mySwiper_trove = $('#step3Content .swiper-container').swiper({
-                pagination: $('#step3Content').find(".swiper-pagination")[0],
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                paginationClickable: true,
-                spaceBetween: 30,
-                loop: false,
-                // Navigation arrows
-                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
-                nextButton: $('#step3Content').find(".swiper-button-next")[0],
-                prevButton: $('#step3Content').find(".swiper-button-prev")[0]
-            })
+
 
         }
+        var mySwiper_trove = $('#step3Content .swiper-container').swiper({
+            pagination: $('#step3Content').find(".swiper-pagination")[0],
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            paginationClickable: true,
+            draggable: true,
+            spaceBetween: 30,
+            loop: false,
+            // Navigation arrows
+            // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+            nextButton: $('#step3Content').find(".swiper-button-next")[0],
+            prevButton: $('#step3Content').find(".swiper-button-prev")[0]
+        })
+    }
+
+    function printImagesSmall() {
+
+        // Print out all images
+        //        console.log('love' + loadedImages);
+        for (var i in loadedImages) {
+            var image = new Image();
+            console.log(loadedImages);
+            image.src = loadedImages[i];
+            image.classList.add("swiper-slide");
+            //            image.style.display = "inline-block ";
+            //            image.style.maxWidth = "280px";
+            //            image.style.maxHeight = "188px";
+            //            image.style.margin = "30px";
+            //            image.style.verticalAlign = "bottom";
+
+
+            //            var image_html = '<div class="swiper-slide"><img scr="' + image.src + '" /></div>';
+            //            var image_html_2 = '<div class="swiper-slide">' + image + '</div>';
+
+            //            $('.swiper-slide').append(image);
+
+            $("#stamps").append(image);
+            //            $("#mainPicture").append(image_html);
+
+
+        }
+
+
+        var swiper1 = new Swiper('.small-group', {
+            slidesPerView: 4,
+            slidesPerColumn: 3,
+            centeredSlides: true,
+            spaceBetween: 10,
+            loop: false,
+            // Navigation arrows
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        })
     }
 
 

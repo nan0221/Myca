@@ -735,6 +735,11 @@ input {
     max-width: 280px;
 }
 
+#stamps img {
+    max-height: 58px;
+    max-width: 87px;
+}
+
 
 /* Modal */
 
