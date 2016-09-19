@@ -12,7 +12,12 @@
             $result = mysql_query($sql);                                                    //Run sql
             $rows=mysql_num_rows($result);                                                  //Return result
             if($rows){//0 false 1 true
-                echo "<script>alert('Log in success！'); history.go(-1);</script>";
+                session_start();
+                $_SESSION['Username'] = "$name";
+                $_SESSION['auth'] = true;
+                //$id = $_SESSION['Username'];
+                //echo "<script>alert('Log in success $id');</script>";
+                header("location: index.php"); 
             }
             else{
                 echo "<script>alert('Wrong username or password！'); history.go(-1);</script>";

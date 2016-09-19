@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" href="css/swiper.css">
     <script src="js/swiper.js"></script>
-
 </head>
 
 <body>
@@ -26,9 +25,23 @@
         <!-- TODO: change!-->
         <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
         <!--        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>-->
-        <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login">
-
-        </button>
+        <?php
+        session_start();
+        if($_SESSION['auth']){
+            echo "welcome ".$_SESSION['Username'];
+        ?>
+        <form action="logout.php" method="post">
+        <input type="submit" name="logout" value="Log out" />
+        </form>
+        <?php
+        }else{
+        ?>
+        <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login"></button>
+        <?php
+        }
+        ?>
+              
+             
     </header>
 
     <div class="modal fade" id="login" tabindex="-1" role="dialog">
