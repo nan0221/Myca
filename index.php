@@ -28,11 +28,16 @@
         <?php
         session_start();
         if($_SESSION['auth']){
-            echo "welcome ".$_SESSION['Username'];
         ?>
-        <form action="logout.php" method="post">
-        <input type="submit" name="logout" value="Log out" />
-        </form>
+        <div>    <!--修改这个div改变欢迎词和logout的排版-->
+            <form action="logout.php" method="post">
+            <spam>Welcome</span>
+            <?php
+            echo $_SESSION['Username'];
+            ?>
+            <br/><input type="submit" name="logout" value="Log out" />
+            </form>
+        </div>
         <?php
         }else{
         ?>
