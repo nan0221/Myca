@@ -149,11 +149,15 @@
     </div>
 
     <div class="block grey " id="step2Branch">
-        <h1>Please choose your location</h1>
+        
+		<h1>Please choose your location</h1>
         <h5>Map service is provided by Google Maps</h5>
-        <div class="preview">
-            <img src="img/placeholder.png" alt="Google Maps" />
-        </div>
+		</br>
+        <!-- Google map -->
+		<div id="map" style="width:100%;height:400px;"></div>
+	    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+		
+		
         <div class="blank"></div>
         <div class="button textWhite">Yes, I am here!</div>
     </div>
