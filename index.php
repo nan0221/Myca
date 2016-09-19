@@ -102,7 +102,7 @@
     </div>
 
 
-    <div class="block grey" id="timeline_new">
+    <!--<div class="block grey" id="timeline_new">
         <h1>Time line</h1>
         <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
         <div id="owl-example" class="owl-carousel">
@@ -137,7 +137,7 @@
                 <img src="img/placeholder.png" alt="The current picture" />
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="block grey" id="timeline_new_2">
         <h1>Time line</h1>
         <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
@@ -146,9 +146,26 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
+                <?PHP
+                session_start();
+                    if($_SESSION['auth']){
+                        $id = $_SESSION['Username'];
+                        $postimg = "select img_URL from Img_info where Uid = (seclct Uid from User_infor where Uname = '$id')";
+                        $postreslut=mysql_query($postimg);
+                        while($row = mysql_fetch_assoc($postreslut)){
+                ?>
+                        <div class="swiper-slide"><img alt=\"\" src=\"$row[post_URL]\" />"</div>"
+                <?php
+                        }
+                    }else{
+                ?>
+                <span>please log in to view the time line</span>
+                <?php
+                    }                        
+                ?>
+                <!--<div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
                 <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>-->
             </div>
 
             <!-- If we need navigation buttons -->
