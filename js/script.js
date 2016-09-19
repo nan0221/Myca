@@ -378,6 +378,39 @@ var loadedImages = [];
 var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
 var found = 0;
 
+var myLatlng = {
+    lat: -27.497843895934665,
+    lng: 153.0128788948059
+};
+// Map display function
+function myMap() {
+    var mapCanvas = document.getElementById("map");
+    var myCenter = new google.maps.LatLng(myLatlng); // Longitude and latitude  location.lat()  location.lng()
+    var mapOptions = {
+        center: myCenter,
+        zoom: 15
+    }; // Map zoom 
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+    google.maps.event.addListener(map, 'click', function (event) {
+        placeMarker(map, event.latLng);
+    });
+}
+
+// Add marker & Get location by marker
+function placeMarker(map, location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+
+    // Maker content
+    var infowindow = new google.maps.InfoWindow({
+        content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+    });
+    infowindow.open(map, marker);
+}
+
+
 
 /* ========================================================================
  * Bootstrap: modal.js v3.3.7
@@ -722,33 +755,3 @@ var found = 0;
     })
 
 }(jQuery);
-
-var myLatlng = {lat:-27.497843895934665, lng: 153.0128788948059};
-// Map display function
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var myCenter = new google.maps.LatLng( myLatlng );            // Longitude and latitude  location.lat()  location.lng()
-  var mapOptions = {center: myCenter, zoom: 15};                       // Map zoom 
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-  google.maps.event.addListener(map, 'click', function(event) {
-    placeMarker(map, event.latLng);
-  }); }
-
-// Add marker & Get location by marker
-function placeMarker(map, location) {
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map
-  });
-
-// Maker content
-var infowindow = new google.maps.InfoWindow({
-    content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
-    });
-  infowindow.open(map,marker);
-  } 
-
-
-
-
-
