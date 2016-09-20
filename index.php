@@ -29,24 +29,26 @@
         session_start();
         if($_SESSION['auth']){
         ?>
-        <div>    <!--修改这个div改变欢迎词和logout的排版-->
-            <form action="logout.php" method="post">
-            <spam>Welcome</span>
-            <?php
+            <div>
+                <!--修改这个div改变欢迎词和logout的排版-->
+                <form action="logout.php" method="post">
+                    <span>Welcome</span>
+                    <?php
             echo $_SESSION['Username'];
             ?>
-            <br/><input type="submit" name="logout" value="Log out" />
-            </form>
-        </div>
-        <?php
+                        <br/>
+                        <input type="submit" name="logout" value="Log out" />
+                </form>
+            </div>
+            <?php
         }else{
         ?>
-        <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login"></button>
-        <?php
+                <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login"></button>
+                <?php
         }
         ?>
-              
-             
+
+
     </header>
 
     <div class="modal fade" id="login" tabindex="-1" role="dialog">
@@ -101,81 +103,55 @@
         </a>
     </div>
 
-
-    <!--<div class="block grey" id="timeline_new">
+    <div class="block grey" id="timeline">
         <h1>Time line</h1>
-        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
-        <div id="owl-example" class="owl-carousel">
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-            <div>
-                <img src="img/placeholder.png" alt="The current picture" />
-            </div>
-        </div>
-    </div>-->
-    <div class="block grey" id="timeline_new_2">
-        <h1>Time line</h1>
-        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>             <!--这行可以去除了-->
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-                <!-- Slides -->
                 <?PHP
-                session_start();
-                if($_SESSION['auth']){
-                    include('Connect.php');
-                    $id = $_SESSION['Username'];
-                    $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
-                    $postreslut=mysql_query($postimg);
-                    while($row = mysql_fetch_assoc($postreslut)){
-                    ?>
+            session_start();
+            if($_SESSION['auth']){
+                include('Connect.php');
+                $id = $_SESSION['Username'];
+                $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
+                $postreslut=mysql_query($postimg);
+                while($row = mysql_fetch_assoc($postreslut)){
+            ?>
+
+                    <!-- Slides -->
                     <div class="swiper-slide">
-                        <h5><?php echo $row[post_date];?></h5><span class="important"><?php echo $row[post_add];?></span>     <!--楠神！改变登录后显示的时间地点排版-->
-                        <img  src="<?php echo $row[post_URL];?>" />
-                    </div>  
+                        <!--                        <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>-->
+                        <img src="<?php echo $row[post_URL];?>" />
+                    </div>
+
+
                     <?php          
                     }
                 }else{
                 ?>
-                <span>please log in to view the time line</span>                 <!--楠神！改变登录前显示的文字排版-->
-                <?php
+                        <!-- Slides -->
+
+                        <div class="swiper-slide">
+                            <img src="img/placeholder.png" />
+                        </div>
+                        <!-- If we need navigation buttons -->
+
+
+                        <?php
                     }                        
                 ?>
-                <!--<div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                            <!--<div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
                 <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
                 <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>-->
-            </div>
 
-            <!-- If we need navigation buttons -->
+
+
+            </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
+
     </div>
 
 
