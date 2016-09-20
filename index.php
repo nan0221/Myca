@@ -151,11 +151,14 @@
                 if($_SESSION['auth']){
                     include('Connect.php');
                     $id = $_SESSION['Username'];
-                    $postimg = "select post_URL from Img_info where U_id = (select Uid from User_info where UName = '$id')";
+                    $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
                     $postreslut=mysql_query($postimg);
                     while($row = mysql_fetch_assoc($postreslut)){
                     ?>
-                    <div class="swiper-slide"><img  src="<?php echo $row[post_URL]?>" /></div>  
+                    <div class="swiper-slide">
+                        <span><?php echo $row[post_date]?></span><span><?php echo $row[post_add]?></span>     <!--楠神！改变登录后显示的时间地点排版-->
+                        <img  src="<?php echo $row[post_URL]?>" />
+                    </div>  
                     <?php          
                     }
                 }else{
