@@ -140,7 +140,7 @@
     </div>-->
     <div class="block grey" id="timeline_new_2">
         <h1>Time line</h1>
-        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>
+        <h5>10 Sep 2016 <span class="important">St. Lucia</span></h5>             <!--这行可以去除了-->
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
@@ -156,8 +156,8 @@
                     while($row = mysql_fetch_assoc($postreslut)){
                     ?>
                     <div class="swiper-slide">
-                        <span><?php echo $row[post_date]?></span><span><?php echo $row[post_add]?></span>     <!--楠神！改变登录后显示的时间地点排版-->
-                        <img  src="<?php echo $row[post_URL]?>" />
+                        <h5><?php echo $row[post_date];?></h5><span class="important"><?php echo $row[post_add];?></span>     <!--楠神！改变登录后显示的时间地点排版-->
+                        <img  src="<?php echo $row[post_URL];?>" />
                     </div>  
                     <?php          
                     }
