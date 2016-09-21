@@ -866,7 +866,9 @@ input {
     height: 50px;
     overflow: scroll;
 }
-
+.MapPosition {
+	text-align: center; 
+}
 
 /*
 #login {
