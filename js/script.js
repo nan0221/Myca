@@ -385,10 +385,11 @@ function success(position) {
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
 
     output.appendChild(img);
+	
   };
 
 function error() {
-    output.innerHTML = "Please use Internet Explorer";
+    output.innerHTML = "Please try other browser";
   };
 
   output.innerHTML = "<p>Locating…</p>";
@@ -402,13 +403,13 @@ var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordse
 var found = 0;
 
 var myLatlng = {
-    lat: -27.497843895934665,
-    lng: 153.0128788948059
+    lat: -27.491682797925872 ,
+    lng: 153.00427436828613
 };
 // Map display function
 function myMap() {
     var mapCanvas = document.getElementById("map");
-    var myCenter = new google.maps.LatLng(myLatlng); // Longitude and latitude  location.lat()  location.lng()
+    var myCenter = new google.maps.LatLng(myLatlng); 
     var mapOptions = {
         center: myCenter,
         zoom: 15
@@ -426,11 +427,11 @@ function placeMarker(map, location) {
         map: map
     });
 
-    // Maker content
-    var infowindow = new google.maps.InfoWindow({
-        content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+  var infowindow = new google.maps.InfoWindow({
+    content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
     });
-    infowindow.open(map, marker);
+  infowindow.open(map,marker);
+
 }
 
 
