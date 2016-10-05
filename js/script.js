@@ -399,10 +399,10 @@ $(document).ready(function geoFindMe() {
 // If users click I'm not here
 function myMap() {
     var mapCanvas = document.getElementById("map2");    //Create canvas and get map by id = 'map2'
-    var myCenter = new google.maps.LatLng(-27.238757675896842, 152.72781372070312 );  // Set default center of map(Brisbane in this situstion)
+    var myCenter = new google.maps.LatLng(-27.438119, 152.989124 );  // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
         center: myCenter,            // Set the center and zoom for map
-        zoom: 10
+        zoom: 13
 		}; 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 	var geocoder = new google.maps.Geocoder();
@@ -422,7 +422,6 @@ function myMap() {
 				} 
 		});
 		placeMarker(map, event.latLng); // Add marker on map, call placemarker function
-
 	}); 
 	// Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
 	// Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
