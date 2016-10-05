@@ -372,69 +372,76 @@ $(document).ready(function () {
 });
 
 $(document).ready(function geoFindMe() {
-	var output = document.getElementById("out");
-	if (!navigator.geolocation){
+	var output = document.getElementById("map1");  // Get map by id = 'out'
+	if (!navigator.geolocation){    // Error check
 		output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
     return;
-  }
-function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';
-    var img = new Image();
-    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
+	}
+	function success(position) {
+		var latitude  = position.coords.latitude;  // Get current latitude
+		var longitude = position.coords.longitude;    // Get current longitude
+		output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
+		// Present image screenshot by their current location for users to ensure(optional)
+		var img = new Image();
+		img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
+		output.appendChild(img);	
+		};
+	//Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
+	function error() {
+		output.innerHTML = "Geolocation is not supported by your browser";
+		};
 
-    output.appendChild(img);
-	
-  };
-
-function error() {
-    output.innerHTML = "Please try other browser";
-  };
-
-  output.innerHTML = "<p>Locating…</p>";
-
-  navigator.geolocation.getCurrentPosition(success, error);
-})
+	output.innerHTML = "<p>Locating…</p>";  // Word prompts on webpage when locating
+	navigator.geolocation.getCurrentPosition(success, error);
+}) 
 
 
-var loadedImages = [];
-var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
-var found = 0;
-
-var myLatlng = {
-    lat: -27.491682797925872 ,
-    lng: 153.00427436828613
-};
-// Map display function
+// If users click I'm not here
 function myMap() {
-    var mapCanvas = document.getElementById("map");
-    var myCenter = new google.maps.LatLng(myLatlng); 
+    var mapCanvas = document.getElementById("map2");    //Create canvas and get map by id = 'map2'
+    var myCenter = new google.maps.LatLng(-27.238757675896842, 152.72781372070312 );  // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
-        center: myCenter,
-        zoom: 15
-    }; // Map zoom 
+        center: myCenter,            // Set the center and zoom for map
+        zoom: 10
+		}; 
     var map = new google.maps.Map(mapCanvas, mapOptions);
+	var geocoder = new google.maps.Geocoder();
+	// Reverse geocoding code(transform coordinates into address)  
     google.maps.event.addListener(map, 'click', function (event) {
-        placeMarker(map, event.latLng);
-    });
+        geocoder.geocode({ 'latLng': event.latLng}, function(results, status) { // The returning is a .json file include places information
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					// Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD 4102
+					var distict = results[0].formatted_address.split(',');  
+					console.log(distict[1]);
+				} else {
+					window.alert('No results found'); //Error check
+					}
+			} else {
+				window.alert('Geocoder failed due to: ' + status); //Error check
+				} 
+		});
+		placeMarker(map, event.latLng); // Add marker on map, call placemarker function
+
+	}); 
+	// Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
+	// Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
 }
 
-// Add marker & Get location by marker
+// Add marker
 function placeMarker(map, location) {
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
-
-  var infowindow = new google.maps.InfoWindow({
-    content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
-    });
-  infowindow.open(map,marker);
-
+	// Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
 
 
+
+var loadedImages = [];
+var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
+var found = 0;
 
 /* ========================================================================
  * Bootstrap: modal.js v3.3.7
