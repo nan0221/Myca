@@ -404,6 +404,7 @@ $(document).ready(function geoFindMe() {
 				alert("Geocode was not successfulfor the following reason: " + status);
 			}
         });
+		//Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
     }
 	function error() {      //Error check
 		output.innerHTML = "Geolocation is not supported by your browser";
@@ -443,17 +444,31 @@ function myMap() {
 	// Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
 	// Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
 }
-
+var markersArray = [];
 // Add marker
 function placeMarker(map, location) {
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
+	markersArray.push(marker);  // Create an array to store all marker that user clicked
+	console.log(markersArray);
+	if (markersArray.length > 1){     // The amount of marker should be one
+		alert('Please mark only one address :)');    //If user clicked more than one times
+		deleteOverlays();   // Call deleteOverlays function to clear all markers 
+	}
 	// Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
-
-
+// Clear marker
+function deleteOverlays() {
+	if (markersArray) {
+		for (i in markersArray) {
+			markersArray[i].setMap(null);
+			}
+		markersArray.length = 0;
+		}
+	// Reference:http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html	
+}
 
 var loadedImages = [];
 var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
