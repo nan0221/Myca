@@ -380,21 +380,38 @@ $(document).ready(function geoFindMe() {
 	function success(position) {
 		var latitude  = position.coords.latitude;  // Get current latitude
 		var longitude = position.coords.longitude;    // Get current longitude
-		output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
+		//output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
+		console.log("Latitude " + latitude +" Longitude " + longitude);
+		getAddressFromLatLang(latitude,longitude);
 		// Present image screenshot by their current location for users to ensure(optional)
 		var img = new Image();
 		img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
 		output.appendChild(img);	
+		//Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
 		};
-	//Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
-	function error() {
+	function getAddressFromLatLang(lat,lng){    // Transform current loocation to readable address
+		var geocoder = new google.maps.Geocoder();
+        var latLng = new google.maps.LatLng(lat, lng);
+        geocoder.geocode( { 'latLng': latLng}, function(results, status) {  // The returning is a .json file include places information
+			console.log(results);
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (results[0]) {
+					console.log(results[0]);
+					var district = results[0].formatted_address.split(',');   // Only need districts name
+					output.innerHTML = district[1] ;
+				}
+			}else{
+				alert("Geocode was not successfulfor the following reason: " + status);
+			}
+        });
+    }
+	function error() {      //Error check
 		output.innerHTML = "Geolocation is not supported by your browser";
 		};
 
 	output.innerHTML = "<p>Locating…</p>";  // Word prompts on webpage when locating
 	navigator.geolocation.getCurrentPosition(success, error);
 }) 
-
 
 // If users click I'm not here
 function myMap() {
@@ -412,8 +429,8 @@ function myMap() {
 			if (status == google.maps.GeocoderStatus.OK) {
 				if (results[0]) {
 					// Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD 4102
-					var distict = results[0].formatted_address.split(',');  
-					console.log(distict[1]);
+					var district = results[0].formatted_address.split(',');  
+					console.log(district[1]);
 				} else {
 					window.alert('No results found'); //Error check
 					}
