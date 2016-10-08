@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -21,10 +21,10 @@
 <body>
 
     <header>
-        <a href="#" class="left language"><img src="img/australia.png" alt="change language" /></a>
+        <a href="#" class="left language"><img class="imgSize20" src="img/australia_2x.png" alt="change language" /></a>
         <!-- TODO: change!-->
-        <a href="index.html" class="center"><img class="logo center" src="img/logo.png" alt="Myca Logo" /></a>
-        <!--        <a href="#" class="right user"><img src="img/user.png" alt="user log in" /></a>-->
+        <a href="index.html" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
+        <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
         <?php
         session_start();
         if($_SESSION['auth']){

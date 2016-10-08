@@ -30,6 +30,7 @@ $(document).ready(function () {
     $('#step5Content').hide();
     $('#step6Instruction').hide();
     $('#step6Content').hide();
+
     $('#step2Content').find('.button').click(function () {
 
         loadedImages = [];
@@ -49,7 +50,7 @@ $(document).ready(function () {
         //get the JSON information we need to display the images
         $.getJSON(url, function (data) {
             $('#mainPicture').empty();
-            console.log(data);
+            //            console.log(data);
             $.each(data.response.zone[0].records.work, processImages);
             //printImages();
 
@@ -84,7 +85,7 @@ $(document).ready(function () {
         //get the JSON information we need to display the images
         $.getJSON(url, function (data) {
             $('#stamps').empty();
-            console.log(data);
+            //            console.log(data);
             $.each(data.response.zone[0].records.work, processSmallImages);
             //printImages();
 
@@ -100,35 +101,6 @@ $(document).ready(function () {
         showStep6();
     });
 
-    //    $('#step2Instruction').find('.arrowdown').click(function () {
-    //        showStep3();
-    //    });
-    //    $('#step3Instruction').find('.arrowdown').click(function () {
-    //        showStep4();
-    //    });
-    //    $('#step4Instruction').find('.arrowdown').click(function () {
-    //        showStep5();
-    //    });
-    //    $('#step5Instruction').find('.arrowdown').click(function () {
-    //        showStep6();
-    //    });
-    //    $('#step3Instruction').find('.arrowup').click(function () {
-    //        showStep2();
-    //    });
-    //    $('#step4Instruction').find('.arrowup').click(function () {
-    //        showStep3();
-    //    });
-    //    $('#step5Instruction').find('.arrowup').click(function () {
-    //        showStep4();
-    //    });
-    //    $('#step6Instruction').find('.arrowup').click(function () {
-    //        showStep4();
-    //    });
-
-    $('.swiper-slide img').click(function () {
-        $(this).toggleClass('selected');
-    });
-
     function showStep3() {
         $('#step2Instruction').hide();
         $('#step2Content').hide();
@@ -136,21 +108,18 @@ $(document).ready(function () {
         $('#step3Instruction').show();
         $('#step3Content').show();
     }
-
     function showStep4() {
         $('#step3Instruction').hide();
         $('#step3Content').hide();
         $('#step4Instruction').show();
         $('#step4Content').show();
     }
-
     function showStep5() {
         $('#step4Instruction').hide();
         $('#step4Content').hide();
         $('#step6Instruction').show();
         $('#step6Content').show();
     }
-
     function showStep6() {
         $('#step5Instruction').hide();
         $('#step5Content').hide();
@@ -165,7 +134,6 @@ $(document).ready(function () {
             setTimeout(waitForFlickr, 250);
         }
     }
-
     function waitForFlickrSmall() {
         if (found == loadedImages.length) {
             printImagesSmall();
@@ -223,7 +191,7 @@ $(document).ready(function () {
     function processSmallImages(index, troveItem) {
         if (troveItem.identifier.length > 1) {
             var imgUrl = troveItem.identifier[1].value;
-            console.log(imgUrl);
+            //            console.log(imgUrl);
 
             if (typeof (imgUrl) != 'undefined' && imgUrl.indexOf('.jpg') >= 0) {
                 //            console.log(imgUrl);
@@ -282,7 +250,7 @@ $(document).ready(function () {
         //        console.log('love' + loadedImages);
         for (var i in loadedImages) {
             var image = new Image();
-            console.log(loadedImages);
+            //            console.log(loadedImages);
             image.src = loadedImages[i];
             image.classList.add("swiper-slide");
             //            image.style.display = "inline-block ";
@@ -323,7 +291,7 @@ $(document).ready(function () {
         //        console.log('love' + loadedImages);
         for (var i in loadedImages) {
             var image = new Image();
-            console.log(loadedImages);
+            //            console.log(loadedImages);
             image.src = loadedImages[i];
             image.classList.add("swiper-slide");
             //            image.style.display = "inline-block ";
@@ -347,7 +315,7 @@ $(document).ready(function () {
 
         var swiper1 = new Swiper('.small-group', {
             slidesPerView: 4,
-            slidesPerColumn: 3,
+            slidesPerColumn: 4,
             centeredSlides: true,
             spaceBetween: 10,
             loop: false,
@@ -356,7 +324,6 @@ $(document).ready(function () {
             prevButton: '.swiper-button-prev'
         })
     }
-
 
     function getQueryVariable(variable, url) {
         var query = url.split("?");
@@ -371,78 +338,96 @@ $(document).ready(function () {
     }
 });
 
-$(document).ready(function geoFindMe() {
-	var output = document.getElementById("map1");  // Get map by id = 'out'
-	if (!navigator.geolocation){    // Error check
-		output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-    return;
-	}
-	function success(position) {
-		var latitude  = position.coords.latitude;  // Get current latitude
-		var longitude = position.coords.longitude;    // Get current longitude
-		//output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
-		console.log("Latitude " + latitude +" Longitude " + longitude);
-		getAddressFromLatLang(latitude,longitude);
-		// Present image screenshot by their current location for users to ensure(optional)
-		var img = new Image();
-		img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
-		output.appendChild(img);	
-		//Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
-		};
-	function getAddressFromLatLang(lat,lng){    // Transform current loocation to readable address
-		var geocoder = new google.maps.Geocoder();
-        var latLng = new google.maps.LatLng(lat, lng);
-        geocoder.geocode( { 'latLng': latLng}, function(results, status) {  // The returning is a .json file include places information
-			console.log(results);
-			if (status == google.maps.GeocoderStatus.OK) {
-				if (results[0]) {
-					console.log(results[0]);
-					var district = results[0].formatted_address.split(',');   // Only need districts name
-					output.innerHTML = district[1] ;
-				}
-			}else{
-				alert("Geocode was not successfulfor the following reason: " + status);
-			}
-        });
-		//Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
-    }
-	function error() {      //Error check
-		output.innerHTML = "Geolocation is not supported by your browser";
-		};
+$(document).on("mousedown", "#mainPicture img", function () {
+    $(this).addClass('selected').siblings().removeClass('selected');
+    var selected_front_image = $(this).attr("src");
+    console.log('front image:', selected_front_image);
+});
+$(document).on("mousedown", "#stamps img", function () {
+    $(this).addClass('selected').siblings().removeClass('selected');
+    var selected_back_image = $(this).attr("src");
+    console.log('back image:', selected_back_image);
+});
 
-	output.innerHTML = "<p>Locating…</p>";  // Word prompts on webpage when locating
-	navigator.geolocation.getCurrentPosition(success, error);
-}) 
+$(document).ready(function geoFindMe() {
+    var output = document.getElementById("map1"); // Get map by id = 'out'
+    if (!navigator.geolocation) { // Error check
+        output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+        return;
+    }
+
+    function success(position) {
+        var latitude = position.coords.latitude; // Get current latitude
+        var longitude = position.coords.longitude; // Get current longitude
+        //output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
+        console.log("Latitude " + latitude + " Longitude " + longitude);
+        getAddressFromLatLang(latitude, longitude);
+        // Present image screenshot by their current location for users to ensure(optional)
+        var img = new Image();
+        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
+        output.appendChild(img);
+        //Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
+    };
+
+    function getAddressFromLatLang(lat, lng) { // Transform current loocation to readable address
+        var geocoder = new google.maps.Geocoder();
+        var latLng = new google.maps.LatLng(lat, lng);
+        geocoder.geocode({
+            'latLng': latLng
+        }, function (results, status) { // The returning is a .json file include places information
+            console.log(results);
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    console.log(results[0]);
+                    var district = results[0].formatted_address.split(','); // Only need districts name
+                    output.innerHTML = district[1];
+                }
+            } else {
+                alert("Geocode was not successfulfor the following reason: " + status);
+            }
+        });
+        //Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
+    }
+
+    function error() { //Error check
+        output.innerHTML = "Geolocation is not supported by your browser";
+    };
+
+    output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
+    navigator.geolocation.getCurrentPosition(success, error);
+})
 
 // If users click I'm not here
 function myMap() {
-    var mapCanvas = document.getElementById("map2");    //Create canvas and get map by id = 'map2'
-    var myCenter = new google.maps.LatLng(-27.438119, 152.989124 );  // Set default center of map(Brisbane in this situstion)
+    var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
+    var myCenter = new google.maps.LatLng(-27.438119, 152.989124); // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
-        center: myCenter,            // Set the center and zoom for map
+        center: myCenter, // Set the center and zoom for map
         zoom: 13
-		}; 
+    };
     var map = new google.maps.Map(mapCanvas, mapOptions);
-	var geocoder = new google.maps.Geocoder();
-	// Reverse geocoding code(transform coordinates into address)  
+    var geocoder = new google.maps.Geocoder();
+    // Reverse geocoding code(transform coordinates into address)  
     google.maps.event.addListener(map, 'click', function (event) {
-        geocoder.geocode({ 'latLng': event.latLng}, function(results, status) { // The returning is a .json file include places information
-			if (status == google.maps.GeocoderStatus.OK) {
-				if (results[0]) {
-					// Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD 4102
-					var district = results[0].formatted_address.split(',');  
-					console.log(district[1]);
-				} else {
-					window.alert('No results found'); //Error check
-					}
-			} else {
-				window.alert('Geocoder failed due to: ' + status); //Error check
-				} 
-		});
-		placeMarker(map, event.latLng); // Add marker on map, call placemarker function
-	}); 
-	// Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
-	// Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+        geocoder.geocode({
+            'latLng': event.latLng
+        }, function (results, status) { // The returning is a .json file include places information
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    // Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD 4102
+                    var district = results[0].formatted_address.split(',');
+                    console.log(district[1]);
+                } else {
+                    window.alert('No results found'); //Error check
+                }
+            } else {
+                window.alert('Geocoder failed due to: ' + status); //Error check
+            }
+        });
+        placeMarker(map, event.latLng); // Add marker on map, call placemarker function
+    });
+    // Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
+    // Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
 }
 var markersArray = [];
 // Add marker
@@ -451,23 +436,23 @@ function placeMarker(map, location) {
         position: location,
         map: map
     });
-	markersArray.push(marker);  // Create an array to store all marker that user clicked
-	console.log(markersArray);
-	if (markersArray.length > 1){     // The amount of marker should be one
-		alert('Please mark only one address :)');    //If user clicked more than one times
-		deleteOverlays();   // Call deleteOverlays function to clear all markers 
-	}
-	// Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
+    markersArray.push(marker); // Create an array to store all marker that user clicked
+    console.log(markersArray);
+    if (markersArray.length > 1) { // The amount of marker should be one
+        alert('Please mark only one address :)'); //If user clicked more than one times
+        deleteOverlays(); // Call deleteOverlays function to clear all markers 
+    }
+    // Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
 // Clear marker
 function deleteOverlays() {
-	if (markersArray) {
-		for (i in markersArray) {
-			markersArray[i].setMap(null);
-			}
-		markersArray.length = 0;
-		}
-	// Reference:http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html	
+    if (markersArray) {
+        for (i in markersArray) {
+            markersArray[i].setMap(null);
+        }
+        markersArray.length = 0;
+    }
+    // Reference:http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html	
 }
 
 var loadedImages = [];
