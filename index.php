@@ -8,11 +8,8 @@
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
-    <script src="owl-carousel/owl.carousel.js"></script>
 
     <link rel="stylesheet" href="css/swiper.css">
     <script src="js/swiper.js"></script>
@@ -105,6 +102,8 @@
 
     <div class="block grey" id="timeline">
         <h1>Time line</h1>
+        <h5>Log in to view your own time line</h5>
+        <h5>Click to turn over the postcard</h5>
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
