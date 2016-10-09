@@ -89,8 +89,8 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -171,7 +171,7 @@
     <div class="block grey " id="step2Branch">
         <h1>Please choose your location</h1>
         <h5>Map service is provided by Google Maps</h5>
-        <div id="map2" class="preview" style="width:400px;height:400px;"></div>
+        <div id="map2" class="preview" style="width:280px;height:300px;"></div>
         <!-- Google maps API -->
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
         <div class="blank"></div>
@@ -275,7 +275,9 @@
     </div>
 
     <div class="block grey " id="step6Content">
-        <textarea></textarea>
+        <form id="greetings">
+            <textarea id="greeting"></textarea>
+        </form>
         <div class="blank"></div>
         <div class="button textWhite">Done</div>
     </div>
@@ -286,6 +288,9 @@
 
     <script src="js/pushy.js"></script>
     <script>
+        $(document).ready(function () {
+            $("#greeting").charCount();
+        });
         //        $(".swiper-container").each(function (index, element) {
         //            var $this = $(this);
         //            var swiper = new Swiper(this, {

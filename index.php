@@ -57,8 +57,8 @@
         }else{
         ?>
                 <div class="right user">
-            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-        </div>
+                    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                </div>
                 <?php
         }
         ?>
@@ -190,9 +190,9 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
             </div>
 
             <!-- If we need navigation buttons -->
@@ -214,9 +214,9 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
             </div>
 
             <!-- If we need navigation buttons -->
@@ -243,19 +243,19 @@
             <div class="swiper-wrapper maskEffect view">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <img src="img/placeholder.png" alt="The current picture" />
+                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
                     <div class="mask">
                         <a href="#" class="operation"></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="img/placeholder.png" alt="The current picture" />
+                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
                     <div class="mask">
                         <a href="#" class="operation"></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="img/placeholder.png" alt="The current picture" />
+                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
                     <div class="mask">
                         <a href="#" class="operation"></a>
                     </div>
