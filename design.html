@@ -43,17 +43,19 @@
     </header>
     <div class="fullMask">
         <div class="dropDownList" id="userDropDown">
-            <div class="close right"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
-            <div>
+            <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
+            <div id="loginForm">
                 <form action="login.php" method="post" id="login">
                     <div class="center">
-                        <span><img class="imgSize24" src="img/username_2x.png" /></span>
-                        <span><input type="text" placeholder=" username" name="name" /></span>
+                        <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
+                        <span><input id="username" type="text" placeholder=" username" name="name" /></span>
                     </div>
                     <div class="center">
-                        <span><img class="imgSize24" src="img/password_2x.png" /></span>
-                        <span><input type="password" placeholder=" password" name="password" /></span>
+                        <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
+                        <span><input id="password" type="password" placeholder=" password" name="password" /></span>
                     </div>
+                    <div class="blank"> </div>
+                    <div class="blank"> </div>
                     <div class="blank"> </div>
                     <!--
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />

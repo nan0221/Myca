@@ -90,7 +90,7 @@
   bottom: 0;
   left: 0;
   z-index: 9998;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(205, 205, 205, 0.7);
   -webkit-animation: fade 500ms;
   animation: fade 500ms;
 }
