@@ -367,9 +367,9 @@ $(document).ready(function geoFindMe() {
         console.log("Latitude " + latitude + " Longitude " + longitude);
         getAddressFromLatLang(latitude, longitude);
         // Present image screenshot by their current location for users to ensure(optional)
-        var img = new Image();
-        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
-        output.appendChild(img);
+        // var img = new Image();
+        // img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
+        // output.appendChild(img);
         //Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
     };
 
@@ -379,15 +379,15 @@ $(document).ready(function geoFindMe() {
         geocoder.geocode({
             'latLng': latLng
         }, function (results, status) { // The returning is a .json file include places information
-            console.log(results);
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
                     console.log(results[0]);
                     var district = results[0].formatted_address.split(','); // Only need districts name
                     output.innerHTML = district[1];
+					console.log(district[1]);
                 }
             } else {
-                alert("Geocode was not successfulfor the following reason: " + status);
+                window.alert('Geocoder failed due to: ' + status); //Error check
             }
         });
         //Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
