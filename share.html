@@ -6,16 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
     <link rel="stylesheet" href="css/swiper.css">
     <script src="js/swiper.js"></script>
+
+    <link rel="stylesheet" href="css/pushy.css">
 </head>
 
 <body>
+    <!-- Pushy Menu -->
+    <nav class="pushy pushy-left">
+        <ul>
+            <!-- Submenu -->
+            <li class="pushy-link"><a href="#">English</a></li>
+            <li class="pushy-link"><a href="#">中文（简体）</a></li>
+        </ul>
+    </nav>
+
+    <!-- Site Overlay -->
+    <div class="site-overlay"></div>
+
+
     <header>
-        <a href="#" class="left imgSize20"><img class="country" src="img/australia_2x.png" alt="change language" /></a>
+        <div class="left language menu-btn">
+            <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
+        </div>
         <!-- TODO: change!-->
         <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
         <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>
@@ -73,7 +92,7 @@
         </div>
     </div>
 
-
+    <script src="js/pushy.js"></script>
     <script>
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);

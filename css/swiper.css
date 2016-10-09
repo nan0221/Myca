@@ -15,7 +15,7 @@
 
 .swiper-container {
     width: 100%;
-    height: 204px;
+    height: auto;
     margin: 10px auto;
     position: relative;
     overflow: hidden;

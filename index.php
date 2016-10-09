@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -13,14 +13,30 @@
 
     <link rel="stylesheet" href="css/swiper.css">
     <script src="js/swiper.js"></script>
+
+    <link rel="stylesheet" href="css/pushy.css">
 </head>
 
 <body>
+    <!-- Pushy Menu -->
+    <nav class="pushy pushy-left">
+        <ul>
+            <!-- Submenu -->
+            <li class="pushy-link"><a href="#">English</a></li>
+            <li class="pushy-link"><a href="#">中文（简体）</a></li>
+        </ul>
+    </nav>
+
+    <!-- Site Overlay -->
+    <div class="site-overlay"></div>
+
 
     <header>
-        <a href="#" class="left language"><img class="imgSize20" src="img/australia_2x.png" alt="change language" /></a>
+        <div class="left language menu-btn">
+            <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
+        </div>
         <!-- TODO: change!-->
-        <a href="index.html" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
+        <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
         <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
         <?php
         session_start();
@@ -83,8 +99,8 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/promo_1_2x.jpg" alt="An example of the front side of the postcard generated" /></div>
+                <div class="swiper-slide"><img class="imgSize280" src="img/promo_2_2x.jpg" alt="An example of the back side of the postcard generated" /></div>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -102,8 +118,7 @@
 
     <div class="block grey" id="timeline">
         <h1>Time line</h1>
-        <h5>Log in to view your own time line</h5>
-        <h5>Click to turn over the postcard</h5>
+        <!--        <h5>Click to turn over the postcard</h5>-->
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
@@ -119,9 +134,12 @@
             ?>
 
                     <!-- Slides -->
-                    <div class="swiper-slide">
-                        <!--                        <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>-->
-                        <img src="<?php echo $row[post_URL];?>" />
+                    <div class="swiper-slide" id="timeline-slide">
+                        <div class="timeline-line">
+                            <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                        </div>
+                        <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
+
                     </div>
 
 
@@ -132,7 +150,7 @@
                         <!-- Slides -->
 
                         <div class="swiper-slide">
-                            <img src="img/placeholder.png" />
+                            <img class="imgSize280" src="img/timeline_placeholder_2x.jpg" alt="Your time line will be shown here after you are logged in" />
                         </div>
                         <!-- If we need navigation buttons -->
 
@@ -140,17 +158,12 @@
                         <?php
                     }                        
                 ?>
-                            <!--<div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>-->
-
-
 
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-
+        <div class="blank"> </div>
     </div>
 
 
@@ -254,6 +267,7 @@
         <p>trove</p>
     </footer>
 
+    <script src="js/pushy.js"></script>
     <script>
         $(document).ready(function () {
             $("#owl-example").owlCarousel({

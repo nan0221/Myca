@@ -3,10 +3,6 @@ $(document).ready(function () {
     $('.fullMask').hide();
     $('#languageDropDown').hide();
     $('#userDropDown').hide();
-    $('.language').click(function () {
-        $('.fullMask').toggle();
-        $('#languageDropDown').toggle();
-    });
     $('.user').click(function () {
         $('.fullMask').toggle();
         $('#userDropDown').toggle();
