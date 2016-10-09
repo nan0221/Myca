@@ -56,7 +56,9 @@
             <?php
         }else{
         ?>
-                <button type="button" class="user userLogin right" data-toggle="modal" data-target="#login"></button>
+                <div class="right user">
+            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+        </div>
                 <?php
         }
         ?>
@@ -64,32 +66,45 @@
 
     </header>
 
-    <div class="modal fade" id="login" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <form action="login.php" method="post">
-                        <div class="center">
-                            <span><img src="img/username.png" /></span>
-                            <input type="text" placeholder="username" name="name" />
+    <div class="fullMask">
+        <div class="dropDownList" id="userDropDown">
+            <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
+            <div id="loginForm">
+                <form action="login.php" method="post" id="login">
+                    <div class="center">
+                        <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
+                        <span><input id="username" type="text" placeholder=" username" name="name" /></span>
+                    </div>
+                    <div class="center">
+                        <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
+                        <span><input id="password" type="password" placeholder=" password" name="password" /></span>
+                    </div>
+                    <div class="blank"> </div>
+                    <div class="blank"> </div>
+                    <div class="blank"> </div>
+                    <!--
+                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+<input class="save textGrey" type="submit" name="login" value="Log in" />
+-->
+                    <div class="buttonHeight">
+                        <div class="half right">
+                            <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                            <input class="save textGrey" type="submit" name="login" value="Log in" />
+                            <!--
+                            <div class="share textWhite">Sign up</div>
+<div class="save textGrey">Log in</div>
+-->
                         </div>
-                        <div class="center">
-                            <span><img src="img/password.png" /></span>
-                            <input type="password" placeholder="password" name="password" />
+                        <div class="half left">
                         </div>
-                        <div class="blank"> </div>
-                        <input type="submit" name="signup" value="Sign up" />
-                        <input type="submit" name="login" value="Log in" />
-                    </form>
+                    </div>
 
-
-                </div>
+                </form>
             </div>
         </div>
     </div>
+
+
 
     <div class="block">
         <h1>Design your own postcard</h1>
@@ -269,12 +284,6 @@
 
     <script src="js/pushy.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#owl-example").owlCarousel({
-                items: 3
-            });
-        });
-
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);
             var swiper = new Swiper(this, {
