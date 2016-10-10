@@ -66,29 +66,49 @@
 
     <div class="remodal-bg">
         <header>
-            <div class="left language menu-btn">
+<div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
+            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
-            <!--
-<div class="right user">
-    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-</div>
--->
-            <ul class="right user">
-                <li>
-                    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-                    <ul>
-                        <a data-remodal-target="LogInModal">
-                            <li>Log in</li>
-                        </a>
-                        <!--
-<li>View Timeline</li>
-<li>Log out</li>
--->
-                    </ul>
-                </li>
-            </ul>
+            <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
+            <?php
+                session_start();
+            ?>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="js/remodal.js"></script>
+                <?php
+                if($_SESSION['auth']){
+                ?>
+                    <div>
+                        <!--修改这个div改变欢迎词和logout的排版-->
+                        <form action="logout.php" method="post">
+                            <span>Welcome</span>
+                            <?php
+                        echo $_SESSION['Username'];
+                        ?>
+                                <br/>
+                                <input type="submit" name="logout" value="Log out" />
+                        </form>
+                    </div>
+                    <?php
+                }else{
+                ?>
+
+                        <ul class="right user">
+                            <li>
+                                <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                                <ul>
+                                    <a data-remodal-target="LogInModal">
+                                        <li>Log in</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <?php
+        }
+        ?>
 
         </header>
 
