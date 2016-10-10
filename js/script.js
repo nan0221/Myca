@@ -3,10 +3,10 @@ $(document).ready(function () {
     $('.fullMask').hide();
     $('#languageDropDown').hide();
     $('#userDropDown').hide();
-    $('.user').click(function () {
-        $('.fullMask').toggle();
-        $('#userDropDown').toggle();
-    });
+//    $('.user').click(function () {
+//        $('.fullMask').toggle();
+//        $('#userDropDown').toggle();
+//    });
     $('.close').click(function () {
         $('.fullMask').toggle();
         $('#userDropDown').toggle();

@@ -71,6 +71,8 @@ header {
     padding-top: 12px;
     padding-bottom: 12px;
     box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
     position: relative;
 }
 
@@ -105,6 +107,8 @@ header .logo {
     width: 224px;
     border: 2px solid white;
     box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
 }
 
 header .language {
@@ -120,8 +124,8 @@ header .user {
     height: 20px;
     display: block;
     position: absolute;
-    right: 20px;
-    top: 14px;
+    right: 36px;
+    top: -16px;
 }
 
 .block {
@@ -133,6 +137,8 @@ header .user {
     padding-bottom: 16px;
     color: #555555;
     box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
 }
 
 h1 {
@@ -173,6 +179,8 @@ h5 {
 
 .selected {
     box-shadow: 0px 0px 4px #ECB733;
+    -webkit-box-shadow: 0px 0px 4px #ECB733;
+    -moz-box-shadow: 0px 0px 4px #ECB733;
 }
 
 .block .previewLeft {
@@ -247,6 +255,8 @@ h5 {
 
 .block .previewSmall .selected {
     box-shadow: 0px 0px 2px #ECB733;
+    -webkit-box-shadow: 0px 0px 2px #ECB733;
+    -moz-box-shadow: 0px 0px 2px #ECB733;
 }
 
 .block .switchDots {
@@ -389,6 +399,8 @@ footer p:first {
     padding: 4px 0px 8px 0px;
     display: block;
     box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
 }
 
 .notification p {
@@ -402,6 +414,8 @@ footer p:first {
     height: auto;
     width: 100%;
     box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
 }
 
 .dropdown .list {
@@ -451,6 +465,8 @@ footer p:first {
     display: block;
     color: #555555;
     box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
 }
 
 .step h4 {
@@ -520,6 +536,8 @@ footer p:first {
 
 .chooseLayout .selected {
     box-shadow: 0px 0px 4px #ECB733;
+    -webkit-box-shadow: 0px 0px 4px #ECB733;
+    -moz-box-shadow: 0px 0px 4px #ECB733;
 }
 
 .step p {
@@ -547,12 +565,16 @@ footer p:first {
     margin: 0 auto;
     margin-top: 10px;
     box-shadow: 2px 2px 4px #B6B6B6;
+    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
+    -moz-box-shadow: 2px 2px 4px #B6B6B6;
 }
 
 .textboxLeft {
     border: 1px solid;
     border-color: #555555;
     box-shadow: 2px 2px 4px #B6B6B6;
+    -moz-box-shadow: 2px 2px 4px #B6B6B6;
+    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
     color: #B6B6B6;
     width: 280px;
     height: 80px;
@@ -566,6 +588,8 @@ footer p:first {
     border: 1px solid;
     border-color: #555555;
     box-shadow: 2px 2px 4px #B6B6B6;
+    -moz-box-shadow: 2px 2px 4px #B6B6B6;
+    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
     color: #B6B6B6;
     width: 280px;
     height: 80px;
@@ -587,6 +611,8 @@ footer p:first {
 
 .block .textbox .selected {
     box-shadow: 2px 2px 4px #B6B6B6;
+    -moz-box-shadow: 2px 2px 4px #B6B6B6;
+    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
 }
 
 .block textarea {
@@ -849,4 +875,65 @@ input {
     display: block;
     float: right;
     padding-right: 5%;
+}
+
+.user {
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 16px 4px 16px 0;
+    list-style: none;
+    -webkit-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
+    box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
+}
+
+.user li {
+    font-size: 14px;
+    display: inline-block;
+    margin-right: -4px;
+    position: relative;
+    padding: 16px 20px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.user li:hover,
+.user li:active,
+.user li:focus {
+    color: #FFFFFF;
+}
+
+.user li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: -42px;
+    width: 100px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    -transition: opacity 0.2s;
+}
+
+.user li ul li {
+    background-color: #191919;
+    display: block;
+    color: #B6B6B6;
+    text-shadow: 0 -1px 0 #000000;
+}
+
+.user li:hover ul,
+.user li:active ul,
+.user li:focus ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }

@@ -15,6 +15,9 @@
     <script src="js/swiper.js"></script>
 
     <link rel="stylesheet" href="css/pushy.css">
+
+    <link rel="stylesheet" href="css/remodal.css">
+    <link rel="stylesheet" href="css/remodal-default-theme.css">
 </head>
 
 <body>
@@ -29,118 +32,152 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
+    <div class="remodal" data-remodal-id="modal">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h1>Log in</h1>
+        <p>
+            Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+        </p>
+        <br>
+        <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+        <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+    </div>
 
+    <div class="remodal-bg">
 
-    <header>
-        <div class="left language menu-btn">
-            <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
-        </div>
-        <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
-        <div class="right user">
-            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-        </div>
-    </header>
-    <div class="fullMask">
-        <div class="dropDownList" id="userDropDown">
-            <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
-            <div id="loginForm">
-                <form action="login.php" method="post" id="login">
-                    <div class="center">
-                        <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
-                        <span><input id="username" type="text" placeholder=" username" name="name" /></span>
-                    </div>
-                    <div class="center">
-                        <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
-                        <span><input id="password" type="password" placeholder=" password" name="password" /></span>
-                    </div>
-                    <div class="blank"> </div>
-                    <div class="blank"> </div>
-                    <div class="blank"> </div>
-                    <!--
+        <header>
+            <div class="left language menu-btn">
+                <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
+            </div>
+            <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
+            <!--
+<div class="right user">
+    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+</div>
+-->
+            <ul class="right user">
+                <li>
+                    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                    <ul>
+                        <a href="#modal">
+                            <li>Log in</li>
+                        </a>
+                        <!--
+<li>View Timeline</li>
+<li>Log out</li>
+-->
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <div class="fullMask">
+            <div class="dropDownList" id="userDropDown">
+                <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
+                <div id="loginForm">
+                    <form action="login.php" method="post" id="login">
+                        <div class="center">
+                            <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
+                            <span><input id="username" type="text" placeholder=" username" name="name" /></span>
+                        </div>
+                        <div class="center">
+                            <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
+                            <span><input id="password" type="password" placeholder=" password" name="password" /></span>
+                        </div>
+                        <div class="blank"> </div>
+                        <div class="blank"> </div>
+                        <div class="blank"> </div>
+                        <!--
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />
 <input class="save textGrey" type="submit" name="login" value="Log in" />
 -->
-                    <div class="buttonHeight">
-                        <div class="half right">
-                            <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                            <input class="save textGrey" type="submit" name="login" value="Log in" />
-                            <!--
+                        <div class="buttonHeight">
+                            <div class="half right">
+                                <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                                <input class="save textGrey" type="submit" name="login" value="Log in" />
+                                <!--
                             <div class="share textWhite">Sign up</div>
 <div class="save textGrey">Log in</div>
 -->
+                            </div>
+                            <div class="half left">
+                            </div>
                         </div>
-                        <div class="half left">
-                        </div>
-                    </div>
 
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="block" id="results">
-        <h1>Congrats, Nan!</h1>
-        <h1>You've finished a masterpiece!</h1>
-        <h5>Now share it with your friends!</h5>
-        <!-- Slider main container -->
-        <div class="swiper-container editable" id="preview">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper maskEffect view">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    <div class="mask">
-                        <a href="#" class="operation"></a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    <div class="mask">
-                        <a href="#" class="operation"></a>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
         </div>
-        <div class="blank"> </div>
-        <div class="buttonHeight">
-            <div class="half right">
-                <div class="share textWhite">Share</div>
-                <div class="save textGrey">Save</div>
+
+
+
+        <div class="block" id="results">
+            <h1>Congrats, Nan!</h1>
+            <h1>You've finished a masterpiece!</h1>
+            <h5>Now share it with your friends!</h5>
+            <!-- Slider main container -->
+            <div class="swiper-container editable" id="preview">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper maskEffect view">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <div class="mask">
+                            <a href="#" class="operation"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <div class="mask">
+                            <a href="#" class="operation"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
-            <div class="half left">
+            <div class="blank"> </div>
+            <div class="buttonHeight">
+                <div class="half right">
+                    <div class="share textWhite">Share</div>
+                    <div class="save textGrey">Save</div>
+                </div>
+                <div class="half left">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fullMask">
+            <div class="close"><img src="img/close.png" alt="close"></div>
+            <div class="socialMediaList">
+                <!--Share link to facebook, twitter and google plus-->
+                <div class="socialMedia">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/design.html" target="_blank">
+                        <img src="img/facebook.png" alt="Share to Facebook " /></a>
+                </div>
+                <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
+                <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
+                <div class="socialMedia">
+                    <a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/">
+                        <img src="img/googleplus.png" alt="Share to Google Plus" /></a>
+                </div>
+                <!--Reference: https://developers.google.com/+/web/share/ -->
+                <div class="socialMedia">
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/design.html">
+                        <img src="img/twitter.png" alt="Share to Twitter" /></a>
+                </div>
+                <!--Reference: https://dev.twitter.com/web/tweet-button -->
             </div>
         </div>
-
     </div>
-
-	<div class="fullMask">
-        <div class="close"><img src="img/close.png" alt="close"></div>
-        <div class="socialMediaList">
-			<!--Share link to facebook, twitter and google plus-->
-            <div class="socialMedia"><a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/design.html" target="_blank">
-				<img src="img/facebook.png" alt="Share to Facebook " /></a></div>
-			<!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
-            <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
-            <div class="socialMedia"><a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/">
-				<img src="img/googleplus.png" alt="Share to Google Plus" /></a></div>
-			<!--Reference: https://developers.google.com/+/web/share/ -->
-            <div class="socialMedia"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/design.html">
-				<img src="img/twitter.png" alt="Share to Twitter" /></a></div>
-			<!--Reference: https://dev.twitter.com/web/tweet-button -->
-        </div>
-    </div>
-	
 
     <script src="js/pushy.js"></script>
+    <script src="js/remodal.js"></script>
     <script>
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);

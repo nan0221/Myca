@@ -15,6 +15,9 @@
     <script src="js/swiper.js"></script>
 
     <link rel="stylesheet" href="css/pushy.css">
+
+    <link rel="stylesheet" href="css/remodal.css">
+    <link rel="stylesheet" href="css/remodal-default-theme.css">
 </head>
 
 <body>
@@ -29,116 +32,143 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
+    <div class="remodal" data-remodal-id="modal">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h1>Log in</h1>
+        <p>
+            Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+        </p>
+        <br>
+        <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+        <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+    </div>
 
+    <div class="remodal-bg">
 
-    <header>
-        <div class="left language menu-btn">
-            <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
-        </div>
-        <!-- TODO: change!-->
-        <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
-        <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
-        <?php
+        <header>
+            <div class="left language menu-btn">
+                <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
+            </div>
+            <!-- TODO: change!-->
+            <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
+            <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
+            <?php
         session_start();
         if($_SESSION['auth']){
         ?>
-            <div>
-                <!--修改这个div改变欢迎词和logout的排版-->
-                <form action="logout.php" method="post">
-                    <span>Welcome</span>
-                    <?php
+                <div>
+                    <!--修改这个div改变欢迎词和logout的排版-->
+                    <form action="logout.php" method="post">
+                        <span>Welcome</span>
+                        <?php
             echo $_SESSION['Username'];
             ?>
-                        <br/>
-                        <input type="submit" name="logout" value="Log out" />
-                </form>
-            </div>
-            <?php
-        }else{
-        ?>
-                <div class="right user">
-                    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                            <br/>
+                            <input type="submit" name="logout" value="Log out" />
+                    </form>
                 </div>
                 <?php
+        }else{
+        ?>
+                    <!--
+<div class="right user">
+    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+</div>
+-->
+                    <ul class="right user">
+                        <li>
+                            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                            <ul>
+                                <a href="#modal">
+                                    <li>Log in</li>
+                                </a>
+                                <!--
+<li>View Timeline</li>
+<li>Log out</li>
+-->
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php
         }
         ?>
 
 
-    </header>
+        </header>
 
-    <div class="fullMask">
-        <div class="dropDownList" id="userDropDown">
-            <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
-            <div id="loginForm">
-                <form action="login.php" method="post" id="login">
-                    <div class="center">
-                        <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
-                        <span><input id="username" type="text" placeholder=" username" name="name" /></span>
-                    </div>
-                    <div class="center">
-                        <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
-                        <span><input id="password" type="password" placeholder=" password" name="password" /></span>
-                    </div>
-                    <div class="blank"> </div>
-                    <div class="blank"> </div>
-                    <div class="blank"> </div>
-                    <!--
+        <div class="fullMask">
+            <div class="dropDownList" id="userDropDown">
+                <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
+                <div id="loginForm">
+                    <form action="login.php" method="post" id="login">
+                        <div class="center">
+                            <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
+                            <span><input id="username" type="text" placeholder=" username" name="name" /></span>
+                        </div>
+                        <div class="center">
+                            <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
+                            <span><input id="password" type="password" placeholder=" password" name="password" /></span>
+                        </div>
+                        <div class="blank"> </div>
+                        <div class="blank"> </div>
+                        <div class="blank"> </div>
+                        <!--
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />
 <input class="save textGrey" type="submit" name="login" value="Log in" />
 -->
-                    <div class="buttonHeight">
-                        <div class="half right">
-                            <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                            <input class="save textGrey" type="submit" name="login" value="Log in" />
-                            <!--
+                        <div class="buttonHeight">
+                            <div class="half right">
+                                <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                                <input class="save textGrey" type="submit" name="login" value="Log in" />
+                                <!--
                             <div class="share textWhite">Sign up</div>
 <div class="save textGrey">Log in</div>
 -->
+                            </div>
+                            <div class="half left">
+                            </div>
                         </div>
-                        <div class="half left">
-                        </div>
-                    </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
 
 
-    <div class="block">
-        <h1>Design your own postcard</h1>
-        <h5>for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-        <!-- Slider main container -->
-        <div class="swiper-container" id="preview">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide"><img class="imgSize280" src="img/promo_1_2x.jpg" alt="An example of the front side of the postcard generated" /></div>
-                <div class="swiper-slide"><img class="imgSize280" src="img/promo_2_2x.jpg" alt="An example of the back side of the postcard generated" /></div>
+        <div class="block">
+            <h1>Design your own postcard</h1>
+            <h5>for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
+            <!-- Slider main container -->
+            <div class="swiper-container" id="preview">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img class="imgSize280" src="img/promo_1_2x.jpg" alt="An example of the front side of the postcard generated" /></div>
+                    <div class="swiper-slide"><img class="imgSize280" src="img/promo_2_2x.jpg" alt="An example of the back side of the postcard generated" /></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
 
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
+            <a href="design.html">
+                <div class="button textWhite">Start to design</div>
+            </a>
         </div>
 
-        <a href="design.html">
-            <div class="button textWhite">Start to design</div>
-        </a>
-    </div>
-
-    <div class="block grey" id="timeline">
-        <h1>Time line</h1>
-        <!--        <h5>Click to turn over the postcard</h5>-->
-        <!-- Slider main container -->
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <?PHP
+        <div class="block grey" id="timeline">
+            <h1>Time line</h1>
+            <!--        <h5>Click to turn over the postcard</h5>-->
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <?PHP
             session_start();
             if($_SESSION['auth']){
                 include('Connect.php');
@@ -148,141 +178,142 @@
                 while($row = mysql_fetch_assoc($postreslut)){
             ?>
 
-                    <!-- Slides -->
-                    <div class="swiper-slide" id="timeline-slide">
-                        <div class="timeline-line">
-                            <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                        <!-- Slides -->
+                        <div class="swiper-slide" id="timeline-slide">
+                            <div class="timeline-line">
+                                <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                            </div>
+                            <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
+
                         </div>
-                        <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
-
-                    </div>
 
 
-                    <?php          
+                        <?php          
                     }
                 }else{
                 ?>
-                        <!-- Slides -->
+                            <!-- Slides -->
 
-                        <div class="swiper-slide">
-                            <img class="imgSize280" src="img/timeline_placeholder_2x.jpg" alt="Your time line will be shown here after you are logged in" />
-                        </div>
-                        <!-- If we need navigation buttons -->
+                            <div class="swiper-slide">
+                                <img class="imgSize280" src="img/timeline_placeholder_2x.jpg" alt="Your time line will be shown here after you are logged in" />
+                            </div>
+                            <!-- If we need navigation buttons -->
 
 
-                        <?php
+                            <?php
                     }                        
                 ?>
 
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="blank"> </div>
         </div>
-        <div class="blank"> </div>
-    </div>
 
 
-    <div class="block">
-        <h1>Promotional content</h1>
-        <h5><span class="important">optional</span> content</h5>
-        <!-- Slider main container -->
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+        <div class="block">
+            <h1>Promotional content</h1>
+            <h5><span class="important">optional</span> content</h5>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
+            <div class="blank"> </div>
+            <a href="design.html">
+                <div class="button textWhite">Start to design</div>
+            </a>
         </div>
-        <div class="blank"> </div>
-        <a href="design.html">
-            <div class="button textWhite">Start to design</div>
-        </a>
-    </div>
 
-    <div class="block grey">
-        <h1>Promotional content</h1>
-        <h5><span class="important">optional</span> content</h5>
-        <!-- Slider main container -->
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+        <div class="block grey">
+            <h1>Promotional content</h1>
+            <h5><span class="important">optional</span> content</h5>
+            <!-- Slider main container -->
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
+            <div class="blank"></div>
+            <a href="design.html">
+                <div class="button textWhite">Start to design</div>
+            </a>
         </div>
-        <div class="blank"></div>
-        <a href="design.html">
-            <div class="button textWhite">Start to design</div>
-        </a>
-    </div>
 
 
 
 
 
-    <div class="block" id="popular">
-        <h1>Popular works</h1>
-        <h5><span class="important">Click to vote</span> for them</h5>
-        <!-- Slider main container -->
-        <div class="swiper-container votable">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper maskEffect view">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    <div class="mask">
-                        <a href="#" class="operation"></a>
+        <div class="block" id="popular">
+            <h1>Popular works</h1>
+            <h5><span class="important">Click to vote</span> for them</h5>
+            <!-- Slider main container -->
+            <div class="swiper-container votable">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper maskEffect view">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <div class="mask">
+                            <a href="#" class="operation"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <div class="mask">
+                            <a href="#" class="operation"></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <div class="mask">
+                            <a href="#" class="operation"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    <div class="mask">
-                        <a href="#" class="operation"></a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    <div class="mask">
-                        <a href="#" class="operation"></a>
-                    </div>
-                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
             </div>
 
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
 
         </div>
 
 
+
+
+        <footer>
+            <p>- a uq deco7180 project -</p>
+            <p>designed and implemented by</p>
+            <p>team mytea</p>
+            <p>powered by</p>
+            <p>trove</p>
+        </footer>
     </div>
-
-
-
-
-    <footer>
-        <p>- a uq deco7180 project -</p>
-        <p>designed and implemented by</p>
-        <p>team mytea</p>
-        <p>powered by</p>
-        <p>trove</p>
-    </footer>
-
     <script src="js/pushy.js"></script>
+    <script src="js/remodal.js"></script>
     <script>
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);
