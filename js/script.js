@@ -35,7 +35,8 @@ $(document).ready(function () {
         //get input values
         //        var searchTerm = $('#step2Instruction>h1').val().trim();
         //        searchTerm = searchTerm.replace(/ /g, "%20");
-        var searchTerm = 'st.lucia';
+        //        var searchTerm = 'st.lucia';
+        var searchTerm = currentLocation;
         //        var sortBy = $("#sortBy").val();
         var sortBy = 'dateasc';
         var apiKey = "kr6iv720kob8nph6";
@@ -72,7 +73,8 @@ $(document).ready(function () {
         //get input values
         //        var searchTerm = $('#step2Instruction>h1').val().trim();
         //        searchTerm = searchTerm.replace(/ /g, "%20");
-        var searchTerm = 'st.lucia';
+        //        var searchTerm = 'st.lucia';
+        var searchTerm = currentLocation;
         //        var sortBy = $("#sortBy").val();
         var sortBy = 'datedesc';
         var apiKey = "kr6iv720kob8nph6";
@@ -111,13 +113,11 @@ $(document).ready(function () {
     $(document).on("mousedown", "#mainPicture img", function () {
         $(this).addClass('selected').siblings().removeClass('selected');
         selected_front_image = $(this).attr("src");
-        console.log('front image:', selected_front_image);
     });
 
     $(document).on("mousedown", "#stamps img", function () {
         $(this).addClass('selected').siblings().removeClass('selected');
         selected_back_image = $(this).attr("src");
-        console.log('back image:', selected_back_image);
     });
 
 
@@ -374,8 +374,8 @@ $(document).ready(function () {
         var defaults = {
             allowed: 140,
             warning: 25,
-            css: 'counter',
-            counterElement: 'div',
+            css: 'counter right',
+            counterElement: 'span',
             cssWarning: 'warning',
             cssExceeded: 'exceeded',
             counterText: ''
@@ -396,11 +396,11 @@ $(document).ready(function () {
             } else {
                 $(obj).next().removeClass(options.cssExceeded);
             }
-            $(obj).next().html(options.counterText + available);
+            $(obj).prev().html(options.counterText + available);
         };
 
         this.each(function () {
-            $(this).after('<' + options.counterElement + ' class="' + options.css + '">' + options.counterText + '</' + options.counterElement + '>');
+            $(this).prev().append('<' + options.counterElement + ' class="' + options.css + '">' + options.counterText + '</' + options.counterElement + '>');
             calculate(this);
             $(this).keyup(function () {
                 calculate(this)
@@ -425,7 +425,7 @@ $(document).ready(function () {
     }
 });
 
-
+var currentLocation;
 $(document).ready(function geoFindMe() {
     var output = document.getElementById("map1"); // Get map by id = 'out'
     if (!navigator.geolocation) { // Error check
@@ -458,7 +458,8 @@ $(document).ready(function geoFindMe() {
                     output.innerHTML = district[1];
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
-                    console.log(district_without.join(' '));
+                    currentLocation = district_without.join(' ')
+                    console.log('l', currentLocation);
                 }
             } else {
                 window.alert('Geocoder failed due to: ' + status); //Error check

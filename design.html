@@ -317,6 +317,9 @@
 
         <div class="block grey " id="step6Content">
             <form id="greetings">
+                <span>Only the first 140 characters will be recorded.
+                </span>
+                <span class="counter right"></span>
                 <textarea id="greeting"></textarea>
             </form>
             <div class="blank"></div>

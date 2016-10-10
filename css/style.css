@@ -868,12 +868,6 @@ input {
     color: #555555;
 }
 
-#step6Content .counter {
-    display: block;
-    float: right;
-    padding-right: 5%;
-}
-
 #notLoggedIn {
     height: 188px;
 }
@@ -939,4 +933,24 @@ input {
     display: block;
     opacity: 1;
     visibility: visible;
+}
+
+#step6Content span {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.counter {
+    display: inline-block;
+    margin-right: 32px;
+    font-weight: 500;
+}
+
+.warning {
+    color: #ECB733;
+}
+
+.exceeded {
+    color: #D41447;
 }
