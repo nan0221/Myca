@@ -90,11 +90,12 @@ $(document).ready(function () {
 
             waitForFlickrSmall(); // Waits for the flickr images to load
         });
-
+        console.log('front image:', selected_front_image);
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
         $('.inProgress').css('width', '100%');
+        console.log('front image:', selected_back_image);
         showStep5();
     });
     $('#step5Content').find('.button').click(function () {
@@ -346,15 +347,17 @@ $(document).ready(function () {
     }
 });
 
+var selected_front_image;
+var selected_back_image;
 $(document).on("mousedown", "#mainPicture img", function () {
     $(this).addClass('selected').siblings().removeClass('selected');
-    var selected_front_image = $(this).attr("src");
+    selected_front_image = $(this).attr("src");
     console.log('front image:', selected_front_image);
 });
 
 $(document).on("mousedown", "#stamps img", function () {
     $(this).addClass('selected').siblings().removeClass('selected');
-    var selected_back_image = $(this).attr("src");
+    selected_back_image = $(this).attr("src");
     console.log('back image:', selected_back_image);
 });
 
