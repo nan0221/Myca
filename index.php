@@ -50,8 +50,10 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
+
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />
                     <input class="save textGrey" type="submit" name="login" value="Log in" />
+
                 </div>
             </form>
         </div>
@@ -128,7 +130,7 @@
 
             </div>
 
-            <a href="design.html">
+            <a href="design.php">
                 <div class="button textWhite">Start to design</div>
             </a>
         </div>
@@ -218,7 +220,7 @@
 
                         </div>
                         <div class="blank"> </div>
-                        <a href="design.html">
+                        <a href="design.php">
                             <div class="button textWhite">Start to design</div>
                         </a>
                     </div>
@@ -242,7 +244,7 @@
 
                         </div>
                         <div class="blank"></div>
-                        <a href="design.html">
+                        <a href="design.php">
                             <div class="button textWhite">Start to design</div>
                         </a>
                     </div>
