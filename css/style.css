@@ -643,7 +643,7 @@ footer p:first {
 .progress .inProgress {
     height: 4px;
     background-color: #ECB733;
-    position: fixed;
+    position: relative;
     bottom: 1px;
     width: 25%;
     max-width: 768px;

@@ -230,7 +230,7 @@
             <h1>Tap to choose, swipe for more</h1>
             <h5>powered by Trove</h5>
             <!-- Slider main container -->
-            <div class="swiper-container">
+            <div class="swiper-container large-group">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" id="mainPicture">
                     <!-- Slides -->

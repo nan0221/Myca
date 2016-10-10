@@ -28,7 +28,7 @@ $(document).ready(function () {
     $('#step6Content').hide();
 
     $('#step2Content').find('.button').click(function () {
-        $('.inProgress').css('width', '50%');
+
 
         loadedImages = [];
         found = 0;
@@ -54,7 +54,7 @@ $(document).ready(function () {
             waitForFlickr(); // Waits for the flickr images to load
         });
 
-
+        $('.inProgress').css('width', '50%');
         showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
@@ -66,7 +66,7 @@ $(document).ready(function () {
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
-        $('.inProgress').css('width', '75%');
+
         loadedImages = [];
         found = 0;
         //get input values
@@ -91,20 +91,35 @@ $(document).ready(function () {
             waitForFlickrSmall(); // Waits for the flickr images to load
         });
         console.log('front image:', selected_front_image);
+        $('.inProgress').css('width', '75%');
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
-        $('.inProgress').css('width', '100%');
         console.log('front image:', selected_back_image);
+        $('.inProgress').css('width', '100%');
         showStep5();
     });
     $('#step5Content').find('.button').click(function () {
         showStep6();
     });
-
     $('#step6Content').find('.button').click(function () {
         window.location.href = "/share.html";
     });
+
+    var selected_front_image;
+    var selected_back_image;
+    $(document).on("mousedown", "#mainPicture img", function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        selected_front_image = $(this).attr("src");
+        console.log('front image:', selected_front_image);
+    });
+
+    $(document).on("mousedown", "#stamps img", function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        selected_back_image = $(this).attr("src");
+        console.log('back image:', selected_back_image);
+    });
+
 
     function showStep3() {
         $('#step2Instruction').hide();
@@ -134,6 +149,10 @@ $(document).ready(function () {
         $('#step6Instruction').show();
         $('#step6Content').show();
     }
+
+    var loadedImages = [];
+    var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
+    var found = 0;
 
     function waitForFlickr() {
         if (found == loadedImages.length) {
@@ -279,7 +298,8 @@ $(document).ready(function () {
 
 
         }
-        var mySwiper_trove = $('#step3Content .swiper-container').swiper({
+
+        var swiper2 = new Swiper('.large-group', {
             pagination: $('#step3Content').find(".swiper-pagination")[0],
             slidesPerView: 'auto',
             centeredSlides: true,
@@ -334,6 +354,64 @@ $(document).ready(function () {
         })
     }
 
+    /*
+     * 	Character Count Plugin - jQuery plugin
+     * 	Dynamic character count for text areas and input fields
+     *	written by Alen Grakalic	
+     *	http://cssglobe.com/post/7161/jquery-plugin-simplest-twitterlike-dynamic-character-count-for-textareas
+     *
+     *	Copyright (c) 2009 Alen Grakalic (http://cssglobe.com)
+     *	Dual licensed under the MIT (MIT-LICENSE.txt)
+     *	and GPL (GPL-LICENSE.txt) licenses.
+     *
+     *	Built for jQuery library
+     *	http://jquery.com
+     *
+     */
+    $.fn.charCount = function (options) {
+
+        // default configuration properties
+        var defaults = {
+            allowed: 140,
+            warning: 25,
+            css: 'counter',
+            counterElement: 'div',
+            cssWarning: 'warning',
+            cssExceeded: 'exceeded',
+            counterText: ''
+        };
+
+        var options = $.extend(defaults, options);
+
+        function calculate(obj) {
+            var count = $(obj).val().length;
+            var available = options.allowed - count;
+            if (available <= options.warning && available >= 0) {
+                $(obj).next().addClass(options.cssWarning);
+            } else {
+                $(obj).next().removeClass(options.cssWarning);
+            }
+            if (available < 0) {
+                $(obj).next().addClass(options.cssExceeded);
+            } else {
+                $(obj).next().removeClass(options.cssExceeded);
+            }
+            $(obj).next().html(options.counterText + available);
+        };
+
+        this.each(function () {
+            $(this).after('<' + options.counterElement + ' class="' + options.css + '">' + options.counterText + '</' + options.counterElement + '>');
+            calculate(this);
+            $(this).keyup(function () {
+                calculate(this)
+            });
+            $(this).change(function () {
+                calculate(this)
+            });
+        });
+
+    };
+
     function getQueryVariable(variable, url) {
         var query = url.split("?");
         var vars = query[1].split("&");
@@ -347,19 +425,6 @@ $(document).ready(function () {
     }
 });
 
-var selected_front_image;
-var selected_back_image;
-$(document).on("mousedown", "#mainPicture img", function () {
-    $(this).addClass('selected').siblings().removeClass('selected');
-    selected_front_image = $(this).attr("src");
-    console.log('front image:', selected_front_image);
-});
-
-$(document).on("mousedown", "#stamps img", function () {
-    $(this).addClass('selected').siblings().removeClass('selected');
-    selected_back_image = $(this).attr("src");
-    console.log('back image:', selected_back_image);
-});
 
 $(document).ready(function geoFindMe() {
     var output = document.getElementById("map1"); // Get map by id = 'out'
@@ -410,8 +475,6 @@ $(document).ready(function geoFindMe() {
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
     navigator.geolocation.getCurrentPosition(success, error);
 })
-
-
 
 // If users click I'm not here
 function myMap() {
@@ -484,73 +547,12 @@ function deleteOverlays() {
     // Reference:http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html	
 }
 
-var loadedImages = [];
-var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
-var found = 0;
 
-/*
- * 	Character Count Plugin - jQuery plugin
- * 	Dynamic character count for text areas and input fields
- *	written by Alen Grakalic	
- *	http://cssglobe.com/post/7161/jquery-plugin-simplest-twitterlike-dynamic-character-count-for-textareas
- *
- *	Copyright (c) 2009 Alen Grakalic (http://cssglobe.com)
- *	Dual licensed under the MIT (MIT-LICENSE.txt)
- *	and GPL (GPL-LICENSE.txt) licenses.
- *
- *	Built for jQuery library
- *	http://jquery.com
- *
- */
 
 (function ($) {
 
-    $.fn.charCount = function (options) {
-
-        // default configuration properties
-        var defaults = {
-            allowed: 140,
-            warning: 25,
-            css: 'counter',
-            counterElement: 'div',
-            cssWarning: 'warning',
-            cssExceeded: 'exceeded',
-            counterText: ''
-        };
-
-        var options = $.extend(defaults, options);
-
-        function calculate(obj) {
-            var count = $(obj).val().length;
-            var available = options.allowed - count;
-            if (available <= options.warning && available >= 0) {
-                $(obj).next().addClass(options.cssWarning);
-            } else {
-                $(obj).next().removeClass(options.cssWarning);
-            }
-            if (available < 0) {
-                $(obj).next().addClass(options.cssExceeded);
-            } else {
-                $(obj).next().removeClass(options.cssExceeded);
-            }
-            $(obj).next().html(options.counterText + available);
-        };
-
-        this.each(function () {
-            $(this).after('<' + options.counterElement + ' class="' + options.css + '">' + options.counterText + '</' + options.counterElement + '>');
-            calculate(this);
-            $(this).keyup(function () {
-                calculate(this)
-            });
-            $(this).change(function () {
-                calculate(this)
-            });
-        });
-
-    };
 
 })(jQuery);
-
 $(document).ready(function () {
     // Pstcard front-side
     var canvas1 = document.getElementById("myCanvas1");
