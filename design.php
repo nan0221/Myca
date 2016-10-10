@@ -80,6 +80,10 @@
                 <?php
                 if($_SESSION['auth']){
                 ?>
+                    <script>
+                        var inst = $('[data-remodal-id=LogInModal]').remodal();
+                        inst.destroy();
+                    </script>
                     <div>
                         <!--修改这个div改变欢迎词和logout的排版-->
                         <form action="logout.php" method="post">

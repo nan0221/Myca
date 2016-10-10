@@ -33,7 +33,7 @@
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
     <!-- Login Modal-->
-    <div class="remodal" data-remodal-id="LogInModal" id="logInModal">
+    <div class="remodal" data-remodal-id="LogInModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
@@ -77,6 +77,10 @@
                 <?php
                 if($_SESSION['auth']){
                 ?>
+                    <script>
+                        var inst = $('[data-remodal-id=LogInModal]').remodal();
+                        inst.destroy();
+                    </script>
                     <div>
                         <!--修改这个div改变欢迎词和logout的排版-->
                         <form action="logout.php" method="post">
