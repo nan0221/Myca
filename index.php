@@ -144,8 +144,10 @@
                 $id = $_SESSION['Username'];
                 $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
                 $postreslut=mysql_query($postimg);
-                while($row = mysql_fetch_assoc($postreslut)){
-            ?>
+                ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/swiper.js"></script>
+            <link rel="stylesheet" href="css/swiper.css" />
             <div class="block grey" id="timeline">
                 <h1>Time line</h1>
                 <!--        <h5>Click to turn over the postcard</h5>-->
@@ -154,14 +156,21 @@
                 <div class="swiper-container">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide" id="timeline-slide">
-                            <div class="timeline-line">
-                                <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
-                            </div>
-                            <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
 
-                        </div>
+                        <?PHP
+                while($row = mysql_fetch_assoc($postreslut)){
+            ?>
+                            <!-- Slides -->
+                            <div class="swiper-slide" id="timeline-slide">
+                                <div class="timeline-line">
+                                    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                                </div>
+                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
+                            </div>
+
+                            <?php
+                    }
+                ?>
                     </div>
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
@@ -169,10 +178,7 @@
                 </div>
                 <div class="blank"> </div>
             </div>
-
-
-            <?php          
-                    }
+            <?php
                 }else{
                 ?>
                 <div class="block grey">
