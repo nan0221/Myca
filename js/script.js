@@ -28,6 +28,7 @@ $(document).ready(function () {
     $('#step6Content').hide();
 
     $('#step2Content').find('.button').click(function () {
+        $('.inProgress').css('width', '50%');
 
         loadedImages = [];
         found = 0;
@@ -61,9 +62,11 @@ $(document).ready(function () {
         $('#step2Branch').show();
     });
     $('#step2Branch').find('.button').click(function () {
+        $('.inProgress').css('width', '50%');
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
+        $('.inProgress').css('width', '75%');
         loadedImages = [];
         found = 0;
         //get input values
@@ -91,6 +94,7 @@ $(document).ready(function () {
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
+        $('.inProgress').css('width', '100%');
         showStep5();
     });
     $('#step5Content').find('.button').click(function () {
@@ -545,56 +549,52 @@ var found = 0;
 })(jQuery);
 
 $(document).ready(function () {
-// Pstcard front-side
-	var canvas1 = document.getElementById("myCanvas1");
-	var ctx1 = canvas1.getContext("2d"); 
-	var bg1 = document.getElementById("bg1");  // Background image
-	var img1 = document.getElementById("front");  // Image                                                //width="840" height="564"
-    ctx1.drawImage(bg1,0,0,224,150);   // Background image position and size                              //width="224" height="150"
-	ctx1.drawImage(img1,26.7,8,170.4,114.4);   // Image position and size
-	ctx1.font = "4.8pt Arial";
-	ctx1.textAlign = "center";
-	// Reference: http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_textalign
-	ctx1.fillText('St.Lucia QLD',112,137.1); //Geolocation
-	console.log(canvas1);
-	// Pstcard back-side
-	var canvas2 = document.getElementById("myCanvas2");
-	var ctx2 = canvas2.getContext("2d");
-	var text2 = 'Dear Holly,' ;
-	var text3 = '    All the world \'s a stage, and all the men and women merely players. They have their exits and their entrances; And one man in his time plays many parts.';
-	var text4 = 'Alvin' ;
-	ctx2.font = '3.2pt Arial';
-    ctx2.drawImage(bg2,0,0,224,150);   // Background image position and size	
-	wrapText(ctx2, text2, 14.4, 35.7, 75.7, 8);
-	wrapText(ctx2, text3, 14.4, 43.7, 75.7, 8);
-	wrapText(ctx2, text4, 14.4, 110.4, 75.7, 8);
-	var img2 = document.getElementById("stamp");
-    ctx2.drawImage(img2,170.9,9.6,42.4,23.8);
-	var img3 = document.getElementById("water-mark");
-	ctx2.drawImage(img3,0,0,224,150);
+    // Pstcard front-side
+    var canvas1 = document.getElementById("myCanvas1");
+    var ctx1 = canvas1.getContext("2d");
+    var bg1 = document.getElementById("bg1"); // Background image
+    var img1 = document.getElementById("front"); // Image                                                //width="840" height="564"
+    ctx1.drawImage(bg1, 0, 0, 224, 150); // Background image position and size                              //width="224" height="150"
+    ctx1.drawImage(img1, 26.7, 8, 170.4, 114.4); // Image position and size
+    ctx1.font = "4.8pt Arial";
+    ctx1.textAlign = "center";
+    // Reference: http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_textalign
+    ctx1.fillText('St.Lucia QLD', 112, 137.1); //Geolocation
+    console.log(canvas1);
+    // Pstcard back-side
+    var canvas2 = document.getElementById("myCanvas2");
+    var ctx2 = canvas2.getContext("2d");
+    var text2 = 'Dear Holly,';
+    var text3 = '    All the world \'s a stage, and all the men and women merely players. They have their exits and their entrances; And one man in his time plays many parts.';
+    var text4 = 'Alvin';
+    ctx2.font = '3.2pt Arial';
+    ctx2.drawImage(bg2, 0, 0, 224, 150); // Background image position and size	
+    wrapText(ctx2, text2, 14.4, 35.7, 75.7, 8);
+    wrapText(ctx2, text3, 14.4, 43.7, 75.7, 8);
+    wrapText(ctx2, text4, 14.4, 110.4, 75.7, 8);
+    var img2 = document.getElementById("stamp");
+    ctx2.drawImage(img2, 170.9, 9.6, 42.4, 23.8);
+    var img3 = document.getElementById("water-mark");
+    ctx2.drawImage(img3, 0, 0, 224, 150);
     console.log(canvas2);
 })
-	function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
-        var words = text.split(' ');
-        var line = '';
 
-        for(var n = 0; n < words.length; n++) {
-          var testLine = line + words[n] + ' ';
-          var metrics = ctx2.measureText(testLine);
-          var testWidth = metrics.width;
-          if (testWidth > maxWidth && n > 0) {
+function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
+    var words = text.split(' ');
+    var line = '';
+
+    for (var n = 0; n < words.length; n++) {
+        var testLine = line + words[n] + ' ';
+        var metrics = ctx2.measureText(testLine);
+        var testWidth = metrics.width;
+        if (testWidth > maxWidth && n > 0) {
             ctx2.fillText(line, x, y);
             line = words[n] + ' ';
             y += lineHeight;
-          }
-          else {
+        } else {
             line = testLine;
-          }
         }
-        ctx2.fillText(line, x, y);
-	//Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
-      }
-
-
-
-
+    }
+    ctx2.fillText(line, x, y);
+    //Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
+}
