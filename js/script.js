@@ -347,6 +347,7 @@ $(document).on("mousedown", "#mainPicture img", function () {
     var selected_front_image = $(this).attr("src");
     console.log('front image:', selected_front_image);
 });
+
 $(document).on("mousedown", "#stamps img", function () {
     $(this).addClass('selected').siblings().removeClass('selected');
     var selected_back_image = $(this).attr("src");
@@ -381,7 +382,6 @@ $(document).ready(function geoFindMe() {
         }, function (results, status) { // The returning is a .json file include places information
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
-                    console.log(results[0]);
                     var district = results[0].formatted_address.split(','); // Only need districts name
                     output.innerHTML = district[1];
 					console.log(district[1]);
@@ -394,7 +394,7 @@ $(document).ready(function geoFindMe() {
     }
 
     function error() { //Error check
-        output.innerHTML = "Geolocation is not supported by your browser";
+        output.innerHTML = "Geolocation is not supported by your browsers";
     };
 
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
@@ -418,9 +418,11 @@ function myMap() {
         }, function (results, status) { // The returning is a .json file include places information
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
-                    // Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD 4102
-                    var district = results[0].formatted_address.split(',');
-                    console.log(district[1]);
+                    // Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD
+                    var district = results[0].formatted_address.split(',');  
+					var district_without = district[1].split(' ');
+					district_without.splice(-1);    
+					console.log(district_without.join(' '));
                 } else {
                     window.alert('No results found'); //Error check
                 }
