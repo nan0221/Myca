@@ -17,7 +17,7 @@
                 $_SESSION['auth'] = true;
                 //$id = $_SESSION['Username'];
                 //echo "<script>alert('Log in success $id');</script>";
-                header("location: index.php"); 
+                echo "<script>alert('Log in success'); history.go(-1);</script> </script>";
             }
             else{
                 echo "<script>alert('Wrong username or password！'); history.go(-1);</script>";

@@ -868,15 +868,21 @@ input {
     padding-right: 5%;
 }
 
+#notLoggedIn {
+    height: 188px;
+}
+
 .user {
     text-align: left;
     display: inline;
     margin: 0;
     padding: 16px 4px 16px 0;
     list-style: none;
+/*
     -webkit-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
     -moz-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
     box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
+*/
 }
 
 .user li {

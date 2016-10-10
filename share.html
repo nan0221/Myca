@@ -2,22 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
 
-    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/swiper.css" />
     <script src="js/swiper.js"></script>
 
-    <link rel="stylesheet" href="css/pushy.css">
+    <link rel="stylesheet" href="css/pushy.css" />
 
-    <link rel="stylesheet" href="css/remodal.css">
-    <link rel="stylesheet" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" href="css/remodal.css" />
+    <link rel="stylesheet" href="css/remodal-default-theme.css" />
 </head>
 
 <body>
@@ -32,8 +33,8 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
-    <div class="remodal" data-remodal-id="modal">
-        <div class="right">
+    <div class="remodal" data-remodal-id="LogInModal">
+        <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
 
@@ -79,7 +80,7 @@
                 <li>
                     <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
                     <ul>
-                        <a data-remodal-target="modal">
+                        <a data-remodal-target="LogInModal">
                             <li>Log in</li>
                         </a>
                         <!--
@@ -133,28 +134,7 @@
 
         </div>
 
-        <div class="fullMask">
-            <div class="close"><img src="img/close.png" alt="close"></div>
-            <div class="socialMediaList">
-                <!--Share link to facebook, twitter and google plus-->
-                <div class="socialMedia">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/design.html" target="_blank">
-                        <img src="img/facebook.png" alt="Share to Facebook " /></a>
-                </div>
-                <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
-                <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
-                <div class="socialMedia">
-                    <a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/">
-                        <img src="img/googleplus.png" alt="Share to Google Plus" /></a>
-                </div>
-                <!--Reference: https://developers.google.com/+/web/share/ -->
-                <div class="socialMedia">
-                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/design.html">
-                        <img src="img/twitter.png" alt="Share to Twitter" /></a>
-                </div>
-                <!--Reference: https://dev.twitter.com/web/tweet-button -->
-            </div>
-        </div>
+
     </div>
 
     <script src="js/pushy.js"></script>

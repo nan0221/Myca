@@ -2,22 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/script.js"></script>
 
-    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/swiper.css" />
     <script src="js/swiper.js"></script>
 
-    <link rel="stylesheet" href="css/pushy.css">
+    <link rel="stylesheet" href="css/pushy.css" />
 
-    <link rel="stylesheet" href="css/remodal.css">
-    <link rel="stylesheet" href="css/remodal-default-theme.css">
+    <link rel="stylesheet" href="css/remodal.css" />
+    <link rel="stylesheet" href="css/remodal-default-theme.css" />
 </head>
 
 <body>
@@ -29,11 +30,11 @@
             <li class="pushy-link"><a href="#">中文（简体）</a></li>
         </ul>
     </nav>
-
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
-    <div class="remodal" data-remodal-id="modal">
-        <div class="right">
+    <!-- Login Modal-->
+    <div class="remodal" data-remodal-id="LogInModal" id="logInModal">
+        <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
 
@@ -56,7 +57,6 @@
                     <div class="half left">
                     </div>
                 </div>
-
             </form>
         </div>
 
@@ -72,49 +72,45 @@
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
-        session_start();
-        if($_SESSION['auth']){
-        ?>
-                <div>
-                    <!--修改这个div改变欢迎词和logout的排版-->
-                    <form action="logout.php" method="post">
-                        <span>Welcome</span>
-                        <?php
-            echo $_SESSION['Username'];
+                session_start();
             ?>
-                            <br/>
-                            <input type="submit" name="logout" value="Log out" />
-                    </form>
-                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="js/remodal.js"></script>
                 <?php
-        }else{
-        ?>
-                    <!--
-<div class="right user">
-    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-</div>
--->
-                    <ul class="right user">
-                        <li>
-                            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-                            <ul>
-                                <a data-remodal-target="modal">
-                                    <li>Log in</li>
-                                </a>
-                                <!--
-<li>View Timeline</li>
-<li>Log out</li>
--->
-                            </ul>
-                        </li>
-                    </ul>
+                if($_SESSION['auth']){
+                ?>
+                    <div>
+                        <!--修改这个div改变欢迎词和logout的排版-->
+                        <form action="logout.php" method="post">
+                            <span>Welcome</span>
+                            <?php
+                        echo $_SESSION['Username'];
+                        ?>
+                                <br/>
+                                <input type="submit" name="logout" value="Log out" />
+                        </form>
+                    </div>
                     <?php
+                }else{
+                ?>
+
+                        <ul class="right user">
+                            <li>
+                                <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                                <ul>
+                                    <a data-remodal-target="LogInModal">
+                                        <li>Log in</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <?php
         }
         ?>
 
 
         </header>
-
 
         <div class="block">
             <h1>Design your own postcard</h1>
@@ -141,156 +137,164 @@
             </a>
         </div>
 
-        <div class="block grey" id="timeline">
-            <h1>Time line</h1>
-            <!--        <h5>Click to turn over the postcard</h5>-->
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <?PHP
+        <?PHP
             session_start();
             if($_SESSION['auth']){
                 include('Connect.php');
                 $id = $_SESSION['Username'];
                 $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
                 $postreslut=mysql_query($postimg);
+                ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/swiper.js"></script>
+            <link rel="stylesheet" href="css/swiper.css" />
+            <div class="block grey" id="timeline">
+                <h1>Time line</h1>
+                <!--        <h5>Click to turn over the postcard</h5>-->
+
+                <!-- Slider main container -->
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+
+                        <?PHP
                 while($row = mysql_fetch_assoc($postreslut)){
             ?>
-
-                        <!-- Slides -->
-                        <div class="swiper-slide" id="timeline-slide">
-                            <div class="timeline-line">
-                                <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                            <!-- Slides -->
+                            <div class="swiper-slide" id="timeline-slide">
+                                <div class="timeline-line">
+                                    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                                </div>
+                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
                             </div>
-                            <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
 
-                        </div>
-
-
-                        <?php          
+                            <?php
                     }
+                ?>
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div class="blank"> </div>
+            </div>
+            <?php
                 }else{
                 ?>
+                <div class="block grey">
+                    <h1>Time line</h1>
+                    <!--        <h5>Click to turn over the postcard</h5>-->
+                    <h5>All the postcards you have generated will be shown here after you are <span class="important">logged in</span></h5>
+                    <!-- Slider main container -->
+                    <div class="swiper-container" id="notLoggedIn">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
                             <!-- Slides -->
-
                             <div class="swiper-slide">
                                 <img class="imgSize280" src="img/timeline_placeholder_2x.jpg" alt="Your time line will be shown here after you are logged in" />
                             </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <?php
+        }
+        ?>
+
+
+                    <div class="block">
+                        <h1>Promotional content</h1>
+                        <h5><span class="important">optional</span> content</h5>
+                        <!-- Slider main container -->
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                            </div>
+
                             <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
 
-
-                            <?php
-                    }                        
-                ?>
-
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-            <div class="blank"> </div>
-        </div>
-
-
-        <div class="block">
-            <h1>Promotional content</h1>
-            <h5><span class="important">optional</span> content</h5>
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                </div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-            <div class="blank"> </div>
-            <a href="design.html">
-                <div class="button textWhite">Start to design</div>
-            </a>
-        </div>
-
-        <div class="block grey">
-            <h1>Promotional content</h1>
-            <h5><span class="important">optional</span> content</h5>
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                    <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                </div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-            <div class="blank"></div>
-            <a href="design.html">
-                <div class="button textWhite">Start to design</div>
-            </a>
-        </div>
-
-
-
-
-
-        <div class="block" id="popular">
-            <h1>Popular works</h1>
-            <h5><span class="important">Click to vote</span> for them</h5>
-            <!-- Slider main container -->
-            <div class="swiper-container votable">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper maskEffect view">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                        <div class="mask">
-                            <a href="#" class="operation"></a>
                         </div>
+                        <div class="blank"> </div>
+                        <a href="design.html">
+                            <div class="button textWhite">Start to design</div>
+                        </a>
                     </div>
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                        <div class="mask">
-                            <a href="#" class="operation"></a>
+
+                    <div class="block grey">
+                        <h1>Promotional content</h1>
+                        <h5><span class="important">optional</span> content</h5>
+                        <!-- Slider main container -->
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                            </div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
                         </div>
+                        <div class="blank"></div>
+                        <a href="design.html">
+                            <div class="button textWhite">Start to design</div>
+                        </a>
                     </div>
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                        <div class="mask">
-                            <a href="#" class="operation"></a>
+
+                    <div class="block" id="popular">
+                        <h1>Popular works</h1>
+                        <h5><span class="important">Click to vote</span> for them</h5>
+                        <!-- Slider main container -->
+                        <div class="swiper-container votable">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper maskEffect view">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                                    <div class="mask">
+                                        <a href="#" class="operation"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                                    <div class="mask">
+                                        <a href="#" class="operation"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                                    <div class="mask">
+                                        <a href="#" class="operation"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
                         </div>
+
+
                     </div>
-                </div>
 
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-
-
-        </div>
-
-
-
-
-        <footer>
-            <p>- a uq deco7180 project -</p>
-            <p>designed and implemented by</p>
-            <p>team mytea</p>
-            <p>powered by</p>
-            <p>trove</p>
-        </footer>
+                    <footer>
+                        <p>- a uq deco7180 project -</p>
+                        <p>designed and implemented by</p>
+                        <p>team mytea</p>
+                        <p>powered by</p>
+                        <p>trove</p>
+                    </footer>
     </div>
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
