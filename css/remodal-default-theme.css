@@ -124,13 +124,13 @@
     color: #555555;
 }
 
-.remodal-close:before {
+.remodal-close:after {
     /*    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;*/
     font-size: 25px;
     line-height: 35px;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     display: block;
     width: 35px;
     content: "\00d7";

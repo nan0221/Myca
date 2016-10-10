@@ -1,16 +1,16 @@
 $(document).ready(function () {
     //    for every page
-    $('.fullMask').hide();
-    $('#languageDropDown').hide();
-    $('#userDropDown').hide();
-//    $('.user').click(function () {
-//        $('.fullMask').toggle();
-//        $('#userDropDown').toggle();
-//    });
-    $('.close').click(function () {
-        $('.fullMask').toggle();
-        $('#userDropDown').toggle();
-    });
+    //    $('.fullMask').hide();
+    //    $('#languageDropDown').hide();
+    //    $('#userDropDown').hide();
+    //    $('.user').click(function () {
+    //        $('.fullMask').toggle();
+    //        $('#userDropDown').toggle();
+    //    });
+    //    $('.close').click(function () {
+    //        $('.fullMask').toggle();
+    //        $('#userDropDown').toggle();
+    //    });
 
 
     //    for design page
@@ -384,9 +384,9 @@ $(document).ready(function geoFindMe() {
                 if (results[0]) {
                     var district = results[0].formatted_address.split(','); // Only need districts name
                     output.innerHTML = district[1];
-					var district_without = district[1].split(' ');
-					district_without.splice(-1);    
-					console.log(district_without.join(' '));
+                    var district_without = district[1].split(' ');
+                    district_without.splice(-1);
+                    console.log(district_without.join(' '));
                 }
             } else {
                 window.alert('Geocoder failed due to: ' + status); //Error check
@@ -397,7 +397,7 @@ $(document).ready(function geoFindMe() {
 
     function error() { //Error check
         output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
-		
+
     };
 
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
@@ -413,19 +413,19 @@ function myMap() {
     var mapOptions = {
         center: myCenter, // Set the center and zoom for map
         zoom: 13,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
-	
-	// listen for the window resize event & trigger Google Maps to update as well
-    $(document).ready(function() {
-		google.maps.event.addListener(map, 'idle', function() {
-			google.maps.event.trigger(map, 'resize');
-		});
-	//Reference:https://developers.google.com/maps/documentation/javascript/reference
-	}); 
 
-	
+    // listen for the window resize event & trigger Google Maps to update as well
+    $(document).ready(function () {
+        google.maps.event.addListener(map, 'idle', function () {
+            google.maps.event.trigger(map, 'resize');
+        });
+        //Reference:https://developers.google.com/maps/documentation/javascript/reference
+    });
+
+
     var geocoder = new google.maps.Geocoder();
     // Reverse geocoding code(transform coordinates into address)  
     google.maps.event.addListener(map, 'click', function (event) {
@@ -435,10 +435,10 @@ function myMap() {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
                     // Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD
-                    var district = results[0].formatted_address.split(',');  
-					var district_without = district[1].split(' ');
-					district_without.splice(-1);    
-					console.log(district_without.join(' '));
+                    var district = results[0].formatted_address.split(',');
+                    var district_without = district[1].split(' ');
+                    district_without.splice(-1);
+                    console.log(district_without.join(' '));
                 } else {
                     window.alert('No results found'); //Error check
                 }
