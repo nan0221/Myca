@@ -384,7 +384,9 @@ $(document).ready(function geoFindMe() {
                 if (results[0]) {
                     var district = results[0].formatted_address.split(','); // Only need districts name
                     output.innerHTML = district[1];
-					console.log(district[1]);
+					var district_without = district[1].split(' ');
+					district_without.splice(-1);    
+					console.log(district_without.join(' '));
                 }
             } else {
                 window.alert('Geocoder failed due to: ' + status); //Error check
@@ -394,22 +396,36 @@ $(document).ready(function geoFindMe() {
     }
 
     function error() { //Error check
-        output.innerHTML = "Geolocation is not supported by your browsers";
+        output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
+		
     };
 
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
     navigator.geolocation.getCurrentPosition(success, error);
 })
 
+
+
 // If users click I'm not here
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
-    var myCenter = new google.maps.LatLng(-27.438119, 152.989124); // Set default center of map(Brisbane in this situstion)
+    var myCenter = new google.maps.LatLng(-27.445824, 153.000060); // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
         center: myCenter, // Set the center and zoom for map
-        zoom: 13
+        zoom: 13,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
+	
+	// listen for the window resize event & trigger Google Maps to update as well
+    $(document).ready(function() {
+		google.maps.event.addListener(map, 'idle', function() {
+			google.maps.event.trigger(map, 'resize');
+		});
+	//Reference:https://developers.google.com/maps/documentation/javascript/reference
+	}); 
+
+	
     var geocoder = new google.maps.Geocoder();
     // Reverse geocoding code(transform coordinates into address)  
     google.maps.event.addListener(map, 'click', function (event) {
