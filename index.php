@@ -50,12 +50,8 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
-                    <div class="half right">
-                        <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                        <input class="save textGrey" type="submit" name="login" value="Log in" />
-                    </div>
-                    <div class="half left">
-                    </div>
+                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                    <input class="save textGrey" type="submit" name="login" value="Log in" />
                 </div>
             </form>
         </div>

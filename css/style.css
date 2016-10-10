@@ -331,9 +331,11 @@ h5 {
     border-radius: 8px;
     background-color: #ECB733;
     display: inline-block;
+/*
     position: absolute;
     top: 0;
     left: -139px;
+*/
     border: 0;
 }
 
@@ -343,9 +345,11 @@ h5 {
     border-radius: 8px;
     background-color: #B6B6B6;
     display: inline-block;
+/*
     position: absolute;
     top: 0;
     left: 4px;
+*/
     border: 0;
 }
 
@@ -878,7 +882,7 @@ input {
     margin: 0;
     padding: 16px 4px 16px 0;
     list-style: none;
-/*
+    /*
     -webkit-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
     -moz-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
     box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
