@@ -35,14 +35,33 @@
     <div class="site-overlay"></div>
 
     <div class="remodal" data-remodal-id="modal">
-        <button data-remodal-action="close" class="remodal-close"></button>
-        <h1>Log in</h1>
-        <p>
-            Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-        </p>
-        <br>
-        <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-        <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        <div class="right">
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+
+        <div id="loginForm">
+            <form action="login.php" method="post" id="login">
+                <div class="center">
+                    <label for="username"><img class="imgSize24" src="img/username_2x.png" /></label>
+                    <input id="username" type="text" placeholder=" username" name="name" />
+                </div>
+                <div class="center">
+                    <label for="password"><img class="imgSize24" src="img/password_2x.png" /></label>
+                    <input id="password" type="password" placeholder=" password" name="password" />
+                </div>
+                <div class="blank"> </div>
+                <div class="buttonHeight">
+                    <div class="half right">
+                        <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                        <input class="save textGrey" type="submit" name="login" value="Log in" />
+                    </div>
+                    <div class="half left">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
     </div>
 
     <div class="remodal-bg">
@@ -60,7 +79,7 @@
                 <li>
                     <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
                     <ul>
-                        <a href="#modal">
+                        <a data-remodal-target="modal">
                             <li>Log in</li>
                         </a>
                         <!--
@@ -72,44 +91,6 @@
             </ul>
 
         </header>
-        <div class="fullMask ">
-            <div class="dropDownList" id="userDropDown">
-                <div class="close"><img class="imgSize24" src="img/close_2x.png" alt="Go back to the page"></div>
-                <div id="loginForm">
-                    <form action="login.php" method="post" id="login">
-                        <div class="center">
-                            <span class="label"><img class="imgSize24" src="img/username_2x.png" /></span>
-                            <span><input id="username" type="text" placeholder=" username" name="name" /></span>
-                        </div>
-                        <div class="center">
-                            <span class="label"><img class="imgSize24" src="img/password_2x.png" /></span>
-                            <span><input id="password" type="password" placeholder=" password" name="password" /></span>
-                        </div>
-                        <div class="blank"> </div>
-                        <div class="blank"> </div>
-                        <div class="blank"> </div>
-                        <!--
-                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-<input class="save textGrey" type="submit" name="login" value="Log in" />
--->
-                        <div class="buttonHeight">
-                            <div class="half right">
-                                <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                                <input class="save textGrey" type="submit" name="login" value="Log in" />
-                                <!--
-                            <div class="share textWhite">Sign up</div>
-<div class="save textGrey">Log in</div>
--->
-                            </div>
-                            <div class="half left">
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
 
 
         <div class="block" id="result">

@@ -293,6 +293,7 @@ h5 {
     border-radius: 8px;
     background-color: #ECB733;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .blank {
@@ -846,19 +847,9 @@ input {
     right: 20px;
 }
 
-#loginForm {
-    position: fixed;
-    top: 15%;
-    width: 100%;
-}
-
 #loginForm .imgSize24 {
-    width: 20px;
-    height: 20px;
-}
-
-#loginForm .label img {
-    padding-top: 4px;
+    width: 16px;
+    height: 16px;
 }
 
 #loginForm .center {
