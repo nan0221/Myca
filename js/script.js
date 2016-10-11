@@ -45,22 +45,62 @@ $(document).ready(function () {
     });
 
     //    for design page
-    $('#taskList').hide();
-    $('#step1Instruction').hide();
-    $('#step1Content').hide();
-    $('#step2Branch').hide();
-    $('#step3Instruction').hide();
-    $('#step3Content').hide();
-    $('#step4Instruction').hide();
-    $('#step4Content').hide();
-    $('#step5Instruction').hide();
-    $('#step5Content').hide();
-    $('#step6Instruction').hide();
-    $('#step6Content').hide();
+    showStep2(); // initialization
+
+    $('#notification').click(function(){
+        var inst = $('[data-remodal-id=TaskListModal]').remodal();
+        inst.open();
+    });
+
+    $('#taskListModal ul li:eq(0)').click(function(){
+        var inst = $('[data-remodal-id=TaskListModal]').remodal();
+        inst.close();
+        $('#step2Instruction').show();
+        $('#step2Content').show();
+        $('#step2Branch').hide();
+        $('#step3Instruction').hide();
+        $('#step3Content').hide();
+        $('#step4Instruction').hide();
+        $('#step4Content').hide();
+        $('#step6Instruction').hide();
+        $('#step6Content').hide();
+    });
+
+    $('#taskListModal ul li:eq(1)').click(function(){
+        if(currentLocation != null){
+            var inst = $('[data-remodal-id=TaskListModal]').remodal();
+            inst.close();
+            showStep3();
+        }
+        else {
+            alert('You must choose your location first.');
+        }
+    });
+
+    $('#taskListModal ul li:eq(2)').click(function(){
+        if(currentLocation != null){
+        var inst = $('[data-remodal-id=TaskListModal]').remodal();
+        inst.close();
+        showStep4();
+        }
+        else {
+            alert('You must choose your location first.');
+        }
+    });
+
+    $('#taskListModal ul li:eq(3)').click(function(){
+        if(currentLocation != null){
+        var inst = $('[data-remodal-id=TaskListModal]').remodal();
+        inst.close();
+        showStep6();
+        }
+        else {
+            alert('You must choose your location first.');
+        }
+    });
+
 
     $('#step2Content').find('.button').click(function () {
-
-
         loadedImages = [];
         found = 0;
         //get input values
@@ -87,6 +127,8 @@ $(document).ready(function () {
         });
 
         $('.inProgress').css('width', '50%');
+        $('#notification p').html('You are at Step2/4');
+        console.log('currentLocation: ',currentLocation);
         showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
@@ -94,7 +136,34 @@ $(document).ready(function () {
         $('#step2Branch').show();
     });
     $('#step2Branch').find('.button').click(function () {
+        loadedImages = [];
+        found = 0;
+        //get input values
+        //        var searchTerm = $('#step2Instruction>h1').val().trim();
+        //        searchTerm = searchTerm.replace(/ /g, "%20");
+        //        var searchTerm = 'st.lucia';
+        var searchTerm = currentLocation;
+        //        var sortBy = $("#sortBy").val();
+        var sortBy = 'dateasc';
+        var apiKey = "kr6iv720kob8nph6";
+
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+
+
+        //get the JSON information we need to display the images
+        $.getJSON(url, function (data) {
+            $('#mainPicture').empty();
+            //            console.log(data);
+            $.each(data.response.zone[0].records.work, processImages);
+            //printImages();
+
+            waitForFlickr(); // Waits for the flickr images to load
+        });
+
         $('.inProgress').css('width', '50%');
+        $('#notification p').html('You are at Step2/4');
+        console.log('currentLocation: ',currentLocation);
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
@@ -125,12 +194,16 @@ $(document).ready(function () {
         });
         console.log('front image:', selected_front_image);
         $('.inProgress').css('width', '75%');
+        $('#notification p').html('You are at Step3/4');
+        console.log('currentLocation: ',currentLocation);
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
-        console.log('front image:', selected_back_image);
+        console.log('back image:', selected_back_image);
         $('.inProgress').css('width', '100%');
-        showStep5();
+        $('#notification p').html('You are at Step4/4');
+        console.log('currentLocation: ',currentLocation);
+        showStep6();
     });
     $('#step5Content').find('.button').click(function () {
         showStep6();
@@ -151,6 +224,21 @@ $(document).ready(function () {
         selected_back_image = $(this).attr("src");
     });
 
+    function showStep2() {
+        $('#step1Instruction').hide();
+        $('#step1Content').hide();
+        $('#step2Instruction').show();
+        $('#step2Content').show();
+        $('#step2Branch').hide();
+        $('#step3Instruction').hide();
+        $('#step3Content').hide();
+        $('#step4Instruction').hide();
+        $('#step4Content').hide();
+        $('#step5Instruction').hide();
+        $('#step5Content').hide();
+        $('#step6Instruction').hide();
+        $('#step6Content').hide();
+    }
 
     function showStep3() {
         $('#step2Instruction').hide();
@@ -158,29 +246,36 @@ $(document).ready(function () {
         $('#step2Branch').hide();
         $('#step3Instruction').show();
         $('#step3Content').show();
+        $('#step4Instruction').hide();
+        $('#step4Content').hide();
+        $('#step6Instruction').hide();
+        $('#step6Content').hide();
+
     }
 
     function showStep4() {
+        $('#step2Instruction').hide();
+        $('#step2Content').hide();
+        $('#step2Branch').hide();
         $('#step3Instruction').hide();
         $('#step3Content').hide();
         $('#step4Instruction').show();
         $('#step4Content').show();
+        $('#step6Instruction').hide();
+        $('#step6Content').hide();
     }
 
-    function showStep5() {
+    function showStep6() {
+        $('#step2Instruction').hide();
+        $('#step2Content').hide();
+        $('#step2Branch').hide();
+        $('#step3Instruction').hide();
+        $('#step3Content').hide();
         $('#step4Instruction').hide();
         $('#step4Content').hide();
         $('#step6Instruction').show();
         $('#step6Content').show();
     }
-
-    function showStep6() {
-        $('#step5Instruction').hide();
-        $('#step5Content').hide();
-        $('#step6Instruction').show();
-        $('#step6Content').show();
-    }
-
     var loadedImages = [];
     var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
     var found = 0;
@@ -456,7 +551,7 @@ $(document).ready(function () {
     }
 });
 
-var currentLocation;
+
 $(document).ready(function geoFindMe() {
     var output = document.getElementById("map1"); // Get map by id = 'out'
     if (!navigator.geolocation) { // Error check
@@ -489,7 +584,7 @@ $(document).ready(function geoFindMe() {
                     output.innerHTML = district[1];
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
-                    currentLocation = district_without.join(' ')
+                    currentLocation = district_without.join(' ');
                     console.log('l', currentLocation);
                 }
             } else {
@@ -508,6 +603,7 @@ $(document).ready(function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
 })
 
+var currentLocation;
 // If users click I'm not here or want to locating manually
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'

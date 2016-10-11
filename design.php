@@ -33,7 +33,7 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
-
+    <!-- Login Modal -->
     <div class="remodal" data-remodal-id="LogInModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
@@ -61,7 +61,30 @@
 
             </form>
         </div>
+    </div>
 
+    <!-- Task list Modal -->
+    <div class="remodal" data-remodal-id="TaskListModal" id="taskListModal">
+        <div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <h1>All tasks you need to do</h1>
+        <h1>to design a postcard</h1>
+        <div class="blank"></div>
+        <ul>
+            <li>
+                1. Choose your location
+            </li>
+            <li>
+                2. Choose a picture for the front side of the postcard
+            </li>
+            <li>
+                3. Choose a picture for the postage stamp
+            </li>
+            <li>
+                4. Type in your greeting
+            </li>
+        </ul>
     </div>
 
     <div class="remodal-bg">
@@ -73,46 +96,46 @@
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
-                session_start();
+            session_start();
             ?>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                <script src="js/remodal.js"></script>
-                <?php
-                if($_SESSION['auth']){
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/remodal.js"></script>
+            <?php
+            if($_SESSION['auth']){
                 ?>
-                    <script>
-                        var inst = $('[data-remodal-id=LogInModal]').remodal();
-                        inst.destroy();
-                    </script>
-                    <div>
-                        <!--修改这个div改变欢迎词和logout的排版-->
-                        <form action="logout.php" method="post">
-                            <span>Welcome</span>
-                            <?php
+                <script>
+                var inst = $('[data-remodal-id=LogInModal]').remodal();
+                inst.destroy();
+                </script>
+                <div>
+                    <!--修改这个div改变欢迎词和logout的排版-->
+                    <form action="logout.php" method="post">
+                        <span>Welcome</span>
+                        <?php
                         echo $_SESSION['Username'];
                         ?>
-                                <br/>
-                                <input type="submit" name="logout" value="Log out" />
-                        </form>
-                    </div>
-                    <?php
-                }else{
+                        <br/>
+                        <input type="submit" name="logout" value="Log out" />
+                    </form>
+                </div>
+                <?php
+            }else{
                 ?>
 
-                        <ul class="right user">
-                            <li>
-                                <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-                                <ul>
-                                    <a data-remodal-target="LogInModal">
-                                        <li>Log in</li>
-                                    </a>
-                                </ul>
-                            </li>
+                <ul class="right user">
+                    <li>
+                        <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                        <ul>
+                            <a data-remodal-target="LogInModal">
+                                <li>Log in</li>
+                            </a>
                         </ul>
+                    </li>
+                </ul>
 
-                        <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
 
         </header>
 
@@ -148,30 +171,8 @@
         </div>
 
         <div class="notification" id="notification">
-            <p>Your postcard is in the landscape layout.</p>
+            <p>You are at Step 1/4</p>
         </div>
-        <div class="block dropdown" id="taskList">
-            <div class="list">
-                <span class="listItem left">1. Choose landscape or portrait layout</span>
-                <span class="goto right"><img class="center imgSize11" src="img/checked_2x.png" alt="checked"></span></div>
-            <div class="list">
-                <span class="listItem left">2. Confirm your location</span>
-                <span class="goto right"><img class="center imgSize11" src="img/goto_2x.png" alt="go to"></span></div>
-            <div class="list">
-                <span class="listItem left">3. Choose a picture for the front side of the postcard</span>
-                <span class="goto right"><img class="center imgSize11" src="img/goto_2x.png" alt="go to"></span></div>
-            <div class="list">
-                <span class="listItem left">4. Choose a picture for the postage stamp</span>
-                <span class="goto right"><img class="center imgSize11" src="img/goto_2x.png" alt="go to"></span></div>
-            <div class="list">
-                <span class="listItem left">5. Choose a short piece of history for the text on the back</span>
-                <span class="goto right"><img class="center imgSize11" src="img/goto_2x.png" alt="go to"></span></div>
-            <div class="list">
-                <span class="listItem left">6. Type in your greeting</span>
-                <span class="goto right"><img class="center imgSize11" src="img/goto_2x.png" alt="go to"></span></div>
-            <div class="blank"></div>
-        </div>
-
         <div class="step" id="step1Instruction">
             <span class="left"><h4>Please choose the layout</h4></span>
             <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
@@ -196,7 +197,7 @@
         <!-- Google map -->
         <!-- Get users current location -->
         <div class="step" id="step2Instruction">
-            <span class="left"><h4>Please confirm your current location</h4></span>
+<h4>Please confirm your current location</h4>
             <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
             <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
         </div>
@@ -237,12 +238,7 @@
             <div class="swiper-container large-group">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" id="mainPicture">
-                    <!-- Slides -->
-                    <!--
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                -->
+
                 </div>
 
                 <!-- If we need navigation buttons -->
@@ -337,32 +333,18 @@
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script>
-        $(document).ready(function () {
-            $("#greeting").charCount();
-        });
-        //        $(".swiper-container").each(function (index, element) {
-        //            var $this = $(this);
-        //            var swiper = new Swiper(this, {
-        //                pagination: $this.find(".swiper-pagination")[0],
-        //                slidesPerView: 'auto',
-        //                centeredSlides: true,
-        //                paginationClickable: true,
-        //                spaceBetween: 30,
-        //                loop: false,
-        //                // Navigation arrows
-        //                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
-        //                nextButton: $this.find(".swiper-button-next")[0],
-        //                prevButton: $this.find(".swiper-button-prev")[0]
-        //            });
-        //        });
+    $(document).ready(function () {
+        $("#greeting").charCount();
+    });
 
-        var swiper_preview = new Swiper('#preview', {
-            pagination: $('#preview').find(".swiper-pagination")[0],
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            paginationClickable: true,
-            spaceBetween: 30,
-            loop: false,
+
+    var swiper_preview = new Swiper('#preview', {
+        pagination: $('#preview').find(".swiper-pagination")[0],
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        paginationClickable: true,
+        spaceBetween: 30,
+        loop: false,
             // Navigation arrows
             // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
             nextButton: $('#preview').find(".swiper-button-next")[0],

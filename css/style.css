@@ -415,6 +415,32 @@ footer p:first {
     padding-left: 20px;
 }
 
+#taskListModal h1:last-of-type {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ECB733;
+}
+
+#taskListModal ul {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+}
+#taskListModal ul li{
+    margin-bottom: 4px;
+    padding: 6px 4px;
+}
+
+#taskListModal ul li:hover, #taskListModal ul li:focus{
+    background-color: rgba(236, 183, 51, 0.2);
+}
+
 .dropdown {
     padding-top: 16px;
     display: block;
@@ -446,21 +472,6 @@ footer p:first {
     display: inline-block;
 }
 
-.dropdown .goto {
-    width: 42px;
-    height: 24px;
-    display: inline-block;
-    background-color: rgba(236, 183, 51, 0.2);
-    margin-right: 20px;
-    margin-top: 0px;
-}
-
-.dropdown .goto>img {
-    height: 8px;
-    width: auto;
-    margin: 0 auto;
-    margin-top: 8px;
-}
 
 .step {
     height: 36px;
