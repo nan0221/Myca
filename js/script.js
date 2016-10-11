@@ -13,20 +13,35 @@ $(document).ready(function () {
     //    });
     
     // for index page
+    $('.user a').click(function(){
+        var inst = $('[data-remodal-id=LogInModal]').remodal();
+        inst.open();
+    });
+
     $('#timeline img').click(function(){
-        var inst1 = $('[data-remodal-id=EditModal]').remodal();
-        inst1.open();
+        var inst = $('[data-remodal-id=EditModal]').remodal();
+        inst.open();
     });
 
     $('#popular img').click(function(){
-        var inst2 = $('[data-remodal-id=VoteModal]').remodal();
-        inst2.open();
+        var inst = $('[data-remodal-id=VoteModal]').remodal();
+        inst.open();
     });
 
     // for share page
     $('#results img').click(function(){
-        var inst3 = $('[data-remodal-id=EditModal]').remodal();
-        inst3.open();
+        var inst = $('[data-remodal-id=EditModal]').remodal();
+        inst.open();
+    });
+
+    $('.share').click(function(){
+        var inst = $('[data-remodal-id=ShareModal]').remodal();
+        inst.open();
+    });
+
+    $('.save').click(function(){
+        var inst = $('[data-remodal-id=SaveModal]').remodal();
+        inst.open();
     });
 
     //    for design page
