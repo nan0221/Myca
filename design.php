@@ -131,10 +131,10 @@
                     <img id="bg2" src="img/bg2.jpg" alt="bg2" width="0" height="0">
                     <img id="water-mark" src="img/stamp (2).jpg" alt="water-mark" width="0" height="0">
                     <div class="swiper-slide">
-                        <canvas class=".imgSize280" id="myCanvas1" width="224" height="150" style="border:1px solid #000000;"></canvas>
+                        <canvas id="myCanvas1" width="224" height="150" style="border:1px solid #000000;"></canvas>
                     </div>
                     <div class="swiper-slide">
-                        <canvas class=".imgSize280" id="myCanvas2" width="224" height="150" style="border:1px solid #000000;"></canvas>
+                        <canvas id="myCanvas2" width="224" height="150" style="border:1px solid #000000;"></canvas>
                     </div>
                 </div>
                 <!-- If we need pagination -->
