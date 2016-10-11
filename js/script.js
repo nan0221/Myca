@@ -439,10 +439,10 @@ $(document).ready(function geoFindMe() {
         //output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
         console.log("Latitude " + latitude + " Longitude " + longitude);
         getAddressFromLatLang(latitude, longitude);
-        // Present image screenshot by their current location for users to ensure(optional)
-        // var img = new Image();
-        // img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
-        // output.appendChild(img);
+        /* Present image screenshot by their current location for users to ensure(optional)
+        /* var img = new Image();
+        /* img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
+        /* output.appendChild(img);  */
         //Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
     };
 
@@ -477,7 +477,7 @@ $(document).ready(function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
 })
 
-// If users click I'm not here
+// If users click I'm not here or want to locating manually
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
     var myCenter = new google.maps.LatLng(-27.445824, 153.000060); // Set default center of map(Brisbane in this situstion)
@@ -505,7 +505,7 @@ function myMap() {
         }, function (results, status) { // The returning is a .json file include places information
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
-                    // Ex: The address 10 Abingdon Street, Woolloongabba QLD 4102, Australian. We only want the keyword be Woolloongabba QLD
+                    // Restrict address to be only disrict and state
                     var district = results[0].formatted_address.split(',');
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
@@ -551,8 +551,6 @@ function deleteOverlays() {
 
 
 (function ($) {
-
-
 })(jQuery);
 $(document).ready(function () {
     // Pstcard front-side
