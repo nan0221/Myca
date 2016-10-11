@@ -432,12 +432,14 @@ footer p:first {
     font-weight: 300;
     text-align: left;
 }
-#taskListModal ul li{
+
+#taskListModal ul li {
     margin-bottom: 4px;
     padding: 6px 4px;
 }
 
-#taskListModal ul li:hover, #taskListModal ul li:focus{
+#taskListModal ul li:hover,
+#taskListModal ul li:focus {
     background-color: rgba(236, 183, 51, 0.2);
 }
 
@@ -471,7 +473,6 @@ footer p:first {
     border: 1px solid #B6B6B6;
     display: inline-block;
 }
-
 
 .step {
     height: 36px;
@@ -671,8 +672,6 @@ footer p:first {
     position: relative;
 }
 
-
-
 .timeline-line {
     height: 48px;
     width: 768px;
@@ -736,7 +735,8 @@ footer p:first {
 .socialMedia {
     width: 120px;
     height: 24px;
-    margin-bottom: 12px;
+    padding-bottom: 20px;
+    margin: 0 auto;
 }
 
 .socialMedia:last {

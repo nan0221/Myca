@@ -64,7 +64,7 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        
+
         <div>
             <form action="" method="post" id="edit">
                 <div class="buttonHeight">
@@ -79,19 +79,25 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        
-        <div>
-			<!--Share link to facebook, twitter and google plus-->
-            <div class="socialMedia"><a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/design.html" target="_blank">
-				<img src="img/facebook.png" alt="Share to Facebook " /></a></div>
-			<!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
+
+        <div class="shareModal">
+            <!--Share link to facebook, twitter and google plus-->
+            <div class="socialMedia">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/design.html" target="_blank">
+                    <img src="img/facebook.png" alt="Share to Facebook " /></a>
+            </div>
+            <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
             <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
-            <div class="socialMedia"><a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/">
-				<img src="img/googleplus.png" alt="Share to Google Plus" /></a></div>
-			<!--Reference: https://developers.google.com/+/web/share/ -->
-            <div class="socialMedia"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/design.html">
-				<img src="img/twitter.png" alt="Share to Twitter" /></a></div>
-			<!--Reference: https://dev.twitter.com/web/tweet-button -->
+            <div class="socialMedia">
+                <a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/">
+                    <img src="img/googleplus.png" alt="Share to Google Plus" /></a>
+            </div>
+            <!--Reference: https://developers.google.com/+/web/share/ -->
+            <div class="socialMedia">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/design.html">
+                    <img src="img/twitter.png" alt="Share to Twitter" /></a>
+            </div>
+            <!--Reference: https://dev.twitter.com/web/tweet-button -->
         </div>
     </div>
     <!-- Save Modal-->
@@ -99,9 +105,9 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        
+
         <div>
-			
+
         </div>
     </div>
 
@@ -168,21 +174,21 @@
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script>
-    $(".swiper-container").each(function (index, element) {
-        var $this = $(this);
-        var swiper = new Swiper(this, {
-            pagination: $this.find(".swiper-pagination")[0],
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            paginationClickable: true,
-            spaceBetween: 30,
-            loop: false,
+        $(".swiper-container").each(function (index, element) {
+            var $this = $(this);
+            var swiper = new Swiper(this, {
+                pagination: $this.find(".swiper-pagination")[0],
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 30,
+                loop: false,
                 // Navigation arrows
                 // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
                 nextButton: $this.find(".swiper-button-next")[0],
                 prevButton: $this.find(".swiper-button-prev")[0]
             });
-    });
+        });
     </script>
 
 </body>
