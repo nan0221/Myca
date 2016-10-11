@@ -11,7 +11,23 @@ $(document).ready(function () {
     //        $('.fullMask').toggle();
     //        $('#userDropDown').toggle();
     //    });
+    
+    // for index page
+    $('#timeline img').click(function(){
+        var inst1 = $('[data-remodal-id=EditModal]').remodal();
+        inst1.open();
+    });
 
+    $('#popular img').click(function(){
+        var inst2 = $('[data-remodal-id=VoteModal]').remodal();
+        inst2.open();
+    });
+
+    // for share page
+    $('#results img').click(function(){
+        var inst3 = $('[data-remodal-id=EditModal]').remodal();
+        inst3.open();
+    });
 
     //    for design page
     $('#taskList').hide();

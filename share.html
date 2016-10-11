@@ -33,6 +33,7 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
+    <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
@@ -50,17 +51,38 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
-                    <div class="half right">
-                        <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                        <input class="save textGrey" type="submit" name="login" value="Log in" />
-                    </div>
-                    <div class="half left">
-                    </div>
-                </div>
 
+                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                    <input class="save textGrey" type="submit" name="login" value="Log in" />
+
+                </div>
             </form>
         </div>
+    </div>
+    <!-- Edit Modal-->
+    <div class="remodal" data-remodal-id="EditModal">
+        <div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        
+        <div>
+            <form action="" method="post" id="edit">
+                <div class="buttonHeight">
+                    <input class="share textWhite" type="submit" name="signup" value="Edit" />
+                    <input class="save textGrey" type="submit" name="login" value="View postcard" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Edit Modal-->
+    <div class="remodal" data-remodal-id="ShareModal">
+        <div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        
+        <div>
 
+        </div>
     </div>
 
 
@@ -71,11 +93,7 @@
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
-            <!--
-<div class="right user">
-    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-</div>
--->
+
             <ul class="right user">
                 <li>
                     <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
@@ -83,10 +101,6 @@
                         <a data-remodal-target="LogInModal">
                             <li>Log in</li>
                         </a>
-                        <!--
-<li>View Timeline</li>
-<li>Log out</li>
--->
                     </ul>
                 </li>
             </ul>
@@ -124,37 +138,32 @@
             </div>
             <div class="blank"> </div>
             <div class="buttonHeight">
-                <div class="half right">
-                    <div class="share textWhite">Share</div>
-                    <div class="save textGrey">Save</div>
-                </div>
-                <div class="half left">
-                </div>
+                <a class="share textWhite" data-remodal-target="ShareModal">Share</a>
+                <a class="save textGrey" data-remodal-target="SaveModal">Save</a>
             </div>
-
         </div>
 
-
     </div>
+
 
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script>
-        $(".swiper-container").each(function (index, element) {
-            var $this = $(this);
-            var swiper = new Swiper(this, {
-                pagination: $this.find(".swiper-pagination")[0],
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                paginationClickable: true,
-                spaceBetween: 30,
-                loop: false,
+    $(".swiper-container").each(function (index, element) {
+        var $this = $(this);
+        var swiper = new Swiper(this, {
+            pagination: $this.find(".swiper-pagination")[0],
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            paginationClickable: true,
+            spaceBetween: 30,
+            loop: false,
                 // Navigation arrows
                 // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
                 nextButton: $this.find(".swiper-button-next")[0],
                 prevButton: $this.find(".swiper-button-prev")[0]
             });
-        });
+    });
     </script>
 
 </body>
