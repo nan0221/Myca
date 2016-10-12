@@ -212,6 +212,8 @@
             <input name="post_add1"><div class="button textWhite">Yes, I am here!</div></input>
 			<?php
 			$post_add = $_POST['post_add1'];
+            session_start();
+            $_SESSION['post_add'] = "$post_add";
 			?>
 			</form>
             <a href="#">
