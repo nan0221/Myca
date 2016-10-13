@@ -636,6 +636,7 @@ function myMap() {
                     var district = results[0].formatted_address.split(',');
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
+					currentLocation = district_without.join(' ');
                     console.log(district_without.join(' '));
                 } else {
                     window.alert('No results found'); //Error check
