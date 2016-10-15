@@ -410,32 +410,63 @@ footer p:first {
     padding-left: 1.25em;
 }
 
-#taskListModal h1:last-of-type {
-    padding-bottom: 0.25em;
-    border-bottom: 0.063em solid #ECB733;
-}
-
-#taskListModal ul {
+.navigation {
     width: 100%;
-    height: auto;
-    min-height: 12.5em;
-    margin: 0;
-    padding: 0;
-    display: block;
-    color: #555555;
-    font-size: 11pt;
+    height: 3em;
+    background-color: #ECB733;
+    color: #FFFFFF;
     font-weight: 300;
-    text-align: left;
+    font-size: 9pt;
+    padding: 0.25em 0em 0.5em 0em;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
 }
 
-#taskListModal ul li {
-    margin-bottom: 0.25em;
-    padding: 0.375em 0.25em;
+.navigation ul {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    cursor: pointer;
 }
 
-#taskListModal ul li:hover,
-#taskListModal ul li:focus {
-    background-color: rgba(236, 183, 51, 0.2);
+.navigation li {
+    display: inline-block;
+    width: 24.2%;
+    text-align: center;
+    border-right: 0.125em solid #FFFFFF;
+}
+
+.navigation li:last-of-type {
+    border: 0;
+}
+
+#step1Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
+}
+
+#step2Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
+}
+
+#step3Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
+}
+
+#step4Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
+}
+
+#step5Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
+}
+
+#step6Instruction {
+    border-bottom: 0.125em solid #B6B6B6;
 }
 
 .dropdown {
@@ -475,7 +506,7 @@ footer p:first {
     padding-top: 0.75em;
     padding-left: 1.25em;
     padding-right: 1.25em;
-    padding-bottom: 0.75em;
+    /*    padding-bottom: 0.75em;*/
     margin: 0 auto;
     display: block;
     color: #555555;

@@ -46,53 +46,48 @@ $(document).ready(function () {
 
     //    for design page
     showStep2(); // initialization
-    //    $('input[name=address]').hide();
     $('input[name=firstimg]').hide();
     $('input[name=secondimg]').hide();
+    $('#navigation ul li:eq(0)').css('font-weight', '500');
 
-    $('#notification').click(function () {
-        var inst = $('[data-remodal-id=TaskListModal]').remodal();
-        inst.open();
+    $('#navigation ul li:eq(0)').click(function () {
+        $('#navigation ul li:eq(0)').css('font-weight', '500');
+        $('#navigation ul li:eq(1)').css('font-weight', '300');
+        $('#navigation ul li:eq(2)').css('font-weight', '300');
+        $('#navigation ul li:eq(3)').css('font-weight', '300');
+        showStep2();
     });
 
-    $('#taskListModal ul li:eq(0)').click(function () {
-        var inst = $('[data-remodal-id=TaskListModal]').remodal();
-        inst.close();
-        $('#step2Instruction').show();
-        $('#step2Content').show();
-        $('#step2Branch').hide();
-        $('#step3Instruction').hide();
-        $('#step3Content').hide();
-        $('#step4Instruction').hide();
-        $('#step4Content').hide();
-        $('#step6Instruction').hide();
-        $('#step6Content').hide();
-    });
-
-    $('#taskListModal ul li:eq(1)').click(function () {
-        if (currentLocation != null) {
-            var inst = $('[data-remodal-id=TaskListModal]').remodal();
-            inst.close();
+    $('#navigation ul li:eq(1)').click(function () {
+        if ($('input[name=address]').val() != 'Australia') {
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '500');
+            $('#navigation ul li:eq(2)').css('font-weight', '300');
+            $('#navigation ul li:eq(3)').css('font-weight', '300');
             showStep3();
         } else {
             alert('You must choose your location first.');
         }
     });
 
-    $('#taskListModal ul li:eq(2)').click(function () {
-        if (currentLocation != null) {
-            var inst = $('[data-remodal-id=TaskListModal]').remodal();
-            inst.close();
+    $('#navigation ul li:eq(2)').click(function () {
+        if ($('input[name=address]').val() != 'Australia') {
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '300');
+            $('#navigation ul li:eq(2)').css('font-weight', '500');
+            $('#navigation ul li:eq(3)').css('font-weight', '300');
             showStep4();
         } else {
             alert('You must choose your location first.');
         }
     });
 
-    $('#taskListModal ul li:eq(3)').click(function () {
-        if (currentLocation != null) {
-            var inst = $('[data-remodal-id=TaskListModal]').remodal();
-            inst.close();
+    $('#navigation ul li:eq(3)').click(function () {
+        if ($('input[name=address]').val() != 'Australia') {
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '300');
+            $('#navigation ul li:eq(2)').css('font-weight', '300');
+            $('#navigation ul li:eq(3)').css('font-weight', '500');
             showStep6();
         } else {
             alert('You must choose your location first.');

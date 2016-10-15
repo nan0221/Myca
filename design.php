@@ -172,13 +172,25 @@
             </div>
         </div>
 
-        <div class="notification" id="notification">
-            <p>You are at Step 1/4</p>
+        <div class="navigation" id="navigation">
+            <ul>
+                <li>
+                    1. Locating
+                </li>
+                <li>
+                    2. Design front side
+                </li>
+                <li>
+                    3. Design back side
+                </li>
+                <li>
+                    4. Type in greeting
+                </li>
+            </ul>
         </div>
+
         <div class="step" id="step1Instruction">
-            <span class="left"><h4>Please choose the layout</h4></span>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
+            <h4>Please choose the layout</h4>
         </div>
 
         <div class="block grey" id="step1Content">
@@ -200,8 +212,6 @@
         <!-- Get users current location -->
         <div class="step" id="step2Instruction">
             <h4>Please confirm your current location</h4>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
         </div>
         <div class="block grey " id="step2Content">
             <!--        TO CHANGE: Information shown on screen when geolocation is n/a-->
@@ -227,9 +237,7 @@
         </div>
 
         <div class=" step" id="step3Instruction">
-            <span class="left"><h4>Please choose a picture for the front side of the postcard</h4></span>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
+            <h4>Please choose a picture for the front side of the postcard</h4>
 
         </div>
 
@@ -254,9 +262,7 @@
         </div>
 
         <div class=" step" id="step4Instruction">
-            <span class="left"><h4>Please choose a picture for postage stamp</h4></span>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
+            <h4>Please choose a picture for postage stamp</h4>
         </div>
 
         <div class="block grey " id="step4Content">
@@ -279,9 +285,7 @@
         </div>
 
         <div class=" step" id="step5Instruction">
-            <span class="left"><h4>Please choose an article for the back side</h4></span>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
+            <h4>Please choose an article for the back side</h4>
 
         </div>
 
@@ -312,9 +316,7 @@
             </a>
         </div>
         <div class=" step" id="step6Instruction">
-            <span class="left"><h4>Please type in your greeting</h4></span>
-            <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
-            <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
+            <h4>Please type in your greeting</h4>
         </div>
 
         <div class="block grey " id="step6Content">
