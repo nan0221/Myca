@@ -15,9 +15,9 @@
                 session_start();
                 $_SESSION['Username'] = "$name";
                 $_SESSION['auth'] = true;
-                //$id = $_SESSION['Username'];
-                //echo "<script>alert('Log in success $id');</script>";
-                echo "<script>alert('Log in success'); history.go(-1);</script> </script>";
+                $URL= $_POST['URL'];
+                header("location:$URL");
+                //echo "<script>alert('Log in success'); history.go(-1)；</script>";
             }
             else{
                 echo "<script>alert('Wrong username or password！'); history.go(-1);</script>";
