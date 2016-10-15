@@ -210,16 +210,7 @@
             <br>
             <!--        <div id="map1" class="MapPosition"></div>-->
             <div class="blank"></div>
-            <form>
-                <input name="post_add1">
-                <div class="button textWhite">Yes, I am here!</div>
-                </input>
-                <?php
-			$post_add = $_POST['post_add1'];
-            session_start();
-            $_SESSION['post_add'] = "$post_add";
-			?>
-            </form>
+            <div class="button textWhite">Yes, I am here!</div>
             <a href="#">
                 <p class="alternativeOption">I am not here</p>
             </a>
@@ -232,16 +223,7 @@
             <!-- Google maps API -->
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
-            <form>
-                <input name="post_add2">
-                <div class="button textWhite">Yes, I am here!</div>
-                </input>
-                <?php
-			$post_add = $_POST['post_add2'];
-			session_start();
-            $_SESSION['post_add'] = "$post_add";
-			?>
-            </form>
+            <div class="button textWhite">Yes, I am here!</div>
         </div>
 
         <div class=" step" id="step3Instruction">
@@ -268,17 +250,7 @@
             </div>
 
             <div class="blank"></div>
-            <form method="post">
-                <input name="post_img">
-                <div class="button textWhite">Okay</div>
-                </input>
-                <!--1-->
-                <?php
-			$post_img = $_POST['post_img'];
-			session_start();
-            $_SESSION['post_img'] = "$post_img";
-			?>
-            </form>
+            <div class="button textWhite">Okay</div>
         </div>
 
         <div class=" step" id="step4Instruction">
@@ -302,17 +274,7 @@
 
             </div>
             <div class="blank"></div>
-            <form method="post">
-                <input name="postb_img">
-                <div class="button textWhite">Okay</div>
-                </input>
-                <!--2-->
-                <?php
-			$postb_img = $_POST['postb_img'];
-			session_start();
-            $_SESSION['postb_img'] = "$postb_img";
-			?>
-            </form>
+            <div class="button textWhite">Okay</div>
 
         </div>
 
@@ -360,11 +322,12 @@
                 <span>Only the first 140 characters will be recorded.
                 </span>
                 <span class="counter right"></span>
-                <textarea id="greeting"></textarea>
+                <textarea id="greeting" name="greeting"></textarea>
                 <div class="blank"></div>
-                <input name="greeting">
-                <div class="button textWhite">Done</div>
-                </input>
+                <input name="address" type="text" value="Australia" />
+                <input name="firstimg" type="text" />
+                <input name="secondimg" type="text" />
+                <input class="button center textWhite" type="submit" value="Done" />
                 <!--3-->
                 <?php
 				$greeting = $_POST['greeting'];

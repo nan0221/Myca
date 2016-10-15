@@ -11,48 +11,51 @@ $(document).ready(function () {
     //        $('.fullMask').toggle();
     //        $('#userDropDown').toggle();
     //    });
-    
+
     // for index page
-    $('.user a').click(function(){
+    $('.user a').click(function () {
         var inst = $('[data-remodal-id=LogInModal]').remodal();
         inst.open();
     });
 
-    $('#timeline img').click(function(){
+    $('#timeline img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();
         inst.open();
     });
 
-    $('#popular img').click(function(){
+    $('#popular img').click(function () {
         var inst = $('[data-remodal-id=VoteModal]').remodal();
         inst.open();
     });
 
     // for share page
-    $('#results img').click(function(){
+    $('#results img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();
         inst.open();
     });
 
-    $('.share').click(function(){
+    $('.share').click(function () {
         var inst = $('[data-remodal-id=ShareModal]').remodal();
         inst.open();
     });
 
-    $('.save').click(function(){
+    $('.save').click(function () {
         var inst = $('[data-remodal-id=SaveModal]').remodal();
         inst.open();
     });
 
     //    for design page
     showStep2(); // initialization
+    //    $('input[name=address]').hide();
+    $('input[name=firstimg]').hide();
+    $('input[name=secondimg]').hide();
 
-    $('#notification').click(function(){
+    $('#notification').click(function () {
         var inst = $('[data-remodal-id=TaskListModal]').remodal();
         inst.open();
     });
 
-    $('#taskListModal ul li:eq(0)').click(function(){
+    $('#taskListModal ul li:eq(0)').click(function () {
         var inst = $('[data-remodal-id=TaskListModal]').remodal();
         inst.close();
         $('#step2Instruction').show();
@@ -66,35 +69,32 @@ $(document).ready(function () {
         $('#step6Content').hide();
     });
 
-    $('#taskListModal ul li:eq(1)').click(function(){
-        if(currentLocation != null){
+    $('#taskListModal ul li:eq(1)').click(function () {
+        if (currentLocation != null) {
             var inst = $('[data-remodal-id=TaskListModal]').remodal();
             inst.close();
             showStep3();
-        }
-        else {
+        } else {
             alert('You must choose your location first.');
         }
     });
 
-    $('#taskListModal ul li:eq(2)').click(function(){
-        if(currentLocation != null){
-        var inst = $('[data-remodal-id=TaskListModal]').remodal();
-        inst.close();
-        showStep4();
-        }
-        else {
+    $('#taskListModal ul li:eq(2)').click(function () {
+        if (currentLocation != null) {
+            var inst = $('[data-remodal-id=TaskListModal]').remodal();
+            inst.close();
+            showStep4();
+        } else {
             alert('You must choose your location first.');
         }
     });
 
-    $('#taskListModal ul li:eq(3)').click(function(){
-        if(currentLocation != null){
-        var inst = $('[data-remodal-id=TaskListModal]').remodal();
-        inst.close();
-        showStep6();
-        }
-        else {
+    $('#taskListModal ul li:eq(3)').click(function () {
+        if (currentLocation != null) {
+            var inst = $('[data-remodal-id=TaskListModal]').remodal();
+            inst.close();
+            showStep6();
+        } else {
             alert('You must choose your location first.');
         }
     });
@@ -107,7 +107,8 @@ $(document).ready(function () {
         //        var searchTerm = $('#step2Instruction>h1').val().trim();
         //        searchTerm = searchTerm.replace(/ /g, "%20");
         //        var searchTerm = 'st.lucia';
-        var searchTerm = currentLocation;
+        //        var searchTerm = currentLocation;
+        var searchTerm = $('input[name=address]').val();
         //        var sortBy = $("#sortBy").val();
         var sortBy = 'dateasc';
         var apiKey = "kr6iv720kob8nph6";
@@ -128,7 +129,7 @@ $(document).ready(function () {
 
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
-        console.log('currentLocation: ',currentLocation);
+        console.log('currentLocation: ', currentLocation);
         showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
@@ -142,7 +143,8 @@ $(document).ready(function () {
         //        var searchTerm = $('#step2Instruction>h1').val().trim();
         //        searchTerm = searchTerm.replace(/ /g, "%20");
         //        var searchTerm = 'st.lucia';
-        var searchTerm = currentLocation;
+        //        var searchTerm = currentLocation;
+        var searchTerm = $('input[name=address]').val();
         //        var sortBy = $("#sortBy").val();
         var sortBy = 'dateasc';
         var apiKey = "kr6iv720kob8nph6";
@@ -163,7 +165,7 @@ $(document).ready(function () {
 
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
-        console.log('currentLocation: ',currentLocation);
+        console.log('currentLocation: ', currentLocation);
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
@@ -193,16 +195,18 @@ $(document).ready(function () {
             waitForFlickrSmall(); // Waits for the flickr images to load
         });
         console.log('front image:', selected_front_image);
+        $('input[name=firstimg]').attr('value', selected_front_image)
         $('.inProgress').css('width', '75%');
         $('#notification p').html('You are at Step3/4');
-        console.log('currentLocation: ',currentLocation);
+        console.log('currentLocation: ', currentLocation);
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
         console.log('back image:', selected_back_image);
+        $('input[name=secondimg]').attr('value', selected_back_image)
         $('.inProgress').css('width', '100%');
         $('#notification p').html('You are at Step4/4');
-        console.log('currentLocation: ',currentLocation);
+        console.log('currentLocation: ', currentLocation);
         showStep6();
     });
     $('#step5Content').find('.button').click(function () {
@@ -636,8 +640,9 @@ function myMap() {
                     var district = results[0].formatted_address.split(',');
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
-					currentLocation = district_without.join(' ');
+                    currentLocation = district_without.join(' ');
                     console.log(district_without.join(' '));
+                    $('input[name=address]').attr('value', currentLocation);
                 } else {
                     window.alert('No results found'); //Error check
                 }
@@ -678,8 +683,7 @@ function deleteOverlays() {
 
 
 
-(function ($) {
-})(jQuery);
+(function ($) {})(jQuery);
 $(document).ready(function () {
     // Pstcard front-side
     var canvas1 = document.getElementById("myCanvas1");

@@ -18,8 +18,8 @@
 html {
     width: 100%;
     height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0em;
+    padding: 0em;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
@@ -46,7 +46,7 @@ a {
 .dropDownList {
     z-index: 100;
     margin: auto;
-    margin-top: 60px;
+    margin-top: 3.75em;
 }
 
 .userLogin {
@@ -54,8 +54,8 @@ a {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-color: #ECB733;
-    height: 20px;
-    width: 20px;
+    height: 1.25em;
+    width: 1.25em;
     border: none;
 }
 
@@ -67,65 +67,65 @@ ul li {
 header {
     background-color: #ECB733;
     width: 100%;
-    height: 24px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    height: 1.5em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
     position: relative;
 }
 
 header .logo {
-    padding-top: 2px;
-    height: 26px;
-    width: 108px;
+    padding-top: 0.125em;
+    height: 1.625;
+    width: 6.75em;
 }
 
 .imgSize20 {
-    height: 20px;
-    width: 20px;
+    height: 1.25em;
+    width: 1.25em;
 }
 
 .imgSize11 {
-    height: 11px;
-    width: 8px;
+    height: 0.688em;
+    width: 0.5em;
 }
 
 .imgSize12 {
-    height: 12px;
-    width: 6px;
+    height: 0.75em;
+    width: 0.375em;
 }
 
 .imgSize120 {
-    height: 120px;
-    width: 24px;
+    height: 7.5em;
+    width: 1.5em;
 }
 
 .imgSize280 {
-    height: 150px;
-    width: 224px;
-    border: 2px solid white;
-    box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0px 2px 4px rgba(205, 205, 205, 0.7);
+    height: 9.365em;
+    width: 14em;
+    border: 0.125em solid white;
+    box-shadow: 0em 0.125em 0.25em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0em 0.125em 0.25em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0em 0.125em 0.25em rgba(205, 205, 205, 0.7);
 }
 
 header .language {
-    padding-left: 20px;
-    padding-top: 2px;
-    width: 20px;
-    height: 20px;
+    padding-left: 1.25em;
+    padding-top: 0.125em;
+    width: 1.25em;
+    height: 1.25em;
     display: block;
 }
 
 header .user {
-    width: 20px;
-    height: 20px;
+    width: 1.25em;
+    height: 1.25em;
     display: block;
     position: absolute;
-    right: 36px;
-    top: -16px;
+    right: 2.25em;
+    top: -1em;
 }
 
 .block {
@@ -133,32 +133,32 @@ header .user {
     height: auto;
     margin: 0 auto;
     display: block;
-    padding-top: 18px;
-    padding-bottom: 16px;
+    padding-top: 1.125em;
+    padding-bottom: 1em;
     color: #555555;
-    box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0px 2px 2px rgba(205, 205, 205, 0.7);
+    box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0em 0.125em 0.125em rgba(205, 205, 205, 0.7);
 }
 
 h1 {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25em;
     margin: 0 auto;
     color: #555555;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
     text-align: center;
 }
 
 h5 {
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.75em;
     color: #555555;
     margin: 0 auto;
-    padding-top: 6px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 0.375em;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
     text-align: center;
 }
 
@@ -167,119 +167,119 @@ h5 {
 }
 
 .block .preview {
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 280px;
-    height: 188px;
+    padding-top: 0.625em;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+    width: 17.5em;
+    height: 11.75em;
     margin: 0 auto;
     display: block;
     position: relative;
 }
 
 .selected {
-    box-shadow: 0px 0px 4px #ECB733;
-    -webkit-box-shadow: 0px 0px 4px #ECB733;
-    -moz-box-shadow: 0px 0px 4px #ECB733;
+    box-shadow: 0em 0em 0.25em #ECB733;
+    -webkit-box-shadow: 0em 0em 0.25em #ECB733;
+    -moz-box-shadow: 0em 0em 0.25em #ECB733;
 }
 
 .block .previewLeft {
-    width: 280px;
-    height: 188px;
-    padding-top: 10px;
-    padding-right: 20px;
+    width: 17.5em;
+    height: 11.75em;
+    padding-top: 0.625em;
+    padding-right: 1.25em;
     position: absolute;
-    top: 0px;
-    left: -300px;
+    top: 0em;
+    left: -18.75em;
     opacity: 0.8;
 }
 
 .block .previewRight {
-    width: 280px;
-    height: 188px;
-    padding-top: 10px;
-    padding-left: 20px;
+    width: 17.5em;
+    height: 11.75em;
+    padding-top: 0.625em;
+    padding-left: 1.25em;
     position: absolute;
-    top: 0px;
-    left: 300px;
+    top: 0em;
+    left: 18.75em;
     opacity: 0.8;
 }
 
 .block .previewSmallGroup {
-    padding-top: 10px;
+    padding-top: 0.625em;
     margin: 0 auto;
-    width: 279px;
+    width: 17.438em;
     height: auto;
     position: relative;
 }
 
 .block .previewSmall {
-    width: 86px;
-    height: 58px;
-    padding-bottom: 7px;
+    width: 5.375em;
+    height: 3.625em;
+    padding-bottom: 0.438em;
 }
 
 .block .leftColumn {
-    padding-top: 10px;
+    padding-top: 0.625em;
     margin: 0 auto;
-    width: 279px;
+    width: 17.438em;
     height: auto;
     position: absolute;
-    top: 0px;
-    left: -300px;
+    top: 0em;
+    left: -18.75em;
     opacity: 0.8;
 }
 
 .block .rightColumn {
-    padding-top: 10px;
+    padding-top: 0.625em;
     margin: 0 auto;
-    width: 279px;
+    width: 17.438em;
     height: auto;
     position: absolute;
-    top: 0px;
-    left: 300px;
+    top: 0em;
+    left: 18.75em;
     opacity: 0.8;
 }
 
 .block .previewSmallLeft {
-    width: 86px;
-    height: 58px;
-    padding-right: 20px;
+    width: 5.375em;
+    height: 3.625em;
+    padding-right: 1.25em;
 }
 
 .block .previewSmallLeft {
-    width: 86px;
-    height: 58px;
-    padding-left: 20px;
+    width: 5.375em;
+    height: 3.625em;
+    padding-left: 1.25em;
 }
 
 .block .previewSmall .selected {
-    box-shadow: 0px 0px 2px #ECB733;
-    -webkit-box-shadow: 0px 0px 2px #ECB733;
-    -moz-box-shadow: 0px 0px 2px #ECB733;
+    box-shadow: 0em 0em 0.125em #ECB733;
+    -webkit-box-shadow: 0em 0em 0.125em #ECB733;
+    -moz-box-shadow: 0em 0em 0.125em #ECB733;
 }
 
 .block .switchDots {
     display: block;
-    height: 24px;
-    width: 24px;
+    height: 1.5em;
+    width: 1.5em;
     margin: 0 auto;
 }
 
 .block .leftDot {
-    padding-top: 8px;
-    padding-right: 8px;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
     display: inline-block;
 }
 
 .block .rightDot {
-    padding-top: 8px;
+    padding-top: 0.5em;
     display: inline-block;
 }
 
 .block .dot {
-    width: 8px;
-    height: 8px;
+    width: 0.5em;
+    height: 0.5em;
     margin: 0 auto;
 }
 
@@ -288,9 +288,9 @@ h5 {
 .block .switchDots .disactivated {}
 
 .button {
-    width: 279px;
-    height: 24px;
-    border-radius: 8px;
+    width: 17.438em;
+    height: 1.5em;
+    border-radius: 0.5em;
     background-color: #ECB733;
     margin: 0 auto;
     cursor: pointer;
@@ -298,74 +298,69 @@ h5 {
 
 .blank {
     width: 100%;
-    height: 16px;
+    height: 1em;
 }
 
 .buttonGroup {
-    width: 375px;
-    height: 24px;
+    width: 23.438em;
+    height: 1.5em;
     margin: 0 auto;
 }
 
 .buttonHalf {
     width: 30%;
-    height: 24px;
+    height: 1.5em;
     display: inline-block;
     position: relative;
 }
 
 .half {
     width: 50%;
-    height: 24px;
+    height: 1.5em;
     display: inline-block;
     position: relative;
 }
 
 .buttonHeight {
-    height: 24px;
+    height: 1.5em;
     text-align: center;
 }
 
 .share {
-    height: 24px;
-    width: 135px;
-    border-radius: 8px;
+    height: 1.5em;
+    width: 8.438em;
+    border-radius: 0.5em;
     background-color: #ECB733;
     display: inline-block;
     cursor: pointer;
-    /*
-    position: absolute;
-    top: 0;
-    left: -139px;
-*/
     border: 0;
 }
 
 .save {
-    height: 24px;
-    width: 135px;
-    border-radius: 8px;
+    height: 1.5em;
+    width: 8.438em;
+    border-radius: 0.5em;
     background-color: #B6B6B6;
     display: inline-block;
     cursor: pointer;
     /*
     position: absolute;
     top: 0;
-    left: 4px;
+    left: 0.25em;
 */
     border: 0;
 }
 
 .textWhite {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11pt;
     color: #FFFFFF;
     text-align: center;
 }
 
 .textGrey {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11pt;
     color: #555555;
     text-align: center;
 }
@@ -376,66 +371,66 @@ h5 {
 
 footer {
     width: 100%;
-    height: 140px;
-    padding-top: 12px;
+    height: 8.75em;
+    padding-top: 0.75em;
     background-color: #555555;
     color: #FFFFFF;
     font-weight: 300;
-    font-size: 12px;
-    line-height: 10px;
+    font-size: 9pt;
+    line-height: 0.625em;
 }
 
 footer p {
-    padding-top: 0px;
-    line-height: 10px;
+    padding-top: 0em;
+    line-height: 0.625em;
     text-align: center;
     /* TODO: need more change*/
 }
 
 footer p:first {
-    padding-top: 24px;
+    padding-top: 1.5em;
 }
 
 .notification {
     width: 100%;
-    height: 36px;
+    height: 2.25em;
     background-color: #ECB733;
     color: #FFFFFF;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 9pt;
     margin: 0 auto;
-    padding: 4px 0px 8px 0px;
+    padding: 0.25em 0em 0.5em 0em;
     display: block;
-    box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
 }
 
 .notification p {
-    padding-left: 20px;
+    padding-left: 1.25em;
 }
 
 #taskListModal h1:last-of-type {
-    padding-bottom: 4px;
-    border-bottom: 1px solid #ECB733;
+    padding-bottom: 0.25em;
+    border-bottom: 0.063em solid #ECB733;
 }
 
 #taskListModal ul {
     width: 100%;
     height: auto;
-    min-height: 200px;
+    min-height: 12.5em;
     margin: 0;
     padding: 0;
     display: block;
     color: #555555;
-    font-size: 14px;
+    font-size: 11pt;
     font-weight: 300;
     text-align: left;
 }
 
 #taskListModal ul li {
-    margin-bottom: 4px;
-    padding: 6px 4px;
+    margin-bottom: 0.25em;
+    padding: 0.375em 0.25em;
 }
 
 #taskListModal ul li:hover,
@@ -444,80 +439,80 @@ footer p:first {
 }
 
 .dropdown {
-    padding-top: 16px;
+    padding-top: 1em;
     display: block;
     background-color: rgba(236, 183, 51, 0.2);
     height: auto;
     width: 100%;
-    box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
 }
 
 .dropdown .list {
     display: block;
-    height: 24px;
+    height: 1.5em;
 }
 
 .dropdown .list .listItem {
-    width: 289px;
-    height: 18px;
-    margin-left: 20px;
-    padding-left: 12px;
-    padding-top: 4px;
-    margin-top: 0px;
-    margin-bottom: 2px;
-    font-size: 12px;
+    width: 18.063em;
+    height: 1.125em;
+    margin-left: 1.25em;
+    padding-left: 0.75em;
+    padding-top: 0.25em;
+    margin-top: 0em;
+    margin-bottom: 0.125em;
+    font-size: 9pt;
     font-weight: 300;
     color: #555555;
-    border: 1px solid #B6B6B6;
+    border: 0.063em solid #B6B6B6;
     display: inline-block;
 }
 
 .step {
-    height: 36px;
+    height: 2.25em;
     background-color: #F2F2F2;
-    padding-top: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 12px;
+    padding-top: 0.75em;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+    padding-bottom: 0.75em;
     margin: 0 auto;
     display: block;
     color: #555555;
-    box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -webkit-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0 2px 2px rgba(205, 205, 205, 0.7);
+    box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0.125em 0.125em rgba(205, 205, 205, 0.7);
 }
 
 .step h4 {
-    height: 14px;
+    height: 0.875em;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 11pt;
     color: #555555;
-    padding-top: 2px;
+    padding-top: 0.125em;
     margin: 0;
     display: inline-block;
 }
 
 .step span {
     display: inline-block;
-    height: 12px;
+    height: 0.75em;
     max-width: 70%;
 }
 
 .step img {
-    margin-top: 2px;
-    width: 12px;
-    height: 6px;
+    margin-top: 0.125em;
+    width: 0.75em;
+    height: 0.375em;
 }
 
 .step .leftImg {
-    margin: 0 18px;
+    margin: 0 1.125em;
 }
 
 .chooseLayout {
-    padding: 0 20px;
-    min-height: 106px;
+    padding: 0 1.25em;
+    min-height: 6.625em;
     margin: 0 auto;
 }
 
@@ -528,118 +523,118 @@ footer p:first {
 
 .layoutLeft {
     width: 48%;
-    height: 156px;
+    height: 9.75em;
     margin: 0 auto;
     display: inline-block;
 }
 
 .layoutLeft img {
-    width: 156px;
-    height: 105px;
+    width: 9.75em;
+    height: 6.563em;
     margin: 0 auto;
     display: block;
 }
 
 .layoutRight {
     width: 48%;
-    height: 156px;
+    height: 9.75em;
     margin: 0 auto;
     display: inline-block;
 }
 
 .layoutRight img {
-    width: 105px;
-    height: 156px;
+    width: 6.563em;
+    height: 9.75em;
     margin: 0 auto;
     display: block;
 }
 
 .chooseLayout .selected {
-    box-shadow: 0px 0px 4px #ECB733;
-    -webkit-box-shadow: 0px 0px 4px #ECB733;
-    -moz-box-shadow: 0px 0px 4px #ECB733;
+    box-shadow: 0em 0em 0.25em #ECB733;
+    -webkit-box-shadow: 0em 0em 0.25em #ECB733;
+    -moz-box-shadow: 0em 0em 0.25em #ECB733;
 }
 
 .step p {
     text-align: center;
     color: #555555;
     font-weight: 500;
-    font-size: 12px;
-    padding-top: 8px;
+    font-size: 9pt;
+    padding-top: 0.5em;
 }
 
 .block .alternativeOption {
     color: #555555;
-    font-size: 12px;
+    font-size: 9pt;
     font-weight: 300;
     text-align: center;
 }
 
 .textbox {
-    border: 1px solid;
+    border: 0.063em solid;
     border-color: #555555;
     color: #B6B6B6;
-    width: 280px;
-    height: 80px;
+    width: 17.5em;
+    height: 5em;
     position: relative;
     margin: 0 auto;
-    margin-top: 10px;
-    box-shadow: 2px 2px 4px #B6B6B6;
-    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
-    -moz-box-shadow: 2px 2px 4px #B6B6B6;
+    margin-top: 0.625em;
+    box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -webkit-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -moz-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
 }
 
 .textboxLeft {
-    border: 1px solid;
+    border: 0.063em solid;
     border-color: #555555;
-    box-shadow: 2px 2px 4px #B6B6B6;
-    -moz-box-shadow: 2px 2px 4px #B6B6B6;
-    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
+    box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -moz-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -webkit-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
     color: #B6B6B6;
-    width: 280px;
-    height: 80px;
+    width: 17.5em;
+    height: 5em;
     position: absolute;
-    top: 0px;
-    left: -300px;
+    top: 0em;
+    left: -18.75em;
     opacity: 0.8;
 }
 
 .block .textboxRight {
-    border: 1px solid;
+    border: 0.063em solid;
     border-color: #555555;
-    box-shadow: 2px 2px 4px #B6B6B6;
-    -moz-box-shadow: 2px 2px 4px #B6B6B6;
-    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
+    box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -moz-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -webkit-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
     color: #B6B6B6;
-    width: 280px;
-    height: 80px;
+    width: 17.5em;
+    height: 5em;
     position: absolute;
-    top: 0px;
-    left: 300px;
+    top: 0em;
+    left: 18.75em;
     opacity: 0.8;
 }
 
 .block .textbox p {
     color: #555555;
     font-weight: 300;
-    font-size: 10px;
-    width: 240px;
+    font-size: 8pt;
+    width: 15em;
     height: auto;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding-left: 1.25em;
+    padding-top: 1.25em;
 }
 
 .block .textbox .selected {
-    box-shadow: 2px 2px 4px #B6B6B6;
-    -moz-box-shadow: 2px 2px 4px #B6B6B6;
-    -webkit-box-shadow: 2px 2px 4px #B6B6B6;
+    box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -moz-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
+    -webkit-box-shadow: 0.125em 0.125em 0.25em #B6B6B6;
 }
 
 .block textarea {
     width: 85%;
-    height: 100px;
-    border-radius: 8px;
-    border: 1px solid;
+    height: 6.25em;
+    border-radius: 0.5em;
+    border: 0.063em solid;
     border-color: #B6B6B6;
     background-color: #F2F2F2;
     display: block;
@@ -649,51 +644,51 @@ footer p:first {
 .progress {
     max-width: 768px;
     width: 100%;
-    height: 4px;
+    height: 0.25em;
     background-color: #B6B6B6;
     position: fixed;
-    bottom: 1px;
+    bottom: 0.063em;
 }
 
 .progress .inProgress {
-    height: 4px;
+    height: 0.25em;
     background-color: #ECB733;
     position: relative;
-    bottom: 1px;
+    bottom: 0.063em;
     width: 25%;
     max-width: 768px;
 }
 
 .view {
-    width: 280px;
-    height: 188px;
+    width: 17.5em;
+    height: 11.75em;
     margin: 0 auto;
     display: block;
     position: relative;
 }
 
 .timeline-line {
-    height: 48px;
+    height: 3em;
     width: 768px;
     background-image: url("../img/timeline_dot.png");
     background-repeat: no-repeat;
     background-size: auto;
     background-position: bottom;
     position: absolute;
-    top: 0px;
+    top: 0em;
     margin: 0 auto;
     z-index: 20;
     visibility: visible;
 }
 
 .timeline-line h5 {
-    padding-bottom: 28px;
-    padding-top: 0px;
+    padding-bottom: 1.75em;
+    padding-top: 0em;
 }
 
 #timeline,
 #timeline-slide {
-    height: 304px;
+    height: 19em;
 }
 
 #timeline {
@@ -703,61 +698,61 @@ footer p:first {
 #timeline .swiper-button-prev,
 #timeline .swiper-button-next {
     position: absolute;
-    top: 148px;
+    top: 9.25em;
 }
 
 #timeline img {
     position: absolute;
-    top: 60px;
+    top: 3.75em;
 }
 
 
 /*
 .close {
     width: 100%;
-    height: 24px;
+    height: 1.5em;
     margin: auto;
 }
 
 .close img {
-    width: 24px;
-    height: 24px;
+    width: 1.5em;
+    height: 1.5em;
 }
 */
 
 .socialMediaList {
-    width: 120px;
+    width: 7.5em;
     height: auto;
-    margin-bottom: 48px;
+    margin-bottom: 3em;
     margin: auto;
 }
 
 .socialMedia {
-    width: 120px;
-    height: 24px;
-    padding-bottom: 20px;
+    width: 7.5em;
+    height: 1.5em;
+    padding-bottom: 1.25em;
     margin: 0 auto;
 }
 
 .socialMedia:last {
-    margin-bottom: 0px;
+    margin-bottom: 0em;
 }
 
 input {
-    height: 22px;
-    width: 116px;
-    padding: 1px 6px;
-    margin-left: 16px;
+    height: 1.375em;
+    width: 7.25em;
+    padding: 0.063em 0.375em;
+    margin-left: 1em;
     margin: auto;
     color: #F2F2F2;
-    border: 1px solid #F2F2F2;
+    border: 0.063em solid #F2F2F2;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 0.5em;
 }
 
 #preview {
-    height: 243px;
-    margin: -18px 0 10px 0;
+    height: 15.188em;
+    margin: -1.125em 0 0.625em 0;
 }
 
 #stamps {
@@ -765,34 +760,34 @@ input {
 }
 
 #mainPicture img {
-    max-height: 150px;
-    max-width: 224px;
+    max-height: 9.375em;
+    max-width: 14em;
 }
 
 #stamps img {
-    max-height: 58px;
-    max-width: 87px;
+    max-height: 3.625em;
+    max-width: 5.438em;
 }
 
 .imgSize24 {
-    height: 24px;
-    width: 24px;
+    height: 1.5em;
+    width: 1.5em;
 }
 
 #userDropDown .close {
     position: fixed;
-    top: 12px;
-    right: 20px;
+    top: 0.75em;
+    right: 1.25em;
 }
 
 #loginForm .imgSize24 {
-    width: 16px;
-    height: 16px;
+    width: 1em;
+    height: 1em;
 }
 
 #loginForm .center {
-    margin-bottom: 12px;
-    height: 24px;
+    margin-bottom: 0.75em;
+    height: 1.5em;
 }
 
 #username,
@@ -801,28 +796,28 @@ input {
 }
 
 #notLoggedIn {
-    height: 188px;
+    height: 11.75em;
 }
 
 .user {
     text-align: left;
     display: inline;
     margin: 0;
-    padding: 16px 4px 16px 0;
+    padding: 1em 0.25em 1em 0;
     list-style: none;
     /*
-    -webkit-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
-    -moz-box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
-    box-shadow: 0 0 4px rgba(205, 205, 205, 0.7);
+    -webkit-box-shadow: 0 0 0.25em rgba(205, 205, 205, 0.7);
+    -moz-box-shadow: 0 0 0.25em rgba(205, 205, 205, 0.7);
+    box-shadow: 0 0 0.25em rgba(205, 205, 205, 0.7);
 */
 }
 
 .user li {
-    font-size: 14px;
+    font-size: 11pt;
     display: inline-block;
-    margin-right: -4px;
+    margin-right: -0.25em;
     position: relative;
-    padding: 16px 20px;
+    padding: 1em 1.25em;
     cursor: pointer;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
@@ -840,9 +835,9 @@ input {
 .user li ul {
     padding: 0;
     position: absolute;
-    top: 48px;
-    left: -42px;
-    width: 100px;
+    top: 3em;
+    left: -2.625em;
+    width: 6.25em;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -856,7 +851,7 @@ input {
     background-color: #191919;
     display: block;
     color: #B6B6B6;
-    text-shadow: 0 -1px 0 #000000;
+    text-shadow: 0 -0.063em 0 #000000;
 }
 
 .user li:hover ul,
@@ -868,14 +863,14 @@ input {
 }
 
 #step6Content span {
-    margin-left: 20px;
-    font-size: 14px;
+    margin-left: 1.25em;
+    font-size: 11pt;
     font-weight: 300;
 }
 
 .counter {
     display: inline-block;
-    margin-right: 32px;
+    margin-right: 2em;
     font-weight: 500;
 }
 
