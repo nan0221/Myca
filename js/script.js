@@ -1,16 +1,13 @@
 $(document).ready(function () {
     //    for every page
-    //    $('.fullMask').hide();
-    //    $('#languageDropDown').hide();
-    //    $('#userDropDown').hide();
-    //    $('.user').click(function () {
-    //        $('.fullMask').toggle();
-    //        $('#userDropDown').toggle();
-    //    });
-    //    $('.close').click(function () {
-    //        $('.fullMask').toggle();
-    //        $('#userDropDown').toggle();
-    //    });
+    $('input[name=URL]').hide();
+    var newURL = window.location.href;
+    var hash = window.location.hash;
+    var returnURL = newURL.replace(hash, '');
+    returnURL = returnURL.replace('#', '');
+    console.log('aaa', returnURL);
+    $('input[name=URL]').attr('value', returnURL);
+    console.log('ccc', $('input[name=URL]').val());
 
     // for index page
     $('.user a').click(function () {

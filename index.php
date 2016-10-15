@@ -50,7 +50,7 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
-
+                    <input type="text" name="URL" />
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />
                     <input class="save textGrey" type="submit" name="login" value="Log in" />
 
