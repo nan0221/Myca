@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
+
+    <link rel="stylesheet" href="css/pace.css" />
 </head>
 
 <body>
@@ -98,42 +100,42 @@
             <?php
             session_start();
             ?>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="js/remodal.js"></script>
-            <?php
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="js/remodal.js"></script>
+                <?php
             if($_SESSION['auth']){
                 ?>
-                <script>
-                var inst = $('[data-remodal-id=LogInModal]').remodal();
-                inst.destroy();
-                </script>
-                <div>
-                    <!--修改这个div改变欢迎词和logout的排版-->
-                    <form action="logout.php" method="post">
-                        <span>Welcome</span>
-                        <?php
+                    <script>
+                        var inst = $('[data-remodal-id=LogInModal]').remodal();
+                        inst.destroy();
+                    </script>
+                    <div>
+                        <!--修改这个div改变欢迎词和logout的排版-->
+                        <form action="logout.php" method="post">
+                            <span>Welcome</span>
+                            <?php
                         echo $_SESSION['Username'];
                         ?>
-                        <br/>
-                        <input type="submit" name="logout" value="Log out" />
-                    </form>
-                </div>
-                <?php
+                                <br/>
+                                <input type="submit" name="logout" value="Log out" />
+                        </form>
+                    </div>
+                    <?php
             }else{
                 ?>
 
-                <ul class="right user">
-                    <li>
-                        <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-                        <ul>
-                            <a data-remodal-target="LogInModal">
-                                <li>Log in</li>
-                            </a>
+                        <ul class="right user">
+                            <li>
+                                <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                                <ul>
+                                    <a data-remodal-target="LogInModal">
+                                        <li>Log in</li>
+                                    </a>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
 
-                <?php
+                        <?php
             }
             ?>
 
@@ -197,7 +199,7 @@
         <!-- Google map -->
         <!-- Get users current location -->
         <div class="step" id="step2Instruction">
-<h4>Please confirm your current location</h4>
+            <h4>Please confirm your current location</h4>
             <span class="right arrowdown"><img class="leftImg imgSize12" src="img/arrowdown_2x.png" /></span>
             <span class="right arrowup"><img class="imgSize12" src="img/arrowup_2x.png" /></span>
         </div>
@@ -209,13 +211,15 @@
             <!--        <div id="map1" class="MapPosition"></div>-->
             <div class="blank"></div>
             <form>
-            <input name="post_add1"><div class="button textWhite">Yes, I am here!</div></input>
-			<?php
+                <input name="post_add1">
+                <div class="button textWhite">Yes, I am here!</div>
+                </input>
+                <?php
 			$post_add = $_POST['post_add1'];
             session_start();
             $_SESSION['post_add'] = "$post_add";
 			?>
-			</form>
+            </form>
             <a href="#">
                 <p class="alternativeOption">I am not here</p>
             </a>
@@ -229,13 +233,15 @@
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
             <form>
-            <input name="post_add2"><div class="button textWhite">Yes, I am here!</div></input>
-			<?php
+                <input name="post_add2">
+                <div class="button textWhite">Yes, I am here!</div>
+                </input>
+                <?php
 			$post_add = $_POST['post_add2'];
 			session_start();
             $_SESSION['post_add'] = "$post_add";
-			?>                                        
-			</form>
+			?>
+            </form>
         </div>
 
         <div class=" step" id="step3Instruction">
@@ -262,14 +268,17 @@
             </div>
 
             <div class="blank"></div>
-			<form method = "post">
-            <input name="post_img"><div class="button textWhite">Okay</div></input>   <!--1-->
-			<?php
+            <form method="post">
+                <input name="post_img">
+                <div class="button textWhite">Okay</div>
+                </input>
+                <!--1-->
+                <?php
 			$post_img = $_POST['post_img'];
 			session_start();
             $_SESSION['post_img'] = "$post_img";
 			?>
-			</form>
+            </form>
         </div>
 
         <div class=" step" id="step4Instruction">
@@ -293,14 +302,17 @@
 
             </div>
             <div class="blank"></div>
-            <form method = "post">
-            <input name="postb_img"><div class="button textWhite">Okay</div></input>   <!--2-->
-			<?php
+            <form method="post">
+                <input name="postb_img">
+                <div class="button textWhite">Okay</div>
+                </input>
+                <!--2-->
+                <?php
 			$postb_img = $_POST['postb_img'];
 			session_start();
             $_SESSION['postb_img'] = "$postb_img";
 			?>
-			</form>
+            </form>
 
         </div>
 
@@ -348,15 +360,18 @@
                 <span>Only the first 140 characters will be recorded.
                 </span>
                 <span class="counter right"></span>
-                <textarea id="greeting"></textarea>          
-				<div class="blank"></div>
-				<input name="greeting"><div class="button textWhite">Done</div></input>   <!--3-->
-				<?php
+                <textarea id="greeting"></textarea>
+                <div class="blank"></div>
+                <input name="greeting">
+                <div class="button textWhite">Done</div>
+                </input>
+                <!--3-->
+                <?php
 				$greeting = $_POST['greeting'];
 				session_start();
 				$_SESSION['greeting'] = "$greeting";
 				?>
-			</form>
+            </form>
         </div>
 
         <div class="progress">
@@ -365,19 +380,20 @@
     </div>
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
+    <script src="js/pace.min.js"></script>
     <script>
-    $(document).ready(function () {
-        $("#greeting").charCount();
-    });
+        $(document).ready(function () {
+            $("#greeting").charCount();
+        });
 
 
-    var swiper_preview = new Swiper('#preview', {
-        pagination: $('#preview').find(".swiper-pagination")[0],
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        paginationClickable: true,
-        spaceBetween: 30,
-        loop: false,
+        var swiper_preview = new Swiper('#preview', {
+            pagination: $('#preview').find(".swiper-pagination")[0],
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            paginationClickable: true,
+            spaceBetween: 30,
+            loop: false,
             // Navigation arrows
             // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
             nextButton: $('#preview').find(".swiper-button-next")[0],
