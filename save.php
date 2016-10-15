@@ -28,7 +28,7 @@
         else{
             $q2="insert into Img_info(post_id,U_id,post_add,post_popular,post_date,post_URL,postb_URL,img_URL,stamp_URL,Greeting) values (null,null,'$post_add','$post_popular','$post_date','$post_URL','$postb_URL','$img_URL','$stamp_URL','$Greeting')";
             $savereslut2=mysql_query($q2);
-            if($qsavereslut2){
+            if($savereslut2){
                 echo "<script>alert('Success saving into the DB!'); </script>"     //跳转首页？
                 header("Location:share.php"); 
             }
