@@ -256,16 +256,16 @@
 
 
                     <div class="block">
-                        <h1>Promotional content</h1>
-                        <h5><span class="important">optional</span> content</h5>
+                        <h1>Make your journey more memorable</h1>
+                        <h5>by designing your own postcard</h5>
                         <!-- Slider main container -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/promo1_2x.jpg" alt="Design a marvelous postcard " /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/promo2_2x.jpg" alt="share postcards with family and friends " /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/promo3_2x.jpg" alt="View your timeline to remember your trips" /></div>
                             </div>
 
                             <!-- If we need navigation buttons -->
@@ -280,16 +280,18 @@
                     </div>
 
                     <div class="block grey">
-                        <h1>Promotional content</h1>
-                        <h5><span class="important">optional</span> content</h5>
+                        <h1>Design your first postcard</h1>
+                        <h5>within only 5 minutes!</h5>
                         <!-- Slider main container -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
-                                <div class="swiper-slide"><img class="imgSize280" src="img/placeholder.png" alt="The current picture" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/instructions1_2x.jpg" alt="choose and confirm your location" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/instructions2_2x.jpg" alt="select one picture for the front side" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/instructions3_2x.jpg" alt="select another picture as a stamp" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/instructions4_2x.jpg" alt="type in your greetings" /></div>
+                                <div class="swiper-slide"><img class="imgSize280" src="img/instructions5_2x.jpg" alt="share to social network or save to album" /></div>
                             </div>
 
                             <!-- If we need navigation buttons -->
