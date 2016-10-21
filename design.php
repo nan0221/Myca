@@ -35,7 +35,7 @@
 
     <!-- Site Overlay -->
     <div class="site-overlay"></div>
-    <!-- Login Modal -->
+    <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
@@ -53,14 +53,11 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
-                    <div class="half right">
-                        <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                        <input class="save textGrey" type="submit" name="login" value="Log in" />
-                    </div>
-                    <div class="half left">
-                    </div>
-                </div>
+                    <input type="text" name="URL" />
+                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
+                    <input class="save textGrey" type="submit" name="login" value="Log in" />
 
+                </div>
             </form>
         </div>
     </div>
@@ -109,17 +106,36 @@
                         var inst = $('[data-remodal-id=LogInModal]').remodal();
                         inst.destroy();
                     </script>
-                    <div>
-                        <!--修改这个div改变欢迎词和logout的排版-->
-                        <form action="logout.php" method="post">
-                            <span>Welcome</span>
-                            <?php
+
+                    <ul class="right user">
+                        <li>
+                            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                            <ul>
+
+                                <!--
+                                <li>
+    <?php
                         echo $_SESSION['Username'];
                         ?>
-                                <br/>
-                                <input type="submit" name="logout" value="Log out" />
-                        </form>
-                    </div>
+</li>
+-->
+
+                                <!--
+                                <form action="logout.php" method="post">
+    <a onclick="form.submit()">
+        <li>Log out</li>
+    </a>
+</form>
+-->
+                                <li>
+                                    <form action="logout.php" method="post">
+                                        <input type="submit" name="logout" value="Log out" />
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
                     <?php
             }else{
                 ?>
@@ -138,6 +154,7 @@
                         <?php
             }
             ?>
+
 
         </header>
 

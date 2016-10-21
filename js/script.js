@@ -122,6 +122,10 @@ $(document).ready(function () {
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
         console.log('currentLocation: ', currentLocation);
+        $('#navigation ul li:eq(0)').css('font-weight', '300');
+        $('#navigation ul li:eq(1)').css('font-weight', '500');
+        $('#navigation ul li:eq(2)').css('font-weight', '300');
+        $('#navigation ul li:eq(3)').css('font-weight', '300');
         showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
@@ -158,6 +162,10 @@ $(document).ready(function () {
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
         console.log('currentLocation: ', currentLocation);
+        $('#navigation ul li:eq(0)').css('font-weight', '300');
+        $('#navigation ul li:eq(1)').css('font-weight', '500');
+        $('#navigation ul li:eq(2)').css('font-weight', '300');
+        $('#navigation ul li:eq(3)').css('font-weight', '300');
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
@@ -191,6 +199,10 @@ $(document).ready(function () {
         $('.inProgress').css('width', '75%');
         $('#notification p').html('You are at Step3/4');
         console.log('currentLocation: ', currentLocation);
+        $('#navigation ul li:eq(0)').css('font-weight', '300');
+        $('#navigation ul li:eq(1)').css('font-weight', '300');
+        $('#navigation ul li:eq(2)').css('font-weight', '500');
+        $('#navigation ul li:eq(3)').css('font-weight', '300');
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
@@ -199,13 +211,14 @@ $(document).ready(function () {
         $('.inProgress').css('width', '100%');
         $('#notification p').html('You are at Step4/4');
         console.log('currentLocation: ', currentLocation);
-        showStep6();
-    });
-    $('#step5Content').find('.button').click(function () {
+        $('#navigation ul li:eq(0)').css('font-weight', '300');
+        $('#navigation ul li:eq(1)').css('font-weight', '300');
+        $('#navigation ul li:eq(2)').css('font-weight', '300');
+        $('#navigation ul li:eq(3)').css('font-weight', '500');
         showStep6();
     });
     $('#step6Content').find('.button').click(function () {
-        window.location.href = "/share.html";
+        window.location.href = "/share.php";
     });
 
     var selected_front_image;

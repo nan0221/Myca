@@ -199,6 +199,7 @@ h5 {
 }
 
 .selected {
+    border: 0.125em solid #ECB733;
     box-shadow: 0em 0em 0.25em #ECB733;
     -webkit-box-shadow: 0em 0em 0.25em #ECB733;
     -moz-box-shadow: 0em 0em 0.25em #ECB733;

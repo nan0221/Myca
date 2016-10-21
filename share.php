@@ -51,7 +51,7 @@
                 </div>
                 <div class="blank"> </div>
                 <div class="buttonHeight">
-
+                    <input type="text" name="URL" />
                     <input class="share textWhite" type="submit" name="signup" value="Sign up" />
                     <input class="save textGrey" type="submit" name="login" value="Log in" />
 
@@ -118,18 +118,71 @@
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
+            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
+            <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
+            <?php
+            session_start();
+            ?>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="js/remodal.js"></script>
+                <?php
+            if($_SESSION['auth']){
+                ?>
+                    <script>
+                        var inst = $('[data-remodal-id=LogInModal]').remodal();
+                        inst.destroy();
+                    </script>
 
-            <ul class="right user">
-                <li>
-                    <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
-                    <ul>
-                        <a data-remodal-target="LogInModal">
-                            <li>Log in</li>
-                        </a>
+                    <ul class="right user">
+                        <li>
+                            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                            <ul>
+
+                                <!--
+                                <li>
+    <?php
+                        echo $_SESSION['Username'];
+                        ?>
+</li>
+-->
+
+                                <!--
+                                <form action="logout.php" method="post">
+    <a onclick="form.submit()">
+        <li>Log out</li>
+    </a>
+</form>
+-->
+                                <li>
+                                    <form action="logout.php" method="post">
+                                        <input type="submit" name="logout" value="Log out" />
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
+                    <?php
+            }else{
+                ?>
+
+                        <ul class="right user">
+                            <li>
+                                <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                                <ul>
+                                    <a data-remodal-target="LogInModal">
+                                        <li>Log in</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <?php
+            }
+            ?>
+
+
         </header>
 
         <div class="block" id="results">
