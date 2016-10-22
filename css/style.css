@@ -1,4 +1,5 @@
-@media only screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen {
+    /*@media only screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) {*/
     .center {
         width: 50%;
         display: block;
@@ -746,7 +747,7 @@
     -moz-box-shadow: 0 0 0.25em rgba(205, 205, 205, 0.7);
     box-shadow: 0 0 0.25em rgba(205, 205, 205, 0.7);
 */
-<<<<<<< HEAD
+        <<<<<<< HEAD
     }
     .user li {
         font-size: 11pt;
@@ -809,9 +810,35 @@
     .exceeded {
         color: #D41447;
     }
+    #locationP {
+        width: 100%;
+        text-align: center;
+        font-family: 'Neuton';
+        font-size: 9pt;
+        position: absolute;
+        top: 67%;
+    }
+    .previewFront {}
+    .previewFrontBg {
+        position: relative;
+    }
+    #img1P {
+        position: absolute;
+        top: 23%;
+        left: 33.4%;
+    }
+    .previewBack {}
+    .previewBackBg {
+        position: relative;
+    }
+    #img2P {
+        position: absolute;
+        top: 3.46em;
+        left: 19.52em;
+    }
 }
 
-@media only screen and (min-device-width:768px) and(max-device-width:1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media love {
     .center {
         width: 50%;
         display: block;
@@ -1645,9 +1672,9 @@
         color: #D41447;
     }
 }
+
 =======
 }
-
 .user li {
     font-size: 11pt;
     display: inline-block;
@@ -1661,13 +1688,11 @@
     -o-transition: all 0.2s;
     transition: all 0.2s;
 }
-
 .user li:hover,
 .user li:active,
 .user li:focus {
     color: #FFFFFF;
 }
-
 .user li ul {
     padding: 0;
     position: absolute;
@@ -1682,14 +1707,12 @@
     visibility: hidden;
     -transition: opacity 0.2s;
 }
-
 .user li ul li {
     background-color: #191919;
     display: block;
     color: #B6B6B6;
     text-shadow: 0 -0.063em 0 #000000;
 }
-
 .user li:hover ul,
 .user li:active ul,
 .user li:focus ul {
@@ -1697,31 +1720,40 @@
     opacity: 1;
     visibility: visible;
 }
-
 #step6Content span {
     margin-left: 1.25em;
     font-size: 11pt;
     font-weight: 300;
 }
-
 .counter {
     display: inline-block;
     margin-right: 2em;
     font-weight: 500;
 }
-
 .warning {
     color: #ECB733;
 }
-
 .exceeded {
     color: #D41447;
 }
-.bg_img { border-style:solid; border-width:1px; }
-		
-.location { position:absolute; top:250px; left:96.3px; font-size:4pt; }
-		
-.image1 { position:absolute; top:135.7px; left:28px; }
-		
-.image2 { position:absolute; top:297px; left:172px; }
+.bg_img {
+    border-style: solid;
+    border-width: 1px;
+}
+.location {
+    position: absolute;
+    top: 250px;
+    left: 96.3px;
+    font-size: 4pt;
+}
+.image1 {
+    position: absolute;
+    top: 135.7px;
+    left: 28px;
+}
+.image2 {
+    position: absolute;
+    top: 297px;
+    left: 172px;
+}
 >>>>>>> 62e5f6160b703e778fa97d2a3f78e5cd0a3d7edf

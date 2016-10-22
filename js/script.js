@@ -45,6 +45,7 @@ $(document).ready(function () {
     showStep2(); // initialization
     $('input[name=firstimg]').hide();
     $('input[name=secondimg]').hide();
+    $('input[name=address]').hide();
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {
@@ -697,7 +698,7 @@ $(document).ready(function () {
     var img1 = document.getElementById("front"); // Image                                                //width="840" height="564"
     ctx1.drawImage(bg1, 0, 0, 224, 150); // Background image position and size                              //width="224" height="150"
     ctx1.drawImage(img1, 26.7, 8, 170.4, 114.4); // Image position and size
-    ctx1.font = "4.8pt Arial";
+    ctx1.font = "4.8pt Neuton";
     ctx1.textAlign = "center";
     // Reference: http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_textalign
     ctx1.fillText('St.Lucia QLD', 112, 137.1); //Geolocation
@@ -708,7 +709,7 @@ $(document).ready(function () {
     var text2 = 'Dear Holly,';
     var text3 = '    All the world \'s a stage, and all the men and women merely players. They have their exits and their entrances; And one man in his time plays many parts.';
     var text4 = 'Alvin';
-    ctx2.font = '3.2pt Arial';
+    ctx2.font = '3.2pt Neuton';
     ctx2.drawImage(bg2, 0, 0, 224, 150); // Background image position and size	
     wrapText(ctx2, text2, 14.4, 35.7, 75.7, 8);
     wrapText(ctx2, text3, 14.4, 43.7, 75.7, 8);
@@ -743,18 +744,17 @@ function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
 var current_location = "St.Lucia QLD";
 var img1_src = "img/front.jpg";
 var img2_src = "img/stamp.jpg";
+
 function add_location() {
-	var str = document.getElementById("locationP").innerHTML;
-	var res = str.replace("Your location", current_location);
-	document.getElementById("locationP").innerHTML = res;
+    var str = document.getElementById("locationP").innerHTML;
+    var res = str.replace("Your location", current_location);
+    document.getElementById("locationP").innerHTML = res;
 }
+
 function add_img1() {
-	document.getElementById("img1P").src = img1_src;
+    document.getElementById("img1P").src = img1_src;
 }
+
 function add_img2() {
-	document.getElementById("img2P").src = img2_src;
+    document.getElementById("img2P").src = img2_src;
 }
-
-
-
-
