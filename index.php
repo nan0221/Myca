@@ -176,7 +176,7 @@
                     <div class="swiper-slide"><img class="imgSize280" src="img/promo_2_2x.jpg" alt="An example of the back side of the postcard generated" /></div>
                 </div>
                 <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination" id="frontandbackshow"></div>
 
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>

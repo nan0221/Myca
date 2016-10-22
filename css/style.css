@@ -1,5 +1,4 @@
-@media screen {
-    /*@media only screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) {*/
+@media screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) {
     .center {
         width: 50%;
         display: block;
@@ -836,9 +835,20 @@
         top: 3.46em;
         left: 19.52em;
     }
+    input[name="towhom"],
+    input[name="fromwhom"] {
+        width: 85%;
+        height: 2.5em;
+        border-radius: 0.5em;
+        border: 0.063em solid;
+        border-color: #B6B6B6;
+        background-color: #F2F2F2;
+        display: block;
+        margin: 0 auto;
+    }
 }
 
-@media love {
+@media screen and (min-device-width:769px) {
     .center {
         width: 50%;
         display: block;
@@ -1259,7 +1269,7 @@
         background-color: #ECB733;
         color: #FFFFFF;
         font-weight: 300;
-        font-size: 11pt;
+        font-size: 14pt;
         padding: 0.5em 0em 1em 0em;
         margin: 0 auto;
         display: block;
@@ -1481,6 +1491,7 @@
         background-color: #F2F2F2;
         display: block;
         margin: 0 auto;
+        font-size: 14pt;
     }
     .progress {
         max-width: 1280px;
@@ -1615,7 +1626,7 @@
         display: inline-block;
         margin-right: -0.5em;
         position: relative;
-        padding: 2em 2.5em;
+        padding: 1em 2em;
         cursor: pointer;
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
@@ -1671,6 +1682,49 @@
     .exceeded {
         color: #D41447;
     }
+    #frontandbackshow {
+        width: 100%;
+        left: 0;
+        top: 27.5em;
+    }
+    #locationP {
+        width: 100%;
+        text-align: center;
+        font-family: 'Neuton';
+        font-size: 12pt;
+        position: absolute;
+        top: 67%;
+    }
+    .previewFront {}
+    .previewFrontBg {
+        position: relative;
+    }
+    #img1P {
+        position: absolute;
+        top: 23%;
+        left: 33.4%;
+    }
+    .previewBack {}
+    .previewBackBg {
+        position: relative;
+    }
+    #img2P {
+        position: absolute;
+        top: 3.46em;
+        left: 19.52em;
+    }
+    input[name="towhom"],
+    input[name="fromwhom"] {
+        width: 85%;
+        height: 2.5em;
+        border-radius: 0.5em;
+        border: 0.063em solid;
+        border-color: #B6B6B6;
+        background-color: #F2F2F2;
+        display: block;
+        margin: 0 auto;
+        color: #555555;
+    }
 }
 
 =======
@@ -1698,7 +1752,7 @@
     position: absolute;
     top: 3em;
     left: -2.625em;
-    width: 6.25em;
+    width: 12em;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;

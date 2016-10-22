@@ -339,10 +339,14 @@
 
         <div class="block grey " id="step6Content">
             <form id="greetings" method="post">
-                <span>TO</span>
-                <input type="text" id="towhom" name="towhom" />
-                <span>FROM</span>
-                <input type="text" id="fromwhom" name="fromwhom" />
+                <div>
+                    <span>TO</span>
+                    <input type="text" id="towhom" name="towhom" />
+                </div>
+                <div>
+                    <span>FROM</span>
+                    <input type="text" id="fromwhom" name="fromwhom" />
+                </div>
                 <span>Only the first 140 characters will be recorded.
                 </span>
                 <span class="counter right"></span>
