@@ -19,6 +19,62 @@
 
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
+    
+    <!--mutilanguage-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var arrLang = {
+        'en':{
+            'design':'Design your own postcard',
+            'both':'for both front and back sides',
+            'start':'Start to design',
+            'time_line':'Time line',
+            'all':'All the postcards you have generated will be shown here after you are logged in',
+            'memorable':'Make your journey more memorable',
+            'by_designing':'by designing your own postcard',
+            'first':'Design your first postcard',
+            '5_minutes':'within only 5 minutes!',
+            'popular':'Popular works',
+            'vote':'Click to vote for them',
+            'deco7180':'- a uq deco7180 project-',
+            'designed-imple':'designed and implemented by',
+            'mytea':'team mytea',
+            'powered-by':'powered by',
+            'trove':'trove'
+        },
+        'cn':{
+            'design':'设计你的明信片',
+            'both':'正面和反面', 
+            'start':'开始设计',
+            'time_line':'时间记忆轴',
+            'all':'当你登录后，你可以在这里浏览你所有的明信片',
+            'memorable':'让你的旅行更加难忘',
+            'by_designing':'设计你自己独一无二的明信片',
+            'first':'设计你自己的明信片',
+            '5_minutes':'只花5分钟！',
+            'popular':'受欢迎的明信片',
+            'vote':'点击为你喜欢的明信片投票',
+            'deco7180':'- 一个昆士兰大学 deco7180 项目-',
+            'designed-imple':'设计并发行由',
+            'mytea':'mytea 团队',
+            'powered-by':'技术支持',
+            'trove':'trove'
+        }
+    };
+        
+    $(function(){
+        $('.translate').click(function(){
+            var lang = $(this).attr('id');
+            
+            $('.lang').each(function(index, element){
+                $(this).text(arrLang[lang][$(this).attr('key')]);
+            });
+        });
+    });
+    
+    </script>
+    
 </head>
 
 <body>
@@ -26,8 +82,8 @@
     <nav class="pushy pushy-left">
         <ul>
             <!-- Submenu -->
-            <li class="pushy-link"><a href="#">English</a></li>
-            <li class="pushy-link"><a href="#">中文（简体）</a></li>
+            <li class="pushy-link" class="translate" id="en"><a href="#">English</a></li>
+            <li class="pushy-link" class="translate" id="cn"><a href="#">中文（简体）</a></li>
         </ul>
     </nav>
     <!-- Site Overlay -->
@@ -165,8 +221,8 @@
         </header>
 
         <div class="block">
-            <h1>Design your own postcard</h1>
-            <h5>for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
+            <h1 class="lang" key="design">Design your own postcard</h1>
+            <h5 class="lang" key="both">for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
             <!-- Slider main container -->
             <div class="swiper-container" id="preview">
                 <!-- Additional required wrapper -->
@@ -185,7 +241,7 @@
             </div>
 
             <a href="design.php">
-                <div class="button textWhite">Start to design</div>
+                <div class="button textWhite" class="lang" key="start">Start to design</div>
             </a>
         </div>
 
@@ -234,9 +290,9 @@
         }else{
             ?>
                 <div class="block grey">
-                    <h1>Time line</h1>
+                    <h1 class="lang" key="time_line">Time line</h1>
                     <!--        <h5>Click to turn over the postcard</h5>-->
-                    <h5>All the postcards you have generated will be shown here after you are <span class="important">logged in</span></h5>
+                    <h5 class="lang" key="all">All the postcards you have generated will be shown here after you are <span class="important">logged in</span></h5>
                     <!-- Slider main container -->
                     <div class="swiper-container" id="notLoggedIn">
                         <!-- Additional required wrapper -->
@@ -256,8 +312,8 @@
 
 
                     <div class="block">
-                        <h1>Make your journey more memorable</h1>
-                        <h5>by designing your own postcard</h5>
+                        <h1 class="lang" key="memorable">Make your journey more memorable</h1>
+                        <h5 class="lang" key="by_designing">by designing your own postcard</h5>
                         <!-- Slider main container -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
@@ -275,13 +331,13 @@
                         </div>
                         <div class="blank"> </div>
                         <a href="design.php">
-                            <div class="button textWhite">Start to design</div>
+                            <div class="button textWhite" class="lang" key="start">Start to design</div>
                         </a>
                     </div>
 
                     <div class="block grey">
-                        <h1>Design your first postcard</h1>
-                        <h5>within only 5 minutes!</h5>
+                        <h1 class="lang" key="first">Design your first postcard</h1>
+                        <h5 class="lang" key="5_minutes">within only 5 minutes!</h5>
                         <!-- Slider main container -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
@@ -306,8 +362,8 @@
                     </div>
 
                     <div class="block" id="popular">
-                        <h1>Popular works</h1>
-                        <h5><span class="important">Click to vote</span> for them</h5>
+                        <h1 class="lang" key="popular">Popular works</h1>
+                        <h5><span class="important" class="lang" key="vote">Click to vote</span> for them</h5>
                         <!-- Slider main container -->
                         <div class="swiper-container votable">
                             <!-- Additional required wrapper -->
@@ -343,11 +399,11 @@
                     </div>
 
                     <footer>
-                        <p>- a uq deco7180 project -</p>
-                        <p>designed and implemented by</p>
-                        <p>team mytea</p>
-                        <p>powered by</p>
-                        <p>trove</p>
+                        <p class="lang" key="deco7180">- a uq deco7180 project -</p>
+                        <p class="lang" key="designed-imple">designed and implemented by</p>
+                        <p class="lang" key="mytea">team mytea</p>
+                        <p class="lang" key="powered-by">powered by</p>
+                        <p class="lang" key="trove">trove</p>
                     </footer>
     </div>
 
