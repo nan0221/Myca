@@ -739,3 +739,22 @@ function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
     ctx2.fillText(line, x, y);
     //Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
 }
+
+var current_location = "St.Lucia QLD";
+var img1_src = "img/front.jpg";
+var img2_src = "img/stamp.jpg";
+function add_location() {
+	var str = document.getElementById("locationP").innerHTML;
+	var res = str.replace("Your location", current_location);
+	document.getElementById("locationP").innerHTML = res;
+}
+function add_img1() {
+	document.getElementById("img1P").src = img1_src;
+}
+function add_img2() {
+	document.getElementById("img2P").src = img2_src;
+}
+
+
+
+

@@ -934,3 +934,10 @@ input {
 .exceeded {
     color: #D41447;
 }
+.bg_img { border-style:solid; border-width:1px; }
+		
+.location { position:absolute; top:250px; left:96.3px; font-size:4pt; }
+		
+.image1 { position:absolute; top:135.7px; left:28px; }
+		
+.image2 { position:absolute; top:297px; left:172px; }
