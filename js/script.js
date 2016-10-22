@@ -653,7 +653,7 @@ function myMap() {
                     window.alert('No results found'); //Error check
                 }
             } else {
-                window.alert('Geocoder failed due to: ' + status); //Error check
+                //window.alert('Geocoder failed due to: ' + status); //Error check
             }
         });
         placeMarker(map, event.latLng); // Add marker on map, call placemarker function
@@ -664,16 +664,17 @@ function myMap() {
 var markersArray = [];
 // Add marker
 function placeMarker(map, location) {
+    if (markersArray.length >= 1) { // The amount of marker should be one
+        //alert('Please mark only one address :)'); //If user clicked more than one times
+        deleteOverlays(); // Call deleteOverlays function to clear all markers 
+    }
     var marker = new google.maps.Marker({
         position: location,
         map: map
     });
     markersArray.push(marker); // Create an array to store all marker that user clicked
     console.log(markersArray);
-    if (markersArray.length > 1) { // The amount of marker should be one
-        alert('Please mark only one address :)'); //If user clicked more than one times
-        deleteOverlays(); // Call deleteOverlays function to clear all markers 
-    }
+    
     // Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
 // Clear marker
