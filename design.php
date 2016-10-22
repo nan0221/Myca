@@ -161,32 +161,13 @@
 
         <div class="block" id="result">
             <h1>Preview</h1>
-            <h5>Swipe to switch between <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-            <!-- Slider main container -->
-            <div class="swiper-container" id="preview">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <img id="stamp" src="img/stamp.jpg" alt="The Scream" width="0" height="0">
-                    <img id="front" src="img/front.jpg" alt="Front" width="0" height="0">
-                    <img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
-                    <img id="bg2" src="img/bg2.jpg" alt="bg2" width="0" height="0">
-                    <img id="water-mark" src="img/stamp (2).jpg" alt="water-mark" width="0" height="0">
-                    <div class="swiper-slide">
-                        <canvas id="myCanvas1" width="224" height="150" style="border:1px solid #000000;"></canvas>
-                    </div>
-                    <div class="swiper-slide">
-                        <canvas id="myCanvas2" width="224" height="150" style="border:1px solid #000000;"></canvas>
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
+            <img class="bg_img" src="img/bg1.jpg" height="150" width="224">
+		<p id="locationP" class="location"> Your location </p>
+		<br>
+		<img class="bg_img" src="img/bg2.jpg" height="150" width="224">
+		<br>
+		<img id="img1P" class="image1" src="img/placeholder.png" height="114.4" width="170.4">
+		<img id="img2P" class="image2" src="img/placeholder.png" height="31.5" width="42.67">		 
         </div>
 
         <div class="navigation" id="navigation">
@@ -237,7 +218,7 @@
             <br>
             <!--        <div id="map1" class="MapPosition"></div>-->
             <div class="blank"></div>
-            <div class="button textWhite">Yes, I am here!</div>
+            <div class="button textWhite" onclick="add_location()">Yes, I am here!</div>
             <a href="#">
                 <p class="alternativeOption">I am not here</p>
             </a>
@@ -250,7 +231,7 @@
             <!-- Google maps API -->
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
-            <div class="button textWhite">Yes, I am here!</div>
+            <div class="button textWhite" onclick="add_location()">Yes, I am here!</div>
         </div>
 
         <div class=" step" id="step3Instruction">
@@ -275,7 +256,7 @@
             </div>
 
             <div class="blank"></div>
-            <div class="button textWhite">Okay</div>
+            <div class="button textWhite" onclick="add_img1()">Okay</div>
         </div>
 
         <div class=" step" id="step4Instruction">
@@ -297,7 +278,7 @@
 
             </div>
             <div class="blank"></div>
-            <div class="button textWhite">Okay</div>
+            <div class="button textWhite" onclick="add_img2()">Okay</div>
 
         </div>
 
