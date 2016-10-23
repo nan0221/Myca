@@ -1736,7 +1736,7 @@
     }
 }
 
-@media screen and (min-device-width:769px) {
+@media screen and (min-device-width:1080px) {
     .center {
         width: 50%;
         display: block;
@@ -1758,8 +1758,7 @@
     }
     body {
         width: 100%;
-        max-width: 1280px;
-        min-width: 768px;
+        width: 1080px;
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
@@ -2575,7 +2574,7 @@
     #img1P {
         position: absolute;
         top: 1.45em;
-        left: 8.74em;
+        left: 5.62em;
         width: 21.3em;
         height: 14.43em;
     }
