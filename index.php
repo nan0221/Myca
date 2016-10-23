@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
 
     <!--mutilanguage-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -378,6 +379,9 @@
                                     while($popular = mysql_fetch_assoc($voteres)){
                                         ?>
                                     <div class="swiper-slide">
+                                        <div>
+                                            <h5>Popular:<span><?php echo $popular[post_popular];?></span></h5>
+                                        </div>
                                         <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>" />
                                     </div>
 
