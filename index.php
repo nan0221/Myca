@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
 
-    <!--mutilanguage-->
+    <!--Here starts to build muli-language translation -->
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -91,22 +91,23 @@
 </head>
 
 <body>
-    <!-- Pushy Menu -->
+    <!-- Here starts to build Pushy Menu for language swicher between English and Chinese -->
     <nav class="pushy pushy-left">
         <ul>
-            <!-- Submenu -->
+            <!--Here sets Submenu for language switcher -->
             <li class="pushy-link"><a href="#" class="translate" id="en">English</a></li>
             <li class="pushy-link"><a href="#" class="translate" id="cn">中文（简体）</a></li>
         </ul>
     </nav>
-    <!-- Site Overlay -->
+    <!-- Here starts to build site Site Overlay-login model -->
     <div class="site-overlay"></div>
-    <!-- Login Modal-->
+    <!-- Here starts to build Sign up and Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
+        <!-- Sets a close button for sign up and login window -->
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-
+        <!--Sets a form to get username and password with signup and login buttons  -->
         <div id="loginForm">
             <form action="login.php" method="post" id="login">
                 <h5 class="lang" key="sameform">You can sign up or log in with the same form</h5>
