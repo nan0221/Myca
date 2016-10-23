@@ -415,7 +415,7 @@
         </div>
 
         <div class="block grey " id="step6Content">
-            <form id="greetings" method="post">
+            <form action="save.php" id="greetings" method="post">
                 <span>TO</span>
                 <input type="text" id="towhom" name="towhom" />
                 <span>FROM</span>
@@ -428,13 +428,7 @@
                 <input name="address" type="text" value="Australia" />
                 <input name="firstimg" type="text" />
                 <input name="secondimg" type="text" />
-                <button class="button center textWhite" type="submit">Done</button>
-                <!--3-->
-                <?php
-				$greeting = $_POST['greeting'];
-				session_start();
-				$_SESSION['greeting'] = "$greeting";
-				?>
+                <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>
 
