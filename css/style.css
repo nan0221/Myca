@@ -865,6 +865,10 @@
         height: 10em;
         width: 100%;
     }
+    .showSize {
+        width: 90%;
+        height: auto;
+    }
 }
 
 @media screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
@@ -1733,6 +1737,10 @@
     #preview .swiper-wrapper {
         height: 10em;
         width: 100%;
+    }
+    .showSize {
+        width: 90%;
+        height: auto;
     }
 }
 
@@ -2612,6 +2620,10 @@
     #preview .swiper-wrapper {
         height: 20em;
     }
+    .showSize {
+        width: 90%;
+        height: auto;
+    }
 }
 
 @media screen and (min-device-width:1080px) {
@@ -3489,5 +3501,9 @@
     }
     #preview .swiper-wrapper {
         height: 20em;
+    }
+    .showSize {
+        width: 90%;
+        height: auto;
     }
 }

@@ -22,22 +22,7 @@
 
     <!--mutilanguage-->
     <script type="text/javascript">
-        var arrLang = {
-            'en': {
-                'congrats': 'Congrats,',
-                'finished': "You've finished a masterpiece!",
-                'nowshare': 'Now share it with your friends!',
-                'share': 'Share',
-                'save': 'Save'
-            },
-            'cn': {
-                'congrats': '恭喜，',
-                'finished': "你已经完成一张明信片！",
-                'nowshare': '现在和朋友分享你的明信片吧！',
-                'share': '分享',
-                'save': '保存'
-            }
-        };
+        var arrLang = {};
 
         $(function () {
             $('.translate').click(function () {
@@ -89,21 +74,6 @@
             </form>
         </div>
     </div>
-    <!-- Edit Modal-->
-    <div class="remodal" data-remodal-id="EditModal">
-        <div>
-            <button data-remodal-action="close" class="remodal-close"></button>
-        </div>
-
-        <div>
-            <form action="" method="post" id="edit">
-                <div class="buttonHeight">
-                    <button class="share textWhite" type="submit" name="signup">Edit</button>
-                    <button class="save textGrey" type="submit" name="login">View postcard</button>
-                </div>
-            </form>
-        </div>
-    </div>
     <!-- Share Modal-->
     <div class="remodal" data-remodal-id="ShareModal">
         <div>
@@ -140,10 +110,27 @@
 
         </div>
     </div>
+    <!-- Vote Modal-->
+    <div class="remodal" data-remodal-id="VoteModal">
+        <div>
+            <button data-remodal-action="close" class="remodal-close"></button>
+        </div>
+        <h1><span class="important">123</span> users like it!</h1>
+        <h5>It seems that you are attracted. Be the next one to like it!</h5>
+        <div class="blank"></div>
+        <div>
+            <form action="vote.php" method="post" id="vote">
+                <div class="buttonHeight">
+                    <input name="voteimgid" type="text" />
+                    <button class="share textWhite" type="submit" name="vote">Like!</button>
+                    <button class="save textGrey" type="submit" name="view">View postcard</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
     <div class="remodal-bg">
-
         <header>
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
@@ -216,39 +203,10 @@
         </header>
 
         <div class="block" id="results">
-            <h1 class="lang" key="congrats">Congrats, 
-            <?php
-            session_start();
-            if($_SESSION['auth']){
-                echo $_SESSION['Username'];
-            }
-            else{
-                echo "Travellers";
-            }
-            ?></h1>
-            <h1 class="lang" key="finished">You've finished a masterpiece!</h1>
-            <h5 class="lang" key="nowshare">Now share it with your friends!</h5>
+            <h1 class="lang">Here is a postcard designed by WHOWHOWHO</h1>
             <!-- Slider main container -->
-            <div class="swiper-container" id="preview">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-            <div class="blank"> </div>
+            <img class="showSize" id="frontShow" />
+            <img class="showSize" id="backShow" />
             <div class="buttonHeight">
                 <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
                 <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>

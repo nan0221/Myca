@@ -29,6 +29,14 @@ $(document).ready(function () {
         inst.open();
     });
 
+    // for show page
+    $('#show img').click(function () {
+        var inst = $('[data-remodal-id=VoteModal]').remodal();
+        var voteimgid = $(this).attr('id');
+        $('input[name=voteimgid]').attr('value', voteimgid);
+        inst.open();
+    });
+
     // for share page
     $('#results img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();

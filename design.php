@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="css/pace.css" />
 
     <!--mutilanguage-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -242,9 +241,9 @@
 
 
             <!-- Slider main container -->
-            <div class="swiper-container editable" id="preview">
+            <div class="swiper-container" id="preview">
                 <!-- Additional required wrapper -->
-                <div class="swiper-wrapper maskEffect view">
+                <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide" id="previewFront">
                         <img class="imgSize280" id="previewFrontBg" src="img/bg1.jpg" />
