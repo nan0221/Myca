@@ -17,6 +17,8 @@ $(document).ready(function () {
 
     $('#timeline img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();
+        var editimgid = $(this).attr(id);
+        $('input[name=editimgid]').attr('value', editimgid);
         inst.open();
     });
 
@@ -51,6 +53,7 @@ $(document).ready(function () {
     $('input[name=fronturl]').hide();
     $('input[name=backurl]').hide();
     $('input[name=voteimgid]').hide();
+    $('input[name=editimgid]').hide();
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {

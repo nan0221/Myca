@@ -122,10 +122,11 @@
         </div>
 
         <div>
-            <form action="" method="post" id="edit">
+            <form action="edit.php" method="post" id="edit">
                 <div class="buttonHeight">
-                    <button class="share textWhite" type="submit" name="Edit">Edit</button>
-                    <button class="save textGrey" type="submit" name="View postcard">View postcard</button>
+                    <input name="editimgid" type="text" />
+                    <button class="share textWhite" type="submit" name="edit">Edit</button>
+                    <button class="save textGrey" type="submit" name="view">View postcard</button>
                 </div>
             </form>
         </div>
