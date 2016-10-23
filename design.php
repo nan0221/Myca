@@ -413,7 +413,7 @@
         </div>
 
         <div class="block grey " id="step6Content">
-            <form id="greetings" method="post">
+            <form action="save.php" id="greetings" method="post">
                 <span>TO</span>
                 <input type="text" id="towhom" name="towhom" />
                 <span>FROM</span>
