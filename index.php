@@ -251,7 +251,7 @@
         if($_SESSION['auth']){
             include('Connect.php');
             $id = $_SESSION['Username'];
-            $postimg = "select post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
+            $postimg = "select post_id, post_URL, post_date, post_add from Img_info where U_id = (select Uid from User_info where UName = '$id') ";
             $postreslut=mysql_query($postimg);
             ?>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -274,7 +274,7 @@
                                 <div class="timeline-line">
                                     <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
                                 </div>
-                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
+                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" id="<?php echo $row[post_id];?>"/>
                             </div>
 
                             <?php
