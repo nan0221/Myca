@@ -139,10 +139,11 @@
         <h5>It seems that you are attracted. Be the next one to like it!</h5>
         <div class="blank"></div>
         <div>
-            <form action="" method="post" id="vite">
+            <form action="vote.php" method="post" id="vote">
                 <div class="buttonHeight">
-                    <button class="share textWhite" type="submit" name="signup">Like!</button>
-                    <button class="save textGrey" type="submit" name="login">View postcard</button>
+                    <input name="voteimgid" type="text" />
+                    <button class="share textWhite" type="submit" name="vote">Like!</button>
+                    <button class="save textGrey" type="submit" name="view">View postcard</button>
                 </div>
             </form>
         </div>
@@ -274,7 +275,7 @@
                                 <div class="timeline-line">
                                     <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
                                 </div>
-                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" id="<?php echo $row[post_id];?>"/>
+                                <img class="imgSize280" src="<?php echo $row[post_URL];?>" id="<?php echo $row[post_id];?>" />
                             </div>
 
                             <?php

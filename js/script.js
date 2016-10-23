@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     $('#popular img').click(function () {
         var inst = $('[data-remodal-id=VoteModal]').remodal();
+        var voteimgid = $(this).attr(id);
+        $('input[name=voteimgid]').attr('value', voteimgid);
         inst.open();
     });
 
@@ -48,6 +50,7 @@ $(document).ready(function () {
     $('input[name=address]').hide();
     $('input[name=fronturl]').hide();
     $('input[name=backurl]').hide();
+    $('input[name=voteimgid]').hide();
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {
