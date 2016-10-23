@@ -367,10 +367,10 @@
                         <h1 class="lang" key="popular">Popular works</h1>
                         <h5 class="lang" key="vote"><span class="important" >Click to vote</span> for them</h5>
                         <!-- Slider main container -->
-                        <div class="swiper-container votable">
+                        <div class="swiper-container">
                             <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper maskEffect view">
-                                <!-- Slides -->
+                            <div class="swiper-wrapper">
+
                                 <?php
                                     header("Content-Type: text/html; charset=utf8");
                                     include('Connect.php');
@@ -378,8 +378,11 @@
                                     $voteres=mysql_query($vote);
                                     while($popular = mysql_fetch_assoc($voteres)){
                                         ?>
-                                        <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>"/>
-                                        <?php
+                                    <div class="swiper-slide">
+                                        <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>" />
+                                    </div>
+
+                                    <?php
                                     }
                                 ?>
                             </div>
@@ -391,36 +394,35 @@
                         </div>
 
 
+
+                        <footer>
+                            <p class="lang" key="deco7180">- a uq deco7180 project -</p>
+                            <p class="lang" key="designed-imple">designed and implemented by</p>
+                            <p class="lang" key="mytea">team mytea</p>
+                            <p class="lang" key="powered-by">powered by</p>
+                            <p class="lang" key="trove">trove</p>
+                        </footer>
                     </div>
 
-                    <footer>
-                        <p class="lang" key="deco7180">- a uq deco7180 project -</p>
-                        <p class="lang" key="designed-imple">designed and implemented by</p>
-                        <p class="lang" key="mytea">team mytea</p>
-                        <p class="lang" key="powered-by">powered by</p>
-                        <p class="lang" key="trove">trove</p>
-                    </footer>
-    </div>
-
-    <script src="js/pushy.js"></script>
-    <script src="js/remodal.js"></script>
-    <script>
-        $(".swiper-container").each(function (index, element) {
-            var $this = $(this);
-            var swiper = new Swiper(this, {
-                pagination: $this.find(".swiper-pagination")[0],
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                paginationClickable: true,
-                spaceBetween: 30,
-                loop: false,
-                // Navigation arrows
-                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
-                nextButton: $this.find(".swiper-button-next")[0],
-                prevButton: $this.find(".swiper-button-prev")[0]
-            });
-        });
-    </script>
+                    <script src="js/pushy.js"></script>
+                    <script src="js/remodal.js"></script>
+                    <script>
+                        $(".swiper-container").each(function (index, element) {
+                            var $this = $(this);
+                            var swiper = new Swiper(this, {
+                                pagination: $this.find(".swiper-pagination")[0],
+                                slidesPerView: 'auto',
+                                centeredSlides: true,
+                                paginationClickable: true,
+                                spaceBetween: 30,
+                                loop: false,
+                                // Navigation arrows
+                                // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
+                                nextButton: $this.find(".swiper-button-next")[0],
+                                prevButton: $this.find(".swiper-button-prev")[0]
+                            });
+                        });
+                    </script>
 
 </body>
 
