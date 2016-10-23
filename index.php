@@ -82,7 +82,7 @@
         <ul>
             <!-- Submenu -->
             <li class="pushy-link" ><a href="#" class="translate" id="en">English</a></li>
-            <li class="pushy-link" class="translate" id="cn"><a href="#" class="translate" id="cn">中文（简体）</a></li>
+            <li class="pushy-link" ><a href="#" class="translate" id="cn">中文（简体）</a></li>
         </ul>
     </nav>
     <!-- Site Overlay -->
