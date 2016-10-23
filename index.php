@@ -20,74 +20,6 @@
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
 
-    <!--Here starts to build muli-language translation -->
-    <script type="text/javascript">
-        var arrLang = {
-            'en': {
-                'sameform':'You can sign up or log in with the same form',
-                'signup':'Sign up',
-                'login':'Log in',
-                'edit':'Edit',
-                'viewpostcard':'View postcard',
-                'userlikeit':'users like it!',
-                'next':'Be the next one to like it!',
-                'design': 'Design your own postcard',
-                'both': 'for both front and back sides',
-                'start': 'Start to design',
-                'time_line': 'Time line',
-                'all': 'All the postcards you have generated will be shown here after you are logged in',
-                'memorable': 'Make your journey more memorable',
-                'by_designing': 'by designing your own postcard',
-                'first': 'Design your first postcard',
-                '5_minutes': 'within only 5 minutes!',
-                'popular': 'Popular works',
-                'vote': 'Click to vote for them',
-                'deco7180': '- a uq deco7180 project-',
-                'designed-imple': 'designed and implemented by',
-                'mytea': 'team mytea',
-                'powered-by':'powered by',
-                'trove': 'trove'
-            },
-            'cn': {
-                'sameform':'你可以选择注册或登录',
-                'signup':'注册',
-                'login':'登录',
-                'design': '设计你的明信片',
-                'edit':'编辑',
-                'viewpostcard':'预览你的明信片',
-                'userlikeit':'你喜欢这张明信片！',
-                'next':'快成为下一个为它投票的人吧！',
-                'design': '设计你的明信片',
-                'both': '正面和反面',
-                'start': '开始设计',
-                'time_line': '记录时间',
-                'all': '当你登录后，你可以在这里浏览你所有的明信片',
-                'memorable': '让你的旅行更加难忘',
-                'by_designing': '设计你自己独一无二的明信片',
-                'first': '设计你自己的明信片',
-                '5_minutes': '只花5分钟！',
-                'popular': '受欢迎的明信片',
-                'vote': '点击为你喜欢的明信片投票',
-                'deco7180': '- 一个昆士兰大学 deco7180 项目-',
-                'designed-imple': '设计并发行由',
-                'mytea': 'mytea 团队',
-                'powered-by':'技术支持',
-                'trove': 'trove'
-
-            }
-        };
-
-        $(function () {
-            $('.translate').click(function () {
-                var lang = $(this).attr('id');
-
-                $('.lang').each(function (index, element) {
-                    $(this).text(arrLang[lang][$(this).attr('key')]);
-                });
-            });
-        });
-    </script>
-
 </head>
 
 <body>
@@ -124,7 +56,7 @@
                 <div class="buttonHeight">
                     <input type="text" name="URL" />
                     <button class="share textWhite" type="submit" name="signup" class="lang" key="signup">Sign up</button>
-                    <button class="save textGrey" type="submit"  name="login"class="lang" key="login">Log in</button>
+                    <button class="save textGrey" type="submit" name="login" class="lang" key="login">Log in</button>
 
                 </div>
             </form>
@@ -436,6 +368,73 @@
                                 // nextButton: '.swiper-button-next', // prevButton: '.swiper-button-prev',
                                 nextButton: $this.find(".swiper-button-next")[0],
                                 prevButton: $this.find(".swiper-button-prev")[0]
+                            });
+                        });
+                    </script>
+                    <!--Here starts to build muli-language translation -->
+                    <script type="text/javascript">
+                        var arrLang = {
+                            'en': {
+                                'sameform': 'You can sign up or log in with the same form',
+                                'signup': 'Sign up',
+                                'login': 'Log in',
+                                'edit': 'Edit',
+                                'viewpostcard': 'View postcard',
+                                'userlikeit': 'users like it!',
+                                'next': 'Be the next one to like it!',
+                                'design': 'Design your own postcard',
+                                'both': 'for both front and back sides',
+                                'start': 'Start to design',
+                                'time_line': 'Time line',
+                                'all': 'All the postcards you have generated will be shown here after you are logged in',
+                                'memorable': 'Make your journey more memorable',
+                                'by_designing': 'by designing your own postcard',
+                                'first': 'Design your first postcard',
+                                '5_minutes': 'within only 5 minutes!',
+                                'popular': 'Popular works',
+                                'vote': 'Click to vote for them',
+                                'deco7180': '- a uq deco7180 project-',
+                                'designed-imple': 'designed and implemented by',
+                                'mytea': 'team mytea',
+                                'powered-by': 'powered by',
+                                'trove': 'trove'
+                            },
+                            'cn': {
+                                'sameform': '你可以选择注册或登录',
+                                'signup': '注册',
+                                'login': '登录',
+                                'design': '设计你的明信片',
+                                'edit': '编辑',
+                                'viewpostcard': '预览你的明信片',
+                                'userlikeit': '你喜欢这张明信片！',
+                                'next': '快成为下一个为它投票的人吧！',
+                                'design': '设计你的明信片',
+                                'both': '正面和反面',
+                                'start': '开始设计',
+                                'time_line': '记录时间',
+                                'all': '当你登录后，你可以在这里浏览你所有的明信片',
+                                'memorable': '让你的旅行更加难忘',
+                                'by_designing': '设计你自己独一无二的明信片',
+                                'first': '设计你自己的明信片',
+                                '5_minutes': '只花5分钟！',
+                                'popular': '受欢迎的明信片',
+                                'vote': '点击为你喜欢的明信片投票',
+                                'deco7180': '- 一个昆士兰大学 deco7180 项目-',
+                                'designed-imple': '设计并发行由',
+                                'mytea': 'mytea 团队',
+                                'powered-by': '技术支持',
+                                'trove': 'trove'
+
+                            }
+                        };
+
+                        $(function () {
+                            $('.translate').click(function () {
+                                var lang = $(this).attr('id');
+
+                                $('.lang').each(function (index, element) {
+                                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                                });
                             });
                         });
                     </script>

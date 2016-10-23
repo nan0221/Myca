@@ -23,79 +23,6 @@
 
     <link rel="stylesheet" href="css/pace.css" />
 
-    <!--mutilanguage-->
-    <script type="text/javascript">
-        var arrLang = {
-            'en': {
-                'location': 'Choose your location',
-                'front': 'Choose a picture for the front side of the postcard',
-                'stamp': 'Choose a picture for the postage stamp',
-                'greeting': 'Type in your greeting',
-                'preview': 'Preview',
-                'your_location': 'Your location',
-                'swipe': 'Swipe to switch between front and back sides',
-                'locating': 'Locating',
-                'designfront': 'Design front side',
-                'designback': 'Design back side',
-                'typegreeting': 'Type in greeting',
-                'layout': 'Please choose the layout',
-                'landscape': 'Lanscape',
-                'portrait': 'Portrait',
-                'okay': 'Okay',
-                'confrimlocation': 'Please confirm your current location',
-                'googlemap': 'Geography service is provideed by Google Maps',
-                'iamhere': 'Yes, I am here!',
-                'nothere': 'I am not here',
-                'chooselocation': 'Please choose your location',
-                'mapservice': 'Map service is provided by Google Maps',
-                'choosepicfront': 'Please choose a picture for the front side of the postcard',
-                'tapswipe': 'Tap to choose, swipe for more',
-                'poweredbyTrove': 'powered by Trove',
-                'choosepicstamp': 'Please choose a picture for postage stamp',
-                'typeyourgreeting': 'Please type in your greeting',
-                '140': 'Only the first 140 characters will be recorded.',
-            },
-            'cn': {
-                'location': '请选择你的位置',
-                'front': '请选择一张图片作为明信片的封面',
-                'stamp': '请选择一张图片作为明信片的邮票',
-                'greeting': '请送上你的祝福',
-                'preview': '预览',
-                'your_location': '你的位置',
-                'swipe': '左右滑动切换正面和反面',
-                'locating': '确定你的位置',
-                'designfront': '设计明信片封面',
-                'designback': '设计明信片反面',
-                'typegreeting': '请写祝福语',
-                'layout': '请选择明信片布局',
-                'landscape': '横向明信片',
-                'portrait': '纵向明信片',
-                'okay': '确定',
-                'confirmlocation': '请确认你现在的位置',
-                'googlemap': '定位服务由谷歌地图提供支持',
-                'iamhere': '对，我在这儿！',
-                'nothere': '我不在这儿',
-                'chooselocation': '请选择你的位置',
-                'mapservice': '地图服务由谷歌地图提供支持',
-                'choosepicfront': '请选择一张图片作为明信片的封面',
-                'tapswipe': '轻点选择图片，左右滑动浏览更多',
-                'poweredbyTrove': 'Trove技术支持',
-                'choosepicstamp': '请选择一张图片作为明信片的邮票',
-                'typeyourgreeting': '请送上你的祝福',
-                '140': '只有前140个字符会显示在明信片上。',
-            }
-        };
-
-        $(function () {
-            $('.translate').click(function () {
-                var lang = $(this).attr('id');
-
-                $('.lang').each(function (index, element) {
-                    $(this).text(arrLang[lang][$(this).attr('key')]);
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -458,6 +385,79 @@
             nextButton: $('#preview').find(".swiper-button-next")[0],
             prevButton: $('#preview').find(".swiper-button-prev")[0]
         })
+    </script>
+    <!--mutilanguage-->
+    <script type="text/javascript">
+        var arrLang = {
+            'en': {
+                'location': 'Choose your location',
+                'front': 'Choose a picture for the front side of the postcard',
+                'stamp': 'Choose a picture for the postage stamp',
+                'greeting': 'Type in your greeting',
+                'preview': 'Preview',
+                'your_location': 'Your location',
+                'swipe': 'Swipe to switch between front and back sides',
+                'locating': 'Locating',
+                'designfront': 'Design front side',
+                'designback': 'Design back side',
+                'typegreeting': 'Type in greeting',
+                'layout': 'Please choose the layout',
+                'landscape': 'Lanscape',
+                'portrait': 'Portrait',
+                'okay': 'Okay',
+                'confrimlocation': 'Please confirm your current location',
+                'googlemap': 'Geography service is provideed by Google Maps',
+                'iamhere': 'Yes, I am here!',
+                'nothere': 'I am not here',
+                'chooselocation': 'Please choose your location',
+                'mapservice': 'Map service is provided by Google Maps',
+                'choosepicfront': 'Please choose a picture for the front side of the postcard',
+                'tapswipe': 'Tap to choose, swipe for more',
+                'poweredbyTrove': 'powered by Trove',
+                'choosepicstamp': 'Please choose a picture for postage stamp',
+                'typeyourgreeting': 'Please type in your greeting',
+                '140': 'Only the first 140 characters will be recorded.',
+            },
+            'cn': {
+                'location': '请选择你的位置',
+                'front': '请选择一张图片作为明信片的封面',
+                'stamp': '请选择一张图片作为明信片的邮票',
+                'greeting': '请送上你的祝福',
+                'preview': '预览',
+                'your_location': '你的位置',
+                'swipe': '左右滑动切换正面和反面',
+                'locating': '确定你的位置',
+                'designfront': '设计明信片封面',
+                'designback': '设计明信片反面',
+                'typegreeting': '请写祝福语',
+                'layout': '请选择明信片布局',
+                'landscape': '横向明信片',
+                'portrait': '纵向明信片',
+                'okay': '确定',
+                'confirmlocation': '请确认你现在的位置',
+                'googlemap': '定位服务由谷歌地图提供支持',
+                'iamhere': '对，我在这儿！',
+                'nothere': '我不在这儿',
+                'chooselocation': '请选择你的位置',
+                'mapservice': '地图服务由谷歌地图提供支持',
+                'choosepicfront': '请选择一张图片作为明信片的封面',
+                'tapswipe': '轻点选择图片，左右滑动浏览更多',
+                'poweredbyTrove': 'Trove技术支持',
+                'choosepicstamp': '请选择一张图片作为明信片的邮票',
+                'typeyourgreeting': '请送上你的祝福',
+                '140': '只有前140个字符会显示在明信片上。',
+            }
+        };
+
+        $(function () {
+            $('.translate').click(function () {
+                var lang = $(this).attr('id');
+
+                $('.lang').each(function (index, element) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
+            });
+        });
     </script>
 
 </body>
