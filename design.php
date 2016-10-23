@@ -64,7 +64,7 @@
                 'preview': '预览',
                 'your_location': '你的位置',
                 'swipe': '左右滑动切换正面和反面',
-                'locating': '定位中',
+                'locating': '确定你的位置',
                 'designfront': '设计明信片封面',
                 'designback': '设计明信片反面',
                 'typegreeting': '请写祝福语',
