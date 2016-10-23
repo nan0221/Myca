@@ -1528,10 +1528,12 @@
         display: inline-block;
         border-radius: 1em;
     }
+/*
     #preview {
         height: 30.376em;
         margin: -2.25em 0 1.25em 0;
     }
+*/
     #stamps {
         height: auto;
     }
@@ -1638,7 +1640,7 @@
     #frontandbackshow {
         width: 100%;
         left: 0;
-        top: 27.5em;
+        top: 21em;
     }
     #locationP {
         width: 100%;
@@ -1677,5 +1679,13 @@
         display: block;
         margin: 0 auto;
         color: #555555;
+    }
+    #preview {
+        height: 23em;
+    }
+    
+    #preview .swiper-wrapper {
+        height: 20em;
+        overflow: hidden;
     }
 }

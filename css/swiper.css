@@ -240,7 +240,6 @@
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-container-horizontal > .swiper-pagination-bullets {
-    top: 220px;
     left: 0;
     width: 100%;
 }
