@@ -78,7 +78,7 @@
                 'chooselocation': '请选择你的位置',
                 'mapservice': '地图服务由谷歌地图提供支持',
                 'choosepicfront': '请选择一张图片作为明信片的封面',
-                'tapswipe': '轻点选择图片，左右滑动浏览更多图片',
+                'tapswipe': '轻点选择图片，左右滑动浏览更多',
                 'poweredbyTrove': 'Trove技术支持',
                 'choosepicstamp': '请选择一张图片作为明信片的邮票',
                 'typeyourgreeting': '请送上你的祝福',
