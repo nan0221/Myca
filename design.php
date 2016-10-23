@@ -315,7 +315,7 @@
             <br>
             <!--        <div id="map1" class="MapPosition"></div>-->
             <div class="blank"></div>
-            <div class="button textWhite" onclick="add_location()" class="lang" key="iamhere">Yes, I am here!</div>
+            <div class="button textWhite" class="lang" key="iamhere">Yes, I am here!</div>
             <a href="#">
                 <p class="alternativeOption" class="lang" key="nothere">I am not here</p>
             </a>
@@ -324,7 +324,7 @@
         <div class="block grey " id="step2Branch">
             <h1 class="lang" key="chooselocation">Please choose your location</h1>
             <h5 class="lang" key="mapservice">Map service is provided by Google Maps</h5>
-            <div id="map2" class="preview" style="width:280px;height:300px;"></div>
+            <div id="map2" class="googlemap center"></div>
             <!-- Google maps API -->
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
@@ -353,7 +353,7 @@
             </div>
 
             <div class="blank"></div>
-            <div class="button textWhite" onclick="add_img1()" class="lang" key="okay">Okay</div>
+            <div class="button textWhite" class="lang" key="okay">Okay</div>
         </div>
 
         <div class=" step" id="step4Instruction">
@@ -375,7 +375,7 @@
 
             </div>
             <div class="blank"></div>
-            <div class="button textWhite" onclick="add_img2()">Okay</div>
+            <div class="button textWhite">Okay</div>
 
         </div>
 

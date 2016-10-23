@@ -127,6 +127,8 @@ $(document).ready(function () {
         $('#navigation ul li:eq(1)').css('font-weight', '500');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
         $('#navigation ul li:eq(3)').css('font-weight', '300');
+
+        $('#locationP').text($('input[name="address"]').val());
         showStep3();
     });
     $('#step2Content').find('.alternativeOption').click(function () {
@@ -167,6 +169,8 @@ $(document).ready(function () {
         $('#navigation ul li:eq(1)').css('font-weight', '500');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
         $('#navigation ul li:eq(3)').css('font-weight', '300');
+
+        $('#locationP').text($('input[name="address"]').val());
         showStep3();
     });
     $('#step3Content').find('.button').click(function () {
@@ -204,6 +208,8 @@ $(document).ready(function () {
         $('#navigation ul li:eq(1)').css('font-weight', '300');
         $('#navigation ul li:eq(2)').css('font-weight', '500');
         $('#navigation ul li:eq(3)').css('font-weight', '300');
+
+        $('#img1P').attr('src', selected_front_image);
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
@@ -216,6 +222,8 @@ $(document).ready(function () {
         $('#navigation ul li:eq(1)').css('font-weight', '300');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
         $('#navigation ul li:eq(3)').css('font-weight', '500');
+
+        $('#img2P').attr('src', selected_back_image);
         showStep6();
     });
     $('#step6Content').find('.button').click(function () {
@@ -740,25 +748,4 @@ function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
     }
     ctx2.fillText(line, x, y);
     //Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
-}
-
-var current_location = "St.Lucia QLD";
-var img1_src = "img/front.jpg";
-var img2_src = "img/stamp.jpg";
-
-function add_location() {
-    $('#locationP').text($('input[name="address"]').val());
-    //    var str = document.getElementById("locationP").innerHTML;
-    //    var res = str.replace("Your location", current_location);
-    //    document.getElementById("locationP").innerHTML = res;
-}
-
-function add_img1() {
-    $('#img1P').attr('src', $('input[name=firstimg]').val());
-    //    document.getElementById("img1P").src = img1_src;
-}
-
-function add_img2() {
-    $('#img2P').attr('src', $('input[name=secondimg]').val());
-    //    document.getElementById("img2P").src = img2_src;
 }

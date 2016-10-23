@@ -38,6 +38,9 @@
         color: #555555;
         font-size: 9pt;
     }
+    button {
+        border: 0;
+    }
     .dropDownList {
         z-index: 100;
         margin: auto;
@@ -352,6 +355,10 @@
     }
     footer p:first {
         padding-top: 1.5em;
+    }
+    .googlemap {
+        width: 80%;
+        height: 18em;
     }
     .notification {
         width: 100%;
@@ -687,6 +694,9 @@
         border: 0.063em solid #F2F2F2;
         display: inline-block;
         border-radius: 0.5em;
+    }
+    button {
+        border: 0;
     }
     #stamps {
         height: auto;
@@ -896,6 +906,9 @@
         color: #555555;
         font-size: 9pt;
     }
+    button {
+        border: 0;
+    }
     .dropDownList {
         z-index: 100;
         margin: auto;
@@ -1210,6 +1223,10 @@
     }
     footer p:first {
         padding-top: 1.5em;
+    }
+    .googlemap {
+        width: 80%;
+        height: 24em;
     }
     .notification {
         width: 100%;
@@ -1546,6 +1563,9 @@
         display: inline-block;
         border-radius: 0.5em;
     }
+    button {
+        border: 0;
+    }
     #stamps {
         height: auto;
     }
@@ -1754,6 +1774,9 @@
     input {
         color: #555555;
         font-size: 11pt;
+    }
+    button {
+        border: 0;
     }
     textarea,
     input.text,
@@ -2083,6 +2106,10 @@
     footer p:first {
         padding-top: 3em;
     }
+    .googlemap {
+        width: 80%;
+        height: 36em;
+    }
     .notification {
         width: 100%;
         height: 4.5em;
@@ -2258,7 +2285,7 @@
     }
     .block .alternativeOption {
         color: #555555;
-        font-size: 11pt;
+        font-size: 14pt;
         font-weight: 300;
         text-align: center;
     }
@@ -2535,9 +2562,9 @@
         width: 100%;
         text-align: center;
         font-family: 'Neuton';
-        font-size: 12pt;
+        font-size: 14pt;
         position: absolute;
-        top: 67%;
+        top: 13.3em;
     }
     .previewFront {}
     .previewFrontBg {
@@ -2545,8 +2572,10 @@
     }
     #img1P {
         position: absolute;
-        top: 23%;
-        left: 33.4%;
+        top: 1.45em;
+        left: 8.74em;
+        width: 21.3em;
+        height: 14.43em;
     }
     .previewBack {}
     .previewBackBg {
@@ -2554,8 +2583,10 @@
     }
     #img2P {
         position: absolute;
-        top: 3.46em;
-        left: 19.52em;
+        top: 1.4em;
+        left: 26.5em;
+        width: 5.2em;
+        height: 3.754em;
     }
     input[name="towhom"],
     input[name="fromwhom"] {
