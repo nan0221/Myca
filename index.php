@@ -278,7 +278,6 @@
                                 </div>
                                 <img class="imgSize280" src="<?php echo $row[post_URL];?>" id="<?php echo $row[post_id];?>" />
                             </div>
-
                             <?php
                         }
                         ?>
@@ -372,24 +371,17 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper maskEffect view">
                                 <!-- Slides -->
-                                <div class="swiper-slide">
-                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                                    <!-- <div class="mask">
-                            <a href="#" class="operation"></a>
-                        </div> -->
-                                </div>
-                                <div class="swiper-slide">
-                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                                    <!-- <div class="mask">
-                            <a href="#" class="operation"></a>
-                        </div> -->
-                                </div>
-                                <div class="swiper-slide">
-                                    <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
-                                    <!-- <div class="mask">
-                            <a href="#" class="operation"></a>
-                        </div> -->
-                                </div>
+                                <?php
+                                    header("Content-Type: text/html; charset=utf8");
+                                    include('Connect.php');
+                                    $vote = "SELECT * FROM Img_info order by `post_popular` DESC LIMIT 10;";
+                                    $voteres=mysql_query($vote);
+                                    while($popular = mysql_fetch_assoc($voteres)){
+                                        ?>
+                                        <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>"/>
+                                        <?php
+                                    }
+                                ?>
                             </div>
 
                             <!-- If we need navigation buttons -->
