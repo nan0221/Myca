@@ -394,7 +394,7 @@
     }
     .navigation li {
         display: inline-block;
-        width: 24.2%;
+        width: 24%;
         text-align: center;
         border-right: 0.125em solid #FFFFFF;
     }
@@ -683,14 +683,10 @@
         padding: 0.063em 0.375em;
         margin-left: 1em;
         margin: auto;
-        color: #F2F2F2;
+        color: #555555;
         border: 0.063em solid #F2F2F2;
         display: inline-block;
         border-radius: 0.5em;
-    }
-    #preview {
-        height: 15.188em;
-        margin: -1.125em 0 0.625em 0;
     }
     #stamps {
         height: auto;
@@ -829,8 +825,22 @@
         border: 0.063em solid;
         border-color: #B6B6B6;
         background-color: #F2F2F2;
+        color: #555555;
         display: block;
         margin: 0 auto;
+    }
+    #frontandbackshow {
+        width: 100%;
+        left: 0;
+        top: 9.8em;
+    }
+    #preview {
+        height: 11.5em;
+        width: 100%;
+    }
+    #preview .swiper-wrapper {
+        height: 10em;
+        width: 100%;
     }
 }
 
@@ -873,6 +883,16 @@
     input {
         color: #555555;
         font-size: 11pt;
+    }
+    textarea,
+    input.text,
+    input[type="text"],
+    input[type="button"],
+    input[type="submit"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 0px;
     }
     .dropDownList {
         z-index: 100;
@@ -1523,17 +1543,21 @@
         padding: 0.126em 0.75em;
         margin-left: 2em;
         margin: auto;
-        color: #F2F2F2;
+        color: #555555;
         border: 0.126em solid #F2F2F2;
         display: inline-block;
         border-radius: 1em;
     }
-/*
-    #preview {
-        height: 30.376em;
-        margin: -2.25em 0 1.25em 0;
+    textarea,
+    input.text,
+    input[type="text"],
+    input[type="button"],
+    input[type="submit"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-border-radius: 0px;
     }
-*/
     #stamps {
         height: auto;
     }
@@ -1637,11 +1661,6 @@
     .exceeded {
         color: #D41447;
     }
-    #frontandbackshow {
-        width: 100%;
-        left: 0;
-        top: 21em;
-    }
     #locationP {
         width: 100%;
         text-align: center;
@@ -1680,12 +1699,15 @@
         margin: 0 auto;
         color: #555555;
     }
+    #frontandbackshow {
+        width: 100%;
+        left: 0;
+        top: 21em;
+    }
     #preview {
         height: 23em;
     }
-    
     #preview .swiper-wrapper {
         height: 20em;
-        overflow: hidden;
     }
 }

@@ -130,8 +130,8 @@
                 <div class="blank"> </div>
                 <div class="buttonHeight">
                     <input type="text" name="URL" />
-                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                    <input class="save textGrey" type="submit" name="login" value="Log in" />
+                    <button class="share textWhite" type="submit" name="signup">Sign up</button>
+                    <button class="save textGrey" type="submit" name="login">Log in</button>
 
                 </div>
             </form>
@@ -268,16 +268,16 @@
         <div class="navigation" id="navigation">
             <ul>
                 <li class="lang" key="locating">
-                    1. Locating
+                    1. Location
                 </li>
                 <li class="lang" key="designfront">
-                    2. Design front side
+                    2. Front side
                 </li>
                 <li class="lang" key="designback">
-                    3. Design back side
+                    3. Back side
                 </li>
                 <li class="lang" key="typegreeting">
-                    4. Type in greeting
+                    4. Greetings
                 </li>
             </ul>
         </div>
@@ -330,7 +330,7 @@
         </div>
 
         <div class=" step" id="step3Instruction">
-            <h4 class="lang" key="choosepicfront">Please choose a picture for the front side of the postcard</h4>
+            <h4 class="lang" key="choosepicfront">Please choose a picture for the front side</h4>
 
         </div>
 
@@ -409,7 +409,7 @@
             </a>
         </div>
         <div class=" step" id="step6Instruction">
-            <h4 class="lang" key="typeyourgreeting">Please type in your greeting</h4>
+            <h4 class="lang" key="typeyourgreeting">Please type in your greetings</h4>
         </div>
 
         <div class="block grey " id="step6Content">
@@ -426,7 +426,7 @@
                 <input name="address" type="text" value="Australia" />
                 <input name="firstimg" type="text" />
                 <input name="secondimg" type="text" />
-                <input class="button center textWhite" type="submit" value="Done" />
+                <button class="button center textWhite" type="submit">Done</button>
                 <!--3-->
                 <?php
 				$greeting = $_POST['greeting'];

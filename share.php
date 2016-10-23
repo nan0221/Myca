@@ -83,8 +83,8 @@
                 <div class="blank"> </div>
                 <div class="buttonHeight">
                     <input type="text" name="URL" />
-                    <input class="share textWhite" type="submit" name="signup" value="Sign up" />
-                    <input class="save textGrey" type="submit" name="login" value="Log in" />
+                    <button class="share textWhite" type="submit" name="signup">Sign up</button>
+                    <button class="save textGrey" type="submit" name="login">Log in</button>
 
                 </div>
             </form>
@@ -99,8 +99,8 @@
         <div>
             <form action="" method="post" id="edit">
                 <div class="buttonHeight">
-                    <input class="share textWhite" type="submit" name="signup" value="Edit" />
-                    <input class="save textGrey" type="submit" name="login" value="View postcard" />
+                    <button class="share textWhite" type="submit" name="signup">Edit</button>
+                    <button class="save textGrey" type="submit" name="login">View postcard</button>
                 </div>
             </form>
         </div>
