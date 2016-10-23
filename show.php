@@ -221,8 +221,10 @@
             $imgb =$imgs[postb_URL];
             ?>
                     <div class="blank"></div>
+                    <h5>Front</h5>
                     <img class="showSize center" id="frontShow" src="<?php echo $img ?>" />
                     <div class="blank"></div>
+                    <h5>Back</h5>
                     <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />
                     <div class="blank"></div>
                     <div class="buttonHeight">
