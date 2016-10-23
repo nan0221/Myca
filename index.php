@@ -24,6 +24,13 @@
     <script type="text/javascript">
         var arrLang = {
             'en': {
+                'sameform':'You can sign up or log in with the same form',
+                'signup':'Sign up',
+                'login':'Log in',
+                'edit':'Edit',
+                'viewpostcard':'View postcard',
+                'userlikeit':'users like it!',
+                'next':'Be the next one to like it!',
                 'design': 'Design your own postcard',
                 'both': 'for both front and back sides',
                 'start': 'Start to design',
@@ -38,10 +45,18 @@
                 'deco7180': '- a uq deco7180 project-',
                 'designed-imple': 'designed and implemented by',
                 'mytea': 'team mytea',
-                'powered-by': 'powered by',
+                'powered-by':'powered by',
                 'trove': 'trove'
             },
             'cn': {
+                'sameform':'你可以选择注册或登录',
+                'signup':'注册',
+                'login':'登录',
+                'design': '设计你的明信片',
+                'edit':'编辑',
+                'viewpostcard':'预览你的明信片',
+                'userlikeit':'你喜欢这张明信片！',
+                'next':'快成为下一个为它投票的人吧！',
                 'design': '设计你的明信片',
                 'both': '正面和反面',
                 'start': '开始设计',
@@ -56,7 +71,7 @@
                 'deco7180': '- 一个昆士兰大学 deco7180 项目-',
                 'designed-imple': '设计并发行由',
                 'mytea': 'mytea 团队',
-                'powered-by': '技术支持',
+                'powered-by':'技术支持',
                 'trove': 'trove'
 
             }
@@ -94,7 +109,7 @@
 
         <div id="loginForm">
             <form action="login.php" method="post" id="login">
-                <h5>You can sign up or log in with the same form</h5>
+                <h5 class="lang" key="sameform">You can sign up or log in with the same form</h5>
                 <div class="blank"></div>
                 <div class="center">
                     <label for="username"><img class="imgSize24" src="img/username_2x.png" /></label>
@@ -107,8 +122,8 @@
                 <div class="blank"> </div>
                 <div class="buttonHeight">
                     <input type="text" name="URL" />
-                    <button class="share textWhite" type="submit" name="signup">Sign up</button>
-                    <button class="save textGrey" type="submit" name="login">Log in</button>
+                    <button class="share textWhite" type="submit" name="signup" class="lang" key="signup">Sign up</button>
+                    <button class="save textGrey" type="submit"  name="login"class="lang" key="login">Log in</button>
 
                 </div>
             </form>
@@ -124,8 +139,8 @@
             <form action="edit.php" method="post" id="edit">
                 <div class="buttonHeight">
                     <input name="editimgid" type="text" />
-                    <button class="share textWhite" type="submit" name="edit">Edit</button>
-                    <button class="save textGrey" type="submit" name="view">View postcard</button>
+                    <button class="share textWhite" type="submit" name="edit" class="lang" key="edit">Edit</button>
+                    <button class="save textGrey" type="submit" name="view" class="lang" key="viewpostcard">View postcard</button>
                 </div>
             </form>
         </div>
@@ -135,14 +150,14 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <h1>Be the next one to like it!</h1>
+        <h1 class="lang" key="next">Be the next one to like it!</h1>
         <div class="blank"></div>
         <div>
             <form action="vote.php" method="post" id="vote">
                 <div class="buttonHeight">
                     <input name="voteimgid" type="text" />
                     <button class="share textWhite" type="submit" name="vote">Like!</button>
-                    <button class="save textGrey" type="submit" name="view">View postcard</button>
+                    <button class="save textGrey" type="submit" name="view" class="lang" key="viewpostcard">View postcard</button>
                 </div>
             </form>
         </div>
