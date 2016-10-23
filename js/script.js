@@ -103,7 +103,7 @@ $(document).ready(function () {
         //        var searchTerm = currentLocation;
         var searchTerm = $('input[name=address]').val();
         //        var sortBy = $("#sortBy").val();
-        var sortBy = 'dateasc';
+        var sortBy = 'datedesc';
         var apiKey = "kr6iv720kob8nph6";
 
         //create searh query
@@ -145,7 +145,7 @@ $(document).ready(function () {
         //        var searchTerm = currentLocation;
         var searchTerm = $('input[name=address]').val();
         //        var sortBy = $("#sortBy").val();
-        var sortBy = 'dateasc';
+        var sortBy = 'datedesc';
         var apiKey = "kr6iv720kob8nph6";
 
         //create searh query
@@ -183,7 +183,7 @@ $(document).ready(function () {
         //        var searchTerm = 'st.lucia';
         var searchTerm = currentLocation;
         //        var sortBy = $("#sortBy").val();
-        var sortBy = 'datedesc';
+        var sortBy = 'dateasc';
         var apiKey = "kr6iv720kob8nph6";
 
         //create searh query
