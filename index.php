@@ -35,11 +35,11 @@
     <div class="site-overlay"></div>
     <!-- Here starts to build Sign up and Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
-        <!-- Sets a close button for sign up and login window -->
+        <!-- Here sets a close button for sign up and login window -->
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <!--Sets a form to get username and password with signup and login buttons  -->
+        <!--Here sets a form to get username and password with signup and login buttons  -->
         <div id="loginForm">
             <form action="login.php" method="post" id="login">
                 <h5 class="lang" key="sameform">You can sign up or log in with the same form</h5>
@@ -62,7 +62,7 @@
             </form>
         </div>
     </div>
-    <!-- Edit Modal-->
+    <!-- Here starts to build Edit Modal-->
     <div class="remodal" data-remodal-id="EditModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
@@ -78,7 +78,8 @@
             </form>
         </div>
     </div>
-    <!-- Vote Modal-->
+    
+    <!-- Here starts to build Vote Modal-->
     <div class="remodal" data-remodal-id="VoteModal">
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
@@ -95,7 +96,8 @@
             </form>
         </div>
     </div>
-
+    
+    <!--???Here starts to set Remodal-backgroud -->
     <div class="remodal-bg">
 
         <header>
@@ -168,22 +170,24 @@
 
 
         </header>
-
+        
+        <!--Here starts to build the top frame to show the sample postcard -->
         <div class="block">
             <h1 class="lang" key="design">Design your own postcard</h1>
             <h5 class="lang" key="both">for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-            <!-- Slider main container -->
+            
+            <!-- Here starts to build a Slider main container to display the front and back sample postcard -->
             <div class="swiper-container" id="preview">
-                <!-- Additional required wrapper -->
+                <!--Here adds a additional required wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
+                    <!-- Here sets the Slides of front and back of sample postcard -->
                     <div class="swiper-slide"><img class="imgSize280" src="img/promo_1_2x.jpg" alt="An example of the front side of the postcard generated" /></div>
                     <div class="swiper-slide"><img class="imgSize280" src="img/promo_2_2x.jpg" alt="An example of the back side of the postcard generated" /></div>
                 </div>
-                <!-- If we need pagination -->
+                <!--??? If we need pagination -->
                 <div class="swiper-pagination" id="frontandbackshow"></div>
 
-                <!-- If we need navigation buttons -->
+                <!--??? If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
 
@@ -193,7 +197,8 @@
                 <div class="button textWhite" class="lang" key="start">Start to design</div>
             </a>
         </div>
-
+        
+        <!--????-->
         <?PHP
         session_start();
         if($_SESSION['auth']){
@@ -258,15 +263,16 @@
         }
         ?>
 
-
+                    <!--Here starts to build the promotional frame to tell new user why choose to use our website -->
                     <div class="block">
                         <h1 class="lang" key="memorable">Make your journey more memorable</h1>
                         <h5 class="lang" key="by_designing">by designing your own postcard</h5>
-                        <!-- Slider main container -->
+                        
+                        <!-- Here sets a slider main container for promotion pictures -->
                         <div class="swiper-container">
-                            <!-- Additional required wrapper -->
+                            <!--Here sets an additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <!-- Slides -->
+                                <!-- Here adds promotional slides pictures -->
                                 <div class="swiper-slide"><img class="imgSize280" src="img/promo1_2x.jpg" alt="Design a marvelous postcard " /></div>
                                 <div class="swiper-slide"><img class="imgSize280" src="img/promo2_2x.jpg" alt="share postcards with family and friends " /></div>
                                 <div class="swiper-slide"><img class="imgSize280" src="img/promo3_2x.jpg" alt="View your timeline to remember your trips" /></div>
@@ -277,20 +283,21 @@
                             <div class="swiper-button-next"></div>
 
                         </div>
+                        <!--Set the "Start to design" button clicking by wihch to jump to the design.php -->
                         <div class="blank"> </div>
                         <a href="design.php">
                             <div class="button textWhite" class="lang" key="start">Start to design</div>
                         </a>
                     </div>
-
+                    <!--Here starts to build the user's guide step by step--> 
                     <div class="block grey">
                         <h1 class="lang" key="first">Design your first postcard</h1>
                         <h5 class="lang" key="5_minutes">within only 5 minutes!</h5>
-                        <!-- Slider main container -->
+                        <!-- Sets a Slider main container for steps guide picture -->
                         <div class="swiper-container">
-                            <!-- Additional required wrapper -->
+                            <!-- Sets a Additional required wrapper -->
                             <div class="swiper-wrapper">
-                                <!-- Slides -->
+                                <!-- Add Slides picture for steps guide  -->
                                 <div class="swiper-slide"><img class="imgSize280" src="img/instructions1_2x.jpg" alt="choose and confirm your location" /></div>
                                 <div class="swiper-slide"><img class="imgSize280" src="img/instructions2_2x.jpg" alt="select one picture for the front side" /></div>
                                 <div class="swiper-slide"><img class="imgSize280" src="img/instructions3_2x.jpg" alt="select another picture as a stamp" /></div>
@@ -298,7 +305,7 @@
                                 <div class="swiper-slide"><img class="imgSize280" src="img/instructions5_2x.jpg" alt="share to social network or save to album" /></div>
                             </div>
 
-                            <!-- If we need navigation buttons -->
+                            <!--Set the "Start to design" button clicking by wihch to jump to the design.php -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
 
@@ -308,13 +315,14 @@
                             <div class="button textWhite">Start to design</div>
                         </a>
                     </div>
-
+                    <!--Here starts to build a frame to display popular works and alow user to vote for their favourite pictures-->
                     <div class="block" id="popular">
                         <h1 class="lang" key="popular">Popular works</h1>
                         <h5 class="lang" key="vote"><span class="important" >Click to vote</span> for them</h5>
-                        <!-- Slider main container -->
+                        <!-- Here sets a Slider main container to display popular works -->
                         <div class="swiper-container">
-                            <!-- Additional required wrapper -->
+                            
+                            <!-- Here sets an Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <?php
                                     header("Content-Type: text/html; charset=utf8");
@@ -323,6 +331,7 @@
                                     $voteres=mysql_query($vote);
                                     while($popular = mysql_fetch_assoc($voteres)){
                                         ?>
+                                    <!--Here adds Slides for popular works based on user's vote -->
                                     <div class="swiper-slide">
                                         <div>
                                             <h5><span><?php echo $popular[post_popular];?></span> like it</h5>
@@ -342,7 +351,7 @@
                         </div>
 
 
-
+                        <!--Here starts to build footers for our website -->
                         <footer>
                             <p class="lang" key="deco7180">- a uq deco7180 project -</p>
                             <p class="lang" key="designed-imple">designed and implemented by</p>
