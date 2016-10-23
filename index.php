@@ -125,6 +125,11 @@
                 <div class="buttonHeight">
                     <button class="share textWhite" type="submit" name="Edit">Edit</button>
                     <button class="save textGrey" type="submit" name="View postcard">View postcard</button>
+                    <?php
+                    if(isset($_POST["View postcard"])){
+                        header("location:view.php");
+                    }
+                    ?>
                 </div>
             </form>
         </div>
