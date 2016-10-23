@@ -49,7 +49,7 @@
                 'trove': 'trove'
             },
             'cn': {
-                 'sameform':'你可以选择注册或登录',
+                'sameform':'你可以选择注册或登录',
                 'signup':'注册',
                 'login':'登录',
                 'design': '设计你的明信片',
@@ -109,7 +109,7 @@
 
         <div id="loginForm">
             <form action="login.php" method="post" id="login">
-                <h5>You can sign up or log in with the same form</h5>
+                <h5 class="lang" key="sameform">You can sign up or log in with the same form</h5>
                 <div class="blank"></div>
                 <div class="center">
                     <label for="username"><img class="imgSize24" src="img/username_2x.png" /></label>
@@ -122,8 +122,8 @@
                 <div class="blank"> </div>
                 <div class="buttonHeight">
                     <input type="text" name="URL" />
-                    <button class="share textWhite" type="submit" name="signup">Sign up</button>
-                    <button class="save textGrey" type="submit" name="login">Log in</button>
+                    <button class="share textWhite" type="submit" name="signup" class="lang" key="signup">Sign up</button>
+                    <button class="save textGrey" type="submit"  name="login"class="lang" key="login">Log in</button>
 
                 </div>
             </form>
@@ -139,8 +139,8 @@
             <form action="edit.php" method="post" id="edit">
                 <div class="buttonHeight">
                     <input name="editimgid" type="text" />
-                    <button class="share textWhite" type="submit" name="edit">Edit</button>
-                    <button class="save textGrey" type="submit" name="view">View postcard</button>
+                    <button class="share textWhite" type="submit" name="edit" class="lang" key="edit">Edit</button>
+                    <button class="save textGrey" type="submit" name="view" class="lang" key="viewpostcard">View postcard</button>
                 </div>
             </form>
         </div>
@@ -150,14 +150,14 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <h1>Be the next one to like it!</h1>
+        <h1 class="lang" key="next">Be the next one to like it!</h1>
         <div class="blank"></div>
         <div>
             <form action="vote.php" method="post" id="vote">
                 <div class="buttonHeight">
                     <input name="voteimgid" type="text" />
                     <button class="share textWhite" type="submit" name="vote">Like!</button>
-                    <button class="save textGrey" type="submit" name="view">View postcard</button>
+                    <button class="save textGrey" type="submit" name="view" class="lang" key="viewpostcard">View postcard</button>
                 </div>
             </form>
         </div>
