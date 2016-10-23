@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
 
     <!--mutilanguage-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -136,8 +135,7 @@
         <div>
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
-        <h1><span class="important">123</span> users like it!</h1>
-        <h5>It seems that you are attracted. Be the next one to like it!</h5>
+        <h1>Be the next one to like it!</h1>
         <div class="blank"></div>
         <div>
             <form action="vote.php" method="post" id="vote">
@@ -370,7 +368,6 @@
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
-
                                 <?php
                                     header("Content-Type: text/html; charset=utf8");
                                     include('Connect.php');
@@ -380,7 +377,7 @@
                                         ?>
                                     <div class="swiper-slide">
                                         <div>
-                                            <h5>Popular:<span><?php echo $popular[post_popular];?></span></h5>
+                                            <h5><span><?php echo $popular[post_popular];?></span> Likes</h5>
                                         </div>
                                         <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>" />
                                     </div>

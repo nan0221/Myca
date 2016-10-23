@@ -202,7 +202,7 @@
 
         </header>
 
-        <div class="block" id="results">
+        <div class="block" id="show">
             <h1 class="lang">Here is a postcard designed by WHOWHOWHO</h1>
             <!-- Slider main container -->
             <img class="showSize" id="frontShow" />

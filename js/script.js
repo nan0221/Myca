@@ -5,9 +5,7 @@ $(document).ready(function () {
     var hash = window.location.hash;
     var returnURL = newURL.replace(hash, '');
     returnURL = returnURL.replace('#', '');
-    console.log('aaa', returnURL);
     $('input[name=URL]').attr('value', returnURL);
-    console.log('ccc', $('input[name=URL]').val());
 
     // for index page
     $('.user a').click(function () {
@@ -129,7 +127,6 @@ $(document).ready(function () {
         //get the JSON information we need to display the images
         $.getJSON(url, function (data) {
             $('#mainPicture').empty();
-            //            console.log(data);
             $.each(data.response.zone[0].records.work, processImages);
             //printImages();
 
@@ -138,7 +135,6 @@ $(document).ready(function () {
 
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
-        console.log('currentLocation: ', currentLocation);
         $('#navigation ul li:eq(0)').css('font-weight', '300');
         $('#navigation ul li:eq(1)').css('font-weight', '500');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
@@ -171,7 +167,6 @@ $(document).ready(function () {
         //get the JSON information we need to display the images
         $.getJSON(url, function (data) {
             $('#mainPicture').empty();
-            //            console.log(data);
             $.each(data.response.zone[0].records.work, processImages);
             //printImages();
 
@@ -180,7 +175,6 @@ $(document).ready(function () {
 
         $('.inProgress').css('width', '50%');
         $('#notification p').html('You are at Step2/4');
-        console.log('currentLocation: ', currentLocation);
         $('#navigation ul li:eq(0)').css('font-weight', '300');
         $('#navigation ul li:eq(1)').css('font-weight', '500');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
@@ -209,17 +203,14 @@ $(document).ready(function () {
         //get the JSON information we need to display the images
         $.getJSON(url, function (data) {
             $('#stamps').empty();
-            //            console.log(data);
             $.each(data.response.zone[0].records.work, processSmallImages);
             //printImages();
 
             waitForFlickrSmall(); // Waits for the flickr images to load
         });
-        console.log('front image:', selected_front_image);
         $('input[name=firstimg]').attr('value', selected_front_image)
         $('.inProgress').css('width', '75%');
         $('#notification p').html('You are at Step3/4');
-        console.log('currentLocation: ', currentLocation);
         $('#navigation ul li:eq(0)').css('font-weight', '300');
         $('#navigation ul li:eq(1)').css('font-weight', '300');
         $('#navigation ul li:eq(2)').css('font-weight', '500');
@@ -229,11 +220,9 @@ $(document).ready(function () {
         showStep4();
     });
     $('#step4Content').find('.button').click(function () {
-        console.log('back image:', selected_back_image);
         $('input[name=secondimg]').attr('value', selected_back_image)
         $('.inProgress').css('width', '100%');
         $('#notification p').html('You are at Step4/4');
-        console.log('currentLocation: ', currentLocation);
         $('#navigation ul li:eq(0)').css('font-weight', '300');
         $('#navigation ul li:eq(1)').css('font-weight', '300');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
@@ -369,9 +358,7 @@ $(document).ready(function () {
                 imgUrl.slice(0, imgUrl.length - 3) + "jpg"
             );
 
-        } else { // Could not reliably load image for item
-            // UNCOMMENT FOR DEBUG: 
-            // console.log("Not available: " + imgUrl);
+        } else { 
 
         }
     }
@@ -379,10 +366,8 @@ $(document).ready(function () {
     function processSmallImages(index, troveItem) {
         if (troveItem.identifier.length > 1) {
             var imgUrl = troveItem.identifier[1].value;
-            //            console.log(imgUrl);
 
             if (typeof (imgUrl) != 'undefined' && imgUrl.indexOf('.jpg') >= 0) {
-                //            console.log(imgUrl);
                 found++;
                 loadedImages.push(imgUrl);
             }
@@ -432,13 +417,8 @@ $(document).ready(function () {
     }
 
     function printImages() {
-        //    $("#mainPicture").append("<h3>Image Search Results</h3>");
-
-        // Print out all images
-        //        console.log('love' + loadedImages);
         for (var i in loadedImages) {
             var image = new Image();
-            //            console.log(loadedImages);
             image.src = loadedImages[i];
             image.classList.add("swiper-slide");
             //            image.style.display = "inline-block ";
@@ -475,12 +455,8 @@ $(document).ready(function () {
     }
 
     function printImagesSmall() {
-
-        // Print out all images
-        //        console.log('love' + loadedImages);
         for (var i in loadedImages) {
             var image = new Image();
-            //            console.log(loadedImages);
             image.src = loadedImages[i];
             image.classList.add("swiper-slide");
             //            image.style.display = "inline-block ";
@@ -619,7 +595,6 @@ $(document).ready(function geoFindMe() {
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
                     currentLocation = district_without.join(' ');
-                    console.log('l', currentLocation);
                 }
             } else {
                 window.alert('Geocoder failed due to: ' + status); //Error check
@@ -671,7 +646,6 @@ function myMap() {
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
                     currentLocation = district_without.join(' ');
-                    console.log(district_without.join(' '));
                     $('input[name=address]').attr('value', currentLocation);
                 } else {
                     window.alert('No results found'); //Error check
