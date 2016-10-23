@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
 
     <!--mutilanguage-->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -269,8 +269,8 @@
                             <!-- Slides -->
                             <div class="swiper-slide" id="timeline-slide">
                                 <div class="timeline-line">
-    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
-</div>
+                                    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+                                </div>
                                 <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
                             </div>
 
