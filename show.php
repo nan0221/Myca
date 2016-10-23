@@ -211,22 +211,24 @@
             $unames = mysql_fetch_assoc($unameres);
             $name = $unames[UName];
             ?>
-            <h1 class="lang">Here is a postcard designed by <span class="important"><?PHP echo $name;?></span></h1>    
-            <!-- Slider main container -->
-            <?php
+                <h1 class="lang">Here is a postcard designed by <span class="important"><?PHP echo $name;?></span></h1>
+                <!-- Slider main container -->
+                <?php
             $getimg = "SELECT post_URL, postb_URL FROM Img_info WHERE post_id='$postid'";
             $getimgres = mysql_query($getimg);
             $imgs = mysql_fetch_assoc($getimgres);
             $img = $imgs[post_URL];
             $imgb =$imgs[postb_URL];
             ?>
-            <img class="showSize center" id="frontShow" src="<?php echo $img ?>"/>
-            <img class="showSize center" id="backShow" src="<?php echo $imgb ?>"/>
-            <div class="blank"></div>
-            <div class="buttonHeight">
-                <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
-                <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
-            </div>
+                    <div class="blank"></div>
+                    <img class="showSize center" id="frontShow" src="<?php echo $img ?>" />
+                    <div class="blank"></div>
+                    <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />
+                    <div class="blank"></div>
+                    <div class="buttonHeight">
+                        <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
+                        <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
+                    </div>
         </div>
     </div>
 
