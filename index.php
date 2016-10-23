@@ -24,6 +24,13 @@
     <script type="text/javascript">
         var arrLang = {
             'en': {
+                'sameform':'You can sign up or log in with the same form',
+                'signup':'Sign up',
+                'login':'Log in',
+                'edit':'Edit',
+                'viewpostcard':'View postcard',
+                'userlikeit':'users like it!',
+                'next':'Be the next one to like it!',
                 'design': 'Design your own postcard',
                 'both': 'for both front and back sides',
                 'start': 'Start to design',
@@ -38,10 +45,18 @@
                 'deco7180': '- a uq deco7180 project-',
                 'designed-imple': 'designed and implemented by',
                 'mytea': 'team mytea',
-                'powered-by': 'powered by',
+                'powered-by':'powered by',
                 'trove': 'trove'
             },
             'cn': {
+                 'sameform':'你可以选择注册或登录',
+                'signup':'注册',
+                'login':'登录',
+                'design': '设计你的明信片',
+                'edit':'编辑',
+                'viewpostcard':'预览你的明信片',
+                'userlikeit':'你喜欢这张明信片！',
+                'next':'快成为下一个为它投票的人吧！',
                 'design': '设计你的明信片',
                 'both': '正面和反面',
                 'start': '开始设计',
@@ -56,7 +71,7 @@
                 'deco7180': '- 一个昆士兰大学 deco7180 项目-',
                 'designed-imple': '设计并发行由',
                 'mytea': 'mytea 团队',
-                'powered-by': '技术支持',
+                'powered-by':'技术支持',
                 'trove': 'trove'
 
             }
