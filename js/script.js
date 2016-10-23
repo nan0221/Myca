@@ -674,7 +674,7 @@ function placeMarker(map, location) {
     });
     markersArray.push(marker); // Create an array to store all marker that user clicked
     console.log(markersArray);
-    
+
     // Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
 // Clear marker
@@ -747,15 +747,18 @@ var img1_src = "img/front.jpg";
 var img2_src = "img/stamp.jpg";
 
 function add_location() {
-    var str = document.getElementById("locationP").innerHTML;
-    var res = str.replace("Your location", current_location);
-    document.getElementById("locationP").innerHTML = res;
+    $('#locationP').text($('input[name="address"]').val());
+    //    var str = document.getElementById("locationP").innerHTML;
+    //    var res = str.replace("Your location", current_location);
+    //    document.getElementById("locationP").innerHTML = res;
 }
 
 function add_img1() {
-    document.getElementById("img1P").src = img1_src;
+    $('#img1P').attr('src', $('input[name=firstimg]').val());
+    //    document.getElementById("img1P").src = img1_src;
 }
 
 function add_img2() {
-    document.getElementById("img2P").src = img2_src;
+    $('#img2P').attr('src', $('input[name=secondimg]').val());
+    //    document.getElementById("img2P").src = img2_src;
 }

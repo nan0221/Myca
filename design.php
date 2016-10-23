@@ -119,6 +119,8 @@
 
         <div id="loginForm">
             <form action="login.php" method="post" id="login">
+                <h5>It is strongly recommended <span class="important">not</span> to log in or sign up once you start designing. Otherwise, you will lose what you have done!</h5>
+                <div class="blank"> </div>
                 <div class="center">
                     <label for="username"><img class="imgSize24" src="img/username_2x.png" /></label>
                     <input id="username" type="text" placeholder=" username" name="name" />
@@ -246,12 +248,12 @@
                     <!-- Slides -->
                     <div class="swiper-slide" id="previewFront">
                         <img class="imgSize280" id="previewFrontBg" src="img/bg1.jpg" />
-                        <p id="locationP" class="locationP" class="lang" key="your_location"> Your location </p>
-                        <img id="img1P" class="image1" src="img/placeholder.png" height="114.4" width="170.4">
+                        <p id="locationP" class="locationP" class="lang" key="your_location">Your location</p>
+                        <img id="img1P" src="img/placeholder.png">
                     </div>
                     <div class="swiper-slide" id="previewBack">
                         <img class="imgSize280" id="previewBackBg" src="img/bg2.jpg" />
-                        <img id="img2P" class="image2" src="img/placeholder.png" height="31.5" width="42.67">
+                        <img id="img2P" src="img/placeholder.png">
                     </div>
                 </div>
                 <!-- If we need pagination -->
