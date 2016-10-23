@@ -15,7 +15,7 @@
         height: 100%;
         margin: 0em;
         padding: 0em;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         -webkit-overflow-scrolling: touch;
     }
     body {
@@ -24,7 +24,7 @@
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         height: 100%;
         -webkit-overflow-scrolling: touch;
     }
@@ -884,7 +884,7 @@
         height: 100%;
         margin: 0em;
         padding: 0em;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         -webkit-overflow-scrolling: touch;
     }
     body {
@@ -893,7 +893,7 @@
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         height: 100%;
         -webkit-overflow-scrolling: touch;
     }
@@ -1753,7 +1753,7 @@
         height: 100%;
         margin: 0em;
         padding: 0em;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         -webkit-overflow-scrolling: touch;
     }
     body {
@@ -1762,7 +1762,7 @@
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         height: 100%;
         -webkit-overflow-scrolling: touch;
     }
@@ -2631,7 +2631,7 @@
         height: 100%;
         margin: 0em;
         padding: 0em;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         -webkit-overflow-scrolling: touch;
     }
     body {
@@ -2640,7 +2640,7 @@
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
-        overflow-x: hidden;
+        /*        overflow-x: hidden;*/
         height: 100%;
         -webkit-overflow-scrolling: touch;
     }

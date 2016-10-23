@@ -428,6 +428,8 @@
                 <input name="address" type="text" value="Australia" />
                 <input name="firstimg" type="text" />
                 <input name="secondimg" type="text" />
+                <input name="fronturl" type="text" />
+                <input name="backurl" type="text" />
                 <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>

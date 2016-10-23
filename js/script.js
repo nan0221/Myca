@@ -46,6 +46,8 @@ $(document).ready(function () {
     $('input[name=firstimg]').hide();
     $('input[name=secondimg]').hide();
     $('input[name=address]').hide();
+    $('input[name=fronturl]').hide();
+    $('input[name=backurl]').hide();
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {
