@@ -307,7 +307,7 @@
     }
     .share {
         height: 1.5em;
-        width: 8.438em;
+        width: 6em;
         border-radius: 0.5em;
         background-color: #ECB733;
         display: inline-block;
@@ -316,7 +316,7 @@
     }
     .save {
         height: 1.5em;
-        width: 8.438em;
+        width: 6em;
         border-radius: 0.5em;
         background-color: #B6B6B6;
         display: inline-block;
@@ -725,11 +725,11 @@
     }
     #loginForm .center {
         margin-bottom: 0.75em;
-        height: 1.5em;
     }
     #username,
     #password {
         color: #555555;
+        width: 5em;
     }
     #notLoggedIn {
         height: 11.75em;
@@ -1594,7 +1594,7 @@
     }
     #loginForm .center {
         margin-bottom: 0.75em;
-        height: 1.5em;
+        /*        height: 1.5em;*/
     }
     #username,
     #password {
@@ -3399,7 +3399,7 @@
         position: absolute;
         top: 4.5em;
         left: -5.25em;
-        width: 12.5em;
+        width: 10.4em;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
