@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     $('#popular img').click(function () {
         var inst = $('[data-remodal-id=VoteModal]').remodal();
-        var voteimgid = $(this).attr(id);
+        var voteimgid = $(this).attr('id');
         $('input[name=voteimgid]').attr('value', voteimgid);
         inst.open();
     });
