@@ -377,7 +377,7 @@
                                         ?>
                                     <div class="swiper-slide">
                                         <div>
-                                            <h5><span><?php echo $popular[post_popular];?></span> Likes</h5>
+                                            <h5><span><?php echo $popular[post_popular];?></span> like it</h5>
                                         </div>
                                         <img class="imgSize280" src="<?php echo $popular[post_URL];?>" id="<?php echo $popular[post_id];?>" />
                                     </div>
