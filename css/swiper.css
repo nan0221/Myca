@@ -82,14 +82,17 @@
 }
 
 .swiper-slide {
+    /*
     -webkit-flex-shrink: 0;
     -ms-flex: 0 0 auto;
     flex-shrink: 0;
+*/
     width: 66%;
     height: 100%;
     position: relative;
     text-align: center;
     /* Center slide text vertically */
+    /*
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -102,6 +105,7 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+*/
 }
 
 

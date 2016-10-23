@@ -19,62 +19,60 @@
 
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
-    
+
     <!--mutilanguage-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript">
-    
-    var arrLang = {
-        'en':{
-            'design':'Design your own postcard',
-            'both':'for both front and back sides',
-            'start':'Start to design',
-            'time_line':'Time line',
-            'all':'All the postcards you have generated will be shown here after you are logged in',
-            'memorable':'Make your journey more memorable',
-            'by_designing':'by designing your own postcard',
-            'first':'Design your first postcard',
-            '5_minutes':'within only 5 minutes!',
-            'popular':'Popular works',
-            'vote':'Click to vote for them',
-            'deco7180':'- a uq deco7180 project-',
-            'designed-imple':'designed and implemented by',
-            'mytea':'team mytea',
-            'powered-by':'powered by',
-            'trove':'trove'
-        },
-        'cn':{
-            'design':'设计你的明信片',
-            'both':'正面和反面', 
-            'start':'开始设计',
-            'time_line':'时间记忆轴',
-            'all':'当你登录后，你可以在这里浏览你所有的明信片',
-            'memorable':'让你的旅行更加难忘',
-            'by_designing':'设计你自己独一无二的明信片',
-            'first':'设计你自己的明信片',
-            '5_minutes':'只花5分钟！',
-            'popular':'受欢迎的明信片',
-            'vote':'点击为你喜欢的明信片投票',
-            'deco7180':'- 一个昆士兰大学 deco7180 项目-',
-            'designed-imple':'设计并发行由',
-            'mytea':'mytea 团队',
-            'powered-by':'技术支持',
-            'trove':'trove'
-        }
-    };
-        
-    $(function(){
-        $('.translate').click(function(){
-            var lang = $(this).attr('id');
-            
-            $('.lang').each(function(index, element){
-                $(this).text(arrLang[lang][$(this).attr('key')]);
+        var arrLang = {
+            'en': {
+                'design': 'Design your own postcard',
+                'both': 'for both front and back sides',
+                'start': 'Start to design',
+                'time_line': 'Time line',
+                'all': 'All the postcards you have generated will be shown here after you are logged in',
+                'memorable': 'Make your journey more memorable',
+                'by_designing': 'by designing your own postcard',
+                'first': 'Design your first postcard',
+                '5_minutes': 'within only 5 minutes!',
+                'popular': 'Popular works',
+                'vote': 'Click to vote for them',
+                'deco7180': '- a uq deco7180 project-',
+                'designed-imple': 'designed and implemented by',
+                'mytea': 'team mytea',
+                'powered-by': 'powered by',
+                'trove': 'trove'
+            },
+            'cn': {
+                'design': '设计你的明信片',
+                'both': '正面和反面',
+                'start': '开始设计',
+                'time_line': '时间记忆轴',
+                'all': '当你登录后，你可以在这里浏览你所有的明信片',
+                'memorable': '让你的旅行更加难忘',
+                'by_designing': '设计你自己独一无二的明信片',
+                'first': '设计你自己的明信片',
+                '5_minutes': '只花5分钟！',
+                'popular': '受欢迎的明信片',
+                'vote': '点击为你喜欢的明信片投票',
+                'deco7180': '- 一个昆士兰大学 deco7180 项目-',
+                'designed-imple': '设计并发行由',
+                'mytea': 'mytea 团队',
+                'powered-by': '技术支持',
+                'trove': 'trove'
+            }
+        };
+
+        $(function () {
+            $('.translate').click(function () {
+                var lang = $(this).attr('id');
+
+                $('.lang').each(function (index, element) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
             });
         });
-    });
-    
     </script>
-    
+
 </head>
 
 <body>
@@ -271,8 +269,8 @@
                             <!-- Slides -->
                             <div class="swiper-slide" id="timeline-slide">
                                 <div class="timeline-line">
-                                    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
-                                </div>
+    <h5><?php echo $row[post_date];?> <span class="important"><?php echo $row[post_add];?></span></h5>
+</div>
                                 <img class="imgSize280" src="<?php echo $row[post_URL];?>" />
                             </div>
 
