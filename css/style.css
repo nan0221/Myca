@@ -598,6 +598,7 @@
     .block textarea {
         width: 85%;
         height: 6.25em;
+        padding: 0.125em 0.125em;
         border-radius: 0.5em;
         border: 0.063em solid;
         border-color: #B6B6B6;
@@ -1466,6 +1467,7 @@
     .block textarea {
         width: 85%;
         height: 6.25em;
+        padding: 0.25em 0.25em;
         border-radius: 0.5em;
         border: 0.063em solid;
         border-color: #B6B6B6;
@@ -1908,7 +1910,6 @@
         font-size: 1.5em;
         color: #555555;
         margin: 0 auto;
-        padding-top: 0.75em;
         padding-left: 2.5em;
         padding-right: 2.5em;
         text-align: center;
@@ -2347,6 +2348,7 @@
     .block textarea {
         width: 85%;
         height: 12.5em;
+        padding: 0.75em 0.75em;
         border-radius: 1em;
         border: 0.126em solid;
         border-color: #B6B6B6;

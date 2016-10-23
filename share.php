@@ -167,7 +167,7 @@
 
                     <ul class="right user">
                         <li>
-                            <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
+                            <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
 
                                 <!--
