@@ -628,7 +628,7 @@ var currentLocation;
 // If users click I'm not here or want to locating manually
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
-    var myCenter = new google.maps.LatLng(-27.445824, 153.000060); // Set default center of map(Brisbane in this situstion)
+    var myCenter = new google.maps.LatLng(-27.468140, 153.027354); // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
         center: myCenter, // Set the center and zoom for map
         zoom: 13,
