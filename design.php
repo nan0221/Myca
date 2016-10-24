@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
+
     <link rel="stylesheet" href="css/pace.css" />
 
 </head>
@@ -364,12 +365,13 @@
                 <input name="backimgdata" type="text" />
                 <!--Trove b64 URL-->
 
-                <!--                <button onclick='to_image()'>Done</button>-->
                 <img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
                 <img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0">
-                <canvas id="canvas2" id="hide_canvas" width="840" height="564"></canvas>
-                <canvas id="canvas1" id="hide_canvas" width="840" height="564"></canvas>
-                <button onclick="to_image()" class="button center textWhite" name="done" type="submit">Done</button>
+                <canvas id="canvas2" width="840" height="564"></canvas>
+                <canvas id="canvas1" width="840" height="564"></canvas>
+                <button class="button center textWhite" id="prerender">Prerender</button>
+                <button class="button center textWhite" id="finishrender">Click to finish rendering</button>
+                <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>
 
