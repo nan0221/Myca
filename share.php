@@ -207,6 +207,11 @@
                     session_start();
                     $imgfront=$_SESSION['imgfront'];
                     $imgback=$_SESSION['imfback'];
+                    $uname=$_SESSION['Username'];
+                    if($_SESSION['auth']){
+                        $update = "UPDATE Img_info SET U_id =(SELECT Uid FROM User_info WHERE UName='$uname') WHERE post_URL='$imgfront' AND postb_URL='$imgbck'";
+                        mysql_query($update);
+                    }
                     ?>
                     <div class="swiper-slide">
                         <img class="imgSize280" src="<?php echo $imgfront;?>" />  
