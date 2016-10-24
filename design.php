@@ -344,18 +344,32 @@
             <form action="save.php" id="greetings" method="post">
                 <span>TO</span>
                 <input type="text" id="towhom" name="towhom" />
+                <!--To-->
                 <span>FROM</span>
                 <input type="text" id="fromwhom" name="fromwhom" />
+                <!--From-->
                 <span class="lang" key="140">Only the first 140 characters will be recorded.
                 </span>
                 <span class="counter right"></span>
                 <textarea id="greeting" name="greeting"></textarea>
+                <!--greeting-->
                 <div class="blank"></div>
                 <input name="address" type="text" value="Australia" />
+                <!--add-->
                 <input name="firstimg" type="text" />
+                <!--Trove f URL-->
                 <input name="secondimg" type="text" />
-                <input name="fronturl" type="text" />
-                <input name="backurl" type="text" />
+                <!--Trove s URL-->
+                <input name="frontimgdata" type="text" />
+                <!--Trove f64 URL-->
+                <input name="backimgdata" type="text" />
+                <!--Trove b64 URL-->
+
+                <!--                <button onclick='to_image()'>Done</button>-->
+                <img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
+                <img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0">
+                <canvas id="canvas2" id="hide_canvas" width="840" height="564"></canvas>
+                <canvas id="canvas1" id="hide_canvas" width="840" height="564"></canvas>
                 <button onclick="to_image()" class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>

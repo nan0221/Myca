@@ -209,10 +209,10 @@
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide">
-                        <image class="imgSize280" id="theimage1"></image>
+                        <img class="imgSize280" id="theimage1" />
                     </div>
                     <div class="swiper-slide">
-                        <image class="imgSize280" id="theimage2"></image>
+                        <img class="imgSize280" id="theimage2" />
                     </div>
                 </div>
                 <!-- If we need pagination -->
