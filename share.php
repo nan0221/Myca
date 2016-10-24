@@ -94,7 +94,7 @@
             </div>
             <!--Reference: https://developers.google.com/+/web/share/ -->
             <div class="socialMedia">
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/show.php?id=Jim">
+                <a href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/show.php?id=Jim">
                     <img src="img/twitter.png" alt="Share to Twitter" /></a>
             </div>
             <!--Reference: https://dev.twitter.com/web/tweet-button -->
