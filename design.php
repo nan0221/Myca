@@ -341,7 +341,7 @@
         </div>
 
         <div class="block grey " id="step6Content">
-            <form action="save.php" id="greetings" method="post">
+            <form action="trans.php" id="greetings" method="post">
                 <span>TO</span>
                 <input type="text" id="towhom" name="towhom" />
                 <!--To-->
@@ -360,17 +360,7 @@
                 <!--Trove f URL-->
                 <input name="secondimg" type="text" />
                 <!--Trove s URL-->
-                <input name="frontimgdata" type="text" />
-                <!--Trove f64 URL-->
-                <input name="backimgdata" type="text" />
-                <!--Trove b64 URL-->
 
-                <img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
-                <img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0">
-                <canvas id="canvas2" width="840" height="564"></canvas>
-                <canvas id="canvas1" width="840" height="564"></canvas>
-                <button class="button center textWhite" id="prerender">Prerender</button>
-                <button class="button center textWhite" id="finishrender">Click to finish rendering</button>
                 <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>

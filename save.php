@@ -2,7 +2,7 @@
     header("Content-Type: text/html; charset=utf8");
     include('Connect.php');
     session_start();
-    if(isset($_POST["done"])){  
+    if(isset($_POST["confirm"])){  
         $post_add = $_POST["address"];
         $post_popular = 0;
         $post_date = date("Y-m-d");
@@ -55,5 +55,6 @@
                 echo "<script>alert('can not save into the DB'); history.go(-1);</script>";
             }   
         }
+        header("location:share.php");
     }
 ?>

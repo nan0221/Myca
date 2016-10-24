@@ -51,6 +51,13 @@ $(document).ready(function () {
         inst.open();
     });
 
+    // for confirm page
+    $('input[name=towhom]').hide();
+    $('input[name=fromwhom]').hide();
+    $('textarea[name=greeting]').hide();
+    $('textarea[name=frontimgdata]').hide();
+    $('textarea[name=backimgdata]').hide();
+
     //    for design page
     showStep2(); // initialization
     $('input[name=firstimg]').hide();
@@ -65,7 +72,7 @@ $(document).ready(function () {
     //    $('#canvas1').hide();
     //    $('#canvas2').hide();
     $('#finishrender').hide();
-    $('button[name="done"]').hide();
+    $('button[name="confirm"]').hide();
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {
@@ -149,7 +156,11 @@ $(document).ready(function () {
         $('#locationP').text($('input[name="address"]').val());
         showStep3();
     });
-    
+    $('#step2Content').find('.alternativeOption').click(function () {
+        $('#step2Content').hide();
+        $('#step2Branch').show();
+    });
+
     $('#step2Branch').find('.button').click(function () {
         loadedImages = [];
         found = 0;
@@ -238,13 +249,13 @@ $(document).ready(function () {
         event.preventDefault();
         merge();
         $(this).hide();
-        $('#finishrender').slideUp(300).delay(3000).fadeIn(400);
+        $('button[name="confirm"]').slideUp(300).delay(800).fadeIn(400);
     });
     $('#finishrender').click(function (event) {
         event.preventDefault();
         to_image();
         $(this).hide();
-        $('button[name="done"]').show();
+        $('button[name="confirm"]').show();
     });
 
     var selected_front_image;
@@ -616,8 +627,8 @@ $(document).ready(function geoFindMe() {
 
     function error() { //Error check
         output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
-		$('#step2Content').hide();
-		$('#step2Branch').show();
+        $('#step2Content').hide();
+        $('#step2Branch').show();
     };
 
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
@@ -718,6 +729,8 @@ function merge() {
     var Name2 = $('input[name=fromwhom]').val(); // Picked up from user greeting
     // Pstcard front-side
     var canvas1 = document.getElementById("canvas1");
+    canvas1.width = 840;
+    canvas1.height = 564;
     var ctx1 = canvas1.getContext("2d");
     var bg1 = document.getElementById("bg1");
     //bg1.crossOrigin="anonymous";
@@ -737,6 +750,8 @@ function merge() {
 
     // Pstcard back-side
     var canvas2 = document.getElementById("canvas2");
+    canvas2.width = 840;
+    canvas2.height = 564;
     var ctx2 = canvas2.getContext("2d");
     var bg2 = document.getElementById("bg2");
     //bg2.crossOrigin="anonymous";
@@ -794,7 +809,6 @@ function to_image() {
     //    document.getElementById("theimage2").src = canvas2.toDataURL();
     var image_front = canvas1.toDataURL();
     var image_back = canvas2.toDataURL();
-    $('input[name=frontimgdata]').attr('value', image_front);
-    $('input[name=backimgdata]').attr('value', image_back);
+    $('textarea[name=frontimgdata]').val(image_front);
+    $('textarea[name=backimgdata]').val(image_back);
 }
-
