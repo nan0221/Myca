@@ -611,11 +611,12 @@ $(document).ready(function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
 })
 
+
 var currentLocation;
 // If users click I'm not here or want to locating manually
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
-    var myCenter = new google.maps.LatLng(-27.445824, 153.000060); // Set default center of map(Brisbane in this situstion)
+    var myCenter = new google.maps.LatLng(-27.465539, 153.023628); // Set default center of map(Brisbane in this situstion)
     var mapOptions = {
         center: myCenter, // Set the center and zoom for map
         zoom: 13,
@@ -627,9 +628,16 @@ function myMap() {
     $(document).ready(function () {
         google.maps.event.addListener(map, 'idle', function () {
             google.maps.event.trigger(map, 'resize');
+			center = map.getCenter();
         });
         //Reference:https://developers.google.com/maps/documentation/javascript/reference
-    });
+    
+	// Modified center after resize
+		$(window).resize(function() {
+			map.setCenter(center);
+		//Reference:https://teamtreehouse.com/community/google-maps-map-not-centering-on-resizing-responsive
+		});
+	});
 
 
     var geocoder = new google.maps.Geocoder();
@@ -769,13 +777,3 @@ function to_image(){
     document.getElementById("theimage2").src = canvas2.toDataURL();
 }
 
-// Share link to social media
-$("#theFaceboolLink").click(function(){
-	$(this).attr("href","https://www.facebook.com/sharer/sharer.php?u="+"http://deco1800-pg2.uqcloud.net/show.php?id="+"....."); //Jim
-	});
-$("#thePlusLink").click(function(){
-	$(this).attr("href","https://plus.google.com/share?url="+"http://deco1800-pg2.uqcloud.net/show.php?id="+".....");  //Jim
-	});
-$("#theTwitterLink").click(function(){
-	$(this).attr("href","https://twitter.com/intent/tweet?text=Come to see my customized postcard:) "+"http://deco1800-pg2.uqcloud.net/show.php?id="+"....."); //Jim
-	});
