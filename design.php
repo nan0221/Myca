@@ -20,7 +20,6 @@
 
     <link rel="stylesheet" href="css/remodal.css" />
     <link rel="stylesheet" href="css/remodal-default-theme.css" />
-
     <link rel="stylesheet" href="css/pace.css" />
 
 </head>
@@ -254,7 +253,7 @@
             <!-- Google maps API -->
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
-            <div class="button textWhite" onclick="add_location()" class="lang" key="iamhere">Yes, I am here!</div>
+            <div class="button textWhite" class="lang" key="iamhere">Yes, I am here!</div>
         </div>
 
         <div class=" step" id="step3Instruction">
