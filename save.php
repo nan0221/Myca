@@ -8,10 +8,10 @@
         $post_date = date("Y-m-d");
         $img_URL = $_POST["firstimg"];
         $stamp_URL = $_POST["secondimg"];
-        $Greeting = $_POST["greeting"];
+        $Greeting = $_POST["greeting_check"];
         $Uname = $_SESSION['Username'];
-        $from = $_POST['fromwhom'];
-        $to = $_POST['towhom'];
+        $from = $_POST['fromwhom_check'];
+        $to = $_POST['towhom_check'];
         $id = "select Uid from User_info where Uname='$Uname'";
         $U_idres = mysql_query($id);
         $row = mysql_fetch_assoc($U_idres) ;
@@ -55,6 +55,5 @@
                 echo "<script>alert('can not save into the DB'); history.go(-1);</script>";
             }   
         }
-        header("location:share.php");
     }
 ?>

@@ -153,9 +153,9 @@
                     <div class="blank"></div>
                     <img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0" />
                     <img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0" />
-                    <input type="text" id="towhom" name="towhom" value='<?php echo "{$_SESSION["to"]}"; ?>' />
-                    <input type="text" id="fromwhom" name="fromwhom" value='<?php echo "{$_SESSION["from"]}"; ?>' />
-                    <textarea id="greeting" name="greeting">
+                    <input type="text" id="towhom_check" name="towhom_check" value='<?php echo "{$_SESSION["to"]}"; ?>' />
+                    <input type="text" id="fromwhom_check" name="fromwhom_check" value='<?php echo "{$_SESSION["from"]}"; ?>' />
+                    <textarea id="greeting_check" name="greeting_check">
                         <?php echo "{$_SESSION["Greeting"]}"; ?>
                     </textarea>
                     <input name="address" type="text" value='<?php echo "{$_SESSION["post_add"]}"; ?>' />
@@ -164,7 +164,8 @@
                     <textarea name="frontimgdata" type="text"></textarea>
                     <textarea name="backimgdata" type="text"></textarea>
 
-                    <button class="button center textWhite" name="confirm" type="submit">Confirm</button>
+                    <button class="button center textWhite" id="finishrender">That's what I want</button>
+                    <button class="button center textWhite" name="confirm" type="submit">Save</button>
                 </form>
         </div>
     </div>
@@ -173,11 +174,6 @@
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[name=towhom]').hide();
-            $('input[name=fromwhom]').hide();
-            $('textarea[name=greeting]').hide();
-        });
     </script>
 
 </body>

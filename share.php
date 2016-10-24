@@ -193,9 +193,9 @@
                 echo $_SESSION['Username'];
             }
             else{
-                echo "Travellers";
+                echo "explorer";
             }
-            ?></h1>
+            ?>!</h1>
             <h1 class="lang" key="finished">You've finished a masterpiece!</h1>
             <h5 class="lang" key="nowshare">Now share it with your friends!</h5>
             <!-- Slider main container -->
@@ -213,12 +213,12 @@
                         mysql_query($update);
                     }
                     ?>
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="<?php echo $imgfront;?>" />  
-                    </div>
-                    <div class="swiper-slide">
-                        <img class="imgSize280" src="<?php echo $imgback; ?>" />
-                    </div>
+                        <div class="swiper-slide">
+                            <img class="imgSize280" src="<?php echo $imgfront;?>" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="imgSize280" src="<?php echo $imgback; ?>" />
+                        </div>
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -259,7 +259,6 @@
 
     <!--mutilanguage-->
     <script type="text/javascript">
-			
         var arrLang = {
             'en': {
                 'congrats': 'Congrats,',

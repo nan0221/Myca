@@ -52,9 +52,9 @@ $(document).ready(function () {
     });
 
     // for confirm page
-    $('input[name=towhom]').hide();
-    $('input[name=fromwhom]').hide();
-    $('textarea[name=greeting]').hide();
+    $('input[name=towhom_check]').hide();
+    $('input[name=fromwhom_check]').hide();
+    $('textarea[name=greeting_check]').hide();
     $('textarea[name=frontimgdata]').hide();
     $('textarea[name=backimgdata]').hide();
 
@@ -249,7 +249,7 @@ $(document).ready(function () {
         event.preventDefault();
         merge();
         $(this).hide();
-        $('button[name="confirm"]').slideUp(300).delay(800).fadeIn(400);
+        $('#finishrender').slideUp(300).delay(800).fadeIn(400);
     });
     $('#finishrender').click(function (event) {
         event.preventDefault();
@@ -724,9 +724,9 @@ function merge() {
     var img1_src = $('input[name=firstimg]').val(); // Picked up from trove as front-side
     var img2_src = $('input[name=secondimg]').val(); // Picked up from trove as back-side
     var img3_src = "img/stamp (2).jpg"; // Water-mark
-    var Name1 = 'Dear ' + $('input[name=towhom]').val() + ','; // Picked up from user greeting
-    var Greeting = $('textarea[name=greeting]').val();
-    var Name2 = $('input[name=fromwhom]').val(); // Picked up from user greeting
+    var Name1 = 'Dear ' + $('input[name=towhom_check]').val() + ','; // Picked up from user greeting
+    var Greeting = $('textarea[name=greeting_check]').val();
+    var Name2 = $('input[name=fromwhom_check]').val(); // Picked up from user greeting
     // Pstcard front-side
     var canvas1 = document.getElementById("canvas1");
     canvas1.width = 840;
@@ -742,7 +742,7 @@ function merge() {
     img1.onload = function () {
         ctx1.drawImage(img1, 100, 30, 639, 429)
     };
-    ctx1.font = "14pt Neuton";
+    ctx1.font = "26pt Neuton";
     ctx1.textAlign = "center";
     ctx1.fillText(current_location1, 420, 514); //Geolocation
     ctx1.save();
@@ -773,7 +773,7 @@ function merge() {
     var text1 = Name1;
     var text2 = Greeting;
     var text3 = Name2;
-    ctx2.font = '16pt Neuton';
+    ctx2.font = '18pt Neuton';
     wrapText(ctx2, text1, 54, 134, 284, 30); //TO Dear...
     wrapText(ctx2, text2, 54, 161.7, 284, 30); //Content
     wrapText(ctx2, text3, 54, 414, 284, 30); //From...
