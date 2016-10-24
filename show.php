@@ -254,6 +254,37 @@
             });
         });
     </script>
+    
+    <!--mutilanguage-->
+    <script type="text/javascript">
+			
+        var arrLang = {
+            'en': {
+                'congrats': 'Congrats,',
+                'finished': "You've finished a masterpiece!",
+                'nowshare': 'Now share it with your friends!',
+                'share': 'Share',
+                'save': 'Save'
+            },
+            'cn': {
+                'congrats': '恭喜，',
+                'finished': "你已经完成一张明信片！",
+                'nowshare': '现在和朋友分享你的明信片吧！',
+                'share': '分享',
+                'save': '保存'
+            }
+        };
+
+        $(function () {
+            $('.translate').click(function () {
+                var lang = $(this).attr('id');
+
+                $('.lang').each(function (index, element) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
+            });
+        });
+    </script>
 
 </body>
 
