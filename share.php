@@ -198,21 +198,21 @@
             ?></h1>
             <h1 class="lang" key="finished">You've finished a masterpiece!</h1>
             <h5 class="lang" key="nowshare">Now share it with your friends!</h5>
-				<button onclick='to_image()'>Done</button>
-				<img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
-				<img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0">
-				<canvas id="canvas2" id="hide_canvas" width="840" height="564"></canvas>
-				<canvas id="canvas1" id="hide_canvas" width="840" height="564"></canvas>
             <!-- Slider main container -->
             <div class="swiper-container" id="preview">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
+                    <?php
+                    session_start();
+                    $imgfront=$_SESSION['imgfront'];
+                    $imgback=$_SESSION['imfback'];
+                    ?>
                     <div class="swiper-slide">
-                        <img class="imgSize280" id="theimage1" />
+                        <img class="imgSize280" src="<?php echo $imgfront;?>" />  
                     </div>
                     <div class="swiper-slide">
-                        <img class="imgSize280" id="theimage2" />
+                        <img class="imgSize280" src="<?php echo $imgback; ?>" />
                     </div>
                 </div>
                 <!-- If we need pagination -->
