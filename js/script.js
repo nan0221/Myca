@@ -358,7 +358,7 @@ $(document).ready(function () {
                 imgUrl.slice(0, imgUrl.length - 3) + "jpg"
             );
 
-        } else { 
+        } else {
 
         }
     }
@@ -595,6 +595,7 @@ $(document).ready(function geoFindMe() {
                     var district_without = district[1].split(' ');
                     district_without.splice(-1);
                     currentLocation = district_without.join(' ');
+                    $('input[name=address]').attr('value', currentLocation);
                 }
             } else {
                 window.alert('Geocoder failed due to: ' + status); //Error check
