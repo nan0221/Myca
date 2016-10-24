@@ -1,5 +1,6 @@
 <?php
     header("Content-Type: text/html; charset=utf8");
+header("Access-Control-Allow-Origin: *");
     include('Connect.php');
     session_start();
     if(isset($_POST["confirm"])){  

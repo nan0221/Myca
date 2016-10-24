@@ -736,8 +736,8 @@ function merge() {
     //bg1.crossOrigin="anonymous";
     ctx1.drawImage(bg1, 0, 0, 840, 564);
     var img1 = new Image();
-    img1.setAttribute('crossOrigin', 'Anonymous');
     img1.src = img1_src; // Front-side Image 
+    img1.crossOrigin = "Anonymous";
     //img1.crossOrigin="anonymous";
     img1.onload = function () {
         ctx1.drawImage(img1, 100, 30, 639, 429)
@@ -757,15 +757,15 @@ function merge() {
     //bg2.crossOrigin="anonymous";
     ctx2.drawImage(bg2, 0, 0, 840, 564);
     var img2 = new Image();
-    img2.setAttribute('crossOrigin', 'Anonymous');
     img2.src = img2_src; // Back-side Image
+    img2.crossOrigin = "Anonymous";
     //img2.crossOrigin="anonymous";
     img2.onload = function () {
         ctx2.drawImage(img2, 641, 36, 159, 115)
     };
     var img3 = new Image();
-    img3.setAttribute('crossOrigin', 'Anonymous');
     img3.src = img3_src; // Water-mark Image
+    img3.crossOrigin = "Anonymous";
     //img3.crossOrigin="anonymous";
     img3.onload = function () {
         ctx2.drawImage(img3, 0, 0, 840, 564)
@@ -779,7 +779,7 @@ function merge() {
     wrapText(ctx2, text3, 54, 414, 284, 30); //From...
     ctx2.save();
 
-    to_image();
+    //    to_image();
 }
 
 function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
