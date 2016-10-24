@@ -149,10 +149,7 @@ $(document).ready(function () {
         $('#locationP').text($('input[name="address"]').val());
         showStep3();
     });
-    $('#step2Content').find('.alternativeOption').click(function () {
-        $('#step2Content').hide();
-        $('#step2Branch').show();
-    });
+    
     $('#step2Branch').find('.button').click(function () {
         loadedImages = [];
         found = 0;
@@ -619,7 +616,8 @@ $(document).ready(function geoFindMe() {
 
     function error() { //Error check
         output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
-
+		$('#step2Content').hide();
+		$('#step2Branch').show();
     };
 
     output.innerHTML = "<p>Locating…</p>"; // Word prompts on webpage when locating
@@ -800,13 +798,3 @@ function to_image() {
     $('input[name=backimgdata]').attr('value', image_back);
 }
 
-// Share link to social media
-$("#theFaceboolLink").click(function () {
-    $(this).attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + "http://deco1800-pg2.uqcloud.net/show.php?id=" + "....."); //Jim
-});
-$("#thePlusLink").click(function () {
-    $(this).attr("href", "https://plus.google.com/share?url=" + "http://deco1800-pg2.uqcloud.net/show.php?id=" + "....."); //Jim
-});
-$("#theTwitterLink").click(function () {
-    $(this).attr("href", "https://twitter.com/intent/tweet?text=Come to see my customized postcard:) " + "http://deco1800-pg2.uqcloud.net/show.php?id=" + "....."); //Jim
-});
