@@ -84,18 +84,18 @@
             <!--Share link to facebook, twitter and google plus-->
             <div class="socialMedia">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/show.php?id=Jim" target="_blank">
-                    <img src="img/facebook.png" alt="Share to Facebook " /></a>
+                    <img src="img/facebook.png" class="socialMedia" alt="Share to Facebook " /></a>
             </div>
             <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
             <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
             <div class="socialMedia">
                 <a href="https://plus.google.com/share?url=http://deco1800-pg2.uqcloud.net/show.php?id=Jim">
-                    <img src="img/googleplus.png" alt="Share to Google Plus" /></a>
+                    <img src="img/googleplus.png" class="socialMedia" alt="Share to Google Plus" /></a>
             </div>
             <!--Reference: https://developers.google.com/+/web/share/ -->
             <div class="socialMedia">
                 <a href="https://twitter.com/intent/tweet?text=Come to see my customized postcard:) http://deco1800-pg2.uqcloud.net/show.php?id=Jim">
-                    <img src="img/twitter.png" alt="Share to Twitter" /></a>
+                    <img src="img/twitter.png" class="socialMedia" alt="Share to Twitter" /></a>
             </div>
             <!--Reference: https://dev.twitter.com/web/tweet-button -->
         </div>

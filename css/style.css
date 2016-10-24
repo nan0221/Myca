@@ -1051,7 +1051,9 @@
         display: block;
         position: relative;
     }
-    .selected, #canvas1, #canvas2 {
+    .selected,
+    #canvas1,
+    #canvas2 {
         border: 0.125em solid #ECB733;
         box-shadow: 0em 0em 0.25em #ECB733;
         -webkit-box-shadow: 0em 0em 0.25em #ECB733;
@@ -1936,7 +1938,9 @@
         display: block;
         position: relative;
     }
-    .selected, #canvas1, #canvas2 {
+    .selected,
+    #canvas1,
+    #canvas2 {
         border: 0.25em solid #ECB733;
         box-shadow: 0em 0em 0.5em #ECB733;
         -webkit-box-shadow: 0em 0em 0.5em #ECB733;
@@ -2818,7 +2822,9 @@
         display: block;
         position: relative;
     }
-    .selected, #canvas1, #canvas2 {
+    .selected,
+    #canvas1,
+    #canvas2 {
         border: 0.25em solid #ECB733;
         box-shadow: 0em 0em 0.5em #ECB733;
         -webkit-box-shadow: 0em 0em 0.5em #ECB733;
@@ -3319,9 +3325,9 @@
         margin: auto;
     }
     .socialMedia {
-        width: 15em;
-        height: 3em;
-        padding-bottom: 2.5em;
+        width: 10em;
+        height: 2em;
+        padding-bottom: 2em;
         margin: 0 auto;
     }
     .socialMedia:last {
