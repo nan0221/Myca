@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -199,16 +198,21 @@
             ?></h1>
             <h1 class="lang" key="finished">You've finished a masterpiece!</h1>
             <h5 class="lang" key="nowshare">Now share it with your friends!</h5>
+				<button onclick='to_image()'>Done</button>
+				<img id="bg1" src="img/bg1.jpg" alt="bg1" width="0" height="0">
+				<img id="bg2" src="img/bg2(free).jpg" alt="bg2" width="0" height="0">
+				<canvas id="canvas2" id="hide_canvas" width="840" height="564"></canvas>
+				<canvas id="canvas1" id="hide_canvas" width="840" height="564"></canvas>
             <!-- Slider main container -->
             <div class="swiper-container" id="preview">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <image class="imgSize280" id="theimage1"></image>
                     </div>
                     <div class="swiper-slide">
-                        <img class="imgSize280" src="img/placeholder.png" alt="The current picture" />
+                        <image class="imgSize280" id="theimage2"></image>
                     </div>
                 </div>
                 <!-- If we need pagination -->

@@ -689,54 +689,86 @@ function deleteOverlays() {
 
 
 
-(function ($) {})(jQuery);
-$(document).ready(function () {
-    // Pstcard front-side
-    var canvas1 = document.getElementById("myCanvas1");
-    var ctx1 = canvas1.getContext("2d");
-    var bg1 = document.getElementById("bg1"); // Background image
-    var img1 = document.getElementById("front"); // Image                                                //width="840" height="564"
-    ctx1.drawImage(bg1, 0, 0, 224, 150); // Background image position and size                              //width="224" height="150"
-    ctx1.drawImage(img1, 26.7, 8, 170.4, 114.4); // Image position and size
-    ctx1.font = "4.8pt Neuton";
-    ctx1.textAlign = "center";
-    // Reference: http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_textalign
-    ctx1.fillText('St.Lucia QLD', 112, 137.1); //Geolocation
-    console.log(canvas1);
-    // Pstcard back-side
-    var canvas2 = document.getElementById("myCanvas2");
-    var ctx2 = canvas2.getContext("2d");
-    var text2 = 'Dear Holly,';
-    var text3 = '    All the world \'s a stage, and all the men and women merely players. They have their exits and their entrances; And one man in his time plays many parts.';
-    var text4 = 'Alvin';
-    ctx2.font = '3.2pt Neuton';
-    ctx2.drawImage(bg2, 0, 0, 224, 150); // Background image position and size	
-    wrapText(ctx2, text2, 14.4, 35.7, 75.7, 8);
-    wrapText(ctx2, text3, 14.4, 43.7, 75.7, 8);
-    wrapText(ctx2, text4, 14.4, 110.4, 75.7, 8);
-    var img2 = document.getElementById("stamp");
-    ctx2.drawImage(img2, 170.9, 9.6, 42.4, 23.8);
-    var img3 = document.getElementById("water-mark");
-    ctx2.drawImage(img3, 0, 0, 224, 150);
-    console.log(canvas2);
-})
+var current_location1 = 'Your location';
+var img1_src = "img/front.jpg";     // Picked up from trove as front-side
+var img2_src = "img/stamp.jpg";    // Picked up from trove as back-side
+var img3_src = "img/stamp (2).jpg";    // Water-mark
+var Name1 = 'Dear Holly,';    // Picked up from user greeting
+var Greeting = 'content';
+var Name2 = 'Alvin';   // Picked up from user greeting
+
+
+window.onload = function() {  
+	$('canvas').hide();
+    merge(); 
+    }; 
+
+function merge(){ 
+// Pstcard front-side
+	var canvas1 = document.getElementById("canvas1");
+	var ctx1 = canvas1.getContext("2d"); 
+	var bg1 = document.getElementById("bg1");
+		//bg1.crossOrigin="anonymous";
+		ctx1.drawImage(bg1,0,0,840,564);
+	var img1 = new Image();
+		img1.src = img1_src;  // Front-side Image 
+			//img1.crossOrigin="anonymous";
+			img1.onload = function() { ctx1.drawImage(img1,100,30,639,429) };	
+	ctx1.font = "18pt Arial";
+	ctx1.textAlign = "center";
+	ctx1.fillText(current_location1,420,514); //Geolocation
+	ctx1.save();
+	// Reference: http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_textalign
+	
+// Pstcard back-side
+	var canvas2 = document.getElementById("canvas2");
+	var ctx2 = canvas2.getContext("2d");
+	var bg2 = document.getElementById("bg2");
+		//bg2.crossOrigin="anonymous";
+		ctx2.drawImage(bg2,0,0,840,564);
+	var img2 = new Image(); 
+		img2.src = img2_src;     // Back-side Image
+			//img2.crossOrigin="anonymous";
+			img2.onload = function() {  ctx2.drawImage(img2,641,36,159,115) };
+	var img3 = new Image();
+		img3.src = img3_src;  // Water-mark Image
+			//img3.crossOrigin="anonymous";
+			img3.onload = function() {  ctx2.drawImage(img3,0,0,840,564) };
+	var text1 = Name1 ;
+	var text2 = Greeting ;
+	var text3 = Name2;
+	ctx2.font = '12pt Arial';
+	wrapText(ctx2, text1, 54, 134, 284, 30);   //TO Dear...
+	wrapText(ctx2, text2, 54, 161.7, 284, 30); //Content
+	wrapText(ctx2, text3, 54, 414, 284, 30);   //From...
+	ctx2.save();
+}		
 
 function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
     var words = text.split(' ');
     var line = '';
-
-    for (var n = 0; n < words.length; n++) {
+    for(var n = 0; n < words.length; n++) {
         var testLine = line + words[n] + ' ';
         var metrics = ctx2.measureText(testLine);
         var testWidth = metrics.width;
         if (testWidth > maxWidth && n > 0) {
-            ctx2.fillText(line, x, y);
+			ctx2.fillText(line, x, y);
             line = words[n] + ' ';
             y += lineHeight;
-        } else {
-            line = testLine;
-        }
+			} else {
+				line = testLine;
+			}
     }
-    ctx2.fillText(line, x, y);
-    //Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
+        ctx2.fillText(line, x, y);
+	//Reference: http://stackoverflow.com/questions/5026961/html5-canvas-ctx-filltext-wont-do-line-breaks
 }
+
+
+function to_image(){
+    var canvas1 = document.getElementById("canvas1");
+    document.getElementById("theimage1").src = canvas1.toDataURL();
+	var canvas2 = document.getElementById("canvas2");
+    document.getElementById("theimage2").src = canvas2.toDataURL();
+}
+
+

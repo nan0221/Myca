@@ -356,7 +356,7 @@
                 <input name="secondimg" type="text" />
                 <input name="fronturl" type="text" />
                 <input name="backurl" type="text" />
-                <button class="button center textWhite" name="done" type="submit">Done</button>
+                <button onclick="to_image()" class="button center textWhite" name="done" type="submit">Done</button>
             </form>
         </div>
 
