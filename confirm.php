@@ -138,17 +138,17 @@
             <?php
             session_start();
             ?>
-                <h1 class="lang">One last step!</h1>
-                <h5>Render it and <span class="important">confirm at the bottom</span></h5>
+                <h1 class="lang" key="laststep">One last step!</h1>
+                <h5 class="lang" key="renderconfirm">Render it and <span class="important">confirm at the bottom</span></h5>
                 <form action="save.php" method="post" name="confirm">
                     <div class="blank"></div>
-                    <button class="button center textWhite" id="prerender">Render</button>
+                    <button class="button center textWhite" id="prerender" class="lang" key="render" >Render</button>
                     <div class="blank"></div>
-                    <h5>Front</h5>
+                    <h5 class="lang" key="front">Front</h5>
                     <!--                        <img class="showSize center" id="frontShow" src="<?php echo $img ?>" />-->
                     <canvas id="canvas1" class="center"></canvas>
                     <div class="blank"></div>
-                    <h5>Back</h5>
+                    <h5 class="lang" key="Back">Back</h5>
                     <!--                        <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />-->
                     <canvas id="canvas2" class="center"></canvas>
                     <div class="blank"></div>
@@ -165,8 +165,8 @@
                     <textarea name="frontimgdata" type="text"></textarea>
                     <textarea name="backimgdata" type="text"></textarea>
 
-                    <button class="button center textWhite" id="finishrender">That's what I want</button>
-                    <button class="button center textWhite" name="confirm" type="submit">Save</button>
+                    <button class="button center textWhite" id="finishrender" class="lang" key="want" >That's what I want</button>
+                    <button class="button center textWhite" name="confirm" type="submit" class="lang" key="save">Save</button>
                 </form>
         </div>
     </div>
@@ -175,6 +175,39 @@
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script type="text/javascript">
+    </script>
+     <!--mutilanguage-->
+    <script type="text/javascript">
+        var arrLang = {
+            'en': {
+                'laststep':'One last step',
+                'renderconfirm':'Render it and confirm at the bottom',
+                'render':'Render',
+                'front':'Front',
+                'back':'Back',
+                'want':"That's what I want",
+                'save':'Save' 
+            },
+            'cn': {
+                'laststep':'离成功只着一步！',
+                'renderconfirm':'执行并在底部确认',
+                'render':'执行',
+                'front':'正面',
+                'back':'反面',
+                'want':'这就是我想要的！',
+                'save':'保存' 
+            }
+        };
+
+        $(function () {
+            $('.translate').click(function () {
+                var lang = $(this).attr('id');
+
+                $('.lang').each(function (index, element) {
+                    $(this).text(arrLang[lang][$(this).attr('key')]);
+                });
+            });
+        });
     </script>
 
 </body>
