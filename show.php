@@ -107,7 +107,15 @@
         </div>
 
         <div>
-
+			<?PHP
+				//session_start();
+				//if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+					//header ("Location: login.php");
+					//echo 'Sign up or Login to save your postcard in your timeline'
+				//} else {
+					//echo 'Your postcard has already been saved in your timeline'
+				//}
+			?>
         </div>
     </div>
     <!-- Vote Modal-->
