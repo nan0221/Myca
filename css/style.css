@@ -178,7 +178,8 @@
     }
     .selected,
     #canvas1,
-    #canvas2 {
+    #canvas2,
+    #show img {
         border: 0.125em solid #ECB733;
         box-shadow: 0em 0em 0.25em #ECB733;
         -webkit-box-shadow: 0em 0em 0.25em #ECB733;
@@ -1053,7 +1054,8 @@
     }
     .selected,
     #canvas1,
-    #canvas2 {
+    #canvas2,
+    #show img {
         border: 0.125em solid #ECB733;
         box-shadow: 0em 0em 0.25em #ECB733;
         -webkit-box-shadow: 0em 0em 0.25em #ECB733;
@@ -1940,7 +1942,8 @@
     }
     .selected,
     #canvas1,
-    #canvas2 {
+    #canvas2,
+    #show img {
         border: 0.25em solid #ECB733;
         box-shadow: 0em 0em 0.5em #ECB733;
         -webkit-box-shadow: 0em 0em 0.5em #ECB733;
@@ -2824,7 +2827,8 @@
     }
     .selected,
     #canvas1,
-    #canvas2 {
+    #canvas2,
+    #show img {
         border: 0.25em solid #ECB733;
         box-shadow: 0em 0em 0.5em #ECB733;
         -webkit-box-shadow: 0em 0em 0.5em #ECB733;
