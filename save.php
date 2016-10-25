@@ -18,8 +18,8 @@
         $post64_URL = $_POST["frontimgdata"];
         $postb64_URL = $_POST["backimgdata"];
         $t=time();   
-        $s1=".png";
-        $s2="b.png";
+        $s1=".jpeg";
+        $s2="b.jpeg";
         $name =$t.$s1;
         $bname = $t.$s2;
         list($type, $post64_URL) = explode(';', $post64_URL);
