@@ -807,8 +807,8 @@ function to_image() {
     //    document.getElementById("theimage1").src = canvas1.toDataURL();
     var canvas2 = document.getElementById("canvas2");
     //    document.getElementById("theimage2").src = canvas2.toDataURL();
-    var image_front = canvas1.toDataURL("image/jpeg", 1.0);
-    var image_back = canvas2.toDataURL("image/jpeg", 1.0);
+    var image_front = canvas1.toDataURL("image/jpeg", 0.7);
+    var image_back = canvas2.toDataURL("image/jpeg", 0.7);
     $('textarea[name=frontimgdata]').val(image_front);
     $('textarea[name=backimgdata]').val(image_back);
 }
