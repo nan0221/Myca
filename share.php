@@ -205,6 +205,7 @@
                     <!-- Slides -->
                     <?php
                     session_start();
+                    include('Connect.php');
                     $imgfront=$_SESSION['imgfront'];
                     $imgback=$_SESSION['imfback'];
                     $uname=$_SESSION['Username'];
