@@ -666,3 +666,7 @@ button.swiper-pagination-bullet {
         transform: rotate(360deg);
     }
 }
+
+#save_font {
+	font-size: 20pt;
+}

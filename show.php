@@ -106,17 +106,6 @@
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
 
-        <div>
-			<?PHP
-				//session_start();
-				//if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-					//header ("Location: login.php");
-					//echo 'Sign up or Login to save your postcard in your timeline'
-				//} else {
-					//echo 'Your postcard has already been saved in your timeline'
-				//}
-			?>
-        </div>
     </div>
     <!-- Vote Modal-->
     <div class="remodal" data-remodal-id="VoteModal">
@@ -152,7 +141,7 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
                 <script src="js/remodal.js"></script>
                 <?php
-            if($_SESSION['auth']){
+                if($_SESSION['auth']){
                 ?>
                     <script>
                         var inst = $('[data-remodal-id=LogInModal]').remodal();
@@ -164,21 +153,6 @@
                             <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
 
-                                <!--
-                                <li>
-    <?php
-                        echo $_SESSION['Username'];
-                        ?>
-</li>
--->
-
-                                <!--
-                                <form action="logout.php" method="post">
-    <a onclick="form.submit()">
-        <li>Log out</li>
-    </a>
-</form>
--->
                                 <li>
                                     <form action="logout.php" method="post">
                                         <input type="submit" name="logout" value="Log out" />
