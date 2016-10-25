@@ -68,7 +68,7 @@
         <div>
             <form action="" method="post" id="edit">
                 <div class="buttonHeight">
-                    <button class="share textWhite" type="submit" name="signup">Edit</button>
+                    <!--                    <button class="share textWhite" type="submit" name="signup">Edit</button>-->
                     <button class="save textGrey" type="submit" name="login">View postcard</button>
                 </div>
             </form>
