@@ -72,7 +72,7 @@
             <form action="edit.php" method="post" id="edit">
                 <div class="buttonHeight">
                     <input name="editimgid" type="text" />
-                    <button class="share textWhite" type="submit" name="edit" class="lang" key="edit">Edit</button>
+                    <!--                    <button class="share textWhite" type="submit" name="edit" class="lang" key="edit">Edit</button>-->
                     <button class="save textGrey" type="submit" name="view" class="lang" key="viewpostcard">View postcard</button>
                 </div>
             </form>

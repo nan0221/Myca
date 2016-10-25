@@ -19,12 +19,23 @@ $(document).ready(function () {
         $('input[name=editimgid]').attr('value', editimgid);
         inst.open();
     });
+    $('form[id=edit] button[name=view]').click(function (event) {
+        event.preventDefault();
+        var showURL_fromedit = "/show.php?id=" + $('input[name=editimgid]').val();
+        window.location.href = showURL_fromedit;
+    });
 
     $('#popular img').click(function () {
         var inst = $('[data-remodal-id=VoteModal]').remodal();
         var voteimgid = $(this).attr('id');
         $('input[name=voteimgid]').attr('value', voteimgid);
         inst.open();
+    });
+
+    $('form[id=vote] button[name=view]').click(function (event) {
+        event.preventDefault();
+        var showURL_fromvote = "/show.php?id=" + $('input[name=voteimgid]').val();
+        window.location.href = showURL_fromvote;
     });
 
     // for show page
