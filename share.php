@@ -92,8 +92,8 @@
                 $ids = mysql_fetch_assoc($findpidres);
                 $id = $ids[post_id];
                 ?>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/show.php?id=<?PHP echo $id;?>" target="_blank">
-                        <img src="img/facebook.png" class="socialMedia" alt="Share to Facebook " /></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/show.php?id=<?PHP echo $id;?>" target="_blank">
+                    <img src="img/facebook.png" class="socialMedia" alt="Share to Facebook " /></a>
             </div>
             <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
             <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
@@ -115,8 +115,20 @@
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
 
-        <div>
-
+        <div> 
+				<?PHP
+                session_start();
+                if($_SESSION['auth']){
+                ?>                   
+                    <div><h1 id='save_font'> Your postcard has already been saved in your timeline </h1></div>   
+                <?php
+                }
+                else{
+                ?>                   
+                    <div><h1 id='save_font'> Sign up or Login to save your postcard in your timeline </h1></div>  
+                <?php
+                }
+                ?>
         </div>
     </div>
 
@@ -244,7 +256,6 @@
                 <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
             </div>
         </div>
-        <div class="blank"></div>
     </div>
 
 
