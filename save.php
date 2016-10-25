@@ -1,18 +1,17 @@
 <?php
     header("Content-Type: text/html; charset=utf8");
-header("Access-Control-Allow-Origin: *");
     include('Connect.php');
     session_start();
     if(isset($_POST["confirm"])){  
-        $post_add = $_POST["address"];
+        $post_add = $_SESSION["post_add"];
         $post_popular = 0;
         $post_date = date("Y-m-d");
-        $img_URL = $_POST["firstimg"];
-        $stamp_URL = $_POST["secondimg"];
-        $Greeting = $_POST["greeting_check"];
+        $img_URL = $_SESSION["imgfrom"];
+        $stamp_URL = $_SESSION["stampfrom"];
+        $Greeting = $_SESSION["Greeting"];
         $Uname = $_SESSION['Username'];
-        $from = $_POST['fromwhom_check'];
-        $to = $_POST['towhom_check'];
+        $from = $_SESSION["from"];
+        $to = $_SESSION["to"];
         $id = "select Uid from User_info where Uname='$Uname'";
         $U_idres = mysql_query($id);
         $row = mysql_fetch_assoc($U_idres) ;
