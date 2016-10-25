@@ -1748,7 +1748,7 @@
     }
 }
 
-@media screen and (min-device-width:769px) and (max-device-width:1079px) {
+@media screen and (min-device-width:768px) and (max-device-width:1080px) {
     .center {
         width: 50%;
         display: block;
@@ -1770,7 +1770,7 @@
     }
     body {
         width: 100%;
-        width: 769px;
+        width: 768px;
         position: relative;
         margin: 0 auto;
         font-family: Catamaran;
@@ -1918,7 +1918,7 @@
     }
     h5 {
         font-weight: 300;
-        font-size: 1.5em;
+        font-size: 1.2em;
         color: #555555;
         margin: 0 auto;
         padding-left: 2.5em;
