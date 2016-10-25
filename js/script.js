@@ -216,7 +216,7 @@ $(document).ready(function () {
         //        var searchTerm = $('#step2Instruction>h1').val().trim();
         //        searchTerm = searchTerm.replace(/ /g, "%20");
         //        var searchTerm = 'st.lucia';
-        var searchTerm = currentLocation;
+        var searchTerm = $('input[name=address]').val();;
         //        var sortBy = $("#sortBy").val();
         var sortBy = 'dateasc';
         var apiKey = "kr6iv720kob8nph6";
@@ -366,10 +366,27 @@ $(document).ready(function () {
 
         } else if (imgUrl.indexOf(urlPatterns[1]) >= 0) { // nla.gov
 
-            found++;
-            loadedImages.push(
-                imgUrl + "/representativeImage?wid=280" // change ?wid=900 to scale the image
-            );
+            // !!! Because Trove changed their API recently and all images from nla.gov are redirected to handle.net links now and we cannot get the actual image path. As nla.gov images are a large part of the Trove API responses, we decide to replace nla.gov part to flickr.
+            var apiurl, myresult, apiurl_size, selected_size;
+            apiurl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=185416d482b80527f23783028dfc4386&per_page=15&content_type=1&text=" + $('input[name=address]').val(); + "&sort=date-posted-desc&format=json&nojsoncallback=1";
+            selected_size = 500;
+            $.getJSON(apiurl, function (json) {
+                $.each(json.photos.photo, function (i, myresult) {
+                    apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=185416d482b80527f23783028dfc4386&photo_id=" + myresult.id + "&format=json&nojsoncallback=1";
+                    $.getJSON(apiurl_size, function (size) {
+                        $.each(size.sizes.size, function (i, myresult_size) {
+                            if (myresult_size.width == selected_size) {
+                                found++;
+                                loadedImages.push(myresult_size.url);
+                            }
+                        })
+                    })
+                });
+            });
+
+
+            //            found++;
+            //            loadedImages.push(imgUrl + "/representativeImage?wid=280" // change ?wid=900 to scale the image);
 
         } else if (imgUrl.indexOf(urlPatterns[2]) >= 0) { //artsearch
 
