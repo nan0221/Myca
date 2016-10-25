@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     $('#timeline img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();
-        var editimgid = $(this).attr(id);
+        var editimgid = $(this).attr('id');
         $('input[name=editimgid]').attr('value', editimgid);
         inst.open();
     });
