@@ -9,14 +9,22 @@
         $_SESSION["stampfrom"] = $_POST["secondimg"];
         $img = $_POST["firstimg"];
         $stamp = $_POST["secondimg"];
-        copy($img, 'Postimg/file1.jpg');
-        copy($stamp, 'Postimg/file2.jpg');
+        $t=time();   
+        $s1="file1.jpg";
+        $s2="file2.jpg";
+        $s3="Postimg/";
+        $name =$s3.$t.$s1;
+        $bname = $s3.$t.$s2;
+        copy($img, $name);
+        copy($stamp, $bname);
 // $_SESSION["img_URL"]="http://deco1800-pg2.uqcloud.net/Postimg/file1.jpg"; //$_SESSION["stamp_URL"]="http://deco1800-pg2.uqcloud.net/Postimg/file2.jpg";
-        $_SESSION["img_URL"]="Postimg/file1.jpg"; 
-        $_SESSION["stamp_URL"]="Postimg/file2.jpg";
+        $_SESSION["img_URL"]=$name; 
+        $_SESSION["stamp_URL"]=$bname;
         $_SESSION["Greeting"] = $_POST["greeting"];
         $_SESSION["from"] = $_POST['fromwhom'];
         $_SESSION["to"] = $_POST['towhom'];
+
+
         header("location:confirm.php");
 //    }
 
