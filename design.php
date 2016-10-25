@@ -243,7 +243,8 @@
             <div class="blank"></div>
             <div class="button textWhite" class="lang" key="iamhere">Yes, I am here!</div>
             <a href="#">
-                <p class="alternativeOption" class="lang" key="nothere">I am not here</p>
+                <p class="alternativeOption" class="lang" key="nothere">Choose manually</p>
+                <div class="blank"></div>
             </a>
         </div>
         <!-- If user clicked 'I am not here', provide them with opportunity to select their location on the map -->
@@ -255,6 +256,7 @@
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJzPG-L5GstSeXxXAOgeU-_bROjO9MQFc&callback=myMap" type="text/javascript"></script>
             <div class="blank"></div>
             <div class="button textWhite" class="lang" key="iamhere">Yes, I am here!</div>
+            <div class="blank"></div>
         </div>
 
         <div class=" step" id="step3Instruction">
@@ -280,6 +282,7 @@
 
             <div class="blank"></div>
             <div class="button textWhite" class="lang" key="okay">Okay</div>
+            <div class="blank"></div>
         </div>
 
         <div class=" step" id="step4Instruction">
@@ -302,7 +305,7 @@
             </div>
             <div class="blank"></div>
             <div class="button textWhite">Okay</div>
-
+            <div class="blank"></div>
         </div>
 
         <div class=" step" id="step5Instruction">
@@ -335,6 +338,7 @@
             <a href="">
                 <p class="alternativeOption">Automatically generate for me</p>
             </a>
+            <div class="blank"></div>
         </div>
         <div class=" step" id="step6Instruction">
             <h4 class="lang" key="typeyourgreeting">Please type in your greetings</h4>
@@ -363,6 +367,7 @@
 
                 <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
+            <div class="blank"></div>
         </div>
 
         <div class="progress">

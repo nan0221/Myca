@@ -232,6 +232,7 @@
                         <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
                     </div>
         </div>
+        <div class="blank"></div>
     </div>
 
 
@@ -254,10 +255,9 @@
             });
         });
     </script>
-    
+
     <!--mutilanguage-->
     <script type="text/javascript">
-			
         var arrLang = {
             'en': {
                 'congrats': 'Congrats,',

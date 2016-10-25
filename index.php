@@ -78,7 +78,7 @@
             </form>
         </div>
     </div>
-    
+
     <!-- Here starts to build Vote Modal-->
     <div class="remodal" data-remodal-id="VoteModal">
         <div>
@@ -96,7 +96,7 @@
             </form>
         </div>
     </div>
-    
+
     <!--???Here starts to set Remodal-backgroud -->
     <div class="remodal-bg">
 
@@ -170,12 +170,12 @@
 
 
         </header>
-        
+
         <!--Here starts to build the top frame to show the sample postcard -->
         <div class="block">
             <h1 class="lang" key="design">Design your own postcard</h1>
             <h5 class="lang" key="both">for both <span class="important"><strong>front</strong></span> and <span class="important">back</span> sides</h5>
-            
+
             <!-- Here starts to build a Slider main container to display the front and back sample postcard -->
             <div class="swiper-container" id="preview">
                 <!--Here adds a additional required wrapper -->
@@ -197,7 +197,7 @@
                 <div class="button textWhite" class="lang" key="start">Start to design</div>
             </a>
         </div>
-        
+
         <!--????-->
         <?PHP
         session_start();
@@ -267,7 +267,7 @@
                     <div class="block">
                         <h1 class="lang" key="memorable">Make your journey more memorable</h1>
                         <h5 class="lang" key="by_designing">by designing your own postcard</h5>
-                        
+
                         <!-- Here sets a slider main container for promotion pictures -->
                         <div class="swiper-container">
                             <!--Here sets an additional required wrapper -->
@@ -289,7 +289,7 @@
                             <div class="button textWhite" class="lang" key="start">Start to design</div>
                         </a>
                     </div>
-                    <!--Here starts to build the user's guide step by step--> 
+                    <!--Here starts to build the user's guide step by step-->
                     <div class="block grey">
                         <h1 class="lang" key="first">Design your first postcard</h1>
                         <h5 class="lang" key="5_minutes">within only 5 minutes!</h5>
@@ -321,7 +321,7 @@
                         <h5 class="lang" key="vote"><span class="important" >Click to vote</span> for them</h5>
                         <!-- Here sets a Slider main container to display popular works -->
                         <div class="swiper-container">
-                            
+
                             <!-- Here sets an Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <?php
@@ -358,6 +358,7 @@
                             <p class="lang" key="mytea">team mytea</p>
                             <p class="lang" key="powered-by">powered by</p>
                             <p class="lang" key="trove">trove</p>
+                            <div class="blank"></div>
                         </footer>
                     </div>
 
