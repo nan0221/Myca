@@ -208,11 +208,6 @@
                     <div class="blank"></div>
                     <h5>Back</h5>
                     <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />
-                    <div class="blank"></div>
-                    <div class="buttonHeight">
-                        <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
-                        <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
-                    </div>
         </div>
         <div class="blank"></div>
     </div>
