@@ -193,7 +193,7 @@
             $unames = mysql_fetch_assoc($unameres);
             $name = $unames[UName];
             ?>
-                <h1 class="lang">Here is a postcard designed by <span class="important"><?PHP echo $name;?></span></h1>
+                <h1 class="lang" key="designedby">Here is a postcard designed by <span class="important"><?PHP echo $name;?></span></h1>
                 <!-- Slider main container -->
                 <?php
             $getimg = "SELECT post_URL, postb_URL FROM Img_info WHERE post_id='$postid'";
@@ -203,10 +203,10 @@
             $imgb =$imgs[postb_URL];
             ?>
                     <div class="blank"></div>
-                    <h5>Front</h5>
+                    <h5 class="lang" key="front">Front</h5>
                     <img class="showSize center" id="frontShow" src="<?php echo $img ?>" />
                     <div class="blank"></div>
-                    <h5>Back</h5>
+                    <h5 class="lang" key="back">Back</h5>
                     <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />
         </div>
         <div class="blank"></div>
@@ -233,25 +233,22 @@
         });
     </script>
 
-    <!--mutilanguage-->
+    <! Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
         var arrLang = {
             'en': {
-                'congrats': 'Congrats,',
-                'finished': "You've finished a masterpiece!",
-                'nowshare': 'Now share it with your friends!',
-                'share': 'Share',
-                'save': 'Save'
+                'designedby':'Here is a postcard designed by',
+                'front':'Front',
+                'back':'Back'
+               
             },
             'cn': {
-                'congrats': '恭喜，',
-                'finished': "你已经完成一张明信片！",
-                'nowshare': '现在和朋友分享你的明信片吧！',
-                'share': '分享',
-                'save': '保存'
+                'designedby':'这张明信片的设计者是',
+                'front':'正面',
+                'back':'反面'
             }
         };
-
+        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');
