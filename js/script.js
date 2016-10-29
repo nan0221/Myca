@@ -595,27 +595,27 @@ $(document).ready(function () {
     }
 });
 
+var currentLocation;
+// Option 1: Auto-geolocating
 $(document).ready(function geoFindMe() {
     var output = document.getElementById("map1"); // Get map by id = 'out'
     if (!navigator.geolocation) { // Error check
         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
         return;
     }
-
+	
+	// Auto-geolocating success
     function success(position) {
         var latitude = position.coords.latitude; // Get current latitude
         var longitude = position.coords.longitude; // Get current longitude
         //output.innerHTML = '<p>Latitude is ' + latitude + ' <br>Longitude is ' + longitude + '</p>';  //*******need transform
         console.log("Latitude " + latitude + " Longitude " + longitude);
         getAddressFromLatLang(latitude, longitude);
-        /* Present image screenshot by their current location for users to ensure(optional)
-        /* var img = new Image();
-        /* img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=400x400&sensor=false";
-        /* output.appendChild(img);  */
         //Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
     };
-
-    function getAddressFromLatLang(lat, lng) { // Transform current loocation to readable address
+	
+	// Transform current loocation to readable address
+    function getAddressFromLatLang(lat, lng) { 
         var geocoder = new google.maps.Geocoder();
         var latLng = new google.maps.LatLng(lat, lng);
         geocoder.geocode({
@@ -636,7 +636,8 @@ $(document).ready(function geoFindMe() {
         //Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
     }
 
-    function error() { //Error check
+	// Auto-geolocating failed
+    function error() {
         output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
         $('#step2Content').hide();
         $('#step2Branch').show();
@@ -646,8 +647,7 @@ $(document).ready(function geoFindMe() {
     navigator.geolocation.getCurrentPosition(success, error);
 })
 
-var currentLocation;
-// If users click I'm not here or want to locating manually
+// Option 2: If need to locating manually
 function myMap() {
     var mapCanvas = document.getElementById("map2"); //Create canvas and get map by id = 'map2'
     var myCenter = new google.maps.LatLng(-27.468140, 153.027354); // Set default center of map(Brisbane in this situstion)
@@ -665,7 +665,6 @@ function myMap() {
         });
         //Reference:https://developers.google.com/maps/documentation/javascript/reference
     });
-
 
     var geocoder = new google.maps.Geocoder();
     // Reverse geocoding code(transform coordinates into address)  
@@ -693,8 +692,9 @@ function myMap() {
     // Reference 1: http://stackoverflow.com/questions/36892826/click-on-google-maps-api-and-get-the-address
     // Reference 2: https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
 }
+
+// Add marker at option 2 map
 var markersArray = [];
-// Add marker
 function placeMarker(map, location) {
     if (markersArray.length >= 1) { // The amount of marker should be one
         //alert('Please mark only one address :)'); //If user clicked more than one times
@@ -709,7 +709,7 @@ function placeMarker(map, location) {
 
     // Reference: http://www.w3schools.com/graphics/google_maps_overlays.asp	
 }
-// Clear marker
+// Clear marker at option 2 map
 function deleteOverlays() {
     if (markersArray) {
         for (i in markersArray) {
@@ -720,16 +720,7 @@ function deleteOverlays() {
     // Reference:http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html	
 }
 
-
-
-
-
-
-window.onload = function () {
-    //    $('canvas').hide();
-    //    merge();
-};
-
+// Merge to canvas
 function merge() {
     var current_location1 = $('input[name=address]').val();
     var img1_src = $('input[name=firstimg]').val(); // Picked up from trove as front-side
@@ -738,21 +729,20 @@ function merge() {
     var Name1 = 'Dear ' + $('input[name=towhom_check]').val() + ','; // Picked up from user greeting
     var Greeting = $('textarea[name=greeting_check]').val();
     var Name2 = $('input[name=fromwhom_check]').val(); // Picked up from user greeting
-    // Pstcard front-side
+    
+	// Pstcard front-side
     var canvas1 = document.getElementById("canvas1");
-    canvas1.width = 840;
-    canvas1.height = 564;
+		canvas1.width = 840;
+		canvas1.height = 564;
     var ctx1 = canvas1.getContext("2d");
     var bg1 = document.getElementById("bg1");
-    //bg1.crossOrigin="anonymous";
-    ctx1.drawImage(bg1, 0, 0, 840, 564);
+		ctx1.drawImage(bg1, 0, 0, 840, 564);
     var img1 = new Image();
-    img1.src = img1_src; // Front-side Image 
-    img1.crossOrigin = "Anonymous";
-    //img1.crossOrigin="anonymous";
-    img1.onload = function () {
-        ctx1.drawImage(img1, 100, 30, 639, 429)
-    };
+		img1.src = img1_src; // Front-side Image 
+		img1.crossOrigin = "Anonymous";
+		img1.onload = function () {
+			ctx1.drawImage(img1, 100, 30, 639, 429)
+		};
     ctx1.font = "26pt Neuton";
     ctx1.textAlign = "center";
     ctx1.fillText(current_location1, 420, 514); //Geolocation
@@ -761,26 +751,23 @@ function merge() {
 
     // Pstcard back-side
     var canvas2 = document.getElementById("canvas2");
-    canvas2.width = 840;
-    canvas2.height = 564;
+		canvas2.width = 840;
+		canvas2.height = 564;
     var ctx2 = canvas2.getContext("2d");
     var bg2 = document.getElementById("bg2");
-    //bg2.crossOrigin="anonymous";
-    ctx2.drawImage(bg2, 0, 0, 840, 564);
+		ctx2.drawImage(bg2, 0, 0, 840, 564);
     var img2 = new Image();
-    img2.src = img2_src; // Back-side Image
-    img2.crossOrigin = "Anonymous";
-    //img2.crossOrigin="anonymous";
-    img2.onload = function () {
-        ctx2.drawImage(img2, 641, 36, 159, 115)
-    };
+		img2.src = img2_src; // Back-side Image
+		img2.crossOrigin = "Anonymous";
+		img2.onload = function () {
+			ctx2.drawImage(img2, 641, 36, 159, 115)
+		};
     var img3 = new Image();
-    img3.src = img3_src; // Water-mark Image
-    img3.crossOrigin = "Anonymous";
-    //img3.crossOrigin="anonymous";
-    img3.onload = function () {
-        ctx2.drawImage(img3, 0, 0, 840, 564)
-    };
+		img3.src = img3_src; // Water-mark Image
+		img3.crossOrigin = "Anonymous";
+		img3.onload = function () {
+			ctx2.drawImage(img3, 0, 0, 840, 564)
+		};
     var text1 = Name1;
     var text2 = Greeting;
     var text3 = Name2;
@@ -789,10 +776,9 @@ function merge() {
     wrapText(ctx2, text2, 54, 161.7, 284, 30); //Content
     wrapText(ctx2, text3, 284, 414, 500, 30); //From...
     ctx2.save();
-
-    //    to_image();
 }
 
+// Greeting text wrap
 function wrapText(ctx2, text, x, y, maxWidth, lineHeight) {
     var words = text.split(' ');
     var line = '';
