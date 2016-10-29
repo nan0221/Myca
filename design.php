@@ -173,11 +173,13 @@
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide" id="previewFront">
+					<!-- Front-side postcard background image, placeholder geo-text, placeholder image -->
                         <img class="imgSize280" id="previewFrontBg" src="img/bg1.jpg" />
                         <p id="locationP" class="locationP" class="lang" key="your_location">Your location</p>
                         <img id="img1P" src="img/placeholder.png">
                     </div>
                     <div class="swiper-slide" id="previewBack">
+					<!-- Back-side postcard background image, placeholder stamp -->
                         <img class="imgSize280" id="previewBackBg" src="img/bg2.jpg" />
                         <img id="img2P" src="img/placeholder.png">
                     </div>
@@ -230,16 +232,15 @@
         </div>
 
         <!-- Google map -->
-        <!-- Get users current location -->
+        <!-- Get users current location (Auto-geolocating)-->
         <div class="step" id="step2Instruction">
             <h4 class="lang" key="confirmlocation">Please confirm your current location</h4>
         </div>
         <div class="block grey " id="step2Content">
-            <!--        TO CHANGE: Information shown on screen when geolocation is n/a-->
             <h1 id="map1" class="MapPosition"></h1>
             <h5 class="lang" key="googlemap">Geography service is provided by Google Maps</h5>
             <br>
-            <!--        <div id="map1" class="MapPosition"></div>-->
+            <!-- <div id="map1" class="MapPosition"></div> -->
             <div class="blank"></div>
             <div class="button textWhite" class="lang" key="iamhere">Yes, I am here!</div>
             <a href="#">
@@ -247,7 +248,7 @@
                 <div class="blank"></div>
             </a>
         </div>
-        <!-- If user clicked 'I am not here', provide them with opportunity to select their location on the map -->
+        <!-- When user clicked 'I am not here' or auto-geolocating failed, locating manually-->
         <div class="block grey " id="step2Branch">
             <h1 class="lang" key="chooselocation">Please choose your location</h1>
             <h5 class="lang" key="mapservice">Map service is provided by Google Maps</h5>
