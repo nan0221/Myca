@@ -252,7 +252,9 @@
             </div>
             <div class="blank"> </div>
             <div class="buttonHeight">
+				<!-- Share buttons -->
                 <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
+				<!-- Save buttons -->
                 <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
             </div>
         </div>
