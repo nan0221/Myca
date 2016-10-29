@@ -90,6 +90,7 @@ $(document).ready(function () {
         $('#navigation ul li:eq(1)').css('font-weight', '300');
         $('#navigation ul li:eq(2)').css('font-weight', '300');
         $('#navigation ul li:eq(3)').css('font-weight', '300');
+        $('.inProgress').css('width', '25%');
         showStep2();
     });
 
@@ -99,6 +100,7 @@ $(document).ready(function () {
             $('#navigation ul li:eq(1)').css('font-weight', '500');
             $('#navigation ul li:eq(2)').css('font-weight', '300');
             $('#navigation ul li:eq(3)').css('font-weight', '300');
+            $('.inProgress').css('width', '50%');
             showStep3();
         } else {
             alert('Please choose your location first.');
@@ -115,6 +117,7 @@ $(document).ready(function () {
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '500');
             $('#navigation ul li:eq(3)').css('font-weight', '300');
+            $('.inProgress').css('width', '75%');
             showStep4();
         }
     });
@@ -131,6 +134,7 @@ $(document).ready(function () {
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '300');
             $('#navigation ul li:eq(3)').css('font-weight', '500');
+            $('.inProgress').css('width', '100%');
             showStep6();
         }
     });
@@ -183,103 +187,102 @@ $(document).ready(function () {
 
     // get images from Trove based on the geo-location
     $('#step2Branch').find('.button').click(function () {
-        if ($('input[name=address]').val() != 'Australia') {
-            loadedImages = [];
-            found = 0;
-            //get input values
-            //        var searchTerm = $('#step2Instruction>h1').val().trim();
-            //        searchTerm = searchTerm.replace(/ /g, "%20");
-            //        var searchTerm = 'st.lucia';
-            //        var searchTerm = currentLocation;
-            var searchTerm = $('input[name=address]').val();
-            //        var sortBy = $("#sortBy").val();
-            var sortBy = 'datedesc';
-            var apiKey = "kr6iv720kob8nph6";
+        loadedImages = [];
+        found = 0;
+        var searchTerm = $('input[name=address]').val();
+        //        var sortBy = $("#sortBy").val();
+        var sortBy = 'datedesc';
+        var apiKey = "kr6iv720kob8nph6";
 
-            //create searh query
-            var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
 
 
-            //get the JSON information we need to display the images
-            $.getJSON(url, function (data) {
-                $('#mainPicture').empty();
-                $.each(data.response.zone[0].records.work, processImages);
-                //printImages();
+        //get the JSON information we need to display the images
+        $.getJSON(url, function (data) {
+            $('#mainPicture').empty();
+            $.each(data.response.zone[0].records.work, processImages);
+            //printImages();
 
-                waitForFlickr(); // Waits for the flickr images to load
-            });
+            waitForFlickr(); // Waits for the flickr images to load
+        });
 
+
+
+        $('#locationP').text($('input[name="address"]').val());
+
+        if ($('input[name=address]').val() == 'Australia') {
+            alert('Please choose your location first.');
+        } else {
             $('.inProgress').css('width', '50%');
             $('#notification p').html('You are at Step2/4');
             $('#navigation ul li:eq(0)').css('font-weight', '300');
             $('#navigation ul li:eq(1)').css('font-weight', '500');
             $('#navigation ul li:eq(2)').css('font-weight', '300');
             $('#navigation ul li:eq(3)').css('font-weight', '300');
-
-            $('#locationP').text($('input[name="address"]').val());
             showStep3();
-        } else {
-            alert('Please choose your location first.');
         }
     });
 
     // choose image for the front side of the image and
     // get thumbnail images from Trove for the stamp based on the geo-location
     $('#step3Content').find('.button').click(function () {
-        if ($('input[name=firstimg]').val() != '') {
-            loadedImages = [];
-            found = 0;
-            //get input values
-            //        var searchTerm = $('#step2Instruction>h1').val().trim();
-            //        searchTerm = searchTerm.replace(/ /g, "%20");
-            //        var searchTerm = 'st.lucia';
-            var searchTerm = currentLocation;
-            //        var sortBy = $("#sortBy").val();
-            var sortBy = 'dateasc';
-            var apiKey = "kr6iv720kob8nph6";
+        loadedImages = [];
+        found = 0;
+        //get input values
+        //        var searchTerm = $('#step2Instruction>h1').val().trim();
+        //        searchTerm = searchTerm.replace(/ /g, "%20");
+        //        var searchTerm = 'st.lucia';
+        var searchTerm = currentLocation;
+        //        var sortBy = $("#sortBy").val();
+        var sortBy = 'dateasc';
+        var apiKey = "kr6iv720kob8nph6";
 
-            //create searh query
-            var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+        //create searh query
+        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
 
 
-            //get the JSON information we need to display the images
-            $.getJSON(url, function (data) {
-                $('#stamps').empty();
-                $.each(data.response.zone[0].records.work, processSmallImages);
-                //printImages();
+        //get the JSON information we need to display the images
+        $.getJSON(url, function (data) {
+            $('#stamps').empty();
+            $.each(data.response.zone[0].records.work, processSmallImages);
+            //printImages();
 
-                waitForFlickrSmall(); // Waits for the flickr images to load
-            });
-            $('input[name=firstimg]').attr('value', selected_front_image)
+            waitForFlickrSmall(); // Waits for the flickr images to load
+        });
+        $('input[name=firstimg]').attr('value', selected_front_image)
+        $('#img1P').attr('src', selected_front_image);
+
+        if ($('input[name=firstimg]').val() == '') {
+            alert('Please choose an image for the front side of your postcard.');
+
+        } else {
             $('.inProgress').css('width', '75%');
             $('#notification p').html('You are at Step3/4');
             $('#navigation ul li:eq(0)').css('font-weight', '300');
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '500');
             $('#navigation ul li:eq(3)').css('font-weight', '300');
-
-            $('#img1P').attr('src', selected_front_image);
             showStep4();
-        } else {
-            alert('Please choose an image for the front side of your postcard.');
         }
     });
 
     // choose image for the stamp
     $('#step4Content').find('.button').click(function () {
-        if ($('input[name=secondimg]').val() != '') {
-            $('input[name=secondimg]').attr('value', selected_back_image)
+
+        $('input[name=secondimg]').attr('value', selected_back_image)
+        $('#img2P').attr('src', selected_back_image);
+
+        if ($('input[name=secondimg]').val() == '') {
+            alert('Please choose an image for the stamp on the back side of your postcard.');
+        } else {
             $('.inProgress').css('width', '100%');
             $('#notification p').html('You are at Step4/4');
             $('#navigation ul li:eq(0)').css('font-weight', '300');
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '300');
             $('#navigation ul li:eq(3)').css('font-weight', '500');
-
-            $('#img2P').attr('src', selected_back_image);
             showStep6();
-        } else {
-            alert('Please choose an image for the stamp on the back side of your postcard.');
         }
     });
 
