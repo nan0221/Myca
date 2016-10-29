@@ -1,5 +1,6 @@
 <?php
     header("Content-Type: text/html; charset=utf8");
+    #used for login
     if(isset($_POST["login"])){
         if(!isset($_POST["login"])){
             exit("ERROR");
@@ -17,7 +18,6 @@
                 $_SESSION['auth'] = true;
                 $URL= $_POST['URL'];
                 header("location:$URL");
-                //echo "<script>alert('Log in success'); history.go(-1)；</script>";
             }
             else{
                 echo "<script>alert('Wrong username or password！'); history.go(-1);</script>";
@@ -29,6 +29,7 @@
         }
         mysql_close();      //Close DB
     }
+    #used for signup
     else if (isset($_POST['signup'])){
         if(!isset($_POST['signup'])){
             exit("ERROR");
