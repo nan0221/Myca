@@ -148,7 +148,7 @@
                     <!--                        <img class="showSize center" id="frontShow" src="<?php echo $img ?>" />-->
                     <canvas id="canvas1" class="center"></canvas>
                     <div class="blank"></div>
-                    <h5 class="lang" key="Back">Back</h5>
+                    <h5 class="lang" key="back">Back</h5>
                     <!--                        <img class="showSize center" id="backShow" src="<?php echo $imgb ?>" />-->
                     <canvas id="canvas2" class="center"></canvas>
                     <div class="blank"></div>
@@ -177,7 +177,9 @@
     <script src="js/remodal.js"></script>
     <script type="text/javascript">
     </script>
-    <!--mutilanguage-->
+    
+    <!--Here starts to build muli-language translation -->
+    <!-- Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -199,7 +201,7 @@
                 'save': '保存'
             }
         };
-
+        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');

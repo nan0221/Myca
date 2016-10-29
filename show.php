@@ -233,7 +233,7 @@
         });
     </script>
 
-    <! Add language dictionary with English and Chinese(Simple)-->
+    <!-- Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
         var arrLang = {
             'en': {

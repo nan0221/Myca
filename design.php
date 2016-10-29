@@ -397,7 +397,9 @@
             prevButton: $('#preview').find(".swiper-button-prev")[0]
         })
     </script>
-    <!--mutilanguage-->
+    
+    <!--Here starts to build muli-language translation -->
+    <!-- Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
         var arrLang = {
             'en': {
@@ -459,7 +461,7 @@
                 '140': '只有前140个字符会显示在明信片上。',
             }
         };
-
+        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');

@@ -382,6 +382,7 @@
                         });
                     </script>
                     <!--Here starts to build muli-language translation -->
+                    <!-- Add language dictionary with English and Chinese(Simple)-->
                     <script type="text/javascript">
                         var arrLang = {
                             'en': {
@@ -437,7 +438,7 @@
 
                             }
                         };
-
+                        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
                         $(function () {
                             $('.translate').click(function () {
                                 var lang = $(this).attr('id');
