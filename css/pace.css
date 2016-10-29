@@ -1,3 +1,8 @@
+/*pace plugin is for page loading progress*/
+
+
+/*http://github.hubspot.com/pace/docs/welcome/*/
+
 .pace {
     -webkit-pointer-events: none;
     pointer-events: none;

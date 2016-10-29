@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <!-- Pushy Menu -->
+    <!-- Pushy Menu for language switch-->
     <nav class="pushy pushy-left">
         <ul>
             <!-- Submenu -->
@@ -46,7 +46,7 @@
         </ul>
     </nav>
 
-    <!-- Site Overlay -->
+    <!-- Site Overlay for modals -->
     <div class="site-overlay"></div>
     <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
@@ -132,7 +132,6 @@
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
-            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
@@ -184,6 +183,7 @@
 
         </header>
 
+        <!--        show the front and the back sides of the postcard based on the id of the postcard in databse-->
         <div class="block" id="show">
             <?php
             include('Connect.php');
@@ -237,18 +237,18 @@
     <script type="text/javascript">
         var arrLang = {
             'en': {
-                'designedby':'Here is a postcard designed by',
-                'front':'Front',
-                'back':'Back'
-               
+                'designedby': 'Here is a postcard designed by',
+                'front': 'Front',
+                'back': 'Back'
+
             },
             'cn': {
-                'designedby':'这张明信片的设计者是',
-                'front':'正面',
-                'back':'反面'
+                'designedby': '这张明信片的设计者是',
+                'front': '正面',
+                'back': '反面'
             }
         };
-        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
+        //        Function to achieve lanague swith between English and Simple Chinese(Simple)-->
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');

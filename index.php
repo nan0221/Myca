@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-
+    <!--    use a font called Catamaran from google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -97,14 +97,12 @@
         </div>
     </div>
 
-    <!--???Here starts to set Remodal-backgroud -->
     <div class="remodal-bg">
 
         <header>
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
-            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
@@ -124,22 +122,6 @@
                         <li>
                             <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
-
-                                <!--
-                                <li>
-    <?php
-                        echo $_SESSION['Username'];
-                        ?>
-</li>
--->
-
-                                <!--
-                                <form action="logout.php" method="post">
-    <a onclick="form.submit()">
-        <li>Log out</li>
-    </a>
-</form>
--->
                                 <li>
                                     <form action="logout.php" method="post">
                                         <input type="submit" name="logout" value="Log out" />
@@ -152,7 +134,6 @@
                     <?php
             }else{
                 ?>
-
                         <ul class="right user">
                             <li>
                                 <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
@@ -167,8 +148,6 @@
                         <?php
             }
             ?>
-
-
         </header>
 
         <!--Here starts to build the top frame to show the sample postcard -->
@@ -198,7 +177,6 @@
             </a>
         </div>
 
-        <!--????-->
         <?PHP
         session_start();
         if($_SESSION['auth']){
@@ -212,8 +190,6 @@
             <link rel="stylesheet" href="css/swiper.css" />
             <div class="block grey" id="timeline">
                 <h1 class="lang" key="time_line">Time line</h1>
-                <!--        <h5>Click to turn over the postcard</h5>-->
-
                 <!-- Slider main container -->
                 <div class="swiper-container">
                     <!-- Additional required wrapper -->
@@ -233,7 +209,7 @@
                         }
                         ?>
                     </div>
-                    <!-- If we need navigation buttons -->
+                    <!-- navigation buttons -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
@@ -244,7 +220,6 @@
             ?>
                 <div class="block grey">
                     <h1 class="lang" key="time_line">Time line</h1>
-                    <!--        <h5>Click to turn over the postcard</h5>-->
                     <h5 class="lang" key="all">All the postcards you have generated will be shown here after you are <span class="important">logged in</span></h5>
                     <!-- Slider main container -->
                     <div class="swiper-container" id="notLoggedIn">
@@ -344,12 +319,11 @@
                                 ?>
                             </div>
 
-                            <!-- If we need navigation buttons -->
+                            <!-- navigation buttons -->
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
 
                         </div>
-
 
                         <!--Here starts to build footers for our website -->
                         <footer>

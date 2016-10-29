@@ -1,5 +1,6 @@
+//All scripts in spite of third-part plug-ins
 $(document).ready(function () {
-    //    for every page
+    // initialising every page
     $('input[name=URL]').hide();
     var newURL = window.location.href;
     var hash = window.location.hash;
@@ -7,7 +8,7 @@ $(document).ready(function () {
     returnURL = returnURL.replace('#', '');
     $('input[name=URL]').attr('value', returnURL);
 
-    // for index page
+    // initialising index.php page
     $('.user a').click(function () {
         var inst = $('[data-remodal-id=LogInModal]').remodal();
         inst.open();
@@ -38,7 +39,7 @@ $(document).ready(function () {
         window.location.href = showURL_fromvote;
     });
 
-    // for show page
+    // initialising show.php page
     $('#show img').click(function () {
         var inst = $('[data-remodal-id=VoteModal]').remodal();
         var voteimgid = $(this).attr('id');
@@ -46,7 +47,7 @@ $(document).ready(function () {
         inst.open();
     });
 
-    // for share page
+    // initialising share.php page
     $('#results img').click(function () {
         var inst = $('[data-remodal-id=EditModal]').remodal();
         inst.open();
@@ -62,14 +63,14 @@ $(document).ready(function () {
         inst.open();
     });
 
-    // for confirm page
+    // initialising confirm.php page
     $('input[name=towhom_check]').hide();
     $('input[name=fromwhom_check]').hide();
     $('textarea[name=greeting_check]').hide();
     $('textarea[name=frontimgdata]').hide();
     $('textarea[name=backimgdata]').hide();
 
-    //    for design page
+    // initialising design.php page
     showStep2(); // initialization
     $('input[name=firstimg]').hide();
     $('input[name=secondimg]').hide();
@@ -78,12 +79,10 @@ $(document).ready(function () {
     $('input[name=backurl]').hide();
     $('input[name=voteimgid]').hide();
     $('input[name=editimgid]').hide();
-    //    $('input[name=frontimgdata]').hide();
-    //    $('input[name=backimgdata]').hide();
-    //    $('#canvas1').hide();
-    //    $('#canvas2').hide();
     $('#finishrender').hide();
     $('button[name="confirm"]').hide();
+
+    // Set navigation style and check whether the user has chosen location before going to another step.
     $('#navigation ul li:eq(0)').css('font-weight', '500');
 
     $('#navigation ul li:eq(0)').click(function () {
@@ -102,166 +101,207 @@ $(document).ready(function () {
             $('#navigation ul li:eq(3)').css('font-weight', '300');
             showStep3();
         } else {
-            alert('You must choose your location first.');
+            alert('Please choose your location first.');
         }
     });
 
     $('#navigation ul li:eq(2)').click(function () {
-        if ($('input[name=address]').val() != 'Australia') {
+        if ($('input[name=address]').val() == 'Australia') {
+            alert('Please choose your location first.');
+        } else if ($('input[name=firstimg]').val() == '') {
+            alert('Please choose an image for the front side of your postcard.');
+        } else {
             $('#navigation ul li:eq(0)').css('font-weight', '300');
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '500');
             $('#navigation ul li:eq(3)').css('font-weight', '300');
             showStep4();
-        } else {
-            alert('You must choose your location first.');
         }
     });
 
     $('#navigation ul li:eq(3)').click(function () {
-        if ($('input[name=address]').val() != 'Australia') {
+        if ($('input[name=address]').val() == 'Australia') {
+            alert('Please choose your location first.');
+        } else if ($('input[name=firstimg]').val() == '') {
+            alert('Please choose an image for the front side of your postcard.');
+        } else if ($('input[name=secondimg]').val() == '') {
+            alert('Please choose an image for the stamp on the back side of your postcard.');
+        } else {
             $('#navigation ul li:eq(0)').css('font-weight', '300');
             $('#navigation ul li:eq(1)').css('font-weight', '300');
             $('#navigation ul li:eq(2)').css('font-weight', '300');
             $('#navigation ul li:eq(3)').css('font-weight', '500');
             showStep6();
-        } else {
-            alert('You must choose your location first.');
         }
     });
 
-
+    // get images from Trove based on the geo-location
     $('#step2Content').find('.button').click(function () {
-        loadedImages = [];
-        found = 0;
-        //get input values
-        //        var searchTerm = $('#step2Instruction>h1').val().trim();
-        //        searchTerm = searchTerm.replace(/ /g, "%20");
-        //        var searchTerm = 'st.lucia';
-        //        var searchTerm = currentLocation;
-        var searchTerm = $('input[name=address]').val();
-        //        var sortBy = $("#sortBy").val();
-        var sortBy = 'datedesc';
-        var apiKey = "kr6iv720kob8nph6";
+        if ($('input[name=address]').val() != 'Australia') {
+            loadedImages = [];
+            found = 0;
+            //get input values
+            //        var searchTerm = $('#step2Instruction>h1').val().trim();
+            //        searchTerm = searchTerm.replace(/ /g, "%20");
+            //        var searchTerm = 'st.lucia';
+            //        var searchTerm = currentLocation;
+            var searchTerm = $('input[name=address]').val();
+            //        var sortBy = $("#sortBy").val();
+            var sortBy = 'datedesc';
+            var apiKey = "kr6iv720kob8nph6";
 
-        //create searh query
-        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+            //create searh query
+            var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
 
 
-        //get the JSON information we need to display the images
-        $.getJSON(url, function (data) {
-            $('#mainPicture').empty();
-            $.each(data.response.zone[0].records.work, processImages);
-            //printImages();
+            //get the JSON information we need to display the images
+            $.getJSON(url, function (data) {
+                $('#mainPicture').empty();
+                $.each(data.response.zone[0].records.work, processImages);
+                //printImages();
 
-            waitForFlickr(); // Waits for the flickr images to load
-        });
+                waitForFlickr(); // Waits for the flickr images to load
+            });
 
-        $('.inProgress').css('width', '50%');
-        $('#notification p').html('You are at Step2/4');
-        $('#navigation ul li:eq(0)').css('font-weight', '300');
-        $('#navigation ul li:eq(1)').css('font-weight', '500');
-        $('#navigation ul li:eq(2)').css('font-weight', '300');
-        $('#navigation ul li:eq(3)').css('font-weight', '300');
+            $('.inProgress').css('width', '50%');
+            $('#notification p').html('You are at Step2/4');
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '500');
+            $('#navigation ul li:eq(2)').css('font-weight', '300');
+            $('#navigation ul li:eq(3)').css('font-weight', '300');
 
-        $('#locationP').text($('input[name="address"]').val());
-        showStep3();
+            $('#locationP').text($('input[name="address"]').val());
+            showStep3();
+        } else {
+            alert('Please choose your location first.');
+        }
     });
     $('#step2Content').find('.alternativeOption').click(function () {
         $('#step2Content').hide();
         $('#step2Branch').show();
     });
 
+    // get images from Trove based on the geo-location
     $('#step2Branch').find('.button').click(function () {
-        loadedImages = [];
-        found = 0;
-        //get input values
-        //        var searchTerm = $('#step2Instruction>h1').val().trim();
-        //        searchTerm = searchTerm.replace(/ /g, "%20");
-        //        var searchTerm = 'st.lucia';
-        //        var searchTerm = currentLocation;
-        var searchTerm = $('input[name=address]').val();
-        //        var sortBy = $("#sortBy").val();
-        var sortBy = 'datedesc';
-        var apiKey = "kr6iv720kob8nph6";
+        if ($('input[name=address]').val() != 'Australia') {
+            loadedImages = [];
+            found = 0;
+            //get input values
+            //        var searchTerm = $('#step2Instruction>h1').val().trim();
+            //        searchTerm = searchTerm.replace(/ /g, "%20");
+            //        var searchTerm = 'st.lucia';
+            //        var searchTerm = currentLocation;
+            var searchTerm = $('input[name=address]').val();
+            //        var sortBy = $("#sortBy").val();
+            var sortBy = 'datedesc';
+            var apiKey = "kr6iv720kob8nph6";
 
-        //create searh query
-        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+            //create searh query
+            var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
 
 
-        //get the JSON information we need to display the images
-        $.getJSON(url, function (data) {
-            $('#mainPicture').empty();
-            $.each(data.response.zone[0].records.work, processImages);
-            //printImages();
+            //get the JSON information we need to display the images
+            $.getJSON(url, function (data) {
+                $('#mainPicture').empty();
+                $.each(data.response.zone[0].records.work, processImages);
+                //printImages();
 
-            waitForFlickr(); // Waits for the flickr images to load
-        });
+                waitForFlickr(); // Waits for the flickr images to load
+            });
 
-        $('.inProgress').css('width', '50%');
-        $('#notification p').html('You are at Step2/4');
-        $('#navigation ul li:eq(0)').css('font-weight', '300');
-        $('#navigation ul li:eq(1)').css('font-weight', '500');
-        $('#navigation ul li:eq(2)').css('font-weight', '300');
-        $('#navigation ul li:eq(3)').css('font-weight', '300');
+            $('.inProgress').css('width', '50%');
+            $('#notification p').html('You are at Step2/4');
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '500');
+            $('#navigation ul li:eq(2)').css('font-weight', '300');
+            $('#navigation ul li:eq(3)').css('font-weight', '300');
 
-        $('#locationP').text($('input[name="address"]').val());
-        showStep3();
+            $('#locationP').text($('input[name="address"]').val());
+            showStep3();
+        } else {
+            alert('Please choose your location first.');
+        }
     });
+
+    // choose image for the front side of the image and
+    // get thumbnail images from Trove for the stamp based on the geo-location
     $('#step3Content').find('.button').click(function () {
+        if ($('input[name=firstimg]').val() != '') {
+            loadedImages = [];
+            found = 0;
+            //get input values
+            //        var searchTerm = $('#step2Instruction>h1').val().trim();
+            //        searchTerm = searchTerm.replace(/ /g, "%20");
+            //        var searchTerm = 'st.lucia';
+            var searchTerm = currentLocation;
+            //        var sortBy = $("#sortBy").val();
+            var sortBy = 'dateasc';
+            var apiKey = "kr6iv720kob8nph6";
 
-        loadedImages = [];
-        found = 0;
-        //get input values
-        //        var searchTerm = $('#step2Instruction>h1').val().trim();
-        //        searchTerm = searchTerm.replace(/ /g, "%20");
-        //        var searchTerm = 'st.lucia';
-        var searchTerm = currentLocation;
-        //        var sortBy = $("#sortBy").val();
-        var sortBy = 'dateasc';
-        var apiKey = "kr6iv720kob8nph6";
-
-        //create searh query
-        var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
+            //create searh query
+            var url = "http://api.trove.nla.gov.au/result?key=" + apiKey + "&l-availability=y%2Ff&encoding=json&zone=picture&sortby=" + sortBy + "&n=100&q=" + searchTerm + "&callback=?";
 
 
-        //get the JSON information we need to display the images
-        $.getJSON(url, function (data) {
-            $('#stamps').empty();
-            $.each(data.response.zone[0].records.work, processSmallImages);
-            //printImages();
+            //get the JSON information we need to display the images
+            $.getJSON(url, function (data) {
+                $('#stamps').empty();
+                $.each(data.response.zone[0].records.work, processSmallImages);
+                //printImages();
 
-            waitForFlickrSmall(); // Waits for the flickr images to load
-        });
-        $('input[name=firstimg]').attr('value', selected_front_image)
-        $('.inProgress').css('width', '75%');
-        $('#notification p').html('You are at Step3/4');
-        $('#navigation ul li:eq(0)').css('font-weight', '300');
-        $('#navigation ul li:eq(1)').css('font-weight', '300');
-        $('#navigation ul li:eq(2)').css('font-weight', '500');
-        $('#navigation ul li:eq(3)').css('font-weight', '300');
+                waitForFlickrSmall(); // Waits for the flickr images to load
+            });
+            $('input[name=firstimg]').attr('value', selected_front_image)
+            $('.inProgress').css('width', '75%');
+            $('#notification p').html('You are at Step3/4');
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '300');
+            $('#navigation ul li:eq(2)').css('font-weight', '500');
+            $('#navigation ul li:eq(3)').css('font-weight', '300');
 
-        $('#img1P').attr('src', selected_front_image);
-        showStep4();
+            $('#img1P').attr('src', selected_front_image);
+            showStep4();
+        } else {
+            alert('Please choose an image for the front side of your postcard.');
+        }
     });
+
+    // choose image for the stamp
     $('#step4Content').find('.button').click(function () {
-        $('input[name=secondimg]').attr('value', selected_back_image)
-        $('.inProgress').css('width', '100%');
-        $('#notification p').html('You are at Step4/4');
-        $('#navigation ul li:eq(0)').css('font-weight', '300');
-        $('#navigation ul li:eq(1)').css('font-weight', '300');
-        $('#navigation ul li:eq(2)').css('font-weight', '300');
-        $('#navigation ul li:eq(3)').css('font-weight', '500');
+        if ($('input[name=secondimg]').val() != '') {
+            $('input[name=secondimg]').attr('value', selected_back_image)
+            $('.inProgress').css('width', '100%');
+            $('#notification p').html('You are at Step4/4');
+            $('#navigation ul li:eq(0)').css('font-weight', '300');
+            $('#navigation ul li:eq(1)').css('font-weight', '300');
+            $('#navigation ul li:eq(2)').css('font-weight', '300');
+            $('#navigation ul li:eq(3)').css('font-weight', '500');
 
-        $('#img2P').attr('src', selected_back_image);
-        showStep6();
+            $('#img2P').attr('src', selected_back_image);
+            showStep6();
+        } else {
+            alert('Please choose an image for the stamp on the back side of your postcard.');
+        }
     });
+
+    // submit all the elements to php
+    $('#step6Content').find('.button').click(function (event) {
+        event.preventDefault();
+        if ($('input[name=fromwhom]').val() == '' || $('input[name=towhom]').val() == '' || $('input[name=greeting]').val() == '') {
+            alert('Please check the form is completed.')
+        } else {
+            $('form[id=greetings]').submit();
+        }
+    });
+
+    // Call merge() function
     $('#prerender').click(function (event) {
         event.preventDefault();
         merge();
         $(this).hide();
         $('#finishrender').slideUp(300).delay(800).fadeIn(400);
     });
+
+    // call to_image() function to finalize drawing the postcard
     $('#finishrender').click(function (event) {
         event.preventDefault();
         to_image();
@@ -269,6 +309,7 @@ $(document).ready(function () {
         $('button[name="confirm"]').show();
     });
 
+    // Add style to the selected picture
     var selected_front_image;
     var selected_back_image;
     $(document).on("mousedown", "#mainPicture img", function () {
@@ -281,6 +322,7 @@ $(document).ready(function () {
         selected_back_image = $(this).attr("src");
     });
 
+    // Add toggle contents of different steps
     function showStep2() {
         $('#step1Instruction').hide();
         $('#step1Content').hide();
@@ -333,6 +375,12 @@ $(document).ready(function () {
         $('#step6Instruction').show();
         $('#step6Content').show();
     }
+
+
+    // The following fuction is based on Image&Trove example on the course webstie 
+    // http://deco1800.uqcloud.net/examples/troveImage.php
+    // Changes have been made for myca's usage. 
+    // For example, thumbnails are got for the stamp, and original pictures are for the picture on the front side
     var loadedImages = [];
     var urlPatterns = ["flickr.com", "nla.gov.au", "artsearch.nga.gov.au", "recordsearch.naa.gov.au", "images.slsa.sa.gov.au"];
     var found = 0;
@@ -406,10 +454,6 @@ $(document).ready(function () {
                 loadedImages.push(imgUrl);
             }
         }
-
-
-
-
     }
 
     function addFlickrItem(imgUrl, troveItem) {
@@ -421,20 +465,6 @@ $(document).ready(function () {
         var url_comps = imgUrl.split("/");
         var photo_id = url_comps[url_comps.length - 1];
 
-        //        var flickr_url_photoInfo = "https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=" + flickr_key + "&photo_id=" + photo_id + "&format=json&nojsoncallback=1";
-        //        var farm_id = flickr_url_photoInfo[0]["farm"];
-        //        var server_id = flickr_url_photoInfo[0]["server"];
-        //        var photo_secret = flickr_url_photoInfo[0]["secret"];
-        //
-        //        var flickr_image_url_small = "https://farm" + farm_id + ".staticflickr.com/" + server_id + "/" + photo_id + "_" + photo_secret + "_z.jpg";
-        //
-        //        loadedImages.push(
-        //            flickr_image_url_small
-        //        );
-
-
-
-
         $.getJSON(flickr_url + photo_id + "&format=json&nojsoncallback=1", function (data) {
             if (data.stat == "ok") {
                 var flickr_image_url = data.sizes.size[data.sizes.size.length - 1].source;
@@ -444,10 +474,6 @@ $(document).ready(function () {
                 );
             }
         });
-
-
-
-
     }
 
     function printImages() {
@@ -524,6 +550,7 @@ $(document).ready(function () {
         })
     }
 
+    // Charater Count plugin for the form in design.php to count down the characters in the greeting textarea
     /*
      * 	Character Count Plugin - jQuery plugin
      * 	Dynamic character count for text areas and input fields
@@ -603,8 +630,8 @@ $(document).ready(function geoFindMe() {
         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
         return;
     }
-	
-	// Auto-geolocating success
+
+    // Auto-geolocating success
     function success(position) {
         var latitude = position.coords.latitude; // Get current latitude
         var longitude = position.coords.longitude; // Get current longitude
@@ -613,9 +640,9 @@ $(document).ready(function geoFindMe() {
         getAddressFromLatLang(latitude, longitude);
         //Reference: https://stackoverflow.com/questions/36149830/how-to-pan-on-google-maps
     };
-	
-	// Transform current loocation to readable address
-    function getAddressFromLatLang(lat, lng) { 
+
+    // Transform current loocation to readable address
+    function getAddressFromLatLang(lat, lng) {
         var geocoder = new google.maps.Geocoder();
         var latLng = new google.maps.LatLng(lat, lng);
         geocoder.geocode({
@@ -636,7 +663,7 @@ $(document).ready(function geoFindMe() {
         //Reference: http://wpcertification.blogspot.com.au/2012/05/getting-address-of-current-location.html
     }
 
-	// Auto-geolocating failed
+    // Auto-geolocating failed
     function error() {
         output.innerHTML = "Geolocation is not supported by your browsers, please locate manually";
         $('#step2Content').hide();
@@ -695,6 +722,7 @@ function myMap() {
 
 // Add marker at option 2 map
 var markersArray = [];
+
 function placeMarker(map, location) {
     if (markersArray.length >= 1) { // The amount of marker should be one
         //alert('Please mark only one address :)'); //If user clicked more than one times
@@ -729,20 +757,20 @@ function merge() {
     var Name1 = 'Dear ' + $('input[name=towhom_check]').val() + ','; // Picked up from user greeting
     var Greeting = $('textarea[name=greeting_check]').val();
     var Name2 = $('input[name=fromwhom_check]').val(); // Picked up from user greeting
-    
-	// Pstcard front-side
+
+    // Pstcard front-side
     var canvas1 = document.getElementById("canvas1");
-		canvas1.width = 840;
-		canvas1.height = 564;
+    canvas1.width = 840;
+    canvas1.height = 564;
     var ctx1 = canvas1.getContext("2d");
     var bg1 = document.getElementById("bg1");
-		ctx1.drawImage(bg1, 0, 0, 840, 564);
+    ctx1.drawImage(bg1, 0, 0, 840, 564);
     var img1 = new Image();
-		img1.src = img1_src; // Front-side Image 
-		img1.crossOrigin = "Anonymous";
-		img1.onload = function () {
-			ctx1.drawImage(img1, 100, 30, 639, 429)
-		};
+    img1.src = img1_src; // Front-side Image 
+    img1.crossOrigin = "Anonymous";
+    img1.onload = function () {
+        ctx1.drawImage(img1, 100, 30, 639, 429)
+    };
     ctx1.font = "26pt Neuton";
     ctx1.textAlign = "center";
     ctx1.fillText(current_location1, 420, 514); //Geolocation
@@ -751,23 +779,23 @@ function merge() {
 
     // Pstcard back-side
     var canvas2 = document.getElementById("canvas2");
-		canvas2.width = 840;
-		canvas2.height = 564;
+    canvas2.width = 840;
+    canvas2.height = 564;
     var ctx2 = canvas2.getContext("2d");
     var bg2 = document.getElementById("bg2");
-		ctx2.drawImage(bg2, 0, 0, 840, 564);
+    ctx2.drawImage(bg2, 0, 0, 840, 564);
     var img2 = new Image();
-		img2.src = img2_src; // Back-side Image
-		img2.crossOrigin = "Anonymous";
-		img2.onload = function () {
-			ctx2.drawImage(img2, 641, 36, 159, 115)
-		};
+    img2.src = img2_src; // Back-side Image
+    img2.crossOrigin = "Anonymous";
+    img2.onload = function () {
+        ctx2.drawImage(img2, 641, 36, 159, 115)
+    };
     var img3 = new Image();
-		img3.src = img3_src; // Water-mark Image
-		img3.crossOrigin = "Anonymous";
-		img3.onload = function () {
-			ctx2.drawImage(img3, 0, 0, 840, 564)
-		};
+    img3.src = img3_src; // Water-mark Image
+    img3.crossOrigin = "Anonymous";
+    img3.onload = function () {
+        ctx2.drawImage(img3, 0, 0, 840, 564)
+    };
     var text1 = Name1;
     var text2 = Greeting;
     var text3 = Name2;

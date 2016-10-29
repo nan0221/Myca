@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
+    <!--    use a font called Catamaran from google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -22,7 +23,7 @@
 </head>
 
 <body>
-    <!-- Pushy Menu -->
+    <!-- Pushy Menu for language switch-->
     <nav class="pushy pushy-left">
         <ul>
             <!-- Submenu -->
@@ -31,7 +32,7 @@
         </ul>
     </nav>
 
-    <!-- Site Overlay -->
+    <!-- Site Overlay for modals -->
     <div class="site-overlay"></div>
     <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
@@ -59,21 +60,6 @@
             </form>
         </div>
     </div>
-    <!-- Edit Modal-->
-    <div class="remodal" data-remodal-id="EditModal">
-        <div>
-            <button data-remodal-action="close" class="remodal-close"></button>
-        </div>
-
-        <div>
-            <form action="" method="post" id="edit">
-                <div class="buttonHeight">
-                    <!--                    <button class="share textWhite" type="submit" name="signup">Edit</button>-->
-                    <button class="save textGrey" type="submit" name="login">View postcard</button>
-                </div>
-            </form>
-        </div>
-    </div>
     <!-- Share Modal-->
     <div class="remodal" data-remodal-id="ShareModal">
         <div>
@@ -92,8 +78,8 @@
                 $ids = mysql_fetch_assoc($findpidres);
                 $id = $ids[post_id];
                 ?>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/show.php?id=<?PHP echo $id;?>" target="_blank">
-                    <img src="img/facebook.png" class="socialMedia" alt="Share to Facebook " /></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://deco1800-pg2.uqcloud.net/show.php?id=<?PHP echo $id;?>" target="_blank">
+                        <img src="img/facebook.png" class="socialMedia" alt="Share to Facebook " /></a>
             </div>
             <!--Reference: https://developers.facebook.com/docs/plugins/share-button -->
             <!-- <div class="socialMedia"><img src="img/instagram.png" alt="Share to Instagram" /></div> -->
@@ -115,18 +101,20 @@
             <button data-remodal-action="close" class="remodal-close"></button>
         </div>
 
-        <div> 
-				<?PHP
+        <div>
+            <?PHP
                 session_start();
                 if($_SESSION['auth']){
-                ?>                   
-                    <div><h1 id='save_font'> Your postcard has already been saved in your timeline </h1></div>   
+                ?>
+                <div>
+                    <h1 id='save_font'> Your postcard has already been saved in your timeline </h1></div>
                 <?php
                 }
                 else{
-                ?>                   
-                    <div><h1 id='save_font'> Sign up or Login to save your postcard in your timeline </h1></div>  
-                <?php
+                ?>
+                    <div>
+                        <h1 id='save_font'> Sign up or Login to save your postcard in your timeline </h1></div>
+                    <?php
                 }
                 ?>
         </div>
@@ -139,7 +127,6 @@
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
-            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
@@ -159,22 +146,6 @@
                         <li>
                             <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
-
-                                <!--
-                                <li>
-    <?php
-                        echo $_SESSION['Username'];
-                        ?>
-</li>
--->
-
-                                <!--
-                                <form action="logout.php" method="post">
-    <a onclick="form.submit()">
-        <li>Log out</li>
-    </a>
-</form>
--->
                                 <li>
                                     <form action="logout.php" method="post">
                                         <input type="submit" name="logout" value="Log out" />
@@ -206,6 +177,7 @@
 
         </header>
 
+        <!--        show the result to the user-->
         <div class="block" id="results">
             <h1 class="lang" key="congrats">Congrats, 
             <?php
@@ -242,19 +214,19 @@
                             <img class="imgSize280" src="<?php echo $imgback; ?>" />
                         </div>
                 </div>
-                <!-- If we need pagination -->
+                <!-- need pagination -->
                 <div class="swiper-pagination"></div>
 
-                <!-- If we need navigation buttons -->
+                <!-- need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
 
             </div>
             <div class="blank"> </div>
             <div class="buttonHeight">
-				<!-- Share buttons -->
+                <!-- Share buttons -->
                 <a class="share textWhite" data-remodal-target="ShareModal" class="lang" key="share">Share</a>
-				<!-- Save buttons -->
+                <!-- Save buttons -->
                 <a class="save textGrey" data-remodal-target="SaveModal" class="lang" key="save">Save</a>
             </div>
         </div>
@@ -264,6 +236,7 @@
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script>
+        //        create swiper instances for images 
         $(".swiper-container").each(function (index, element) {
             var $this = $(this);
             var swiper = new Swiper(this, {
@@ -300,8 +273,8 @@
                 'save': '保存'
             }
         };
-        
-        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
+
+        //        Function to achieve lanague swith between English and Simple Chinese(Simple)-->
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');

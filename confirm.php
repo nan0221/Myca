@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-
+    <!--    use a font called Catamaran from google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <!-- Pushy Menu -->
+    <!-- Pushy Menu for language switch -->
     <nav class="pushy pushy-left">
         <ul>
             <!-- Submenu -->
@@ -32,7 +32,7 @@
         </ul>
     </nav>
 
-    <!-- Site Overlay -->
+    <!-- Site Overlay for modals -->
     <div class="site-overlay"></div>
     <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
@@ -66,7 +66,6 @@
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
-            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
@@ -82,27 +81,10 @@
                         var inst = $('[data-remodal-id=LogInModal]').remodal();
                         inst.destroy();
                     </script>
-
                     <ul class="right user">
                         <li>
                             <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
-
-                                <!--
-                                <li>
-    <?php
-                        echo $_SESSION['Username'];
-                        ?>
-</li>
--->
-
-                                <!--
-                                <form action="logout.php" method="post">
-    <a onclick="form.submit()">
-        <li>Log out</li>
-    </a>
-</form>
--->
                                 <li>
                                     <form action="logout.php" method="post">
                                         <input type="submit" name="logout" value="Log out" />
@@ -115,7 +97,6 @@
                     <?php
             }else{
                 ?>
-
                         <ul class="right user">
                             <li>
                                 <img class="imgSize20" src="img/user_2x.png" alt="user log in" />
@@ -126,14 +107,12 @@
                                 </ul>
                             </li>
                         </ul>
-
                         <?php
             }
             ?>
-
-
         </header>
 
+        <!--        use html5 canvas to draw the postcard-->
         <div class="block" id="prerenderbeforeconfirm">
             <?php
             session_start();
@@ -177,7 +156,7 @@
     <script src="js/remodal.js"></script>
     <script type="text/javascript">
     </script>
-    
+
     <!--Here starts to build muli-language translation -->
     <!-- Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
@@ -201,7 +180,7 @@
                 'save': '保存'
             }
         };
-        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
+        // Function to achieve lanague swith between English and Simple Chinese(Simplified)
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');

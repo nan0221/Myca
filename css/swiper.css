@@ -1,3 +1,11 @@
+/*
+Swiper is a plugin for images swiping. which allows gestures and clicks.
+The plugin is used in the timeline, preview, popular works features.
+Some changes have been made for myca. For example,
+the color theme
+*/
+
+
 /**
  * Swiper 3.3.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -668,5 +676,5 @@ button.swiper-pagination-bullet {
 }
 
 #save_font {
-	font-size: 20pt;
+    font-size: 20pt;
 }

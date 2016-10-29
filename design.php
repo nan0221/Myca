@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myca - Design your own postcard</title>
     <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
-
+    <!--    use a font called Catamaran from google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:300,500" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Neuton" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <!-- Pushy Menu -->
+    <!-- Pushy Menu for language switch-->
     <nav class="pushy pushy-left">
         <ul>
             <!-- Submenu -->
@@ -35,7 +35,7 @@
         </ul>
     </nav>
 
-    <!-- Site Overlay -->
+    <!-- Site Overlay for modals -->
     <div class="site-overlay"></div>
     <!-- Login Modal-->
     <div class="remodal" data-remodal-id="LogInModal">
@@ -66,36 +66,12 @@
         </div>
     </div>
 
-    <!-- Task list Modal -->
-    <div class="remodal" data-remodal-id="TaskListModal" id="taskListModal">
-        <div>
-            <button data-remodal-action="close" class="remodal-close"></button>
-        </div>
-        <h1>All tasks you need to do</h1>
-        <h1>to design a postcard</h1>
-        <div class="blank"></div>
-        <ul>
-            <li class="lang" key="location">
-                1. Choose your location
-            </li>
-            <li class="lang" key="front">
-                2. Choose a picture for the front side of the postcard
-            </li>
-            <li class="lang" key="stamp">
-                3. Choose a picture for the postage stamp
-            </li>
-            <li class="lang" key="greeting">
-                4. Type in your greeting
-            </li>
-        </ul>
-    </div>
 
     <div class="remodal-bg">
         <header>
             <div class="left language menu-btn">
                 <img class="imgSize20" src="img/australia_2x.png" alt="change language" />
             </div>
-            <!-- TODO: change!-->
             <a href="index.php" class="center"><img class="logo center" src="img/logo_2x.png" alt="Myca Logo" /></a>
             <!--        <a href="#" class="right user"><img class="imgSize20" src="img/user.png" alt="user log in" /></a>-->
             <?php
@@ -115,22 +91,6 @@
                         <li>
                             <img class="imgSize20" src="img/loginsuccess.png" alt="user log out" />
                             <ul>
-
-                                <!--
-                                <li>
-    <?php
-                        echo $_SESSION['Username'];
-                        ?>
-</li>
--->
-
-                                <!--
-                                <form action="logout.php" method="post">
-    <a onclick="form.submit()">
-        <li>Log out</li>
-    </a>
-</form>
--->
                                 <li>
                                     <form action="logout.php" method="post">
                                         <input type="submit" name="logout" value="Log out" />
@@ -165,29 +125,27 @@
 
         <div class="block" id="result">
             <h1 class="lang" key="preview">Preview</h1>
-
-
-            <!-- Slider main container -->
+            <!-- Swiper plugin for the preview feature -->
             <div class="swiper-container" id="preview">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide" id="previewFront">
-					<!-- Front-side postcard background image, placeholder geo-text, placeholder image -->
+                        <!-- Front-side postcard background image, placeholder geo-text, placeholder image -->
                         <img class="imgSize280" id="previewFrontBg" src="img/bg1.jpg" />
                         <p id="locationP" class="locationP" class="lang" key="your_location">Your location</p>
                         <img id="img1P" src="img/placeholder.png">
                     </div>
                     <div class="swiper-slide" id="previewBack">
-					<!-- Back-side postcard background image, placeholder stamp -->
+                        <!-- Back-side postcard background image, placeholder stamp -->
                         <img class="imgSize280" id="previewBackBg" src="img/bg2.jpg" />
                         <img id="img2P" src="img/placeholder.png">
                     </div>
                 </div>
-                <!-- If we need pagination -->
+                <!-- pagination -->
                 <div class="swiper-pagination"></div>
 
-                <!-- If we need navigation buttons -->
+                <!-- navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
 
@@ -195,6 +153,7 @@
 
         </div>
 
+        <!--        navigation for the whole process of making a postcard-->
         <div class="navigation" id="navigation">
             <ul>
                 <li class="lang" key="locating">
@@ -212,24 +171,6 @@
             </ul>
         </div>
 
-        <div class="step" id="step1Instruction">
-            <h4 class="lang" key="layout">Please choose the layout</h4>
-        </div>
-
-        <div class="block grey" id="step1Content">
-            <div class="chooseLayout">
-                <div class="layoutLeft">
-                    <img class="selected" src="img/landscape.png" alt="landscape layout" />
-                    <p class="lang" key="landscape">Landscape</p>
-                </div>
-                <div class="layoutRight">
-                    <img src="img/portrait.png" alt="portrait layout" />
-                    <p class="lang" key="portrait">Portrait</p>
-                </div>
-                <div class="blank"></div>
-                <div class="button textWhite" class="lang" key="okay">Okay</div>
-            </div>
-        </div>
 
         <!-- Google map -->
         <!-- Get users current location (Auto-geolocating)-->
@@ -260,11 +201,10 @@
             <div class="blank"></div>
         </div>
 
+        <!--        Allow users to select a picture from trove based on their locations as the main picture on the front side-->
         <div class=" step" id="step3Instruction">
             <h4 class="lang" key="choosepicfront">Please choose a picture for the front side</h4>
-
         </div>
-
         <div class="block grey " id="step3Content">
             <h1 class="lang" key="tapswipe">Tap to choose, swipe for more</h1>
             <h5 class="lang" key="poweredbyTrove">powered by Trove</h5>
@@ -272,20 +212,17 @@
             <div class="swiper-container large-group">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" id="mainPicture">
-
                 </div>
-
-                <!-- If we need navigation buttons -->
+                <!-- navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
             </div>
-
             <div class="blank"></div>
             <div class="button textWhite" class="lang" key="okay">Okay</div>
             <div class="blank"></div>
         </div>
 
+        <!--        Allow users to choose a picture from Trove as the stamp-->
         <div class=" step" id="step4Instruction">
             <h4 class="lang" key="choosepicstamp">Please choose a picture for postage stamp</h4>
         </div>
@@ -302,49 +239,13 @@
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
             </div>
             <div class="blank"></div>
             <div class="button textWhite">Okay</div>
             <div class="blank"></div>
         </div>
 
-        <div class=" step" id="step5Instruction">
-            <h4>Please choose an article for the back side</h4>
-
-        </div>
-
-        <div class="block grey " id="step5Content">
-            <h1>Tap to choose, swipe for more</h1>
-            <h5>At most <span class="important">140 characters</span> related to your location will be shown on the back side</h5>
-            <!-- Slider main container -->
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <p>Walter, James. "Defining Australia." In Images of Australia. Eds. Gillian Whitlock and David Carter. <strong class="important">St Lucia</strong>: U of Queensland P, 1992, 7-22.</p>
-                    </div>
-                    <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                    <div class="swiper-slide"><img src="img/placeholder.png" alt="The current picture" /></div>
-                </div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-            </div>
-            <div class="blank"></div>
-            <div class="button textWhite">Okay</div>
-            <a href="">
-                <p class="alternativeOption">Automatically generate for me</p>
-            </a>
-            <div class="blank"></div>
-        </div>
-        <div class=" step" id="step6Instruction">
-            <h4 class="lang" key="typeyourgreeting">Please type in your greetings</h4>
-        </div>
-
+        <!--        Allow users to type in their greetings which will be printed on the back side of the postcard-->
         <div class="block grey " id="step6Content">
             <form action="trans.php" id="greetings" method="post">
                 <span>TO</span>
@@ -362,28 +263,30 @@
                 <input name="address" type="text" value="Australia" />
                 <!--add-->
                 <input name="firstimg" type="text" />
-                <!--Trove f URL-->
+                <!--Trove front URL-->
                 <input name="secondimg" type="text" />
-                <!--Trove s URL-->
-
+                <!--Trove stamp URL-->
                 <button class="button center textWhite" name="done" type="submit">Done</button>
             </form>
             <div class="blank"></div>
         </div>
 
+        <!--        show the progess at the bottom of the browswe -->
         <div class="progress">
             <div class="inProgress"></div>
         </div>
     </div>
+
     <script src="js/pushy.js"></script>
     <script src="js/remodal.js"></script>
     <script src="js/pace.min.js"></script>
     <script>
+        //        apply character count function on the greeting form
         $(document).ready(function () {
             $("#greeting").charCount();
         });
 
-
+        //        apply swpier plugin to the preview feature
         var swiper_preview = new Swiper('#preview', {
             pagination: $('#preview').find(".swiper-pagination")[0],
             slidesPerView: 'auto',
@@ -397,7 +300,7 @@
             prevButton: $('#preview').find(".swiper-button-prev")[0]
         })
     </script>
-    
+
     <!--Here starts to build muli-language translation -->
     <!-- Add language dictionary with English and Chinese(Simple)-->
     <script type="text/javascript">
@@ -461,7 +364,7 @@
                 '140': '只有前140个字符会显示在明信片上。',
             }
         };
-        <!--Function to achieve lanague swith between English and Simple Chinese(Simple)-->
+        //        Function to achieve lanague swith between English and Simple Chinese(Simple)
         $(function () {
             $('.translate').click(function () {
                 var lang = $(this).attr('id');
