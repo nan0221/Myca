@@ -1,4 +1,7 @@
+/*Media query for mobile devices in portrait orientation*/
+
 @media screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    /*    basic elements*/
     .center {
         width: 50%;
         display: block;
@@ -93,6 +96,7 @@
         height: 1.625em;
         width: 6.75em;
     }
+    /*    image sizes*/
     .imgSize20 {
         height: 1.25em;
         width: 1.25em;
@@ -132,6 +136,7 @@
         right: 2.25em;
         top: -1em;
     }
+    /*    a block is a part of related elements*/
     .block {
         width: 100%;
         height: auto;
@@ -380,6 +385,7 @@
     .notification p {
         padding-left: 1.25em;
     }
+    /*    navigation bar in design.php*/
     .navigation {
         width: 100%;
         height: 3em;
@@ -645,6 +651,7 @@
         z-index: 20;
         visibility: visible;
     }
+    /*    timeline in index.php */
     .timeline-line h5 {
         padding-bottom: 1.75em;
         padding-top: 0em;
@@ -673,6 +680,7 @@
         margin: 0 auto;
         padding: 0;
     }
+    /*    share feature in share.php*/
     .socialMediaList {
         width: 7.5em;
         height: auto;
@@ -702,6 +710,7 @@
     button {
         border: 0;
     }
+    /*    design.php*/
     #stamps {
         height: auto;
     }
@@ -873,6 +882,9 @@
         height: auto;
     }
 }
+
+
+/*Media query for mobile devices in landscape orientation*/
 
 @media screen and (min-device-width:300px) and (max-device-width:768px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
     .center {
@@ -1749,6 +1761,9 @@
         height: auto;
     }
 }
+
+
+/*Media query for tablets*/
 
 @media screen and (min-device-width:768px) and (max-device-width:1080px) {
     .center {
@@ -2634,6 +2649,9 @@
         height: auto;
     }
 }
+
+
+/*Media query for laptops and desktop*/
 
 @media screen and (min-device-width:1080px) {
     .center {
